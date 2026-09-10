@@ -1,0 +1,314 @@
+/* =========================================================================
+   OMAD — tokens del sistema de diseño
+   Versión 0.1 · documento de trabajo · sin aprobación del consejo
+
+   Todo par de color usado para texto o para indicadores no textuales está
+   verificado contra WCAG 2.2 AA por verificar-contraste.py. Si modificas un
+   valor de la capa 1, corre el script antes de hacer merge.
+
+   Capa 1: primitivas (valores crudos, no se usan directamente en componentes)
+   Capa 2: semánticos (los únicos que deben aparecer en el CSS de componentes)
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   CAPA 1 · PRIMITIVAS
+   ------------------------------------------------------------------------- */
+
+:root {
+  /* Tinta — neutro frío. Texto y superficies oscuras. */
+  --omad-tinta-950: #080F13;
+  --omad-tinta-900: #0E1A1F;
+  --omad-tinta-800: #16262D;
+  --omad-tinta-700: #22363F;
+  --omad-tinta-600: #334A55;
+  --omad-tinta-500: #4C646F;
+  --omad-tinta-400: #6B838E;
+  --omad-tinta-300: #94A8B1;
+  --omad-tinta-200: #BDCBD1;
+  --omad-tinta-100: #DCE4E7;
+  --omad-tinta-50:  #EDF1F2;
+  --omad-tinta-0:   #FBFCFC;
+
+  /* Petróleo — color de marca. Enlaces, foco, acción, eje de completitud. */
+  --omad-petroleo-900: #03282F;
+  --omad-petroleo-800: #053A45;
+  --omad-petroleo-700: #074C5B;
+  --omad-petroleo-600: #0B5563;
+  --omad-petroleo-500: #0E6B7D;
+  --omad-petroleo-400: #2C8A9C;
+  --omad-petroleo-300: #5FAEBD;
+  --omad-petroleo-200: #9BCED8;
+  --omad-petroleo-100: #CDE7EC;
+  --omad-petroleo-50:  #E9F4F6;
+
+  /* Gravedad — cuatro niveles. Separación verificada bajo protanopia,
+     deuteranopia y tritanopia (ΔE76 ≥ 21 en el peor par). */
+  --omad-bloqueante-900: #4A1004;
+  --omad-bloqueante-700: #631705;
+  --omad-bloqueante-600: #7C1D06;
+  --omad-bloqueante-300: #E9A088;
+  --omad-bloqueante-100: #F7E0D8;
+
+  --omad-severa-700: #8A4A00;
+  --omad-severa-600: #9F5500;
+  --omad-severa-300: #F0BE7A;
+  --omad-severa-100: #FAEBD6;
+
+  --omad-moderada-700: #4F4739;
+  --omad-moderada-600: #63594A;
+  --omad-moderada-300: #C9BFAE;
+  --omad-moderada-100: #EFEAE2;
+
+  --omad-menor-700: #334654;
+  --omad-menor-600: #41586B;
+  --omad-menor-300: #A9BAC7;
+  --omad-menor-100: #E3E9EE;
+}
+
+/* -------------------------------------------------------------------------
+   CAPA 2 · SEMÁNTICOS — TEMA CLARO (predeterminado)
+   ------------------------------------------------------------------------- */
+
+:root {
+  --omad-fondo:            var(--omad-tinta-0);
+  --omad-superficie:       var(--omad-tinta-50);
+  --omad-superficie-alta:  #FFFFFF;
+  --omad-borde:            var(--omad-tinta-200);
+  --omad-borde-fuerte:     var(--omad-tinta-400);
+
+  --omad-texto:            var(--omad-tinta-900);
+  --omad-texto-secundario: var(--omad-tinta-700);
+  --omad-texto-terciario:  var(--omad-tinta-600);
+  --omad-texto-invertido:  var(--omad-tinta-0);
+
+  --omad-enlace:           var(--omad-petroleo-600);
+  --omad-enlace-visitado:  var(--omad-petroleo-800);
+  --omad-accion-fondo:     var(--omad-petroleo-600);
+  --omad-accion-texto:     var(--omad-tinta-0);
+  --omad-accion-hover:     var(--omad-petroleo-700);
+
+  --omad-foco:             var(--omad-petroleo-600);
+  --omad-foco-contorno:    var(--omad-tinta-0);
+
+  --omad-completo:         var(--omad-petroleo-600);
+  --omad-no-completo:      var(--omad-bloqueante-600);
+
+  --omad-bloqueante:       var(--omad-bloqueante-600);
+  --omad-bloqueante-texto: var(--omad-bloqueante-700);
+  --omad-bloqueante-fondo: var(--omad-bloqueante-100);
+  --omad-severa:           var(--omad-severa-600);
+  --omad-severa-texto:     var(--omad-severa-700);
+  --omad-severa-fondo:     var(--omad-severa-100);
+  --omad-moderada:         var(--omad-moderada-600);
+  --omad-moderada-texto:   var(--omad-moderada-700);
+  --omad-moderada-fondo:   var(--omad-moderada-100);
+  --omad-menor:            var(--omad-menor-600);
+  --omad-menor-texto:      var(--omad-menor-700);
+  --omad-menor-fondo:      var(--omad-menor-100);
+}
+
+/* -------------------------------------------------------------------------
+   CAPA 2 · SEMÁNTICOS — TEMA OSCURO
+   Se activa por preferencia del sistema o por atributo explícito, para que
+   el menú de accesibilidad pueda forzarlo. La preferencia manual gana.
+   ------------------------------------------------------------------------- */
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) {
+    --omad-fondo:            var(--omad-tinta-900);
+    --omad-superficie:       var(--omad-tinta-800);
+    --omad-superficie-alta:  var(--omad-tinta-700);
+    --omad-borde:            var(--omad-tinta-600);
+    --omad-borde-fuerte:     var(--omad-tinta-400);
+
+    --omad-texto:            var(--omad-tinta-50);
+    --omad-texto-secundario: var(--omad-tinta-200);
+    --omad-texto-terciario:  var(--omad-tinta-300);
+    --omad-texto-invertido:  var(--omad-tinta-900);
+
+    --omad-enlace:           var(--omad-petroleo-300);
+    --omad-enlace-visitado:  var(--omad-petroleo-200);
+    --omad-accion-fondo:     var(--omad-petroleo-300);
+    --omad-accion-texto:     var(--omad-tinta-900);
+    --omad-accion-hover:     var(--omad-petroleo-200);
+
+    --omad-foco:             var(--omad-petroleo-200);
+    --omad-foco-contorno:    var(--omad-tinta-900);
+
+    --omad-completo:         var(--omad-petroleo-300);
+    --omad-no-completo:      var(--omad-bloqueante-300);
+
+    --omad-bloqueante:       var(--omad-bloqueante-300);
+    --omad-bloqueante-texto: var(--omad-bloqueante-300);
+    --omad-bloqueante-fondo: var(--omad-bloqueante-900);
+    --omad-severa:           var(--omad-severa-300);
+    --omad-severa-texto:     var(--omad-severa-300);
+    --omad-severa-fondo:     #3A2000;
+    --omad-moderada:         var(--omad-moderada-300);
+    --omad-moderada-texto:   var(--omad-moderada-300);
+    --omad-moderada-fondo:   #2A2620;
+    --omad-menor:            var(--omad-menor-300);
+    --omad-menor-texto:      var(--omad-menor-300);
+    --omad-menor-fondo:      var(--omad-tinta-800);
+  }
+}
+
+:root[data-tema='oscuro'] {
+  --omad-fondo:            var(--omad-tinta-900);
+  --omad-superficie:       var(--omad-tinta-800);
+  --omad-superficie-alta:  var(--omad-tinta-700);
+  --omad-borde:            var(--omad-tinta-600);
+  --omad-borde-fuerte:     var(--omad-tinta-400);
+  --omad-texto:            var(--omad-tinta-50);
+  --omad-texto-secundario: var(--omad-tinta-200);
+  --omad-texto-terciario:  var(--omad-tinta-300);
+  --omad-texto-invertido:  var(--omad-tinta-900);
+  --omad-enlace:           var(--omad-petroleo-300);
+  --omad-enlace-visitado:  var(--omad-petroleo-200);
+  --omad-accion-fondo:     var(--omad-petroleo-300);
+  --omad-accion-texto:     var(--omad-tinta-900);
+  --omad-accion-hover:     var(--omad-petroleo-200);
+  --omad-foco:             var(--omad-petroleo-200);
+  --omad-foco-contorno:    var(--omad-tinta-900);
+  --omad-completo:         var(--omad-petroleo-300);
+  --omad-no-completo:      var(--omad-bloqueante-300);
+  --omad-bloqueante:       var(--omad-bloqueante-300);
+  --omad-bloqueante-texto: var(--omad-bloqueante-300);
+  --omad-bloqueante-fondo: var(--omad-bloqueante-900);
+  --omad-severa:           var(--omad-severa-300);
+  --omad-severa-texto:     var(--omad-severa-300);
+  --omad-severa-fondo:     #3A2000;
+  --omad-moderada:         var(--omad-moderada-300);
+  --omad-moderada-texto:   var(--omad-moderada-300);
+  --omad-moderada-fondo:   #2A2620;
+  --omad-menor:            var(--omad-menor-300);
+  --omad-menor-texto:      var(--omad-menor-300);
+  --omad-menor-fondo:      var(--omad-tinta-800);
+}
+
+/* -------------------------------------------------------------------------
+   TIPOGRAFÍA
+   Una sola familia: Atkinson Hyperlegible, del Braille Institute, diseñada
+   para baja visión. Es la declaración de principios del observatorio y el
+   único lugar donde se gasta la personalidad tipográfica. La jerarquía la
+   cargan el peso, el tamaño y el espacio, no una segunda familia.
+
+   La mono solo aparece en fragmentos de código dentro del anexo de
+   evidencia, donde el ancho fijo es funcional, nunca como estilo de rótulo.
+   ------------------------------------------------------------------------- */
+
+:root {
+  --omad-fuente: 'Atkinson Hyperlegible Next', 'Atkinson Hyperlegible',
+                system-ui, -apple-system, sans-serif;
+  --omad-fuente-mono: 'JetBrains Mono', ui-monospace, 'Cascadia Mono',
+                     'Courier New', monospace;
+
+  /* Escala 1.25 sobre una base de 18px. La base es deliberadamente mayor
+     que los 16px habituales: es el cuerpo mínimo cómodo, no el mínimo legal. */
+  --omad-texto-2xs: 0.75rem;   /* 12px · solo metadatos de tabla */
+  --omad-texto-xs:  0.875rem;  /* 14px · notas al pie, créditos */
+  --omad-texto-sm:  1rem;      /* 16px · texto denso de tabla */
+  --omad-texto-base:1.125rem;  /* 18px · cuerpo */
+  --omad-texto-lg:  1.406rem;  /* 22.5px · entrada, h4 */
+  --omad-texto-xl:  1.758rem;  /* 28px · h3 */
+  --omad-texto-2xl: 2.197rem;  /* 35px · h2 */
+  --omad-texto-3xl: 2.747rem;  /* 44px · h1 */
+  --omad-texto-4xl: 4.291rem;  /* 69px · cifra del ITC */
+
+  --omad-peso-normal: 400;
+  --omad-peso-medio:  600;
+  --omad-peso-fuerte: 700;
+
+  --omad-interlinea-apretada: 1.15;  /* solo titulares grandes */
+  --omad-interlinea-normal:   1.4;   /* interfaz, tablas */
+  --omad-interlinea-suelta:   1.65;  /* cuerpo de lectura */
+
+  --omad-medida: 66ch;   /* longitud de línea máxima en prosa */
+}
+
+/* -------------------------------------------------------------------------
+   ESPACIO, FORMA, FOCO Y MOVIMIENTO
+   ------------------------------------------------------------------------- */
+
+:root {
+  --omad-esp-1:  0.25rem;
+  --omad-esp-2:  0.5rem;
+  --omad-esp-3:  0.75rem;
+  --omad-esp-4:  1rem;
+  --omad-esp-5:  1.5rem;
+  --omad-esp-6:  2rem;
+  --omad-esp-7:  3rem;
+  --omad-esp-8:  4rem;
+  --omad-esp-9:  6rem;
+
+  /* Radio mínimo. El registro es el de un formulario oficial, no el de una
+     tarjeta de producto. Las tablas de datos van a radio 0. */
+  --omad-radio-0:  0;
+  --omad-radio-1:  2px;
+  --omad-radio-2:  4px;
+
+  /* Objetivo táctil. WCAG 2.2 AA (2.5.8) exige 24px; el sistema exige 44. */
+  --omad-objetivo-min: 44px;
+
+  /* Anillo de foco de doble capa: funciona sobre cualquier superficie sin
+     tener que redefinirlo por componente. Ver WCAG 2.2 SC 2.4.11 y 2.4.13. */
+  --omad-foco-grosor: 3px;
+  --omad-foco-sep:    2px;
+
+  --omad-transicion: 120ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --omad-transicion: 0ms; }
+}
+
+/* -------------------------------------------------------------------------
+   REGLAS BASE NO NEGOCIABLES
+   Estas no son sugerencias de estilo: son el piso de conformidad. Cualquier
+   componente que las sobreescriba tiene que justificarlo en la revisión.
+   ------------------------------------------------------------------------- */
+
+*:focus-visible {
+  outline: var(--omad-foco-grosor) solid var(--omad-foco);
+  outline-offset: var(--omad-foco-sep);
+  box-shadow: 0 0 0 calc(var(--omad-foco-grosor) + var(--omad-foco-sep))
+              var(--omad-foco-contorno);
+}
+
+/* Nunca se elimina el foco sin sustituirlo. Si aparece outline:none en una
+   revisión de código sin un :focus-visible equivalente, el PR se rechaza. */
+
+a {
+  color: var(--omad-enlace);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+  /* El subrayado permanece: el color no puede ser el único indicador de que
+     algo es un enlace (WCAG 1.4.1). */
+  text-decoration-line: underline;
+}
+
+a:visited { color: var(--omad-enlace-visitado); }
+
+button, [role='button'], input, select, textarea, summary {
+  min-height: var(--omad-objetivo-min);
+  font-family: inherit;
+  font-size: var(--omad-texto-base);
+}
+
+/* Cifras alineadas en columna. Si la familia no trae la característica,
+   la tabla debe usar tabulación fija por CSS, no espacios. */
+[data-cifra], table td, table th {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+body {
+  background: var(--omad-fondo);
+  color: var(--omad-texto);
+  font-family: var(--omad-fuente);
+  font-size: var(--omad-texto-base);
+  line-height: var(--omad-interlinea-suelta);
+}
+
+/* El texto debe sobrevivir el reflujo a 320px y el espaciado forzado
+   (WCAG 1.4.10 y 1.4.12). Nada de alturas fijas en contenedores de texto. */

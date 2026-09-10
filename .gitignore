@@ -1,0 +1,7 @@
+# Reportes que genera herramientas/verificar-contraste.py
+contrastes.csv
+contrato.txt
+
+.DS_Store
+__pycache__/
+*.pyc

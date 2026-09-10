@@ -1,0 +1,69 @@
+name: Contraste
+
+# El contrato de contraste se verifica en cada pull request. Si un solo par
+# de la paleta incumple el mínimo que el sistema promete, el build falla y el
+# PR no se puede integrar. Ver herramientas/verificar-contraste.py.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  contrato:
+    name: Contrato de contraste WCAG 2.2 AA
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Verificar el contrato de contraste
+        id: contrato
+        run: |
+          set -o pipefail
+          python3 herramientas/verificar-contraste.py | tee contrato.txt
+
+      - name: Generar la matriz completa de pares
+        if: always()
+        run: python3 herramientas/verificar-contraste.py --csv > contrastes.csv
+
+      - name: Publicar el reporte en el resumen
+        if: always()
+        run: |
+          {
+            echo '## Contrato de contraste'
+            echo
+            if [ '${{ steps.contrato.outcome }}' = 'success' ]; then
+              echo 'Todos los pares del contrato cumplen.'
+            else
+              echo '**Hay pares que incumplen el contrato. El build falla a propósito.**'
+              echo
+              echo 'Corrige el valor en `tokens/omad-tokens.css` y en la paleta de'
+              echo '`herramientas/verificar-contraste.py`, o justifica el cambio del'
+              echo 'contrato en la descripción del PR.'
+            fi
+            echo
+            echo '```'
+            cat contrato.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Adjuntar reportes
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: contrastes
+          path: |
+            contrato.txt
+            contrastes.csv
+          if-no-files-found: warn

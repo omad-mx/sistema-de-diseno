@@ -34,7 +34,7 @@ primera paleta, está en
 | Carpeta | Qué contiene |
 |---|---|
 | [`tokens/`](tokens/) | `omad-tokens.css` — la implementación. Dos capas: primitivas y semánticos. |
-| [`docs/`](docs/) | El documento del sistema: dirección visual, paleta, tipografía, los seis perfiles y las decisiones abiertas. |
+| [`docs/`](docs/) | Los documentos del sistema y el registro de decisiones. El [índice](docs/README.md) dice qué hay y en qué estado está. |
 | [`herramientas/`](herramientas/) | `verificar-contraste.py` — calcula el contraste WCAG de cada par y verifica el contrato. |
 | [`componentes/`](componentes/) | Todavía vacío a propósito. Ver la nota adentro. |
 
@@ -95,6 +95,30 @@ sobreescriba tiene que justificarlo en la revisión:
 El contraste está calculado; el comportamiento no. Nada de esto se ha probado
 con NVDA, TalkBack ni VoiceOver, ni con zoom al 400%, ni con espaciado de texto
 forzado. Ese trabajo sigue pendiente y no lo puede hacer una herramienta.
+
+## Por qué es público
+
+Un observatorio que va a reprobar sitios ajenos gana credibilidad si su propio
+sistema es verificable por cualquiera. Y en la práctica, es lo que permite
+proteger `main` sin pagar: nada entra sin pull request, sin que la
+verificación de contraste pase y sin commit firmado.
+
+Aquí va solo lo que es del sistema de diseño. Lo que es operación de OMAD
+(costos, acuerdos, presupuestos) vive en un repositorio privado aparte.
+
+## Cómo colaborar
+
+1. **Todo entra por pull request.** No se puede empujar directo a `main`, ni
+   siendo admin.
+2. **La CI tiene que estar verde.** Si cambias un color, cámbialo en
+   `tokens/omad-tokens.css` **y** en la `PALETA` del script, y corre
+   `python3 herramientas/verificar-contraste.py` antes de abrir el PR.
+3. **Los commits van firmados.** GitHub rechaza los que no lo estén.
+4. **Las decisiones se registran.** Lo que está por decidirse es un issue con
+   la etiqueta `decisión`; lo decidido se pasa a
+   [`docs/decisiones.md`](docs/decisiones.md) con fecha, quién y por qué.
+5. **Los documentos nuevos van en `docs/`** con cabecera de fecha y estado, y
+   se agregan al [índice](docs/README.md).
 
 ## Licencia
 

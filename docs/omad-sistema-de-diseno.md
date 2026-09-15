@@ -180,6 +180,8 @@ Una advertencia sobre el orden: lo que se publica como sistema de diseño de la 
 
 ## 9. Decisiones abiertas
 
+El estado de cada una se lleva en [`decisiones.md`](decisiones.md) y en los issues con etiqueta `decisión`; esta lista es la foto de la versión 0.1.
+
 - **La dirección visual completa.** Frío y contenido es una propuesta, no un consenso. La alternativa razonable es un registro más cálido y más divulgativo, que ganaría accesibilidad cognitiva y perdería tono de autoridad citable.
 - **El nombre de los tokens en español.** Consistente con el proyecto y legible para colaboradores mexicanos; incómodo si en algún momento se abre a contribución internacional.
 - **Si la franja de seis perfiles se registra como marca.** Si va a funcionar como sello de conformidad citable, conviene decidirlo antes de publicarla, no después de que alguien la copie.

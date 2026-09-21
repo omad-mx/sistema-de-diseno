@@ -20,9 +20,9 @@ privado `omad-mx/interno`.
 |---|---|---|---|
 | [`omad-sistema-de-diseno.md`](omad-sistema-de-diseno.md) | El documento del sistema, versión 0.1: problema, dirección visual, paleta, el hallazgo de visión cromática, los seis perfiles, tipografía, espacio y foco. | 2026-09-09 | `en discusión` |
 | [`decisiones.md`](decisiones.md) | Registro cronológico de lo decidido y lo pendiente. | 2026-09-15 | vivo |
-| [`maqueta-direccion-visual.html`](maqueta-direccion-visual.html) | Maqueta a tamaño real para ratificar la dirección visual ([#1](https://github.com/omad-mx/sistema-de-diseno/issues/1)): A (0.1) y B (cálida) sobre el mismo contenido, con controles. Ábrela en el navegador desde el clon. | 2026-09-20 | `en discusión` |
+| [`maqueta-direccion-visual.html`](maqueta-direccion-visual.html) | Maqueta a tamaño real con la que se ratificó la dirección visual ([#1](https://github.com/omad-mx/sistema-de-diseno/issues/1)): A (0.1) y B (cálida) sobre el mismo contenido, con controles; abre en la combinación ratificada. Ábrela en el navegador desde el clon. | 2026-09-20 | `aprobado` |
 
 ## Pendientes de escribir
 
 - Guía de pruebas manuales con tecnologías de apoyo ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
-- Especificación de la franja de seis perfiles como componente, cuando se ratifique la dirección visual ([#1](https://github.com/omad-mx/sistema-de-diseno/issues/1)).
+- Especificación de la franja de seis perfiles como componente. La dirección visual ya está ratificada; falta la iconografía de los seis perfiles.

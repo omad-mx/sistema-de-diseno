@@ -5,8 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Dirección visual OMAD</title>
 <!--
-  Maqueta para ratificar la dirección visual (issue #1).
-  2026-09-20 · estado: en discusión · decide: el consejo.
+  Maqueta con la que se ratificó la dirección visual (issue #1).
+  2026-09-20 · estado: aprobado · decidió: la dirección de diseño (Daniel Ballinas).
+  Dictamen: neutro frío, marca petróleo, radio 8 px, pictogramas de perfil,
+  registro de oficio. Los presets A y B se conservan como evidencia de lo que
+  se comparó.
 
   Un solo contenido, dos direcciones. El interruptor A/B cambia únicamente lo
   que la decisión #1 decide; lo que ya está dictado no se mueve en ninguna de
@@ -313,6 +316,7 @@ img, svg { max-width: 100%; }
   <fieldset class="preajuste">
     <legend>Dirección</legend>
     <span class="segmento" role="group">
+      <label><input type="radio" name="preajuste" value="R" id="pre-r"><span>Ratificada · 2026-09-20</span></label>
       <label><input type="radio" name="preajuste" value="A" id="pre-a"><span>A · Fría y contenida (0.1)</span></label>
       <label><input type="radio" name="preajuste" value="B" id="pre-b"><span>B · Cálida y divulgativa</span></label>
     </span>
@@ -531,8 +535,11 @@ img, svg { max-width: 100%; }
 </main>
 
 <section class="notas" aria-labelledby="titulo-notas">
-  <h2 id="titulo-notas">Qué se está comparando</h2>
-  <p>Es la decisión <a href="https://github.com/omad-mx/sistema-de-diseno/issues/1">#1</a>: si el sistema es frío y contenido, como propone la versión 0.1, o cálido y divulgativo. Las dos direcciones se ven aquí sobre el mismo contenido y la misma estructura, y solo se mueve lo que la decisión decide.</p>
+  <h2 id="titulo-notas">Dictamen</h2>
+  <p>El 2026-09-20 la dirección de diseño ratificó la dirección visual con esta maqueta: <strong>neutro frío, marca petróleo, radio de 8 px, pictogramas como marca de perfil y registro de oficio</strong>. Es la propuesta de la 0.1 con dos cambios, el radio y la marca de perfil. La página abre en esa combinación; los presets A y B se conservan para ver qué se comparó. El registro está en <code>docs/decisiones.md</code>.</p>
+
+  <h2>Qué se comparó</h2>
+  <p>Era la decisión <a href="https://github.com/omad-mx/sistema-de-diseno/issues/1">#1</a>: si el sistema es frío y contenido, como propone la versión 0.1, o cálido y divulgativo. Las dos direcciones se ven aquí sobre el mismo contenido y la misma estructura, y solo se mueve lo que la decisión decide.</p>
 
   <h3>Lo que cambia entre A y B</h3>
   <div class="desborde"><table>
@@ -564,14 +571,15 @@ img, svg { max-width: 100%; }
   <h2>Contenido</h2>
   <p>Todo lo que parece un dato es de ejemplo: el trámite, la dependencia, la fecha, los hallazgos, las cinco filas del ranking y la cifra de la portada. La franja «2 de 6» es la que ilustra la sección 5 del documento del sistema. No hay auditorías publicadas y esta maqueta no inventa ninguna.</p>
 
-  <h2>Cómo dar el dictamen</h2>
-  <p>Con un comentario en el issue <a href="https://github.com/omad-mx/sistema-de-diseno/issues/1">#1</a>. Los controles del tablero se pueden mover libremente: si la respuesta es «B, pero con radio de 2 px» o «A, pero con pictogramas», eso también es un dictamen y se puede decir así. Lo que se ratifique se pasa a <code>docs/decisiones.md</code> con fecha y razones.</p>
+  <h2>Lo que sigue</h2>
+  <p>El radio de 8 px cambia el token <code>--omad-radio-1</code> y el párrafo de la sección 7 del documento del sistema («radio de 2 px en controles»). Los pictogramas de perfil son trabajo de iconografía aparte; los seis de esta página son bosquejos. Ninguna de las dos cosas se hizo en esta maqueta.</p>
 </section>
 
 <script>
 (function () {
   var CLAVE = 'omad-maqueta-direccion';
   var PREAJUSTES = {
+    R: { neutro: 'frio',   marca: 'petroleo', radio: '8', deco: 'pictos',  registro: 'oficio' },
     A: { neutro: 'frio',   marca: 'petroleo', radio: '2', deco: 'numeral', registro: 'oficio' },
     B: { neutro: 'calido', marca: 'vino',     radio: '8', deco: 'pictos',  registro: 'divulgativo' }
   };
@@ -619,11 +627,12 @@ img, svg { max-width: 100%; }
     marco.setAttribute('data-ancho', valor('ancho'));
     aplicarTema();
 
-    var cual = coincide('A') ? 'A' : coincide('B') ? 'B' : null;
+    var cual = coincide('R') ? 'R' : coincide('A') ? 'A' : coincide('B') ? 'B' : null;
     var radios = form.querySelectorAll('input[name="preajuste"]');
     for (var i = 0; i < radios.length; i++) radios[i].checked = radios[i].value === cual;
     estado.textContent = cual ? '' : 'Combinación propia';
-    rotulo.textContent = cual === 'A' ? 'A · Fría y contenida (versión 0.1)'
+    rotulo.textContent = cual === 'R' ? 'Dirección ratificada el 2026-09-20: fría, petróleo, radio 8 px, pictogramas, registro de oficio'
+                       : cual === 'A' ? 'A · Fría y contenida (versión 0.1)'
                        : cual === 'B' ? 'B · Cálida y divulgativa'
                        : 'Combinación propia: ' + CONTROLES.map(function (c) { return valor(c); }).join(' · ');
 
@@ -640,9 +649,9 @@ img, svg { max-width: 100%; }
     aplicar();
   });
 
-  // Estado inicial: lo guardado por esta persona, o la propuesta de la 0.1.
+  // Estado inicial: lo guardado por esta persona, o la dirección ratificada.
   var g = leer();
-  CONTROLES.forEach(function (c) { marcar(c, g[c] || PREAJUSTES.A[c]); });
+  CONTROLES.forEach(function (c) { marcar(c, g[c] || PREAJUSTES.R[c]); });
   marcar('ancho', g.ancho || 'escritorio');
   marcar('tema', g.tema || 'sistema');
   aplicar();

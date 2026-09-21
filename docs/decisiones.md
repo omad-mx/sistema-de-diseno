@@ -13,7 +13,6 @@ la mesa cuando se tomó.
 
 | Issue | Decisión | Quién decide |
 |---|---|---|
-| [#1](https://github.com/omad-mx/sistema-de-diseno/issues/1) | Dirección visual: fría y contenida, o cálida y divulgativa | Consejo |
 | [#2](https://github.com/omad-mx/sistema-de-diseno/issues/2) | Nombres de tokens en español o en inglés | Dirección de diseño |
 | [#3](https://github.com/omad-mx/sistema-de-diseno/issues/3) | Registrar la franja de seis perfiles como marca | Consejo |
 | [#4](https://github.com/omad-mx/sistema-de-diseno/issues/4) | Verificación con tecnologías de apoyo (no es una decisión: es trabajo pendiente que condiciona declarar conformidad) | Dirección de diseño |
@@ -22,6 +21,30 @@ la mesa cuando se tomó.
 ---
 
 ## Tomadas
+
+### 2026-09-20 · La dirección visual queda: fría, petróleo, radio 8 px, pictogramas, registro de oficio
+
+**Decidió:** Daniel Ballinas, como dirección de diseño. El issue
+[#1](https://github.com/omad-mx/sistema-de-diseno/issues/1) asignaba la
+decisión al consejo; se reasigna porque el diseño de la experiencia es
+competencia de la dirección de diseño, no del consejo.
+**Con qué:** la maqueta `docs/maqueta-direccion-visual.html`, que muestra el
+mismo contenido en la dirección de la 0.1 (A) y en una cálida y divulgativa
+(B) con cinco controles independientes. La ratificada es A con dos cambios.
+**Por qué:** el neutro frío y el petróleo se quedan; el registro de oficio se
+queda porque la cifra tiene que poder citarse. El radio sube de 2 a 8 px y la
+marca gráfica de cada perfil será un pictograma en vez del numeral de
+posición.
+**Se descartó:** el neutro cálido, la marca vino y el registro divulgativo.
+De paso quedó demostrado, con `herramientas/paleta-direccion-b.py`, que una
+marca naranja, terracota, ocre u oliva no es viable en ninguna dirección: todo
+el arco 30°–160° queda por debajo de 21 ΔE76 contra bloqueante bajo
+simulación de visión cromática. Eso no se re-litiga sin volver a correr el
+barrido.
+**Consecuencia:** cambiar `--omad-radio-1` a 8 px y el párrafo de la sección
+7 del documento; los pictogramas de los seis perfiles son trabajo de
+iconografía pendiente y condicionan la franja (los de la maqueta son
+bosquejos). Con esto se levanta el bloqueo de `componentes/`.
 
 ### 2026-09-15 · El repositorio es público
 

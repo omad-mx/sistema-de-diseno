@@ -20,6 +20,7 @@ privado `omad-mx/interno`.
 |---|---|---|---|
 | [`omad-sistema-de-diseno.md`](omad-sistema-de-diseno.md) | El documento del sistema, versión 0.1: problema, dirección visual, paleta, el hallazgo de visión cromática, los seis perfiles, tipografía, espacio y foco. | 2026-09-09 | `en discusión` |
 | [`decisiones.md`](decisiones.md) | Registro cronológico de lo decidido y lo pendiente. | 2026-09-15 | vivo |
+| [`maqueta-direccion-visual.html`](maqueta-direccion-visual.html) | Maqueta a tamaño real para ratificar la dirección visual ([#1](https://github.com/omad-mx/sistema-de-diseno/issues/1)): A (0.1) y B (cálida) sobre el mismo contenido, con controles. Ábrela en el navegador desde el clon. | 2026-09-20 | `en discusión` |
 
 ## Pendientes de escribir
 

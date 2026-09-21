@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dirección visual OMAD</title>
+<!--
+  Maqueta para ratificar la dirección visual (issue #1).
+  2026-09-20 · estado: en discusión · decide: el consejo.
+
+  Un solo contenido, dos direcciones. El interruptor A/B cambia únicamente lo
+  que la decisión #1 decide; lo que ya está dictado no se mueve en ninguna de
+  las dos (ver las notas al pie de la página).
+
+  Todo el contenido de trámites, dependencias, hallazgos y cifras es de
+  ejemplo. No hay auditorías publicadas todavía.
+
+  La paleta de B la genera herramientas/paleta-direccion-b.py; el bloque
+  <style id="paleta-b"> es su salida literal.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:wght@400;600;700&display=swap">
+<link rel="stylesheet" href="../tokens/omad-tokens.css">
+<style id="paleta-b">
+/* Generado por herramientas/paleta-direccion-b.py. No editar a mano:
+   cada valor es el equivalente de la 0.1 con el tono girado en OKLCH. */
+.especimen[data-neutro="calido"] {
+  --omad-fondo:            #FCFCFB;
+  --omad-superficie:       #F2F0ED;
+  --omad-superficie-alta:  #FFFFFF;
+  --omad-borde:            #D0C7BC;
+  --omad-borde-fuerte:     #8C7C6A;
+  --omad-texto:            #1E170E;
+  --omad-texto-secundario: #3D3022;
+  --omad-texto-terciario:  #524332;
+  --omad-texto-invertido:  #FCFCFB;
+}
+.especimen[data-marca="vino"] {
+  --omad-enlace:           #683B51;
+  --omad-enlace-visitado:  #482737;
+  --omad-accion-fondo:     #683B51;
+  --omad-accion-hover:     #5E3449;
+  --omad-foco:             #683B51;
+  --omad-completo:         #683B51;
+  --omad-resalte:          #F1DAE4;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-tema='claro']) .especimen[data-neutro="calido"] {
+    --omad-fondo:            #1E170E;
+    --omad-superficie:       #2B2116;
+    --omad-superficie-alta:  #3D3022;
+    --omad-borde:            #524332;
+    --omad-borde-fuerte:     #8C7C6A;
+    --omad-texto:            #F2F0ED;
+    --omad-texto-secundario: #D0C7BC;
+    --omad-texto-terciario:  #AFA293;
+    --omad-texto-invertido:  #1E170E;
+  }
+  :root:not([data-tema='claro']) .especimen[data-marca="vino"] {
+    --omad-enlace:           #C78CA7;
+    --omad-enlace-visitado:  #E0B6C9;
+    --omad-accion-fondo:     #C78CA7;
+    --omad-accion-hover:     #E0B6C9;
+    --omad-foco:             #E0B6C9;
+    --omad-completo:         #C78CA7;
+    --omad-resalte:          #321A26;
+  }
+}
+:root[data-tema='oscuro'] .especimen[data-neutro="calido"] {
+  --omad-fondo:            #1E170E;
+  --omad-superficie:       #2B2116;
+  --omad-superficie-alta:  #3D3022;
+  --omad-borde:            #524332;
+  --omad-borde-fuerte:     #8C7C6A;
+  --omad-texto:            #F2F0ED;
+  --omad-texto-secundario: #D0C7BC;
+  --omad-texto-terciario:  #AFA293;
+  --omad-texto-invertido:  #1E170E;
+}
+:root[data-tema='oscuro'] .especimen[data-marca="vino"] {
+  --omad-enlace:           #C78CA7;
+  --omad-enlace-visitado:  #E0B6C9;
+  --omad-accion-fondo:     #C78CA7;
+  --omad-accion-hover:     #E0B6C9;
+  --omad-foco:             #E0B6C9;
+  --omad-completo:         #C78CA7;
+  --omad-resalte:          #321A26;
+}
+</style>
+<style>
+/* ---------------------------------------------------------------------------
+   Página (tablero de controles, escenario, notas). Usa los tokens de la 0.1
+   tal cual: el tablero no forma parte de lo que se compara.
+   --------------------------------------------------------------------------- */
+:root { color-scheme: light dark; }
+* { box-sizing: border-box; }
+body { margin: 0; -webkit-text-size-adjust: 100%; }
+img, svg { max-width: 100%; }
+
+.visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+.tablero {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 10;
+  background: var(--omad-superficie);
+  border-bottom: 1px solid var(--omad-borde);
+  padding: var(--omad-esp-3) var(--omad-esp-4);
+  display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-5);
+  align-items: flex-end;
+  font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal);
+}
+.tablero fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
+.tablero legend {
+  padding: 0; margin-bottom: var(--omad-esp-1);
+  font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-medio);
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--omad-texto-terciario);
+}
+.segmento { display: inline-flex; border: 1px solid var(--omad-borde-fuerte); border-radius: var(--omad-radio-1); }
+.segmento label {
+  position: relative; display: inline-flex; align-items: center;
+  min-height: var(--omad-objetivo-min); padding: 0 var(--omad-esp-3);
+  cursor: pointer; white-space: nowrap;
+}
+.segmento label + label { border-left: 1px solid var(--omad-borde-fuerte); }
+.segmento input { position: absolute; inset: 0; margin: 0; opacity: 0; cursor: pointer; }
+.segmento input:checked + span { font-weight: var(--omad-peso-fuerte); }
+.segmento label:has(input:checked) { background: var(--omad-accion-fondo); color: var(--omad-accion-texto); }
+.segmento label:has(input:focus-visible) {
+  outline: var(--omad-foco-grosor) solid var(--omad-foco); outline-offset: var(--omad-foco-sep);
+  box-shadow: 0 0 0 calc(var(--omad-foco-grosor) + var(--omad-foco-sep)) var(--omad-foco-contorno);
+  z-index: 1;
+}
+.tablero .preajuste { margin-right: auto; }
+.tablero .preajuste .segmento { border-width: 2px; }
+#estado-preajuste { color: var(--omad-texto-secundario); font-size: var(--omad-texto-xs); margin-left: var(--omad-esp-2); }
+
+.escenario { padding: var(--omad-esp-5) var(--omad-esp-4); }
+.marco { margin: 0 auto; max-width: 1120px; transition: max-width var(--omad-transicion); }
+.marco[data-ancho="telefono"] { max-width: 390px; }
+.marco-rotulo {
+  font-size: var(--omad-texto-xs); color: var(--omad-texto-terciario);
+  margin: 0 0 var(--omad-esp-2); display: flex; justify-content: space-between; gap: var(--omad-esp-3); flex-wrap: wrap;
+}
+
+.notas { max-width: var(--omad-medida); margin: var(--omad-esp-8) auto var(--omad-esp-9); padding: 0 var(--omad-esp-4); }
+.notas h2 { font-size: var(--omad-texto-xl); line-height: var(--omad-interlinea-apretada); margin: var(--omad-esp-7) 0 var(--omad-esp-3); text-wrap: balance; }
+.notas h3 { font-size: var(--omad-texto-lg); margin: var(--omad-esp-5) 0 var(--omad-esp-2); }
+.notas p, .notas li { margin: 0 0 var(--omad-esp-3); }
+.notas table { border-collapse: collapse; width: 100%; font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.notas th, .notas td { text-align: left; padding: var(--omad-esp-2) var(--omad-esp-3); border-bottom: 1px solid var(--omad-borde); vertical-align: top; }
+.notas th { font-weight: var(--omad-peso-medio); color: var(--omad-texto-secundario); }
+.notas .desborde { overflow-x: auto; }
+.notas code { font-family: var(--omad-fuente-mono); font-size: 0.9em; }
+
+/* ---------------------------------------------------------------------------
+   Espécimen: el sitio. Solo tokens semánticos. Los atributos data-* del
+   contenedor son los cinco controles.
+   --------------------------------------------------------------------------- */
+.especimen {
+  --omad-resalte: var(--omad-petroleo-100);
+  --m-radio: var(--omad-radio-1);
+  background: var(--omad-fondo); color: var(--omad-texto);
+  border: 1px solid var(--omad-borde-fuerte);
+  font-family: var(--omad-fuente); font-size: var(--omad-texto-base); line-height: var(--omad-interlinea-suelta);
+  container-type: inline-size;
+  overflow: hidden;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-tema='claro']) .especimen { --omad-resalte: var(--omad-petroleo-900); } }
+:root[data-tema='oscuro'] .especimen { --omad-resalte: var(--omad-petroleo-900); }
+.especimen[data-radio="8"] { --m-radio: 8px; }
+
+.especimen[data-registro="oficio"] .reg-b { display: none; }
+.especimen[data-registro="divulgativo"] .reg-a { display: none; }
+.especimen[data-deco="numeral"] .celda svg { display: none; }
+.especimen[data-deco="pictos"] .celda-numero { display: none; }
+
+.especimen a { color: var(--omad-enlace); }
+.especimen a:visited { color: var(--omad-enlace-visitado); }
+.especimen h1, .especimen h2, .especimen h3 { margin: 0; text-wrap: balance; }
+.especimen p { margin: 0; }
+.especimen .prosa { max-width: var(--omad-medida); }
+
+.especimen .interior { padding: 0 clamp(var(--omad-esp-4), 4cqi, var(--omad-esp-8)); }
+
+/* Cabecera del sitio */
+.sitio-cabecera {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3) var(--omad-esp-6);
+  padding-block: var(--omad-esp-4);
+  border-bottom: 1px solid var(--omad-borde);
+}
+.marca-omad { display: flex; flex-direction: column; text-decoration: none; color: var(--omad-texto); }
+.marca-omad:visited { color: var(--omad-texto); }
+.marca-omad .sigla { font-size: var(--omad-texto-xl); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.06em; line-height: 1; }
+.marca-omad .sigla::after { content: ""; display: block; height: 4px; width: 2ch; margin-top: 4px; background: var(--omad-enlace); border-radius: var(--m-radio); }
+.marca-omad .nombre { font-size: var(--omad-texto-xs); color: var(--omad-texto-secundario); margin-top: var(--omad-esp-1); }
+.sitio-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
+.sitio-nav a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); font-weight: var(--omad-peso-medio); }
+.sitio-nav a[aria-current="page"] { color: var(--omad-texto); text-decoration-thickness: 0.15em; }
+
+/* Portada */
+.portada { padding-block: var(--omad-esp-7) var(--omad-esp-8); display: grid; gap: var(--omad-esp-5); }
+.portada .cejilla { font-size: var(--omad-texto-sm); font-weight: var(--omad-peso-medio); letter-spacing: 0.04em; text-transform: uppercase; color: var(--omad-texto-terciario); }
+.portada .cifra {
+  font-size: var(--omad-texto-4xl); font-weight: var(--omad-peso-fuerte); line-height: 1;
+  font-variant-numeric: tabular-nums; letter-spacing: -0.01em;
+}
+.portada .cifra small { display: block; font-size: var(--omad-texto-sm); font-weight: var(--omad-peso-normal); letter-spacing: 0; margin-top: var(--omad-esp-2); color: var(--omad-texto-secundario); }
+.portada h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apretada); max-width: 22ch; }
+.portada .entrada { font-size: var(--omad-texto-lg); line-height: 1.45; max-width: 40ch; color: var(--omad-texto-secundario); }
+.portada .acciones { display: flex; flex-wrap: wrap; gap: var(--omad-esp-3); align-items: center; }
+@container (min-width: 760px) {
+  .portada { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "cejilla cejilla" "titulo cifra" "entrada cifra" "acciones cifra"; align-items: start; column-gap: var(--omad-esp-8); }
+  .portada .cejilla { grid-area: cejilla; }
+  .portada h1 { grid-area: titulo; }
+  .portada .cifra { grid-area: cifra; text-align: right; align-self: center; }
+  .portada .entrada { grid-area: entrada; }
+  .portada .acciones { grid-area: acciones; }
+}
+
+.especimen .boton {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: var(--omad-objetivo-min); padding: 0 var(--omad-esp-5);
+  border: 2px solid var(--omad-accion-fondo); border-radius: var(--m-radio);
+  background: var(--omad-accion-fondo); color: var(--omad-accion-texto);
+  font: inherit; font-weight: var(--omad-peso-medio); text-decoration: none; cursor: pointer;
+  transition: background var(--omad-transicion), border-color var(--omad-transicion);
+}
+.especimen .boton:visited { color: var(--omad-accion-texto); }
+.especimen .boton:hover { background: var(--omad-accion-hover); border-color: var(--omad-accion-hover); }
+.especimen .boton.secundario { background: transparent; color: var(--omad-enlace); }
+.especimen .boton.secundario:visited { color: var(--omad-enlace); }
+.especimen .boton.secundario:hover { background: var(--omad-resalte); }
+
+/* Ficha de auditoría */
+.ficha { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-7); display: grid; gap: var(--omad-esp-5); }
+.ficha .cejilla { font-size: var(--omad-texto-sm); font-weight: var(--omad-peso-medio); letter-spacing: 0.04em; text-transform: uppercase; color: var(--omad-texto-terciario); }
+.ficha h2 { font-size: var(--omad-texto-2xl); line-height: var(--omad-interlinea-apretada); }
+.ficha .meta { display: flex; flex-wrap: wrap; gap: var(--omad-esp-1) var(--omad-esp-4); font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); list-style: none; margin: 0; padding: 0; }
+.ficha .meta li + li::before { content: "·"; margin-right: var(--omad-esp-4); color: var(--omad-texto-terciario); }
+
+/* La franja de seis perfiles */
+.franja-bloque { display: grid; gap: var(--omad-esp-3); }
+.franja {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(6, minmax(0, 1fr));
+  border: 1px solid var(--omad-borde-fuerte); border-radius: var(--m-radio); overflow: hidden;
+  background: var(--omad-superficie-alta);
+}
+.celda { display: grid; grid-template-rows: auto 1fr auto; justify-items: center; gap: var(--omad-esp-2); padding: var(--omad-esp-3) var(--omad-esp-1); text-align: center; min-height: 104px; }
+.celda + .celda { border-left: 1px solid var(--omad-borde); }
+.celda-numero { font-size: var(--omad-texto-xs); font-variant-numeric: tabular-nums; color: var(--omad-texto-terciario); }
+.celda svg { width: 24px; height: 24px; color: var(--omad-texto-secundario); }
+.celda-nombre { font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-medio); line-height: 1.2; hyphens: manual; align-self: center; }
+.celda-marca { font-size: var(--omad-texto-xl); line-height: 1; font-weight: var(--omad-peso-fuerte); }
+.celda[data-resultado="si"] .celda-marca { color: var(--omad-completo); }
+.celda[data-resultado="no"] .celda-marca { color: var(--omad-no-completo); }
+.celda[data-resultado="si"] { box-shadow: inset 0 -4px 0 var(--omad-completo); }
+.celda[data-resultado="no"] { box-shadow: inset 0 -4px 0 var(--omad-no-completo); }
+.franja-resumen { font-size: var(--omad-texto-lg); font-weight: var(--omad-peso-medio); line-height: 1.3; }
+.franja-resumen strong { font-variant-numeric: tabular-nums; }
+.franja-aviso { font-size: var(--omad-texto-xs); color: var(--omad-texto-terciario); }
+@container (max-width: 480px) {
+  .celda { min-height: 92px; padding-inline: 2px; }
+  .celda-nombre { font-size: var(--omad-texto-2xs); }
+  .celda-marca { font-size: var(--omad-texto-lg); }
+}
+
+/* Hallazgos */
+.hallazgos { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--omad-esp-2); max-width: var(--omad-medida); }
+.hallazgo { display: grid; grid-template-columns: auto 1fr; gap: var(--omad-esp-3); align-items: start; padding: var(--omad-esp-3) 0; border-top: 1px solid var(--omad-borde); }
+.hallazgo:last-child { border-bottom: 1px solid var(--omad-borde); }
+.distintivo {
+  display: inline-flex; align-items: center; gap: var(--omad-esp-1);
+  font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.03em; text-transform: uppercase;
+  padding: 2px var(--omad-esp-2); border-radius: var(--m-radio); min-width: 7.5em; justify-content: center; line-height: 1.6;
+}
+.distintivo[data-nivel="bloqueante"] { background: var(--omad-bloqueante-fondo); color: var(--omad-bloqueante-texto); }
+.distintivo[data-nivel="severa"]     { background: var(--omad-severa-fondo);     color: var(--omad-severa-texto); }
+.distintivo[data-nivel="moderada"]   { background: var(--omad-moderada-fondo);   color: var(--omad-moderada-texto); }
+.distintivo[data-nivel="menor"]      { background: var(--omad-menor-fondo);      color: var(--omad-menor-texto); }
+.hallazgo .criterio { font-size: var(--omad-texto-sm); color: var(--omad-texto-terciario); font-variant-numeric: tabular-nums; }
+.ficha .pie-ficha { display: flex; flex-wrap: wrap; gap: var(--omad-esp-3); align-items: center; }
+
+/* Ranking */
+.ranking { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-7); display: grid; gap: var(--omad-esp-4); }
+.ranking h2 { font-size: var(--omad-texto-2xl); line-height: var(--omad-interlinea-apretada); }
+.ranking .desborde { overflow-x: auto; margin-inline: calc(-1 * var(--omad-esp-4)); padding-inline: var(--omad-esp-4); }
+.tabla { border-collapse: collapse; width: 100%; min-width: 640px; font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.tabla caption { text-align: left; caption-side: bottom; padding-top: var(--omad-esp-3); font-size: var(--omad-texto-xs); color: var(--omad-texto-terciario); }
+.tabla th, .tabla td { text-align: left; padding: var(--omad-esp-3) var(--omad-esp-3); border-bottom: 1px solid var(--omad-borde); vertical-align: middle; }
+.tabla thead th { font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-medio); letter-spacing: 0.04em; text-transform: uppercase; color: var(--omad-texto-secundario); border-bottom: 2px solid var(--omad-borde-fuerte); }
+.tabla th[scope="row"] { font-weight: var(--omad-peso-medio); }
+.tabla .num { text-align: right; }
+.tabla .dependencia { color: var(--omad-texto-secundario); }
+.mini { display: inline-grid; grid-auto-flow: column; gap: 3px; vertical-align: middle; }
+.mini span { display: inline-flex; width: 18px; height: 18px; align-items: center; justify-content: center; font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-fuerte); border: 1px solid var(--omad-borde); border-radius: var(--m-radio); line-height: 1; }
+.mini span[data-resultado="si"] { color: var(--omad-completo); border-color: var(--omad-completo); }
+.mini span[data-resultado="no"] { color: var(--omad-no-completo); border-color: var(--omad-no-completo); }
+
+/* Pie del sitio */
+.sitio-pie { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-5) var(--omad-esp-6); display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6); justify-content: space-between; font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); }
+.sitio-pie ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
+.sitio-pie a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); }
+</style>
+</head>
+<body>
+
+<form class="tablero" id="tablero" aria-label="Controles de la maqueta">
+  <fieldset class="preajuste">
+    <legend>Dirección</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="preajuste" value="A" id="pre-a"><span>A · Fría y contenida (0.1)</span></label>
+      <label><input type="radio" name="preajuste" value="B" id="pre-b"><span>B · Cálida y divulgativa</span></label>
+    </span>
+    <span id="estado-preajuste" aria-live="polite"></span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Neutro</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="neutro" value="frio" id="neutro-frio"><span>Frío</span></label>
+      <label><input type="radio" name="neutro" value="calido" id="neutro-calido"><span>Cálido</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Marca</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="marca" value="petroleo" id="marca-petroleo"><span>Petróleo</span></label>
+      <label><input type="radio" name="marca" value="vino" id="marca-vino"><span>Vino</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Radio</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="radio" value="2" id="radio-2"><span>2 px</span></label>
+      <label><input type="radio" name="radio" value="8" id="radio-8"><span>8 px</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Marca de perfil</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="deco" value="numeral" id="deco-numeral"><span>Numeral</span></label>
+      <label><input type="radio" name="deco" value="pictos" id="deco-pictos"><span>Pictograma</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Registro del texto</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="registro" value="oficio" id="registro-oficio"><span>Oficio</span></label>
+      <label><input type="radio" name="registro" value="divulgativo" id="registro-divulgativo"><span>Divulgativo</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Tema</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="tema" value="claro" id="tema-claro"><span>Claro</span></label>
+      <label><input type="radio" name="tema" value="oscuro" id="tema-oscuro"><span>Oscuro</span></label>
+      <label><input type="radio" name="tema" value="sistema" id="tema-sistema"><span>Sistema</span></label>
+    </span>
+  </fieldset>
+
+  <fieldset>
+    <legend>Ancho</legend>
+    <span class="segmento" role="group">
+      <label><input type="radio" name="ancho" value="escritorio" id="ancho-escritorio"><span>Escritorio</span></label>
+      <label><input type="radio" name="ancho" value="telefono" id="ancho-telefono"><span>Teléfono</span></label>
+    </span>
+  </fieldset>
+</form>
+
+<main class="escenario">
+  <div class="marco" id="marco" data-ancho="escritorio">
+    <p class="marco-rotulo"><span id="rotulo-direccion"></span><span>Todo el contenido es de ejemplo. No hay auditorías publicadas.</span></p>
+
+    <div class="especimen" id="especimen" data-neutro="frio" data-marca="petroleo" data-radio="2" data-deco="numeral" data-registro="oficio">
+      <div class="interior">
+
+        <header class="sitio-cabecera">
+          <a class="marca-omad" href="#portada">
+            <span class="sigla">OMAD</span>
+            <span class="nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+          </a>
+          <nav class="sitio-nav" aria-label="Principal">
+            <ul>
+              <li><a href="#ficha">Trámites</a></li>
+              <li><a href="#ranking">Ranking</a></li>
+              <li><a href="#portada">Metodología</a></li>
+              <li><a href="#portada">Acerca</a></li>
+            </ul>
+          </nav>
+        </header>
+
+        <section class="portada" id="portada" aria-labelledby="titulo-portada">
+          <p class="cejilla"><span class="reg-a">Índice de trámites completables · corte de ejemplo</span><span class="reg-b">Lo que medimos · corte de ejemplo</span></p>
+          <h1 id="titulo-portada">
+            <span class="reg-a">Qué proporción de los trámites digitales del país puede completar una persona con discapacidad sin ayuda.</span>
+            <span class="reg-b">¿Puedes hacer tu trámite en línea? Depende de quién seas.</span>
+          </h1>
+          <p class="cifra" data-cifra>00 %<small>ITC · cifra de ejemplo, no es un resultado</small></p>
+          <p class="entrada">
+            <span class="reg-a">OMAD audita trámites públicos con seis perfiles de uso y publica el resultado con evidencia reproducible. Cada cifra tiene fuente, fecha y método.</span>
+            <span class="reg-b">Probamos los trámites del gobierno como los usan seis personas distintas: con lector de pantalla, solo con teclado, con baja visión… y contamos cuántos se pueden terminar sin pedir ayuda.</span>
+          </p>
+          <p class="acciones">
+            <a class="boton" href="#ranking"><span class="reg-a">Consultar el ranking</span><span class="reg-b">Ver cómo salió cada trámite</span></a>
+            <a class="boton secundario" href="#portada"><span class="reg-a">Metodología</span><span class="reg-b">Cómo lo medimos</span></a>
+          </p>
+        </section>
+
+        <section class="ficha" id="ficha" aria-labelledby="titulo-ficha">
+          <p class="cejilla"><span class="reg-a">Ficha de auditoría</span><span class="reg-b">Resultado del trámite</span></p>
+          <h2 id="titulo-ficha">Trámite de ejemplo</h2>
+          <ul class="meta">
+            <li>Dependencia de ejemplo</li>
+            <li><span class="reg-a">Auditado el</span><span class="reg-b">Lo probamos el</span> [fecha de ejemplo]</li>
+            <li><span class="reg-a">Método</span><span class="reg-b">Cómo lo probamos:</span> versión 0.1</li>
+          </ul>
+
+          <div class="franja-bloque">
+            <ul class="franja" role="list" aria-label="Resultado por perfil de uso">
+              <li class="celda" data-resultado="no">
+                <span class="celda-numero" aria-hidden="true">1</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 10v4h3l4 3V7l-4 3H4z"/><path d="M15 9a3.5 3.5 0 0 1 0 6"/><path d="M17.5 6a7.5 7.5 0 0 1 0 12"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Lector</span>
+                <span class="celda-marca" aria-hidden="true">×</span>
+                <span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span>
+              </li>
+              <li class="celda" data-resultado="no">
+                <span class="celda-numero" aria-hidden="true">2</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="6.5" width="19" height="11" rx="1.5"/><path d="M6 10.5h1M10 10.5h1M14 10.5h1M18 10.5h1M7 14h10"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Teclado</span>
+                <span class="celda-marca" aria-hidden="true">×</span>
+                <span class="visualmente-oculto">Solo teclado: no completó el trámite</span>
+              </li>
+              <li class="celda" data-resultado="si">
+                <span class="celda-numero" aria-hidden="true">3</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="3"/><path d="M12 2.5v2M12 19.5v2"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Baja visión</span>
+                <span class="celda-marca" aria-hidden="true">●</span>
+                <span class="visualmente-oculto">Baja visión: completó el trámite</span>
+              </li>
+              <li class="celda" data-resultado="no">
+                <span class="celda-numero" aria-hidden="true">4</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 13V5.5a1.5 1.5 0 0 1 3 0V11"/><path d="M11 11V4a1.5 1.5 0 0 1 3 0v7"/><path d="M14 11V6a1.5 1.5 0 0 1 3 0v6"/><path d="M17 12V9.5a1.5 1.5 0 0 1 3 0V15a6 6 0 0 1-6 6h-1.5a6 6 0 0 1-5-2.7L4.6 14a1.6 1.6 0 0 1 2.6-1.8L8 13"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Motriz</span>
+                <span class="celda-marca" aria-hidden="true">×</span>
+                <span class="visualmente-oculto">Motriz: no completó el trámite</span>
+              </li>
+              <li class="celda" data-resultado="si">
+                <span class="celda-numero" aria-hidden="true">5</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 10a6 6 0 0 1 12 0c0 3-2 4-3 6s-1 4.5-3.5 4.5S9 19 9 19"/><path d="M10 10a2 2 0 0 1 4 0c0 1-1 1.5-1 2.5"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Sorda</span>
+                <span class="celda-marca" aria-hidden="true">●</span>
+                <span class="visualmente-oculto">Persona sorda: completó el trámite</span>
+              </li>
+              <li class="celda" data-resultado="no">
+                <span class="celda-numero" aria-hidden="true">6</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9.5 21v-3h-2a1 1 0 0 1-1-1v-2H4.5l2-3a7 7 0 1 1 11 5.5V21"/><path d="M11 9.5h2M12 8.5v2.5"/></svg>
+                <span class="celda-nombre" aria-hidden="true">Cogni&shy;tivo</span>
+                <span class="celda-marca" aria-hidden="true">×</span>
+                <span class="visualmente-oculto">Cognitivo: no completó el trámite</span>
+              </li>
+            </ul>
+            <p class="franja-resumen"><strong>2 de 6</strong> <span class="reg-a">perfiles completaron el trámite sin ayuda.</span><span class="reg-b">personas pudieron terminar el trámite sin pedir ayuda.</span></p>
+            <p class="franja-aviso">Resultado de ejemplo, tomado de la sección 5 del documento del sistema. No corresponde a ningún trámite real.</p>
+          </div>
+
+          <div class="prosa">
+            <h3 class="visualmente-oculto">Hallazgos</h3>
+            <ul class="hallazgos" aria-label="Hallazgos de ejemplo">
+              <li class="hallazgo"><span class="distintivo" data-nivel="bloqueante">Bloqueante</span><span><span class="reg-a">El botón de envío no es alcanzable con teclado.</span><span class="reg-b">No se puede llegar al botón de enviar usando solo el teclado.</span> <span class="criterio">2.1.1</span></span></li>
+              <li class="hallazgo"><span class="distintivo" data-nivel="severa">Severa</span><span><span class="reg-a">Los errores del formulario no se anuncian al lector de pantalla.</span><span class="reg-b">Si te equivocas en el formulario, el lector de pantalla no te avisa.</span> <span class="criterio">3.3.1 · 4.1.3</span></span></li>
+              <li class="hallazgo"><span class="distintivo" data-nivel="moderada">Moderada</span><span><span class="reg-a">El texto de ayuda no alcanza el contraste mínimo.</span><span class="reg-b">El texto de ayuda es demasiado tenue para leerse bien.</span> <span class="criterio">1.4.3</span></span></li>
+              <li class="hallazgo"><span class="distintivo" data-nivel="menor">Menor</span><span><span class="reg-a">El enlace «aquí» no describe su destino.</span><span class="reg-b">Hay un enlace que solo dice «aquí» y no explica a dónde lleva.</span> <span class="criterio">2.4.4</span></span></li>
+            </ul>
+          </div>
+
+          <p class="pie-ficha">
+            <a class="boton secundario" href="#ficha"><span class="reg-a">Descargar evidencia</span><span class="reg-b">Ver las pruebas</span></a>
+            <a href="#portada"><span class="reg-a">Cómo se audita un trámite</span><span class="reg-b">Cómo hacemos las pruebas</span></a>
+          </p>
+        </section>
+
+        <section class="ranking" id="ranking" aria-labelledby="titulo-ranking">
+          <h2 id="titulo-ranking"><span class="reg-a">Ranking de trámites</span><span class="reg-b">Cómo salió cada trámite</span></h2>
+          <div class="desborde">
+            <table class="tabla">
+              <caption>Datos ilustrativos: no son resultados de auditoría. Las seis casillas siguen el orden fijo de los perfiles.</caption>
+              <thead>
+                <tr>
+                  <th scope="col" class="num">#</th>
+                  <th scope="col">Trámite</th>
+                  <th scope="col">Dependencia</th>
+                  <th scope="col">Perfiles</th>
+                  <th scope="col" class="num"><span class="reg-a">Completaron</span><span class="reg-b">Lo terminaron</span></th>
+                  <th scope="col" class="num">Bloqueantes</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td class="num">1</td><th scope="row">Trámite de ejemplo A</th><td class="dependencia">Dependencia de ejemplo</td><td><span class="mini" aria-label="6 de 6 perfiles completaron"><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="si">●</span></span></td><td class="num">6 de 6</td><td class="num">0</td></tr>
+                <tr><td class="num">2</td><th scope="row">Trámite de ejemplo B</th><td class="dependencia">Dependencia de ejemplo</td><td><span class="mini" aria-label="4 de 6 perfiles completaron"><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="no">×</span><span data-resultado="si">●</span><span data-resultado="si">●</span><span data-resultado="no">×</span></span></td><td class="num">4 de 6</td><td class="num">1</td></tr>
+                <tr><td class="num">3</td><th scope="row">Trámite de ejemplo C</th><td class="dependencia">Dependencia de ejemplo</td><td><span class="mini" aria-label="2 de 6 perfiles completaron"><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="si">●</span><span data-resultado="no">×</span><span data-resultado="si">●</span><span data-resultado="no">×</span></span></td><td class="num">2 de 6</td><td class="num">3</td></tr>
+                <tr><td class="num">4</td><th scope="row">Trámite de ejemplo D</th><td class="dependencia">Dependencia de ejemplo</td><td><span class="mini" aria-label="1 de 6 perfiles completó"><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="si">●</span><span data-resultado="no">×</span></span></td><td class="num">1 de 6</td><td class="num">4</td></tr>
+                <tr><td class="num">5</td><th scope="row">Trámite de ejemplo E</th><td class="dependencia">Dependencia de ejemplo</td><td><span class="mini" aria-label="0 de 6 perfiles completaron"><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span><span data-resultado="no">×</span></span></td><td class="num">0 de 6</td><td class="num">7</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="sitio-pie">
+          <ul>
+            <li><a href="#portada">Metodología</a></li>
+            <li><a href="#portada">Datos abiertos</a></li>
+            <li><a href="#portada">Contacto</a></li>
+          </ul>
+          <p>Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+        </footer>
+
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="notas" aria-labelledby="titulo-notas">
+  <h2 id="titulo-notas">Qué se está comparando</h2>
+  <p>Es la decisión <a href="https://github.com/omad-mx/sistema-de-diseno/issues/1">#1</a>: si el sistema es frío y contenido, como propone la versión 0.1, o cálido y divulgativo. Las dos direcciones se ven aquí sobre el mismo contenido y la misma estructura, y solo se mueve lo que la decisión decide.</p>
+
+  <h3>Lo que cambia entre A y B</h3>
+  <div class="desborde"><table>
+    <thead><tr><th>Control</th><th>A · Fría y contenida</th><th>B · Cálida y divulgativa</th></tr></thead>
+    <tbody>
+      <tr><td>Neutro</td><td>Tinta fría de la 0.1 (tono ≈226°).</td><td>La misma escala con el tono girado a 70°. Mismo L y mismo C en OKLCH: cambia la temperatura, no el peso.</td></tr>
+      <tr><td>Marca</td><td>Petróleo (tono ≈215°), elegido primero como color de anillo de foco.</td><td>Vino (tono 350°). Mismo L y C que petróleo. Es el tono más cálido que se separa de «bloqueante» bajo simulación de visión cromática; ver abajo.</td></tr>
+      <tr><td>Radio</td><td>2 px: registro de formulario oficial.</td><td>8 px.</td></tr>
+      <tr><td>Marca de perfil</td><td>Numeral de posición (1 a 6).</td><td>Pictograma. Los seis son bosquejos para esta maqueta, no una propuesta de iconografía.</td></tr>
+      <tr><td>Registro del texto</td><td>Oficio: tercera persona, tono citable.</td><td>Divulgativo: segunda persona, tono de explicación. Es un borrador de redacción, no un manual de voz.</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>Lo que no cambia en ninguna de las dos</h3>
+  <p>Ya está dictado y no forma parte de #1: Atkinson Hyperlegible como única familia (base 18 px, escala 1.25); la escala de gravedad sin semáforo y sin verde de «completado»; los seis perfiles sin color propio y en orden fijo; objetivo táctil de 44×44 px; anillo de foco de doble capa; enlaces siempre subrayados; y que el color nunca sea el único portador de significado. Los cuatro salen de distancias de color y de criterios de WCAG, no del gusto, y la decisión de dirección no los reabre.</p>
+
+  <h2>Cómo se produjo B</h2>
+  <p>Para que la comparación sea justa, B no se dibujó a mano. Cada color de B es el equivalente de la 0.1 con el tono girado en OKLCH y el resto intacto; lo genera <code>herramientas/paleta-direccion-b.py</code>, que también verifica que B cumpla los mismos pares de contraste que el contrato de A. Los dieciséis pares que tocan neutro o marca cumplen.</p>
+  <p>El tono de la marca no fue una elección estética. La marca también es el color de «completó», y tiene que separarse del rojo de «bloqueante» bajo simulación de protanopia, deuteranopia y tritanopia. Barriendo el tono con el L y C de petróleo-600, todo el arco entre 30° y 160° (naranjas, terracotas, ocres, olivas y verdes) queda por debajo del umbral de 21 ΔE76 que la 0.1 se exige a sí misma. El arco que sobrevive va de 160° a 10°: azules, violetas, magentas y vinos. <strong>Una dirección cálida no puede tener marca naranja ni terracota sin romper la escala de gravedad.</strong> El vino es lo más cálido que queda.</p>
+
+  <h3>Lo que B todavía no resuelve</h3>
+  <ul>
+    <li><strong>Tema oscuro.</strong> En claro, vino-600 se separa de bloqueante-600 por 36.2 ΔE76 en el peor caso (petróleo: 42.7). En oscuro, vino-300 contra bloqueante-300 baja a 15.5 (petróleo: 30.8), por debajo del umbral. Si se elige B, el tono oscuro necesita otro paso de la escala o una marca distinta, y hay que volver a correr las distancias.</li>
+    <li><strong>Pictogramas.</strong> Son bosquejos para que se vea qué cambia en la franja cuando hay un dibujo. Si B gana, la iconografía es un trabajo aparte.</li>
+    <li><strong>Redacción.</strong> El registro divulgativo es un borrador para juzgar el tono. No define la voz del observatorio.</li>
+  </ul>
+  <p>Las cifras de separación de esta página salen del script, con las matrices de Machado, Oliveira y Fernandes (2009) a severidad 1.0. No son la misma implementación con la que se calcularon las tablas de la sección 4 del documento; se comparan entre sí, no con aquellas.</p>
+
+  <h2>Contenido</h2>
+  <p>Todo lo que parece un dato es de ejemplo: el trámite, la dependencia, la fecha, los hallazgos, las cinco filas del ranking y la cifra de la portada. La franja «2 de 6» es la que ilustra la sección 5 del documento del sistema. No hay auditorías publicadas y esta maqueta no inventa ninguna.</p>
+
+  <h2>Cómo dar el dictamen</h2>
+  <p>Con un comentario en el issue <a href="https://github.com/omad-mx/sistema-de-diseno/issues/1">#1</a>. Los controles del tablero se pueden mover libremente: si la respuesta es «B, pero con radio de 2 px» o «A, pero con pictogramas», eso también es un dictamen y se puede decir así. Lo que se ratifique se pasa a <code>docs/decisiones.md</code> con fecha y razones.</p>
+</section>
+
+<script>
+(function () {
+  var CLAVE = 'omad-maqueta-direccion';
+  var PREAJUSTES = {
+    A: { neutro: 'frio',   marca: 'petroleo', radio: '2', deco: 'numeral', registro: 'oficio' },
+    B: { neutro: 'calido', marca: 'vino',     radio: '8', deco: 'pictos',  registro: 'divulgativo' }
+  };
+  var CONTROLES = ['neutro', 'marca', 'radio', 'deco', 'registro'];
+  var form = document.getElementById('tablero');
+  var especimen = document.getElementById('especimen');
+  var marco = document.getElementById('marco');
+  var estado = document.getElementById('estado-preajuste');
+  var rotulo = document.getElementById('rotulo-direccion');
+  var raiz = document.documentElement;
+
+  function leer() {
+    try { return JSON.parse(localStorage.getItem(CLAVE) || '{}') || {}; } catch (e) { return {}; }
+  }
+  function guardar(obj) {
+    try { localStorage.setItem(CLAVE, JSON.stringify(obj)); } catch (e) {}
+  }
+  function marcar(nombre, valor) {
+    var el = form.querySelector('input[name="' + nombre + '"][value="' + valor + '"]');
+    if (el) el.checked = true;
+  }
+  function valor(nombre) {
+    var el = form.querySelector('input[name="' + nombre + '"]:checked');
+    return el ? el.value : null;
+  }
+  function coincide(p) {
+    return CONTROLES.every(function (c) { return valor(c) === PREAJUSTES[p][c]; });
+  }
+
+  function aplicarTema() {
+    var t = valor('tema');
+    if (t === 'sistema') {
+      // Sin elección propia, se sigue al anfitrión (data-theme) o al sistema.
+      var host = raiz.getAttribute('data-theme');
+      if (host === 'dark') raiz.setAttribute('data-tema', 'oscuro');
+      else if (host === 'light') raiz.setAttribute('data-tema', 'claro');
+      else raiz.removeAttribute('data-tema');
+    } else {
+      raiz.setAttribute('data-tema', t);
+    }
+  }
+
+  function aplicar() {
+    CONTROLES.forEach(function (c) { especimen.setAttribute('data-' + c, valor(c)); });
+    marco.setAttribute('data-ancho', valor('ancho'));
+    aplicarTema();
+
+    var cual = coincide('A') ? 'A' : coincide('B') ? 'B' : null;
+    var radios = form.querySelectorAll('input[name="preajuste"]');
+    for (var i = 0; i < radios.length; i++) radios[i].checked = radios[i].value === cual;
+    estado.textContent = cual ? '' : 'Combinación propia';
+    rotulo.textContent = cual === 'A' ? 'A · Fría y contenida (versión 0.1)'
+                       : cual === 'B' ? 'B · Cálida y divulgativa'
+                       : 'Combinación propia: ' + CONTROLES.map(function (c) { return valor(c); }).join(' · ');
+
+    var s = { ancho: valor('ancho'), tema: valor('tema') };
+    CONTROLES.forEach(function (c) { s[c] = valor(c); });
+    guardar(s);
+  }
+
+  form.addEventListener('change', function (ev) {
+    if (ev.target.name === 'preajuste') {
+      var p = PREAJUSTES[ev.target.value];
+      CONTROLES.forEach(function (c) { marcar(c, p[c]); });
+    }
+    aplicar();
+  });
+
+  // Estado inicial: lo guardado por esta persona, o la propuesta de la 0.1.
+  var g = leer();
+  CONTROLES.forEach(function (c) { marcar(c, g[c] || PREAJUSTES.A[c]); });
+  marcar('ancho', g.ancho || 'escritorio');
+  marcar('tema', g.tema || 'sistema');
+  aplicar();
+
+  // Si el anfitrión cambia de tema, la maqueta lo sigue mientras esté en «Sistema».
+  if (window.MutationObserver) {
+    new MutationObserver(function () { if (valor('tema') === 'sistema') aplicarTema(); })
+      .observe(raiz, { attributes: true, attributeFilter: ['data-theme'] });
+  }
+})();
+</script>
+</body>
+</html>

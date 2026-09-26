@@ -35,4 +35,4 @@ repositorios.
 
 - Cabecera con título, fecha y estado (`borrador` / `en discusión` / `aprobado` / `superado`); se agregan al índice.
 - Nada de cifras medidas a mano. Lo que se afirma numéricamente sale del script o de una medición reproducible.
-- Nunca inventar datos, trámites ni resultados de auditoría para ilustrar.
+- Datos de ejemplo solo en el prototipo y con las condiciones de la sección 2 de `docs/plan-de-construccion.md`: todo ficticio, avisado en la página y concentrado en `prototipo/datos-de-ejemplo.md`. Nunca un trámite o una dependencia real con un resultado inventado.

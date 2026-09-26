@@ -23,6 +23,21 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-09-25 · El prototipo usa datos de ejemplo hasta que haya auditorías reales
+
+**Decidió:** Daniel Ballinas, como dirección de diseño.
+**Por qué:** el sistema se construye al mismo tiempo que las auditorías. Si
+espera a tener resultados reales, se detiene. Y sin contenido que parezca
+real, los componentes no se prueban.
+**Condiciones:** todo lo de ejemplo es ficticio (trámites, dependencias,
+dominios y personas, sin nombres parecidos a los reales); cada página que lo
+usa lo avisa a la vista; vive en un solo archivo,
+`prototipo/datos-de-ejemplo.md`; y el contenido que sí existe, como la
+metodología, no se inventa. El detalle está en la sección 2 de
+[`plan-de-construccion.md`](plan-de-construccion.md).
+**Reemplaza:** la regla de `CLAUDE.md` que prohibía inventar datos para
+ilustrar.
+
 ### 2026-09-15 · El repositorio es público
 
 **Decidió:** Daniel Ballinas.

@@ -2,9 +2,9 @@
 
 Fecha: 2026-09-25 · Estado: vivo
 
-Lo que falta, en el orden en que conviene hacerlo. Cada renglón dice qué
-lo bloquea. El detalle vive en su issue o PR, no aquí: esta lista es el
-mapa, no el expediente.
+Lo que falta ahora, en el orden en que conviene hacerlo. El camino completo
+está en [`plan-de-construccion.md`](plan-de-construccion.md); esta lista
+muestra el tramo en curso. El detalle vive en su issue o PR, no aquí.
 
 Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 [`decisiones.md`](decisiones.md), y el historial queda en git.
@@ -18,31 +18,33 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
   actualizar el párrafo de la sección 7 del documento. Después, pasar el PR a
   listo, hacer merge y cerrar [#1](https://github.com/omad-mx/sistema-de-diseno/issues/1).
 
-## Siguiente
+## Siguiente: fase 1 del plan, cimientos
 
-1. **Pictogramas de los seis perfiles.** Los de la maqueta son bosquejos.
-   *Bloquean la franja.*
-2. **Nombres de tokens: español o inglés** ([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2)).
-   Conviene decidirlo antes del primer componente: después, cambiar un nombre
-   significa cambiarlo en todos los componentes que lo usan.
-3. **Definir qué es un componente en este repositorio:** qué archivos lleva
-   cada carpeta de `componentes/` y qué documenta. Hay que tenerlo antes del
-   primero.
-4. **La franja de seis perfiles**, el primer componente. Depende de 1, 2 y 3.
-   Su especificación está en la [sección 5](omad-sistema-de-diseno.md#5-los-seis-perfiles).
+1. **Cómo se hace un componente** (paso 1.1).
+2. **Fuentes propias** (paso 1.2).
+3. **Separar tokens y reglas base** (paso 1.3). Falta la decisión D4.
+4. **Revisión automática de componentes en la CI** (paso 1.4).
+5. **Esqueletos del catálogo y del prototipo** (paso 1.6).
+
+## Decisiones que se acercan
+
+- **D1, nombres de tokens** ([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2)).
+  Antes del paso 2.1, el primer componente.
+- **D3, quién dibuja los pictogramas.** Antes del paso 3.1. Los de la maqueta
+  son bosquejos.
 
 ## Herramientas
 
 - **La paleta está duplicada entre el CSS y el script** ([#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).
   Si un color cambia solo en el CSS, la revisión automática pasa en verde.
-  No bloquea nada; se puede hacer en cualquier hueco.
+  Es el paso 1.5 y puede ir en paralelo con el resto de la fase 1.
 
 ## Verificación
 
 - **Pruebas con tecnologías de apoyo** ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)):
   NVDA, TalkBack, VoiceOver, zoom al 400% y espaciado de texto forzado.
-  Empiezan cuando exista el primer componente, porque antes no hay nada que
-  probar. De estas pruebas depende poder declarar conformidad.
+  Es el paso 5.2, pero cada componente se puede probar en cuanto exista. De
+  estas pruebas depende poder declarar conformidad.
 
 ## Esperan al consejo
 
@@ -50,3 +52,5 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
   [`decisiones.md`](decisiones.md)).
 - Registrar la franja como marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)).
   El documento pide decidirlo antes de publicarla, y el repositorio es público.
+  Es la decisión D2 del plan: conviene que el consejo la tome antes de la
+  fase 3.

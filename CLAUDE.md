@@ -23,6 +23,7 @@ repositorios.
 - En CSS de componentes **solo tokens semánticos**. Nunca primitivas, nunca un hex suelto.
 - `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
 - Una sola familia: Atkinson Hyperlegible. Base 18px.
+- Nombres (tokens, clases, archivos, ramas) en español, **sin acentos y con ñ → n**: `petroleo`, `tipografia`, `tamano`. Nunca `tamanio`.
 
 ## Flujo
 

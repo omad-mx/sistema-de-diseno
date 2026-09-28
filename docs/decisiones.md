@@ -14,7 +14,6 @@ la mesa cuando se tomó.
 | Issue | Decisión | Quién decide |
 |---|---|---|
 | [#1](https://github.com/omad-mx/sistema-de-diseno/issues/1) | Dirección visual: fría y contenida, o cálida y divulgativa | Consejo |
-| [#2](https://github.com/omad-mx/sistema-de-diseno/issues/2) | Nombres de tokens en español o en inglés | Dirección de diseño |
 | [#3](https://github.com/omad-mx/sistema-de-diseno/issues/3) | Registrar la franja de seis perfiles como marca | Consejo |
 | [#4](https://github.com/omad-mx/sistema-de-diseno/issues/4) | Verificación con tecnologías de apoyo (no es una decisión: es trabajo pendiente que condiciona declarar conformidad) | Dirección de diseño |
 | — | Que el consejo ratifique que este repositorio sea público | Consejo |
@@ -22,6 +21,34 @@ la mesa cuando se tomó.
 ---
 
 ## Tomadas
+
+### 2026-09-27 · Los nombres se quedan en español, sin acentos y con ñ → n
+
+**Decidió:** Daniel Ballinas, como dirección de diseño
+([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2), decisión D1 del
+plan).
+**Aplica a:** tokens, clases, archivos, carpetas y ramas.
+**Por qué:**
+- El vocabulario del sistema es el de la metodología (bloqueante, trámite,
+  dependencia, perfil). Traducirlo pierde precisión y obliga a traducir de
+  cabeza entre el documento y el código.
+- Quien va a usar el sistema son equipos mexicanos y personas que quieran
+  auditarlo.
+- Sisdai, el sistema de referencia en México, hace lo mismo: sus variables,
+  clases y archivos están en español (`--texto-secundario`, `.ancho-lectura`,
+  `tipografia/parrafo.scss`).
+
+Lo que es del lenguaje (`color`, `display`, `button`) sigue en inglés, porque
+así es CSS.
+**Regla de escritura:** sin acentos (`petroleo`, `tipografia`) y la ñ se
+escribe n (`diseno`, `tamano`). Siempre así, para que nadie improvise;
+Sisdai, por ejemplo, escribe `tamanio`.
+**Se descartó:**
+- El inglés.
+- La mezcla de los dos, que es peor que cualquiera de los dos.
+
+Si algún día hay contribución internacional, se publica un glosario
+español-inglés; no se renombra nada.
 
 ### 2026-09-25 · El prototipo usa datos de ejemplo hasta que haya auditorías reales
 

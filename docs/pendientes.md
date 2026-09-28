@@ -28,8 +28,6 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## Decisiones que se acercan
 
-- **D1, nombres de tokens** ([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2)).
-  Antes del paso 2.1, el primer componente.
 - **D3, quién dibuja los pictogramas.** Antes del paso 3.1. Los de la maqueta
   son bosquejos.
 

@@ -14,7 +14,6 @@ la mesa cuando se tomó.
 | Issue | Decisión | Quién decide |
 |---|---|---|
 | [#1](https://github.com/omad-mx/sistema-de-diseno/issues/1) | Dirección visual: fría y contenida, o cálida y divulgativa | Consejo |
-| [#2](https://github.com/omad-mx/sistema-de-diseno/issues/2) | Nombres de tokens en español o en inglés | Dirección de diseño |
 | [#3](https://github.com/omad-mx/sistema-de-diseno/issues/3) | Registrar la franja de seis perfiles como marca | Consejo |
 | [#4](https://github.com/omad-mx/sistema-de-diseno/issues/4) | Verificación con tecnologías de apoyo (no es una decisión: es trabajo pendiente que condiciona declarar conformidad) | Dirección de diseño |
 | — | Que el consejo ratifique que este repositorio sea público | Consejo |
@@ -22,6 +21,49 @@ la mesa cuando se tomó.
 ---
 
 ## Tomadas
+
+### 2026-09-27 · Los nombres se quedan en español, sin acentos y con ñ → n
+
+**Decidió:** Daniel Ballinas, como dirección de diseño
+([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2), decisión D1 del
+plan).
+**Aplica a:** tokens, clases, archivos, carpetas y ramas.
+**Por qué:**
+- El vocabulario del sistema es el de la metodología (bloqueante, trámite,
+  dependencia, perfil). Traducirlo pierde precisión y obliga a traducir de
+  cabeza entre el documento y el código.
+- Quien va a usar el sistema son equipos mexicanos y personas que quieran
+  auditarlo.
+- Sisdai, el sistema de referencia en México, hace lo mismo: sus variables,
+  clases y archivos están en español (`--texto-secundario`, `.ancho-lectura`,
+  `tipografia/parrafo.scss`).
+
+Lo que es del lenguaje (`color`, `display`, `button`) sigue en inglés, porque
+así es CSS.
+**Regla de escritura:** sin acentos (`petroleo`, `tipografia`) y la ñ se
+escribe n (`diseno`, `tamano`). Siempre así, para que nadie improvise;
+Sisdai, por ejemplo, escribe `tamanio`.
+**Se descartó:**
+- El inglés.
+- La mezcla de los dos, que es peor que cualquiera de los dos.
+
+Si algún día hay contribución internacional, se publica un glosario
+español-inglés; no se renombra nada.
+
+### 2026-09-25 · El prototipo usa datos de ejemplo hasta que haya auditorías reales
+
+**Decidió:** Daniel Ballinas, como dirección de diseño.
+**Por qué:** el sistema se construye al mismo tiempo que las auditorías. Si
+espera a tener resultados reales, se detiene. Y sin contenido que parezca
+real, los componentes no se prueban.
+**Condiciones:** todo lo de ejemplo es ficticio (trámites, dependencias,
+dominios y personas, sin nombres parecidos a los reales); cada página que lo
+usa lo avisa a la vista; vive en un solo archivo,
+`prototipo/datos-de-ejemplo.md`; y el contenido que sí existe, como la
+metodología, no se inventa. El detalle está en la sección 2 de
+[`plan-de-construccion.md`](plan-de-construccion.md).
+**Reemplaza:** la regla de `CLAUDE.md` que prohibía inventar datos para
+ilustrar.
 
 ### 2026-09-15 · El repositorio es público
 

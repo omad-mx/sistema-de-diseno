@@ -23,6 +23,7 @@ repositorios.
 - En CSS de componentes **solo tokens semánticos**. Nunca primitivas, nunca un hex suelto.
 - `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
 - Una sola familia: Atkinson Hyperlegible. Base 18px.
+- Nombres (tokens, clases, archivos, ramas) en español, **sin acentos y con ñ → n**: `petroleo`, `tipografia`, `tamano`. Nunca `tamanio`.
 
 ## Flujo
 
@@ -35,4 +36,4 @@ repositorios.
 
 - Cabecera con título, fecha y estado (`borrador` / `en discusión` / `aprobado` / `superado`); se agregan al índice.
 - Nada de cifras medidas a mano. Lo que se afirma numéricamente sale del script o de una medición reproducible.
-- Nunca inventar datos, trámites ni resultados de auditoría para ilustrar.
+- Datos de ejemplo solo en el prototipo y con las condiciones de la sección 2 de `docs/plan-de-construccion.md`: todo ficticio, avisado en la página y concentrado en `prototipo/datos-de-ejemplo.md`. Nunca un trámite o una dependencia real con un resultado inventado.

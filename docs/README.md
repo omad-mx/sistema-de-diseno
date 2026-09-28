@@ -20,6 +20,8 @@ privado `omad-mx/interno`.
 |---|---|---|---|
 | [`omad-sistema-de-diseno.md`](omad-sistema-de-diseno.md) | El documento del sistema, versión 0.1: problema, dirección visual, paleta, el hallazgo de visión cromática, los seis perfiles, tipografía, espacio y foco. | 2026-09-09 | `en discusión` |
 | [`decisiones.md`](decisiones.md) | Registro cronológico de lo decidido y lo pendiente. | 2026-09-15 | vivo |
+| [`plan-de-construccion.md`](plan-de-construccion.md) | El plan paso a paso, del documento 0.1 a un prototipo funcional y una fundación verificada. | 2026-09-25 | `en discusión` |
+| [`pendientes.md`](pendientes.md) | Lo que falta, en orden y con lo que lo bloquea. | 2026-09-25 | vivo |
 
 ## Pendientes de escribir
 

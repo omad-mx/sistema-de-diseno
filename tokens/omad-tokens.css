@@ -241,10 +241,11 @@
   --omad-esp-8:  4rem;
   --omad-esp-9:  6rem;
 
-  /* Radio mínimo. El registro es el de un formulario oficial, no el de una
-     tarjeta de producto. Las tablas de datos van a radio 0. */
+  /* Radio de 8 px en controles (dictamen de #1, 2026-09-20). El registro sigue
+     siendo de oficio: lo dan la tipografía y la cifra, no la esquina.
+     Las tablas de datos van a radio 0. */
   --omad-radio-0:  0;
-  --omad-radio-1:  2px;
+  --omad-radio-1:  8px;
   --omad-radio-2:  4px;
 
   /* Objetivo táctil. WCAG 2.2 AA (2.5.8) exige 24px; el sistema exige 44. */

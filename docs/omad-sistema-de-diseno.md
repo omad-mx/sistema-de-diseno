@@ -156,7 +156,7 @@ Medida máxima de 66 caracteres en prosa. Interlínea de 1.65 en cuerpo, 1.15 so
 
 ## 7. Espacio, forma, foco
 
-Escala de espacio en base 4. Radio de 2px en controles y 0 en tablas de datos: el registro es el de un formulario oficial, no el de una tarjeta de producto.
+Escala de espacio en base 4. Radio de 8px en controles y 0 en tablas de datos. El registro sigue siendo el de un formulario oficial; lo sostienen la tipografía y la cifra, no la esquina. Subió de 2 a 8px con el dictamen de la dirección visual (registro de decisiones, 2026-09-20).
 
 **Objetivo táctil mínimo: 44×44px.** WCAG 2.2 AA exige 24px en el criterio 2.5.8. El sistema exige 44 porque el criterio mínimo es exactamente el tipo de conformidad de trámite que OMAD va a criticar.
 

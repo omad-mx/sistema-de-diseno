@@ -21,6 +21,17 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-10-31 · Los pictogramas de los seis perfiles los dibuja la dirección de diseño
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (decisión D3 del plan).
+**Por qué:** nadie más en el colectivo dibuja por ahora.
+**Condiciones:** tiempo acotado. Se parte de los bosquejos de la maqueta y se
+cumplen los requisitos del paso 3.1 del
+[plan](plan-de-construccion.md): se reconocen a 24 px, se distinguen por
+silueta y no por color, tienen el mismo grosor de trazo y no usan símbolos de
+discapacidad institucionales. Lo que no exijan esos requisitos no se pule.
+Si alguien del colectivo que dibuje quiere retomarlos después, se reabre.
+
 ### 2026-09-27 · Los nombres se quedan en español, sin acentos y con ñ → n
 
 **Decidió:** Daniel Ballinas, como dirección de diseño

@@ -29,11 +29,6 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 4. **Revisión automática de componentes en la CI** (paso 1.4).
 5. **Esqueletos del catálogo y del prototipo** (paso 1.6).
 
-## Decisiones que se acercan
-
-- **D3, quién dibuja los pictogramas.** Antes del paso 3.1. Los de la maqueta
-  son bosquejos.
-
 ## Herramientas
 
 - **La paleta está duplicada entre el CSS y el script** ([#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).

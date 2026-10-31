@@ -25,7 +25,7 @@ Hay que tomarlas antes del paso que las necesita, no antes de empezar.
 |---|---|---|---|
 | D1 | Nombres de tokens: español o inglés ([#2](https://github.com/omad-mx/sistema-de-diseno/issues/2)) | 2.1 | **Decidida el 2026-09-27:** español, sin acentos y ñ → n. Ver [`decisiones.md`](decisiones.md). |
 | D2 | ¿La franja se construye en el repositorio público antes de que el consejo decida si se registra como marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3))? | 3.2 | Pedirle al consejo que decida mientras se hacen las fases 1 y 2, que no la necesitan. Si no llega a tiempo, construirla y marcarla como propuesta. |
-| D3 | ¿Quién dibuja los seis pictogramas? | 3.1 | La dirección de diseño, con los requisitos del paso 3.1. |
+| D3 | ¿Quién dibuja los seis pictogramas? | 3.1 | **Decidida el 2026-10-31:** la dirección de diseño, con un tiempo acotado. Ver [`decisiones.md`](decisiones.md). |
 | D4 | Separar los tokens de las reglas base en dos archivos | 1.3 | Sí. Hoy `omad-tokens.css` mezcla las variables con reglas sobre `body`, `a` y el foco. |
 | D5 | Páginas del prototipo escritas a mano, o generadas desde un archivo de datos | 4.1 | A mano mientras sean pocas. Generarlas cuando lleguen las auditorías reales, porque para entonces ya habrá muchas fichas. |
 

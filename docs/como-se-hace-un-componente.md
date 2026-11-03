@@ -1,6 +1,6 @@
 # Cómo se hace un componente
 
-Fecha: 2026-10-31 · Estado: `borrador`
+Fecha: 2026-11-03 · Estado: `aprobado`
 
 Esta es la receta que siguen todos los componentes del sistema, de la
 distinción de gravedad a la franja. Dice dónde vive un componente, cómo se
@@ -65,7 +65,8 @@ Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 - **Si falta un token, se agrega en el mismo PR**, en la capa 2. Si es un
   color, también se agrega al par correspondiente del script de contraste y
   se corre antes de abrir el PR.
-- **La clase raíz es el nombre del componente**: `.franja`. Sus partes llevan
+- **La clase raíz es el nombre del componente**, sin prefijo: `.franja`,
+  no `.omad-franja`. Sus partes llevan
   el nombre como prefijo: `.franja-celda`, `.franja-marca`. Así ningún
   componente pisa a otro.
 - **Las variantes van en un atributo**, no en otra clase:

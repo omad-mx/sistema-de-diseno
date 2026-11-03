@@ -14,9 +14,8 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 ## En curso
 
 - **Cómo se hace un componente** (paso 1.1,
-  [PR #9](https://github.com/omad-mx/sistema-de-diseno/pull/9)). Faltan por
-  confirmar tres convenciones: clases sin prefijo, variantes en
-  `data-variante` y estado desde ARIA.
+  [PR #9](https://github.com/omad-mx/sistema-de-diseno/pull/9)). Listo para
+  merge.
 
 ## Siguiente: fase 1 del plan, cimientos
 

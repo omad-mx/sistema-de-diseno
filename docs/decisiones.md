@@ -21,6 +21,25 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-03 · Convenciones de marcado de los componentes
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 1.1 del plan,
+[PR #9](https://github.com/omad-mx/sistema-de-diseno/pull/9)).
+**Qué:**
+- Las clases van sin prefijo: `.franja`, no `.omad-franja`. Las partes llevan
+  el nombre del componente como prefijo (`.franja-celda`).
+- Las variantes van en un atributo: `data-variante="secundario"`, no en una
+  segunda clase.
+- El estado se toma de ARIA y de las pseudoclases (`[aria-current]`,
+  `:focus-visible`), nunca de una clase como `.activo`.
+
+**Por qué:** el marcado se lee solo y no choca entre componentes. Y si el
+estilo cuelga del mismo atributo que oye un lector de pantalla, lo que se ve
+y lo que se oye no pueden contradecirse.
+**Se reabre si:** otro sitio tiene que mezclar este CSS con el suyo y los
+nombres chocan. Entonces se agrega el prefijo.
+El detalle está en [`como-se-hace-un-componente.md`](como-se-hace-un-componente.md).
+
 ### 2026-10-31 · Los pictogramas de los seis perfiles los dibuja la dirección de diseño
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (decisión D3 del plan).

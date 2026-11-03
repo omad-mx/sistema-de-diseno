@@ -240,23 +240,6 @@ fallas registradas como issues. Esa es la fundación.
 
 ## 5. Lista de revisión de cada componente
 
-Un componente entra al catálogo cuando:
-
-- [ ] Su CSS usa solo tokens semánticos (lo revisa la CI desde el paso 1.4).
-- [ ] Su `ejemplo.html` muestra todos sus estados y variantes, con los casos
-      límite.
-- [ ] Funciona solo con teclado y el foco se ve en todas sus partes.
-- [ ] Aguanta 320 px de ancho, zoom al 400% y espaciado de texto forzado, sin
-      cortar ni encimar texto.
-- [ ] Se ve bien en tema claro, tema oscuro y `forced-colors`.
-- [ ] Ningún significado depende solo del color.
-- [ ] Sus objetivos táctiles miden al menos 44 × 44 px.
-- [ ] Su README dice:
-  - qué es y cuándo se usa (y cuándo no);
-  - su anatomía;
-  - cómo lo lee un lector de pantalla, escrito como se oye;
-  - qué criterios WCAG cubre;
-  - qué falta probar con tecnologías de apoyo.
-
-Un componente que no pasa todo esto puede entrar a `main` con la etiqueta
-`borrador` en su README, pero no se usa en el prototipo.
+La lista vive en
+[`como-se-hace-un-componente.md`](como-se-hace-un-componente.md#7-lista-de-revisión),
+junto con la plantilla de la ficha. Se mantiene en un solo lugar.

@@ -1,6 +1,6 @@
 # Pendientes
 
-Fecha: 2026-10-31 · Estado: vivo
+Fecha: 2026-11-03 · Estado: vivo
 
 Lo que falta ahora, en el orden en que conviene hacerlo. El camino completo
 está en [`plan-de-construccion.md`](plan-de-construccion.md); esta lista
@@ -13,21 +13,18 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## En curso
 
-- **Cerrar la fase 0.** La dirección visual entró con el
-  [PR #7](https://github.com/omad-mx/sistema-de-diseno/pull/7); falta cerrar
-  [#1](https://github.com/omad-mx/sistema-de-diseno/issues/1). Con el merge de
-  este plan ([PR #8](https://github.com/omad-mx/sistema-de-diseno/pull/8)) se
-  cierra [#2](https://github.com/omad-mx/sistema-de-diseno/issues/2).
+- **Cómo se hace un componente** (paso 1.1,
+  [PR #9](https://github.com/omad-mx/sistema-de-diseno/pull/9)). Listo para
+  merge.
 
 ## Siguiente: fase 1 del plan, cimientos
 
-1. **Cómo se hace un componente** (paso 1.1).
-2. **Fuentes propias** (paso 1.2).
-3. **Separar tokens y reglas base** (paso 1.3). Falta la decisión D4. De paso,
+1. **Fuentes propias** (paso 1.2).
+2. **Separar tokens y reglas base** (paso 1.3). Falta la decisión D4. De paso,
    rehacer la escala de radio: `--omad-radio-1` subió a 8 px y
    `--omad-radio-2` se quedó en 4, así que la escala quedó al revés.
-4. **Revisión automática de componentes en la CI** (paso 1.4).
-5. **Esqueletos del catálogo y del prototipo** (paso 1.6).
+3. **Revisión automática de componentes en la CI** (paso 1.4).
+4. **Esqueletos del catálogo y del prototipo** (paso 1.6).
 
 ## Herramientas
 

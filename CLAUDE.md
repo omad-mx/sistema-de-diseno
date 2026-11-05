@@ -11,14 +11,14 @@ repositorios.
 ## Qué hay
 
 - `tokens/omad-tokens.css` — dos capas: primitivas (capa 1) y semánticos (capa 2).
-- `herramientas/verificar-contraste.py` — verifica 31 pares de contraste WCAG 2.2 AA. Sin dependencias. Sale con 1 si alguno incumple; la CI lo corre en cada PR.
+- `herramientas/verificar-contraste.py` — lee la paleta de los tokens y verifica 31 pares de contraste WCAG 2.2 AA. Sin dependencias. Sale con 1 si alguno incumple; la CI lo corre en cada PR.
 - `herramientas/paleta-direccion-b.py` — deriva la paleta cálida de la maqueta de #1 (mismo L y C, tono girado) y la verifica. `--css` imprime el bloque que va en `docs/maqueta-direccion-visual.html`; ese bloque no se edita a mano.
 - `docs/` — el documento del sistema, el índice (`docs/README.md`) y el registro de decisiones (`docs/decisiones.md`).
 - `componentes/` — vacío a propósito hasta que se ratifique la dirección visual (#1).
 
 ## Reglas que no se discuten en un PR
 
-- **El script es la fuente de verdad de los colores**, no el CSS. Un cambio de color se hace en los dos y se corre el script antes de abrir el PR. La CI solo mira el script (#5).
+- **Los colores viven en un solo lugar: la capa 1 de `tokens/omad-tokens.css`.** El script los lee de ahí y ningún color entra sin pasar el contrato. La capa 1 solo admite hexadecimales, porque es lo que el script sabe medir.
 - **La escala de gravedad no vuelve al semáforo y no hay verde de «completado».** Sale de distancias CIE76 bajo deuteranopia (sección 4 del documento). No se re-litiga sin volver a correr las distancias.
 - **Los seis perfiles no tienen color propio.** Marca gráfica y posición fija.
 - En CSS de componentes **solo tokens semánticos**. Nunca primitivas, nunca un hex suelto.

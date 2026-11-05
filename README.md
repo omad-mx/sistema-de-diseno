@@ -57,9 +57,8 @@ python3 herramientas/verificar-contraste.py --csv > contrastes.csv
 
 Solo necesita Python 3, sin dependencias.
 
-**El script es la fuente de verdad.** Si cambias un valor de la capa 1 en
-`tokens/omad-tokens.css`, actualiza también la paleta del script y vuelve a
-correrlo antes de abrir el PR.
+**Los colores viven en la capa 1 de `tokens/omad-tokens.css`.** El script los
+lee de ahí. Si cambias un valor, vuelve a correrlo antes de abrir el PR.
 
 ### Verificación automática
 
@@ -111,7 +110,7 @@ Aquí va solo lo que es del sistema de diseño. Lo que es operación de OMAD
 1. **Todo entra por pull request.** No se puede empujar directo a `main`, ni
    siendo admin.
 2. **La CI tiene que estar verde.** Si cambias un color, cámbialo en
-   `tokens/omad-tokens.css` **y** en la `PALETA` del script, y corre
+   `tokens/omad-tokens.css` y corre
    `python3 herramientas/verificar-contraste.py` antes de abrir el PR.
 3. **Los commits van firmados.** GitHub rechaza los que no lo estén.
 4. **Las decisiones se registran.** Lo que está por decidirse es un issue con

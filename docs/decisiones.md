@@ -21,6 +21,17 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-05 · Los colores viven en el CSS y el script los verifica
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 1.5 del plan,
+[#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).
+**Por qué:** la paleta estaba escrita dos veces y un cambio hecho solo en el
+CSS pasaba verde. Ahora `herramientas/verificar-contraste.py` lee la capa 1 de
+`tokens/omad-tokens.css`, así que no hay dos copias que puedan diferir.
+**Se mantiene:** ningún color entra sin pasar el contrato.
+**Reemplaza:** la entrada del 2026-09-09, «El script es la fuente de verdad de
+los colores».
+
 ### 2026-11-03 · Convenciones de marcado de los componentes
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 1.1 del plan,
@@ -134,6 +145,8 @@ repositorio. Va en `omad-mx/interno`, privado.
 **Pendiente:** que el consejo lo ratifique.
 
 ### 2026-09-09 · El script es la fuente de verdad de los colores
+
+**Superada** por la entrada del 2026-11-05.
 
 **Decidió:** Daniel Ballinas.
 **Por qué:** la CI verifica la constante `PALETA` de

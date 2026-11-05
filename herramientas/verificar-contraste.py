@@ -3,6 +3,7 @@
 verificar-contraste.py — OMAD
 Calcula la razón de contraste WCAG 2.x de cada par de la paleta y reporta
 si cumple AA texto (4.5:1), AA texto grande (3:1) y AA no-textual (3:1).
+Los colores se leen de tokens/omad-tokens.css; aquí solo vive el contrato.
 
 Uso:  python3 verificar-contraste.py
       python3 verificar-contraste.py --csv > contrastes.csv
@@ -12,8 +13,10 @@ No sustituye la verificación manual con lector de pantalla ni la revisión
 de contraste en estados de foco sobre fondos reales.
 """
 
-import sys
 import itertools
+import re
+import sys
+from pathlib import Path
 
 
 def hex_a_rgb(h):
@@ -48,62 +51,28 @@ def veredicto(ratio):
 
 
 # ---------------------------------------------------------------------------
-# Paleta OMAD. Editar aquí y volver a correr el script.
+# Paleta OMAD. Se lee de la capa 1 de tokens/omad-tokens.css: ahí se edita.
 # ---------------------------------------------------------------------------
 
-TINTA = {
-    "tinta-950": "#080F13",
-    "tinta-900": "#0E1A1F",
-    "tinta-800": "#16262D",
-    "tinta-700": "#22363F",
-    "tinta-600": "#334A55",
-    "tinta-500": "#4C646F",
-    "tinta-400": "#6B838E",
-    "tinta-300": "#94A8B1",
-    "tinta-200": "#BDCBD1",
-    "tinta-100": "#DCE4E7",
-    "tinta-50":  "#EDF1F2",
-    "tinta-0":   "#FBFCFC",
-}
+RUTA_TOKENS = Path(__file__).resolve().parent.parent / "tokens" / "omad-tokens.css"
 
-PETROLEO = {
-    "petroleo-900": "#03282F",
-    "petroleo-800": "#053A45",
-    "petroleo-700": "#074C5B",
-    "petroleo-600": "#0B5563",
-    "petroleo-500": "#0E6B7D",
-    "petroleo-400": "#2C8A9C",
-    "petroleo-300": "#5FAEBD",
-    "petroleo-200": "#9BCED8",
-    "petroleo-100": "#CDE7EC",
-    "petroleo-50":  "#E9F4F6",
-}
 
-GRAVEDAD = {
-    "bloqueante-900": "#4A1004",
-    "bloqueante-700": "#631705",
-    "bloqueante-600": "#7C1D06",
-    "bloqueante-300": "#E9A088",
-    "bloqueante-100": "#F7E0D8",
-    "severa-700":     "#8A4A00",
-    "severa-600":     "#9F5500",
-    "severa-300":     "#F0BE7A",
-    "severa-100":     "#FAEBD6",
-    "moderada-700":   "#4F4739",
-    "moderada-600":   "#63594A",
-    "moderada-300":   "#C9BFAE",
-    "moderada-100":   "#EFEAE2",
-    "menor-700":      "#334654",
-    "menor-600":      "#41586B",
-    "menor-300":      "#A9BAC7",
-    "menor-100":      "#E3E9EE",
-}
+def leer_paleta(ruta=RUTA_TOKENS):
+    css = ruta.read_text(encoding="utf-8")
+    inicio, fin = css.find("CAPA 1 ·"), css.find("CAPA 2 ·")
+    if inicio < 0 or fin < inicio:
+        sys.exit(f"No encontré la capa 1 en {ruta}.")
+    capa_1 = re.sub(r"/\*.*?\*/", "", css[inicio:fin], flags=re.S)
+    declaraciones = re.findall(r"--omad-([\w-]+)\s*:\s*([^;]+);", capa_1)
+    if not declaraciones:
+        sys.exit(f"La capa 1 de {ruta} no tiene colores.")
+    for nombre, valor in declaraciones:
+        if not re.fullmatch(r"#(?:[0-9a-fA-F]{3}|[0-9a-fA-F]{6})", valor.strip()):
+            sys.exit(f"--omad-{nombre}: «{valor.strip()}» no es un hexadecimal; el script no puede medirlo.")
+    return {nombre: valor.strip() for nombre, valor in declaraciones}
 
-PALETA = {**TINTA, **PETROLEO, **GRAVEDAD}
 
-# Superficies contra las que se debe verificar todo color de texto o de icono.
-SUPERFICIES_CLARO = {"fondo": "#FBFCFC", "superficie": "#EDF1F2", "elevada": "#FFFFFF"}
-SUPERFICIES_OSCURO = {"fondo": "#0E1A1F", "superficie": "#16262D", "elevada": "#22363F"}
+PALETA = leer_paleta()
 
 # Pares que el sistema promete que cumplen. Si uno falla, el build debe fallar.
 CONTRATO = [
@@ -143,7 +112,9 @@ CONTRATO = [
 
 
 def resolver(nombre):
-    return PALETA.get(nombre, nombre)
+    if nombre not in PALETA:
+        sys.exit(f"El contrato usa «{nombre}», que no existe en la capa 1 de los tokens.")
+    return PALETA[nombre]
 
 
 def probar_contrato():

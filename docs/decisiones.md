@@ -21,6 +21,22 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-09 · Los tokens y las reglas base viven en archivos distintos
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (decisión D4 del plan,
+paso 1.3).
+**Qué:** `tokens/omad-tokens.css` se queda solo con variables. Las reglas
+sobre `body`, `a`, el foco y la utilidad `.visualmente-oculto` pasan a
+`estilos/base.css`. Las fuentes se declaran en `estilos/fuentes.css` y se
+sirven desde `fuentes/`, sin Google Fonts. Una página carga un solo archivo,
+`estilos/omad.css`, que importa todo.
+**Por qué:** un archivo de tokens que además pinta cosas no se puede reusar
+sin arrastrar las reglas. Y el sitio de un observatorio de accesibilidad no
+puede depender de un servicio externo para que su texto se vea.
+**De paso:** la fase 1 del plan se hizo en un solo PR en vez de uno por paso
+(1.2, 1.3, 1.4 y 1.6). Los pasos de plomería que no necesitan ojo de diseño
+se agrupan; los que sí, siguen yendo uno por uno.
+
 ### 2026-11-05 · Los colores viven en el CSS y el script los verifica
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 1.5 del plan,

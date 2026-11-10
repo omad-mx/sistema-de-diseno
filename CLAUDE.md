@@ -10,11 +10,14 @@ repositorios.
 
 ## Qué hay
 
-- `tokens/omad-tokens.css` — dos capas: primitivas (capa 1) y semánticos (capa 2).
+- `tokens/omad-tokens.css` — solo variables, dos capas: primitivas (capa 1) y semánticos (capa 2).
+- `estilos/omad.css` — la hoja única que carga una página. Importa los tokens, `fuentes.css` (las dos familias desde `fuentes/`, sin Google Fonts) y `base.css` (foco, enlaces, cuerpo, `.visualmente-oculto`).
 - `herramientas/verificar-contraste.py` — lee la paleta de los tokens y verifica 31 pares de contraste WCAG 2.2 AA. Sin dependencias. Sale con 1 si alguno incumple; la CI lo corre en cada PR.
+- `herramientas/revisar-componentes.py` — lee el CSS de `componentes/` y falla si hay una primitiva, un color a mano, `outline: none` sin `:focus-visible` o `!important`. La CI lo corre en cada PR.
 - `herramientas/paleta-direccion-b.py` — deriva la paleta cálida de la maqueta de #1 (mismo L y C, tono girado) y la verifica. `--css` imprime el bloque que va en `docs/maqueta-direccion-visual.html`; ese bloque no se edita a mano.
 - `docs/` — el documento del sistema, el índice (`docs/README.md`) y el registro de decisiones (`docs/decisiones.md`).
-- `componentes/` — vacío a propósito hasta que se ratifique la dirección visual (#1).
+- `componentes/` — el catálogo (`index.html`) y una carpeta por componente, según `docs/como-se-hace-un-componente.md`.
+- `prototipo/` — el sitio armado solo con componentes del catálogo; sin estilos propios.
 
 ## Reglas que no se discuten en un PR
 
@@ -29,7 +32,7 @@ repositorios.
 ## Flujo
 
 - `main` está protegido: PR obligatorio, CI verde, commits firmados, sin force-push. Aplica a admins.
-- Ramas: `docs/…`, `tokens/…`, `componentes/…`, `herramientas/…`.
+- Ramas: `docs/…`, `tokens/…`, `estilos/…`, `componentes/…`, `prototipo/…`, `herramientas/…`.
 - Decisiones pendientes = issue con etiqueta `decisión`. Decisiones tomadas = entrada en `docs/decisiones.md` con fecha, quién y por qué.
 - Lo que sea operación de OMAD (costos, acuerdos) **no va aquí**: va en `omad-mx/interno`, privado.
 

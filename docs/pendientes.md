@@ -13,17 +13,28 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## En curso
 
-- **Paleta única** (paso 1.5, [#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).
-  El script lee los colores del CSS. Listo para merge.
+Nada. La fase 1 (cimientos) está completa.
 
-## Siguiente: fase 1 del plan, cimientos
+## Siguiente: fase 2 del plan, elementos
 
-1. **Fuentes propias** (paso 1.2).
-2. **Separar tokens y reglas base** (paso 1.3). Falta la decisión D4. De paso,
-   rehacer la escala de radio: `--omad-radio-1` subió a 8 px y
-   `--omad-radio-2` se quedó en 4, así que la escala quedó al revés.
-3. **Revisión automática de componentes en la CI** (paso 1.4).
-4. **Esqueletos del catálogo y del prototipo** (paso 1.6).
+Se extraen de la [maqueta](maqueta-direccion-visual.html) siguiendo
+[cómo se hace un componente](como-se-hace-un-componente.md). El 2.1 va
+primero; del 2.2 al 2.6 pueden ir juntos.
+
+1. **Tipografía y prosa** (2.1).
+2. **Enlace y botón** (2.2).
+3. **Distintivo de gravedad** (2.3).
+4. **Marca de resultado** (2.4).
+5. **Criterio WCAG** (2.5).
+6. **Aviso** (2.6). Su primer uso es «Datos de ejemplo» en el prototipo.
+
+## Herramientas
+
+- **El contrato de contraste mide primitivas, no semánticos**
+  ([#11](https://github.com/omad-mx/sistema-de-diseno/issues/11)). Conviene
+  antes de que los componentes usen la capa 2, es decir, ya.
+- **Escala de radio al revés:** `--omad-radio-1` es 8 px y `--omad-radio-2`
+  sigue en 4. Nadie usa el 2 todavía; se define cuando un componente lo pida.
 
 ## Verificación
 

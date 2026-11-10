@@ -33,10 +33,13 @@ primera paleta, está en
 
 | Carpeta | Qué contiene |
 |---|---|
-| [`tokens/`](tokens/) | `omad-tokens.css` — la implementación. Dos capas: primitivas y semánticos. |
+| [`tokens/`](tokens/) | `omad-tokens.css` — solo variables. Dos capas: primitivas y semánticos. |
+| [`estilos/`](estilos/) | `omad.css` es la hoja única que carga una página; importa los tokens, `fuentes.css` y `base.css` (foco, enlaces, cuerpo, `.visualmente-oculto`). |
+| [`fuentes/`](fuentes/) | Atkinson Hyperlegible Next y JetBrains Mono en WOFF2, con sus licencias OFL. El sitio no depende de Google Fonts. |
 | [`docs/`](docs/) | Los documentos del sistema y el registro de decisiones. El [índice](docs/README.md) dice qué hay y en qué estado está. |
-| [`herramientas/`](herramientas/) | `verificar-contraste.py` — calcula el contraste WCAG de cada par y verifica el contrato. |
-| [`componentes/`](componentes/) | Todavía vacío a propósito. Ver la nota adentro. |
+| [`herramientas/`](herramientas/) | `verificar-contraste.py` verifica el contrato de contraste; `revisar-componentes.py` revisa que el CSS de componentes use solo tokens semánticos. Los dos corren en cada PR. |
+| [`componentes/`](componentes/) | El catálogo (`index.html`) y una carpeta por componente. Todavía sin componentes. |
+| [`prototipo/`](prototipo/) | El sitio de OMAD armado solo con componentes del catálogo. Por ahora, un esqueleto. |
 
 ## El contrato de contraste
 

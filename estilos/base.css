@@ -1,0 +1,62 @@
+/* =========================================================================
+   OMAD — reglas base
+   Estas no son sugerencias de estilo: son el piso de conformidad. Cualquier
+   componente que las sobreescriba tiene que justificarlo en la revisión.
+   Solo usan tokens semánticos de tokens/omad-tokens.css.
+   ========================================================================= */
+
+*:focus-visible {
+  outline: var(--omad-foco-grosor) solid var(--omad-foco);
+  outline-offset: var(--omad-foco-sep);
+  box-shadow: 0 0 0 calc(var(--omad-foco-grosor) + var(--omad-foco-sep))
+              var(--omad-foco-contorno);
+}
+
+/* Nunca se elimina el foco sin sustituirlo. Si aparece outline:none en una
+   revisión de código sin un :focus-visible equivalente, el PR se rechaza. */
+
+a {
+  color: var(--omad-enlace);
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 0.08em;
+  /* El subrayado permanece: el color no puede ser el único indicador de que
+     algo es un enlace (WCAG 1.4.1). */
+  text-decoration-line: underline;
+}
+
+a:visited { color: var(--omad-enlace-visitado); }
+
+button, [role='button'], input, select, textarea, summary {
+  min-height: var(--omad-objetivo-min);
+  font-family: inherit;
+  font-size: var(--omad-texto-base);
+}
+
+/* Cifras alineadas en columna. Si la familia no trae la característica,
+   la tabla debe usar tabulación fija por CSS, no espacios. */
+[data-cifra], table td, table th {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1;
+}
+
+body {
+  background: var(--omad-fondo);
+  color: var(--omad-texto);
+  font-family: var(--omad-fuente);
+  font-size: var(--omad-texto-base);
+  line-height: var(--omad-interlinea-suelta);
+}
+
+code, pre, kbd, samp {
+  font-family: var(--omad-fuente-mono);
+}
+
+/* El texto debe sobrevivir el reflujo a 320px y el espaciado forzado
+   (WCAG 1.4.10 y 1.4.12). Nada de alturas fijas en contenedores de texto. */
+
+/* Solo para lector de pantalla. Lo que lleva esta clase se oye y no se ve.
+   Nunca display:none, que lo quita de los dos lados. */
+.visualmente-oculto {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

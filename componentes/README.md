@@ -1,16 +1,18 @@
 # Componentes
 
-Vacío a propósito. Todavía no se construye ningún componente.
+Aquí vive el catálogo. [`index.html`](index.html) muestra todos los
+componentes en una página; cada uno tiene su carpeta con su CSS, su ejemplo
+y su ficha. La receta completa está en
+[`docs/como-se-hace-un-componente.md`](../docs/como-se-hace-un-componente.md).
 
-El orden importa: la dirección visual de la versión 0.1 es una propuesta y
-está abierta a que el consejo la tumbe. Construir componentes antes de esa
-decisión es trabajo que se tira.
-
-Cuando toque, el primero es **la franja de seis perfiles** —el componente firma
-del sistema, y el único lugar donde el sistema levanta la voz—. Su
-especificación, incluido cómo debe linealizarse en un lector de pantalla, está
+Todavía no hay componentes. Los primeros son los elementos de la fase 2 del
+[plan](../docs/plan-de-construccion.md); se extraen de la
+[maqueta de la dirección visual](../docs/maqueta-direccion-visual.html).
+El componente firma del sistema es **la franja de seis perfiles** (fase 3);
+su especificación, incluido cómo se linealiza en un lector de pantalla, está
 en [el documento del sistema](../docs/omad-sistema-de-diseno.md#5-los-seis-perfiles).
 
-Todo componente que se agregue aquí usa únicamente tokens semánticos (capa 2)
-de [`tokens/omad-tokens.css`](../tokens/omad-tokens.css). Nunca primitivas, y
-nunca un valor hexadecimal suelto.
+Todo CSS de esta carpeta usa únicamente tokens semánticos (capa 2) de
+[`tokens/omad-tokens.css`](../tokens/omad-tokens.css). Nunca primitivas,
+nunca un color escrito a mano. Lo revisa `herramientas/revisar-componentes.py`
+en cada PR.

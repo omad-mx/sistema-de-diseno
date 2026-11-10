@@ -1,0 +1,89 @@
+/* =========================================================================
+   OMAD — distintivo de gravedad
+   Los cuatro niveles de un hallazgo. Cada uno lleva tres señales a la vez:
+   una marca, su nombre en texto y su color. El color nunca va solo.
+   Ficha: componentes/distintivo-gravedad/README.md
+   ========================================================================= */
+
+.distintivo-gravedad {
+  /* Alto de cada barra de la marca. Una barra «apagada» queda como un
+     talón en la base, para que siempre se cuenten cuatro lugares. */
+  --distintivo-gravedad-talon: 0.15em;
+  --distintivo-gravedad-tinta: currentColor;
+  --distintivo-gravedad-b1: var(--distintivo-gravedad-talon);
+  --distintivo-gravedad-b2: var(--distintivo-gravedad-talon);
+  --distintivo-gravedad-b3: var(--distintivo-gravedad-talon);
+  --distintivo-gravedad-b4: var(--distintivo-gravedad-talon);
+
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--omad-esp-2);
+  padding: var(--omad-esp-1) var(--omad-esp-2);
+  /* El borde no se ve, salvo en forced-colors: ahí el fondo desaparece y
+     el borde es lo que sigue dibujando la caja. */
+  border: 1px solid transparent;
+  border-radius: var(--omad-radio-1);
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-fuerte);
+  line-height: var(--omad-interlinea-normal);
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+/* La marca: cuatro barras en escalera. Se encienden tantas como el nivel,
+   de menor (una) a bloqueante (cuatro). Se dibuja con el color del texto,
+   así que sigue al tema y sobrevive a forced-colors. Es decorativa para un
+   lector de pantalla: el nivel ya está escrito. */
+.distintivo-gravedad::before {
+  content: '';
+  flex: none;
+  inline-size: 1.3em;
+  block-size: 1em;
+  background:
+    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0      100% / 0.22em var(--distintivo-gravedad-b1) no-repeat,
+    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0.36em 100% / 0.22em var(--distintivo-gravedad-b2) no-repeat,
+    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0.72em 100% / 0.22em var(--distintivo-gravedad-b3) no-repeat,
+    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 1.08em 100% / 0.22em var(--distintivo-gravedad-b4) no-repeat;
+}
+
+.distintivo-gravedad[data-nivel='menor'] {
+  --distintivo-gravedad-b1: 40%;
+  background-color: var(--omad-menor-fondo);
+  color: var(--omad-menor-texto);
+}
+
+.distintivo-gravedad[data-nivel='moderada'] {
+  --distintivo-gravedad-b1: 40%;
+  --distintivo-gravedad-b2: 60%;
+  background-color: var(--omad-moderada-fondo);
+  color: var(--omad-moderada-texto);
+}
+
+.distintivo-gravedad[data-nivel='severa'] {
+  --distintivo-gravedad-b1: 40%;
+  --distintivo-gravedad-b2: 60%;
+  --distintivo-gravedad-b3: 80%;
+  background-color: var(--omad-severa-fondo);
+  color: var(--omad-severa-texto);
+}
+
+.distintivo-gravedad[data-nivel='bloqueante'] {
+  --distintivo-gravedad-b1: 40%;
+  --distintivo-gravedad-b2: 60%;
+  --distintivo-gravedad-b3: 80%;
+  --distintivo-gravedad-b4: 100%;
+  background-color: var(--omad-bloqueante-fondo);
+  color: var(--omad-bloqueante-texto);
+}
+
+/* En forced-colors el navegador quita los fondos, y la marca está hecha de
+   fondos. Se le pide que la deje, pintada con el color de texto del sistema. */
+@media (forced-colors: active) {
+  .distintivo-gravedad::before {
+    --distintivo-gravedad-tinta: CanvasText;
+    forced-color-adjust: none;
+  }
+}

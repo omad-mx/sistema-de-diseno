@@ -25,6 +25,7 @@ privado `omad-mx/interno`.
 | [`pendientes.md`](pendientes.md) | Lo que falta, en orden y con lo que lo bloquea. | 2026-09-25 | vivo |
 | [`como-se-hace-un-componente.md`](como-se-hace-un-componente.md) | La receta de todo componente: carpeta, HTML, CSS, ejemplo, ficha y lista de revisión. | 2026-11-03 | `aprobado` |
 | [`maqueta-marca-gravedad.html`](maqueta-marca-gravedad.html) | Maqueta para elegir la marca del distintivo de gravedad: cuatro propuestas al tamaño real, en color, grises, deuteranopia simulada y sin color. Se eligió la C, una forma por nivel. Ábrela en el navegador desde el clon. | 2026-11-10 | `aprobado` |
+| [`maqueta-pictogramas.html`](maqueta-pictogramas.html) | Maqueta para elegir los pictogramas de los seis perfiles: candidatos del set Lucide (licencia ISC) a 16, 24 y 48 px, y una franja de prueba que cambia con la elección. Ábrela en el navegador desde el clon. | 2026-11-10 | `en discusión` |
 
 ## Pendientes de escribir
 

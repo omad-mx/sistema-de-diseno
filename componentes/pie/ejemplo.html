@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pie · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «pie» (paso 3.7 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente. Los trámites y las
+  dependencias son de ejemplo: no existen.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.7</p>
+      <h1>Pie</h1>
+      <p class="entrada">Los enlaces secundarios y la línea de créditos, al final de cada página.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-pie">
+      <h2 id="ej-pie">El pie</h2>
+      <p class="ej-rotulo">Los enlaces a la izquierda y los créditos a la derecha. Si no caben juntos, los créditos bajan.</p>
+      <div class="ej-muestra">
+        <footer class="pie">
+          <nav class="pie-nav" aria-label="Pie"><ul><li><a href="#ej-pie">Metodología</a></li><li><a href="#ej-pie">Datos abiertos</a></li><li><a href="#ej-pie">Contacto</a></li></ul></nav>
+          <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+        </footer>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Seis enlaces. Conviene verlo a 320 px y con el espaciado forzado.</p>
+      <div class="ej-muestra">
+        <footer class="pie">
+          <nav class="pie-nav" aria-label="Pie (ejemplo)"><ul><li><a href="#ej-pie">Metodología</a></li><li><a href="#ej-pie">Datos abiertos</a></li><li><a href="#ej-pie">Contacto</a></li><li><a href="#ej-pie">Aviso de privacidad</a></li><li><a href="#ej-pie">Cómo citar a OMAD</a></li><li><a href="#ej-pie">Código del sistema de diseño</a></li></ul></nav>
+          <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+        </footer>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

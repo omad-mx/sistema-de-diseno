@@ -9,31 +9,13 @@
   Ninguna página lleva estilos propios: si algo falta, se agrega primero al
   catálogo. Se abre directo en el navegador desde el clon, sin servidor.
 
-  Esqueleto del paso 1.6 del plan. La cabecera y el pie son provisionales,
-  copiados de la maqueta de #1; se reemplazan por el componente del paso 3.7.
+  Esqueleto del paso 1.6 del plan. La cabecera y el pie son los componentes del
+  paso 3.7.
   Todo dato que aparezca aquí es de ejemplo (sección 2 del plan), y la
   página lo avisa con el componente «aviso», arriba del título.
 -->
 <link rel="stylesheet" href="../estilos/omad.css">
 <style>
-/* Provisional (paso 1.6). Sale cuando exista componentes/cabecera (3.7). */
-.sitio-cabecera {
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3) var(--omad-esp-6);
-  padding-block: var(--omad-esp-4);
-  border-bottom: 1px solid var(--omad-borde);
-}
-.marca-omad { display: flex; flex-direction: column; text-decoration: none; color: var(--omad-texto); }
-.marca-omad:visited { color: var(--omad-texto); }
-.marca-omad .sigla { font-size: var(--omad-texto-xl); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.06em; line-height: 1; }
-.marca-omad .sigla::after { content: ""; display: block; height: 4px; width: 2ch; margin-top: 4px; background: var(--omad-enlace); border-radius: var(--omad-radio-1); }
-.marca-omad .nombre { font-size: var(--omad-texto-xs); color: var(--omad-texto-secundario); margin-top: var(--omad-esp-1); }
-.sitio-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
-.sitio-nav a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); font-weight: var(--omad-peso-medio); }
-.sitio-nav a[aria-current="page"] { color: var(--omad-texto); text-decoration-thickness: 0.15em; }
-.sitio-pie { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-5) var(--omad-esp-6); display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6); justify-content: space-between; font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); }
-.sitio-pie ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
-.sitio-pie p { margin: 0; }
-
 /* Provisional también: se quita cuando las páginas estén hechas de componentes. */
 body { margin: 0; }
 .pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
@@ -42,13 +24,14 @@ main > .aviso { margin-block-end: var(--omad-esp-6); }
 </style>
 </head>
 <body>
+<a class="cabecera-saltar" href="#contenido">Saltar al contenido</a>
 <div class="pagina">
-  <header class="sitio-cabecera">
-    <a class="marca-omad" href="index.html">
-      <span class="sigla">OMAD</span>
-      <span class="nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+  <header class="cabecera">
+    <a class="cabecera-marca" href="index.html">
+      <span class="cabecera-sigla">OMAD</span>
+      <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
     </a>
-    <nav class="sitio-nav" aria-label="Principal">
+    <nav class="cabecera-nav" aria-label="Principal">
       <ul>
         <li><a href="index.html" aria-current="page">Portada</a></li>
         <li><a href="ranking.html">Ranking</a></li>
@@ -57,7 +40,7 @@ main > .aviso { margin-block-end: var(--omad-esp-6); }
     </nav>
   </header>
 
-  <main>
+  <main id="contenido" tabindex="-1">
     <div class="aviso" role="note" aria-labelledby="aviso-datos">
       <p class="aviso-titulo" id="aviso-datos">Datos de ejemplo</p>
       <p>Nada de lo que aparezca en este prototipo es una auditoría real. Los
@@ -74,12 +57,14 @@ main > .aviso { margin-block-end: var(--omad-esp-6); }
     </div>
   </main>
 
-  <footer class="sitio-pie">
-    <ul>
-      <li><a href="metodologia.html">Metodología</a></li>
-      <li><a href="../componentes/index.html">Catálogo de componentes</a></li>
-    </ul>
-    <p>Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  <footer class="pie">
+    <nav class="pie-nav" aria-label="Pie">
+      <ul>
+        <li><a href="metodologia.html">Metodología</a></li>
+        <li><a href="../componentes/index.html">Catálogo de componentes</a></li>
+      </ul>
+    </nav>
+    <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
   </footer>
 </div>
 </body>

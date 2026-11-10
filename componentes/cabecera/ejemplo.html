@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cabecera · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «cabecera» (paso 3.7 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente. Los trámites y las
+  dependencias son de ejemplo: no existen.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<a class="cabecera-saltar" href="#marco">Saltar al contenido</a>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo" tabindex="-1">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.7</p>
+      <h1>Cabecera</h1>
+      <p class="entrada">El enlace para saltar al contenido, la marca de OMAD y la navegación principal. Sin JavaScript y sin menú escondido: en un teléfono la navegación se acomoda en varias líneas.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-cabecera">
+      <h2 id="ej-cabecera">La cabecera</h2>
+      <p class="ej-rotulo">La página actual va en color de texto y con el subrayado grueso. Aquí es «Ranking».</p>
+      <div class="ej-muestra">
+        <header class="cabecera">
+          <a class="cabecera-marca" href="#ej-cabecera">
+            <span class="cabecera-sigla">OMAD</span>
+            <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+          </a>
+          <nav class="cabecera-nav" aria-label="Principal">
+            <ul><li><a href="#ej-cabecera">Trámites</a></li><li><a href="#ej-cabecera" aria-current="page">Ranking</a></li><li><a href="#ej-cabecera">Metodología</a></li><li><a href="#ej-cabecera">Acerca</a></li></ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-saltar">
+      <h2 id="ej-saltar">Saltar al contenido</h2>
+      <p class="ej-rotulo">El primer enlace de cada página. No se ve hasta que recibe el foco: recarga la página y pulsa el tabulador una vez. Aparece arriba a la izquierda, sobre todo lo demás, y lleva al <code>main</code>.</p>
+      <div class="ej-muestra">
+        <p>En una página real va así, antes que todo lo demás:</p>
+        <pre><code>&lt;a class="cabecera-saltar" href="#contenido"&gt;Saltar al contenido&lt;/a&gt;
+&lt;header class="cabecera"&gt;…&lt;/header&gt;
+&lt;main id="contenido" tabindex="-1"&gt;…&lt;/main&gt;</code></pre>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Siete secciones. En un ancho angosto la navegación se acomoda en varias líneas; nada se esconde. Conviene verlo a 320 px.</p>
+      <div class="ej-muestra">
+        <header class="cabecera">
+          <a class="cabecera-marca" href="#ej-cabecera">
+            <span class="cabecera-sigla">OMAD</span>
+            <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+          </a>
+          <nav class="cabecera-nav" aria-label="Principal (ejemplo)">
+            <ul><li><a href="#ej-cabecera">Trámites</a></li><li><a href="#ej-cabecera">Ranking</a></li><li><a href="#ej-cabecera">Metodología</a></li><li><a href="#ej-cabecera">Acerca</a></li><li><a href="#ej-cabecera">Datos abiertos</a></li><li><a href="#ej-cabecera" aria-current="page">Prensa</a></li><li><a href="#ej-cabecera">Contacto</a></li></ul>
+          </nav>
+        </header>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

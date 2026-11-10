@@ -9,27 +9,11 @@
   uno enlazado a su ejemplo y a su ficha. Es la documentación del sistema.
   Se abre directo en el navegador desde el clon, sin servidor.
 
-  Esqueleto del paso 1.6 del plan. La cabecera y el pie son provisionales,
-  copiados de la maqueta de #1; se reemplazan por el componente del paso 3.7.
+  Esqueleto del paso 1.6 del plan. La cabecera y el pie son los componentes del
+  paso 3.7.
 -->
 <link rel="stylesheet" href="../estilos/omad.css">
 <style>
-/* Provisional (paso 1.6). Sale cuando exista componentes/cabecera (3.7). */
-.sitio-cabecera {
-  display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3) var(--omad-esp-6);
-  padding-block: var(--omad-esp-4);
-  border-bottom: 1px solid var(--omad-borde);
-}
-.marca-omad { display: flex; flex-direction: column; text-decoration: none; color: var(--omad-texto); }
-.marca-omad:visited { color: var(--omad-texto); }
-.marca-omad .sigla { font-size: var(--omad-texto-xl); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.06em; line-height: 1; }
-.marca-omad .sigla::after { content: ""; display: block; height: 4px; width: 2ch; margin-top: 4px; background: var(--omad-enlace); border-radius: var(--omad-radio-1); }
-.marca-omad .nombre { font-size: var(--omad-texto-xs); color: var(--omad-texto-secundario); margin-top: var(--omad-esp-1); }
-.sitio-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
-.sitio-nav a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); font-weight: var(--omad-peso-medio); }
-.sitio-nav a[aria-current="page"] { color: var(--omad-texto); text-decoration-thickness: 0.15em; }
-.sitio-pie { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-5) var(--omad-esp-6); font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); }
-
 /* Disposición de la página del catálogo. */
 body { margin: 0; }
 .pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
@@ -41,13 +25,14 @@ main { padding-block: var(--omad-esp-7); }
 </style>
 </head>
 <body>
+<a class="cabecera-saltar" href="#contenido">Saltar al contenido</a>
 <div class="pagina">
-  <header class="sitio-cabecera">
-    <a class="marca-omad" href="../prototipo/index.html">
-      <span class="sigla">OMAD</span>
-      <span class="nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+  <header class="cabecera">
+    <a class="cabecera-marca" href="../prototipo/index.html">
+      <span class="cabecera-sigla">OMAD</span>
+      <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
     </a>
-    <nav class="sitio-nav" aria-label="Principal">
+    <nav class="cabecera-nav" aria-label="Principal">
       <ul>
         <li><a href="index.html" aria-current="page">Catálogo</a></li>
         <li><a href="../prototipo/index.html">Prototipo</a></li>
@@ -56,7 +41,7 @@ main { padding-block: var(--omad-esp-7); }
     </nav>
   </header>
 
-  <main>
+  <main id="contenido" tabindex="-1">
     <div class="prosa">
     <h1>Catálogo de componentes</h1>
     <p>Cada componente del sistema, con todos sus estados y
@@ -73,7 +58,7 @@ main { padding-block: var(--omad-esp-7); }
       </li>
       <li>
         <h2><a href="boton/ejemplo.html">Enlace y botón</a></h2>
-        <p>Primario y secundario, sobre un botón o sobre un enlace. <a href="boton/README.md">Ficha</a>.</p>
+        <p>Primario, secundario y terciario, sobre un botón o sobre un enlace. <a href="boton/README.md">Ficha</a>.</p>
       </li>
       <li>
         <h2><a href="distintivo-gravedad/ejemplo.html">Distintivo de gravedad</a></h2>
@@ -91,11 +76,29 @@ main { padding-block: var(--omad-esp-7); }
         <h2><a href="aviso/ejemplo.html">Aviso</a></h2>
         <p>Un aviso sobre toda la página. El primero: «Datos de ejemplo». <a href="aviso/README.md">Ficha</a>.</p>
       </li>
+      <li>
+        <h2><a href="tabla/ejemplo.html">Tabla de datos</a></h2>
+        <p>Resultados en filas y columnas, con nombre, cifras alineadas y desplazamiento propio. <a href="tabla/README.md">Ficha</a>.</p>
+      </li>
+      <li>
+        <h2><a href="cabecera/ejemplo.html">Cabecera</a></h2>
+        <p>Saltar al contenido, la marca de OMAD y la navegación principal. <a href="cabecera/README.md">Ficha</a>.</p>
+      </li>
+      <li>
+        <h2><a href="pie/ejemplo.html">Pie</a></h2>
+        <p>Enlaces secundarios y créditos. <a href="pie/README.md">Ficha</a>.</p>
+      </li>
     </ul>
   </main>
 
-  <footer class="sitio-pie">
-    <p>Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  <footer class="pie">
+    <nav class="pie-nav" aria-label="Pie">
+      <ul>
+        <li><a href="../prototipo/index.html">Prototipo</a></li>
+        <li><a href="../docs/README.md">Documentos del sistema</a></li>
+      </ul>
+    </nav>
+    <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
   </footer>
 </div>
 </body>

@@ -43,7 +43,7 @@
     <header>
       <p class="cejilla">Catálogo · elemento 2.2</p>
       <h1>Enlace y botón</h1>
-      <p class="entrada">Un botón hace algo o lleva a la acción principal de la página. Hay dos: primario y secundario. Todo lo demás es un enlace.</p>
+      <p class="entrada">Un botón hace algo o lleva a la acción principal de la página. Hay tres: primario, secundario y terciario. Todo lo demás es un enlace.</p>
     </header>
 
     <section class="ej-seccion" aria-labelledby="ej-primario">
@@ -69,13 +69,37 @@
       </div>
     </section>
 
+    <section class="ej-seccion" aria-labelledby="ej-terciario">
+      <h2 id="ej-terciario">Terciario</h2>
+      <p class="ej-rotulo">Un botón que se ve como enlace, para acciones dentro de un bloque, donde un contorno pesaría demasiado. Lleva <code>data-variante="terciario"</code> y solo va sobre un <code>button</code>: si lleva a otra página, es un enlace.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" data-variante="terciario" type="button">Ver la evidencia</button>
+        <button class="boton" data-variante="terciario" type="button">Copiar</button>
+      </div>
+      <p class="ej-rotulo">Los tres juntos, de más a menos peso.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Copiar la cita</button>
+        <button class="boton" data-variante="secundario" type="button">Descargar la evidencia</button>
+        <button class="boton" data-variante="terciario" type="button">Ver la evidencia</button>
+      </div>
+      <p class="ej-rotulo">Dentro de un bloque de texto, como irá en un hallazgo: la acción al pie, sin competir con el contenido.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Los errores del formulario no se anuncian al lector de pantalla. La persona no sabe que el envío falló ni qué campo corregir.</p>
+          <p><button class="boton" data-variante="terciario" type="button">Ver la evidencia</button></p>
+        </div>
+      </div>
+    </section>
+
     <section class="ej-seccion" aria-labelledby="ej-estados">
       <h2 id="ej-estados">Estados</h2>
       <p class="ej-rotulo">Reposo, puntero encima, foco y presionado. Los tres últimos hay que provocarlos: pasa el puntero, recorre la página con el tabulador y mantén presionado.</p>
+      <p class="ej-rotulo">Con el puntero encima, la etiqueta se subraya; en el terciario, el subrayado engruesa. El cambio de relleno solo apenas se notaría.</p>
       <p class="ej-rotulo">No hay botón deshabilitado. Si algo no se puede hacer, la página explica por qué.</p>
       <div class="ej-muestra ej-fila">
         <button class="boton" type="button">Primario</button>
         <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
       </div>
     </section>
 
@@ -100,16 +124,19 @@
       <div class="ej-muestra ej-fila" data-sobre="fondo">
         <button class="boton" type="button">Primario</button>
         <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
         <a href="#ej-superficies">Un enlace</a>
       </div>
       <div class="ej-muestra ej-fila" data-sobre="superficie">
         <button class="boton" type="button">Primario</button>
         <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
         <a href="#ej-superficies">Un enlace</a>
       </div>
       <div class="ej-muestra ej-fila">
         <button class="boton" type="button">Primario</button>
         <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
         <a href="#ej-superficies">Un enlace</a>
       </div>
     </section>
@@ -128,6 +155,7 @@
       <div class="ej-muestra ej-fila">
         <button class="boton" type="button">Sí</button>
         <button class="boton" data-variante="secundario" type="button">No</button>
+        <button class="boton" data-variante="terciario" type="button">Ok</button>
       </div>
 
       <p class="ej-rotulo">Una palabra sin espacios, más ancha que el botón.</p>

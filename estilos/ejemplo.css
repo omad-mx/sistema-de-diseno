@@ -30,9 +30,13 @@ body { margin: 0; }
 .ej-marco[data-ancho="320"] { max-inline-size: 320px; outline: 1px dashed var(--omad-borde-fuerte); outline-offset: var(--omad-esp-2); }
 
 .ej-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
-.ej-seccion > * { min-inline-size: 0; }
+:where(.ej-seccion) > * { min-inline-size: 0; }
 .ej-rotulo { font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); color: var(--omad-texto-secundario); max-inline-size: var(--omad-medida); }
 .ej-rotulo code { font-size: 0.9em; }
+
+/* Las reglas sobre los hijos van dentro de :where(), que no suma
+   especificidad: así nunca le ganan a un componente (el mínimo de 44 px
+   del botón, por ejemplo). */
 
 /* Caja de muestra. Por omisión va sobre la superficie alta; data-sobre la
    cambia para ver el componente en las otras dos. */
@@ -41,11 +45,11 @@ body { margin: 0; }
 .ej-muestra[data-sobre="superficie"] { background: var(--omad-superficie); }
 .ej-marco[data-ancho="320"] .ej-muestra { padding: var(--omad-esp-4); }
 .ej-pila { display: grid; gap: var(--omad-esp-5); }
-.ej-pila > * { min-inline-size: 0; }
+:where(.ej-pila) > * { min-inline-size: 0; }
 .ej-pila > div { display: grid; gap: var(--omad-esp-1); }
-.ej-pila > div > * { min-inline-size: 0; }
+:where(.ej-pila > div) > * { min-inline-size: 0; }
 .ej-fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3); }
-.ej-fila > * { min-inline-size: 0; }
+:where(.ej-fila) > * { min-inline-size: 0; }
 
 /* Lista de hallazgos de muestra, mientras no exista el componente (3.4). */
 .ej-hallazgos { list-style: none; margin: 0; padding: 0; max-inline-size: var(--omad-medida); }

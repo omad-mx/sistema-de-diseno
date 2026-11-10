@@ -5,14 +5,18 @@ Estado: `borrador`
 ## Qué es
 
 El control que hace algo o lleva a la acción principal de una página. Hay
-dos: primario y secundario. La misma clase viste a un `<button>` y a un
-enlace que lleva a una acción.
+tres: primario, secundario y terciario. Los dos primeros visten igual a un
+`<button>` que a un enlace que lleva a una acción; el terciario solo va
+sobre un `<button>`.
 
 ## Cuándo se usa
 
 - **Primario**, para la acción principal: una por pantalla, o una por bloque
   si la página tiene varios.
 - **Secundario**, para la acción que acompaña a la principal.
+- **Terciario**, para una acción dentro de un bloque, donde un contorno
+  pesaría demasiado: ver la evidencia de un hallazgo, copiar una cita,
+  ordenar una tabla. Se ve como enlace.
 - Sobre un `<button>` cuando hace algo en la misma página (copiar la cita).
 - Sobre un `<a href>` cuando lleva a otra página o descarga un archivo
   (consultar el ranking, descargar la evidencia).
@@ -25,6 +29,8 @@ enlace que lleva a una acción.
 - **Para algo que no se puede hacer.** No hay botón deshabilitado: un botón
   apagado no dice por qué está apagado, y un lector de pantalla puede
   saltárselo. Si algo no se puede hacer, la página lo explica.
+- **Un terciario que lleva a otra página.** Si se ve como enlace y lleva a
+  otra parte, es un enlace: `<a href>`, sin clase.
 - **Dos primarios juntos.** Si dos acciones pesan lo mismo, ninguna es la
   principal: van las dos como secundarias.
 
@@ -32,8 +38,8 @@ enlace que lleva a una acción.
 
 Una sola pieza:
 
-- `.boton`, sobre un `<button type="button">` o un `<a href>`. Dentro, solo
-  texto.
+- `.boton`, sobre un `<button type="button">` o un `<a href>` (el
+  terciario, solo sobre `<button>`). Dentro, solo texto.
 
 Nunca va sobre un `<div>` ni un `<span>`: no se podrían activar con teclado.
 
@@ -43,13 +49,23 @@ Nunca va sobre un `<div>` ni un `<span>`: no se podrían activar con teclado.
 |---|---|
 | Primario | sin atributo |
 | Secundario | `data-variante="secundario"` |
+| Terciario | `data-variante="terciario"` |
 
 | Estado | Qué lo activa | Qué cambia |
 |---|---|---|
 | Reposo | — | — |
-| Puntero encima | `:hover` | El primario se oscurece; el secundario se rellena con el resalte. |
+| Puntero encima | `:hover` | La etiqueta se subraya; en el terciario, el subrayado engruesa. Además, el primario se oscurece y el secundario se rellena con el resalte. |
 | Foco | `:focus-visible` | El anillo de doble capa de las reglas base. El botón no lo redefine. |
-| Presionado | `:active` | El primario se oscurece un paso más; al secundario se le oscurece el contorno. |
+| Presionado | `:active` | El primario se oscurece un paso más; al secundario se le oscurece el contorno; el terciario se rellena con el resalte. |
+
+El subrayado del puntero encima está porque el cambio de relleno solo apenas
+se nota: entre reposo y encima hay de 1.14 a 1.48 de contraste, y en tema
+oscuro, sobre una superficie, el secundario no cambia nada (1.0). WCAG no
+exige que el puntero encima se vea, pero el sistema sí.
+
+El terciario tiene un relleno lateral que amplía el área activable y un
+margen negativo del mismo tamaño, para que la etiqueta quede alineada con el
+texto que tiene arriba.
 
 Un enlace con `.boton` no cambia de color al visitarse.
 
@@ -87,9 +103,10 @@ Lo que se oye es la etiqueta, así que la etiqueta tiene que entenderse sola:
 
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
-- En `forced-colors`, visto en la emulación de Chromium, los dos botones se
-  ven iguales: un contorno, sin relleno. Se distinguen de un enlace, pero no
-  entre sí. Falta verlo en Windows y decidir si importa.
+- En `forced-colors`, visto en la emulación de Chromium, los tres botones se
+  ven como un contorno sin relleno; el terciario se distingue por el
+  subrayado, pero primario y secundario se ven iguales. Falta verlo en
+  Windows y decidir si importa.
 - Safari y Firefox. Hasta ahora solo se ha visto en Chromium: 320 px y
   escritorio, tema claro y oscuro, con y sin espaciado forzado, y los cuatro
   estados con puntero y teclado.

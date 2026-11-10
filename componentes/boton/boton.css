@@ -1,7 +1,9 @@
 /* =========================================================================
    OMAD — botón
-   Primario y secundario. La misma clase viste a un <button> y a un enlace
-   que lleva a una acción (<a class="boton" href>).
+   Primario, secundario y terciario. Los dos primeros visten igual a un
+   <button> que a un enlace que lleva a una acción (<a class="boton" href>).
+   El terciario solo va sobre un <button>: un enlace que se ve como enlace
+   ya es un enlace.
    Ficha: componentes/boton/README.md
    ========================================================================= */
 
@@ -28,7 +30,9 @@
   overflow-wrap: anywhere;
   /* Único enlace sin subrayado del sistema: aquí lo que dice «esto se
      puede activar» es la forma del botón, no el color del texto. */
-  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
   cursor: pointer;
   transition: background-color var(--omad-transicion),
               border-color var(--omad-transicion);
@@ -36,9 +40,14 @@
 
 .boton:visited { color: var(--omad-accion-texto); }
 
+/* Con el puntero encima, la etiqueta se subraya. El cambio de relleno solo
+   no basta: entre reposo y encima apenas hay diferencia de luminosidad, y
+   en tema oscuro, sobre una superficie, el secundario no cambia nada. El
+   subrayado se nota igual en los dos temas y en forced-colors. */
 .boton:hover {
   background: var(--omad-accion-hover);
   border-color: var(--omad-accion-hover);
+  text-decoration-line: underline;
 }
 
 .boton:active {
@@ -65,4 +74,35 @@
 .boton[data-variante='secundario']:active {
   background: var(--omad-resalte);
   border-color: var(--omad-accion-activo);
+}
+
+/* -------------------------------------------------------------------------
+   Terciario: un botón que se ve como enlace. Para acciones dentro de un
+   bloque (ver la evidencia, copiar), donde un contorno pesaría demasiado.
+   Va subrayado siempre, como todo enlace: sin subrayado se distinguiría
+   del texto solo por el color. El área activable sigue siendo de 44 px
+   aunque no se vea.
+   ------------------------------------------------------------------------- */
+
+.boton[data-variante='terciario'] {
+  padding-inline: var(--omad-esp-2);
+  /* El relleno amplía el área activable sin correr el texto: la etiqueta
+     queda alineada con el texto que tiene arriba. */
+  margin-inline: calc(-1 * var(--omad-esp-2));
+  border-color: transparent;
+  background: transparent;
+  color: var(--omad-enlace);
+  text-decoration-line: underline;
+}
+
+.boton[data-variante='terciario']:hover {
+  border-color: transparent;
+  background: transparent;
+  text-decoration-thickness: 0.16em;
+}
+
+.boton[data-variante='terciario']:active {
+  border-color: transparent;
+  background: var(--omad-resalte);
+  text-decoration-thickness: 0.16em;
 }

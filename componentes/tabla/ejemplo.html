@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tabla de datos · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «tabla de datos» (paso 3.6 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente. Los trámites y las
+  dependencias son de ejemplo: no existen.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.6</p>
+      <h1>Tabla de datos</h1>
+      <p class="entrada">Resultados en filas y columnas: el ranking, los perfiles por trámite, las cifras por dependencia. Lleva su nombre arriba, cifras alineadas y un encabezado por fila. Si no cabe, se desplaza dentro de su caja, no la página.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-ranking">
+      <h2 id="ej-ranking">Ranking</h2>
+      <p class="ej-rotulo">El caso común. El trámite es el encabezado de cada fila; las columnas de cifras van a la derecha.</p>
+      <div class="ej-muestra">
+        <div class="tabla" role="region" aria-labelledby="t-ranking" tabindex="0">
+          <table>
+            <caption id="t-ranking">Ranking de trámites<span class="tabla-nota">Datos de ejemplo: no son resultados de auditoría.</span></caption>
+            <thead>
+              <tr><th scope="col" class="tabla-cifra">#</th><th scope="col">Trámite</th><th scope="col">Dependencia</th><th scope="col" class="tabla-cifra">Completaron</th><th scope="col" class="tabla-cifra">Bloqueantes</th></tr>
+            </thead>
+            <tbody>
+            <tr><td class="tabla-cifra">1</td><th scope="row">Trámite de ejemplo A</th><td>Dependencia de ejemplo uno</td><td class="tabla-cifra">6 de 6</td><td class="tabla-cifra">0</td></tr>
+            <tr><td class="tabla-cifra">2</td><th scope="row">Trámite de ejemplo B</th><td>Dependencia de ejemplo dos</td><td class="tabla-cifra">4 de 6</td><td class="tabla-cifra">1</td></tr>
+            <tr><td class="tabla-cifra">3</td><th scope="row">Un trámite de ejemplo con un nombre muy largo, de los que ocupan tres líneas en una columna angosta</th><td>Dependencia de ejemplo uno</td><td class="tabla-cifra">2 de 6</td><td class="tabla-cifra">3</td></tr>
+            <tr><td class="tabla-cifra">4</td><th scope="row">Trámite de ejemplo D</th><td>Dependencia de ejemplo tres</td><td class="tabla-cifra">1 de 6</td><td class="tabla-cifra">4</td></tr>
+            <tr><td class="tabla-cifra">5</td><th scope="row">Trámite de ejemplo E</th><td>Dependencia de ejemplo dos</td><td class="tabla-cifra">0 de 6</td><td class="tabla-cifra">12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-ancha">
+      <h2 id="ej-ancha">Una tabla que no cabe</h2>
+      <p class="ej-rotulo">Ocho columnas, una por perfil. En pantallas angostas se desplaza a lo ancho dentro de su caja. Con el teclado: tabulador hasta la tabla y flechas. Cada resultado es una marca de resultado; el lector de pantalla dice el perfil desde el encabezado de su columna.</p>
+      <div class="ej-muestra">
+        <div class="tabla" role="region" aria-labelledby="t-perfiles" tabindex="0">
+          <table>
+            <caption id="t-perfiles">Resultado por perfil<span class="tabla-nota">Datos de ejemplo. Los perfiles siguen su orden fijo.</span></caption>
+            <thead>
+              <tr><th scope="col">Trámite</th><th scope="col">Lector</th><th scope="col">Teclado</th><th scope="col">Baja visión</th><th scope="col">Motriz</th><th scope="col">Sorda</th><th scope="col">Cognitivo</th><th scope="col" class="tabla-cifra">Completaron</th></tr>
+            </thead>
+            <tbody>
+            <tr><th scope="row">Trámite de ejemplo A</th><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td class="tabla-cifra">6 de 6</td></tr>
+            <tr><th scope="row">Trámite de ejemplo B</th><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td class="tabla-cifra">4 de 6</td></tr>
+            <tr><th scope="row">Un trámite de ejemplo con un nombre muy largo, de los que ocupan tres líneas en una columna angosta</th><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td class="tabla-cifra">2 de 6</td></tr>
+            <tr><th scope="row">Trámite de ejemplo D</th><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td class="tabla-cifra">1 de 6</td></tr>
+            <tr><th scope="row">Trámite de ejemplo E</th><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></td><td class="tabla-cifra">0 de 6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficies">
+      <h2 id="ej-superficies">Sobre la superficie</h2>
+      <p class="ej-rotulo">La tabla no tiene fondo propio: toma el de lo que la contiene.</p>
+      <div class="ej-muestra" data-sobre="superficie">
+        <div class="tabla" role="region" aria-labelledby="t-sup" tabindex="0">
+          <table>
+            <caption id="t-sup">Bloqueantes por dependencia</caption>
+            <thead><tr><th scope="col">Dependencia</th><th scope="col" class="tabla-cifra">Trámites</th><th scope="col" class="tabla-cifra">Bloqueantes</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Dependencia de ejemplo uno</th><td class="tabla-cifra">2</td><td class="tabla-cifra">3</td></tr>
+              <tr><th scope="row">Dependencia de ejemplo dos</th><td class="tabla-cifra">2</td><td class="tabla-cifra">13</td></tr>
+              <tr><th scope="row">Dependencia de ejemplo tres</th><td class="tabla-cifra">1</td><td class="tabla-cifra">4</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Sin datos: una sola fila que dice por qué. La tabla y sus encabezados se quedan, para que se sepa qué habría.</p>
+      <div class="ej-muestra">
+        <div class="tabla" role="region" aria-labelledby="t-vacia" tabindex="0">
+          <table>
+            <caption id="t-vacia">Hallazgos bloqueantes</caption>
+            <thead><tr><th scope="col">Trámite</th><th scope="col">Hallazgo</th><th scope="col">Criterio</th></tr></thead>
+            <tbody>
+              <tr><td class="tabla-vacia" colspan="3">Este trámite no tiene hallazgos bloqueantes.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+/* =========================================================================
+   OMAD — tabla de datos
+   Una tabla de resultados: ranking, hallazgos por trámite, cifras por
+   dependencia. La raíz es la caja que se desplaza; dentro va un <table>
+   sin clases.
+   Ficha: componentes/tabla/README.md
+   ========================================================================= */
+
+/* La caja. Si la tabla no cabe, se desplaza a lo ancho dentro de ella, no
+   la página entera (1.4.10). Lleva tabindex="0" y role="region" en el HTML
+   para que se pueda desplazar con el teclado y un lector de pantalla la
+   nombre.
+   position: relative hace falta: sin ella, los textos ocultos para lector
+   de pantalla de las celdas (que son absolutos) se salen de la caja y
+   estiran la página. */
+.tabla {
+  position: relative;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  /* Para que el nombre de la tabla mida lo que la caja, no lo que la tabla. */
+  container-type: inline-size;
+}
+
+.tabla > table {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-size: var(--omad-texto-sm);
+  line-height: var(--omad-interlinea-normal);
+  /* Cifras alineadas en columna (las reglas base ya lo piden para td y th). */
+  font-variant-numeric: tabular-nums;
+}
+
+/* El nombre de la tabla, arriba: se lee antes que los datos, a la vista y
+   con lector de pantalla. */
+.tabla caption {
+  caption-side: top;
+  /* Si la tabla es más ancha que su caja, el nombre no se desplaza con ella:
+     se queda fijo al inicio y del ancho de lo que se ve, para leerse
+     completo sin mover la tabla. */
+  position: sticky;
+  inset-inline-start: 0;
+  inline-size: 100cqi;
+  box-sizing: border-box;
+  padding-block-end: var(--omad-esp-3);
+  font-size: var(--omad-texto-base);
+  font-weight: var(--omad-peso-fuerte);
+  text-align: start;
+}
+
+/* Una nota bajo el nombre: la fuente, el corte o «datos de ejemplo». */
+.tabla-nota {
+  display: block;
+  margin-block-start: var(--omad-esp-1);
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-normal);
+  color: var(--omad-texto-terciario);
+}
+
+.tabla th,
+.tabla td {
+  padding: var(--omad-esp-3);
+  border-block-end: 1px solid var(--omad-borde);
+  text-align: start;
+  vertical-align: middle;
+}
+
+/* Encabezados de columna. Radio 0 en toda la tabla: es un dato, no un
+   control. */
+.tabla thead th {
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--omad-texto-secundario);
+  border-block-end: 2px solid var(--omad-borde-fuerte);
+  vertical-align: bottom;
+}
+
+/* Encabezado de fila: el trámite, la dependencia, lo que la fila describe. */
+.tabla tbody th[scope='row'] {
+  /* Un ancho mínimo para el nombre: en una pantalla angosta es mejor
+     desplazar la tabla que partir el trámite en una palabra por renglón. */
+  min-inline-size: 11rem;
+  font-weight: var(--omad-peso-medio);
+}
+
+/* Una columna de cifras se alinea a la derecha, encabezado incluido. */
+.tabla .tabla-cifra { text-align: end; }
+
+/* Fila sin datos: una sola celda que dice por qué. */
+.tabla .tabla-vacia {
+  padding-block: var(--omad-esp-5);
+  color: var(--omad-texto-secundario);
+  text-align: start;
+}

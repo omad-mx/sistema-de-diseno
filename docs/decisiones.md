@@ -21,6 +21,21 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · La evidencia de un hallazgo es una captura de pantalla
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.4 del plan).
+**Qué:** por ahora, cada hallazgo prueba lo que dice con una captura de
+pantalla, sin fragmento de código. La captura va plegada («Ver la
+evidencia»), con texto alternativo que describe lo que prueba y un enlace a
+la captura en tamaño completo.
+**Por qué:** la captura la entiende cualquiera que lea la ficha; un fragmento
+de código solo lo leen quienes desarrollan. Si hace falta el código, se
+agrega después.
+**De paso:** el hallazgo no lleva encabezado por hallazgo. Un `h3` mediría
+28 px, demasiado para una frase, y las reglas de tipografía no dejan encoger
+un encabezado con una clase. Lo decidió Claude al construirlo; está en la
+ficha del componente.
+
 ### 2026-11-10 · Sin franja mini: en una tabla, el resultado se escribe
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.3 del plan,

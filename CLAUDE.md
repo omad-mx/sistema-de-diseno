@@ -12,6 +12,7 @@ repositorios.
 
 - `tokens/omad-tokens.css` — solo variables, dos capas: primitivas (capa 1) y semánticos (capa 2).
 - `estilos/omad.css` — la hoja única que carga una página. Importa los tokens, `fuentes.css` (las dos familias desde `fuentes/`, sin Google Fonts) y `base.css` (foco, enlaces, cuerpo, `.visualmente-oculto`).
+- `estilos/ejemplo.css` y `estilos/ejemplo.js` — andamio de las páginas de ejemplo de los componentes (clases `ej-`, controles de tema, ancho y espaciado). No los carga ninguna página del sitio.
 - `herramientas/verificar-contraste.py` — lee los tokens y verifica el contrato de contraste WCAG 2.2 AA: pares de tokens semánticos, medidos en tema claro y en oscuro. Falla también si un token de color queda sin medir o si la capa 2 trae un color a mano. Sin dependencias. Sale con 1 si alguno incumple; la CI lo corre en cada PR.
 - `herramientas/revisar-componentes.py` — lee el CSS de `componentes/` y falla si hay una primitiva, un color a mano, `outline: none` sin `:focus-visible` o `!important`. La CI lo corre en cada PR.
 - `herramientas/paleta-direccion-b.py` — deriva la paleta cálida de la maqueta de #1 (mismo L y C, tono girado) y la verifica. `--css` imprime el bloque que va en `docs/maqueta-direccion-visual.html`; ese bloque no se edita a mano.
@@ -25,7 +26,7 @@ repositorios.
 - **La escala de gravedad no vuelve al semáforo y no hay verde de «completado».** Sale de distancias CIE76 bajo deuteranopia (sección 4 del documento). No se re-litiga sin volver a correr las distancias.
 - **Los seis perfiles no tienen color propio.** Marca gráfica y posición fija.
 - En CSS de componentes **solo tokens semánticos**. Nunca primitivas, nunca un hex suelto.
-- `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
+- `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados, con una sola excepción: el botón primario y el secundario (`.boton`), donde la forma dice que es activable; con el puntero encima, se subrayan también. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
 - Una sola familia: Atkinson Hyperlegible. Base 18px.
 - Nombres (tokens, clases, archivos, ramas) en español, **sin acentos y con ñ → n**: `petroleo`, `tipografia`, `tamano`. Nunca `tamanio`.
 

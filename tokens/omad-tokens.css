@@ -92,6 +92,8 @@
   --omad-accion-fondo:     var(--omad-petroleo-600);
   --omad-accion-texto:     var(--omad-tinta-0);
   --omad-accion-hover:     var(--omad-petroleo-700);
+  --omad-accion-activo:    var(--omad-petroleo-800);
+  --omad-resalte:          var(--omad-petroleo-100);
 
   --omad-foco:             var(--omad-petroleo-600);
   --omad-foco-contorno:    var(--omad-tinta-0);
@@ -137,6 +139,8 @@
     --omad-accion-fondo:     var(--omad-petroleo-300);
     --omad-accion-texto:     var(--omad-tinta-900);
     --omad-accion-hover:     var(--omad-petroleo-200);
+    --omad-accion-activo:    var(--omad-petroleo-100);
+    --omad-resalte:          var(--omad-petroleo-900);
 
     --omad-foco:             var(--omad-petroleo-200);
     --omad-foco-contorno:    var(--omad-tinta-900);
@@ -174,6 +178,8 @@
   --omad-accion-fondo:     var(--omad-petroleo-300);
   --omad-accion-texto:     var(--omad-tinta-900);
   --omad-accion-hover:     var(--omad-petroleo-200);
+  --omad-accion-activo:    var(--omad-petroleo-100);
+  --omad-resalte:          var(--omad-petroleo-900);
   --omad-foco:             var(--omad-petroleo-200);
   --omad-foco-contorno:    var(--omad-tinta-900);
   --omad-completo:         var(--omad-petroleo-300);

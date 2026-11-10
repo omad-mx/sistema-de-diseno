@@ -1,0 +1,108 @@
+/* =========================================================================
+   OMAD — botón
+   Primario, secundario y terciario. Los dos primeros visten igual a un
+   <button> que a un enlace que lleva a una acción (<a class="boton" href>).
+   El terciario solo va sobre un <button>: un enlace que se ve como enlace
+   ya es un enlace.
+   Ficha: componentes/boton/README.md
+   ========================================================================= */
+
+.boton {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-inline-size: 100%;
+  min-inline-size: var(--omad-objetivo-min);
+  min-block-size: var(--omad-objetivo-min);
+  /* Sin altura fija: una etiqueta larga ocupa dos líneas y el botón crece. */
+  padding: var(--omad-esp-2) var(--omad-esp-5);
+  border: 2px solid var(--omad-accion-fondo);
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-accion-fondo);
+  color: var(--omad-accion-texto);
+  font: inherit;
+  font-weight: var(--omad-peso-medio);
+  line-height: var(--omad-interlinea-normal);
+  text-align: center;
+  /* Una palabra más ancha que el botón se parte en lugar de empujar la
+     página. Hace falta «anywhere»: dentro de un flex, «break-word» no basta. */
+  overflow-wrap: anywhere;
+  /* Único enlace sin subrayado del sistema: aquí lo que dice «esto se
+     puede activar» es la forma del botón, no el color del texto. */
+  text-decoration-line: none;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+  transition: background-color var(--omad-transicion),
+              border-color var(--omad-transicion);
+}
+
+.boton:visited { color: var(--omad-accion-texto); }
+
+/* Con el puntero encima, la etiqueta se subraya. El cambio de relleno solo
+   no basta: entre reposo y encima apenas hay diferencia de luminosidad, y
+   en tema oscuro, sobre una superficie, el secundario no cambia nada. El
+   subrayado se nota igual en los dos temas y en forced-colors. */
+.boton:hover {
+  background: var(--omad-accion-hover);
+  border-color: var(--omad-accion-hover);
+  text-decoration-line: underline;
+}
+
+.boton:active {
+  background: var(--omad-accion-activo);
+  border-color: var(--omad-accion-activo);
+}
+
+/* -------------------------------------------------------------------------
+   Secundario: solo contorno. Para la acción que acompaña a la principal.
+   ------------------------------------------------------------------------- */
+
+.boton[data-variante='secundario'] {
+  background: transparent;
+  color: var(--omad-enlace);
+}
+
+.boton[data-variante='secundario']:visited { color: var(--omad-enlace); }
+
+.boton[data-variante='secundario']:hover {
+  background: var(--omad-resalte);
+  border-color: var(--omad-accion-fondo);
+}
+
+.boton[data-variante='secundario']:active {
+  background: var(--omad-resalte);
+  border-color: var(--omad-accion-activo);
+}
+
+/* -------------------------------------------------------------------------
+   Terciario: un botón que se ve como enlace. Para acciones dentro de un
+   bloque (ver la evidencia, copiar), donde un contorno pesaría demasiado.
+   Va subrayado siempre, como todo enlace: sin subrayado se distinguiría
+   del texto solo por el color. El área activable sigue siendo de 44 px
+   aunque no se vea.
+   ------------------------------------------------------------------------- */
+
+.boton[data-variante='terciario'] {
+  padding-inline: var(--omad-esp-2);
+  /* El relleno amplía el área activable sin correr el texto: la etiqueta
+     queda alineada con el texto que tiene arriba. */
+  margin-inline: calc(-1 * var(--omad-esp-2));
+  border-color: transparent;
+  background: transparent;
+  color: var(--omad-enlace);
+  text-decoration-line: underline;
+}
+
+.boton[data-variante='terciario']:hover {
+  border-color: transparent;
+  background: transparent;
+  text-decoration-thickness: 0.16em;
+}
+
+.boton[data-variante='terciario']:active {
+  border-color: transparent;
+  background: var(--omad-resalte);
+  text-decoration-thickness: 0.16em;
+}

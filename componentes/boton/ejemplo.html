@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Enlace y botón · ejemplo · OMAD</title>
+<!--
+  Ejemplo del elemento «enlace y botón» (paso 2.2 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · elemento 2.2</p>
+      <h1>Enlace y botón</h1>
+      <p class="entrada">Un botón hace algo o lleva a la acción principal de la página. Hay tres: primario, secundario y terciario. Todo lo demás es un enlace.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-primario">
+      <h2 id="ej-primario">Primario</h2>
+      <p class="ej-rotulo">La acción principal. Uno por pantalla, o uno por bloque si la página tiene varios. El primero es un <code>button</code>; el segundo, un enlace con la misma clase. Se ven igual.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Copiar la cita</button>
+        <a class="boton" href="#ej-primario">Consultar el ranking</a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-secundario">
+      <h2 id="ej-secundario">Secundario</h2>
+      <p class="ej-rotulo">La acción que acompaña a la principal. Lleva <code>data-variante="secundario"</code>.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" data-variante="secundario" type="button">Descargar la evidencia</button>
+        <a class="boton" data-variante="secundario" href="#ej-secundario">Metodología</a>
+      </div>
+      <p class="ej-rotulo">Juntos, como van en una página.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="boton" href="#ej-secundario">Consultar el ranking</a>
+        <a class="boton" data-variante="secundario" href="#ej-secundario">Metodología</a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-terciario">
+      <h2 id="ej-terciario">Terciario</h2>
+      <p class="ej-rotulo">Un botón que se ve como enlace, para acciones dentro de un bloque, donde un contorno pesaría demasiado. Lleva <code>data-variante="terciario"</code> y solo va sobre un <code>button</code>: si lleva a otra página, es un enlace.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" data-variante="terciario" type="button">Ver la evidencia</button>
+        <button class="boton" data-variante="terciario" type="button">Copiar</button>
+      </div>
+      <p class="ej-rotulo">Los tres juntos, de más a menos peso.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Copiar la cita</button>
+        <button class="boton" data-variante="secundario" type="button">Descargar la evidencia</button>
+        <button class="boton" data-variante="terciario" type="button">Ver la evidencia</button>
+      </div>
+      <p class="ej-rotulo">Dentro de un bloque de texto, como irá en un hallazgo: la acción al pie, sin competir con el contenido.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Los errores del formulario no se anuncian al lector de pantalla. La persona no sabe que el envío falló ni qué campo corregir.</p>
+          <p><button class="boton" data-variante="terciario" type="button">Ver la evidencia</button></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-estados">
+      <h2 id="ej-estados">Estados</h2>
+      <p class="ej-rotulo">Reposo, puntero encima, foco y presionado. Los tres últimos hay que provocarlos: pasa el puntero, recorre la página con el tabulador y mantén presionado.</p>
+      <p class="ej-rotulo">Con el puntero encima, la etiqueta se subraya; en el terciario, el subrayado engruesa. El cambio de relleno solo apenas se notaría.</p>
+      <p class="ej-rotulo">No hay botón deshabilitado. Si algo no se puede hacer, la página explica por qué.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Primario</button>
+        <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-enlace">
+      <h2 id="ej-enlace">Enlace</h2>
+      <p class="ej-rotulo">El enlace de texto no es parte de este componente: viene de las reglas base. Está aquí para verlo junto al botón. Siempre va subrayado, y con el puntero encima el subrayado engruesa.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Cada cifra tiene fuente, fecha y método. El detalle está en <a href="#ej-enlace">cómo se audita un trámite</a>, y los datos completos se pueden <a href="#no-visitado-todavia">descargar en formato abierto</a>.</p>
+        </div>
+      </div>
+      <p class="ej-rotulo">Un botón y un enlace, lado a lado: la acción principal y la salida discreta.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="boton" data-variante="secundario" href="#ej-enlace">Descargar la evidencia</a>
+        <a href="#ej-enlace">Cómo se audita un trámite</a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficies">
+      <h2 id="ej-superficies">Sobre cada superficie</h2>
+      <p class="ej-rotulo">Fondo, superficie y superficie alta, en ese orden.</p>
+      <div class="ej-muestra ej-fila" data-sobre="fondo">
+        <button class="boton" type="button">Primario</button>
+        <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
+        <a href="#ej-superficies">Un enlace</a>
+      </div>
+      <div class="ej-muestra ej-fila" data-sobre="superficie">
+        <button class="boton" type="button">Primario</button>
+        <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
+        <a href="#ej-superficies">Un enlace</a>
+      </div>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Primario</button>
+        <button class="boton" data-variante="secundario" type="button">Secundario</button>
+        <button class="boton" data-variante="terciario" type="button">Terciario</button>
+        <a href="#ej-superficies">Un enlace</a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Conviene verlos a 320 px y con el espaciado forzado.</p>
+
+      <p class="ej-rotulo">Una etiqueta larga: ocupa dos líneas y el botón crece, no se corta.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="boton" href="#ej-limite">Descargar la evidencia completa de la auditoría en formato abierto</a>
+        <a class="boton" data-variante="secundario" href="#ej-limite">Consultar la metodología con la que se auditó este trámite</a>
+      </div>
+
+      <p class="ej-rotulo">Una etiqueta de dos letras: el botón no baja de 44 × 44 px.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Sí</button>
+        <button class="boton" data-variante="secundario" type="button">No</button>
+        <button class="boton" data-variante="terciario" type="button">Ok</button>
+      </div>
+
+      <p class="ej-rotulo">Una palabra sin espacios, más ancha que el botón.</p>
+      <div class="ej-muestra ej-fila">
+        <button class="boton" type="button">Institucionalizacióndesproporcionadamentelarga</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

@@ -20,11 +20,16 @@ a {
   text-underline-offset: 0.2em;
   text-decoration-thickness: 0.08em;
   /* El subrayado permanece: el color no puede ser el único indicador de que
-     algo es un enlace (WCAG 1.4.1). */
+     algo es un enlace (WCAG 1.4.1). La única excepción es el botón primario
+     y el secundario (componentes/boton), que se distinguen por su forma. */
   text-decoration-line: underline;
 }
 
 a:visited { color: var(--omad-enlace-visitado); }
+
+/* Con el puntero encima el subrayado engruesa. El color no cambia: un
+   cambio de color solo no lo vería todo el mundo. */
+a:hover { text-decoration-thickness: 0.16em; }
 
 button, [role='button'], input, select, textarea, summary {
   min-height: var(--omad-objetivo-min);

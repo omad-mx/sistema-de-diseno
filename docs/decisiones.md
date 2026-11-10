@@ -21,6 +21,45 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · Los botones: tres variantes, y la única excepción al subrayado
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 2.2 del plan,
+[PR #14](https://github.com/omad-mx/sistema-de-diseno/pull/14)).
+**Qué:**
+- Hay tres botones: primario, secundario y terciario. El terciario es un
+  botón que se ve como enlace, subrayado siempre, para acciones dentro de un
+  bloque. Solo va sobre un `<button>`.
+- **El primario y el secundario son los únicos enlaces sin subrayado del
+  sistema.** Lo que dice que se pueden activar es su forma: contorno y
+  relleno. Con el puntero encima se subrayan los tres.
+**Por qué:** la regla del subrayado existe para que el color no sea lo único
+que distingue un enlace del texto (WCAG 1.4.1). En el primario y el
+secundario no lo es. En cambio, se descartó un botón «ghost» de texto de
+color sin subrayado: ese sí se distinguiría del texto solo por el color.
+**De paso:** el subrayado con el puntero encima se agregó porque el cambio de
+relleno solo apenas se notaba (de 1.14 a 1.48 de contraste entre reposo y
+encima), y en tema oscuro, sobre una superficie, el secundario no cambiaba
+nada.
+
+### 2026-11-10 · La marca de gravedad es una forma por nivel
+
+**Decidió:** Daniel Ballinas, como dirección de diseño, «por ahora».
+**Qué:** cada nivel lleva una forma rellena antes de su nombre: octágono para
+bloqueante, triángulo para severa, rombo para moderada y círculo para menor.
+La dibuja el CSS del distintivo a partir de `data-nivel`.
+**Por qué lleva marca:** WCAG se cumple con el nombre escrito, pero un
+hallazgo se busca recorriendo la lista con la vista. Sin el tono rojo
+(daltonismo, alto contraste, impresión), el color deja de servir: en la
+simulación de deuteranopia, bloqueante y moderada casi se confunden. Sin
+marca, a esas personas solo les queda leer etiqueta por etiqueta.
+**Qué se descartó**, en [`maqueta-marca-gravedad.html`](maqueta-marca-gravedad.html):
+barras en escalera (se parecen a la señal del teléfono, donde más es mejor),
+cuadros en fila (pueden leerse como calificación) y una mixta, con formas
+rellenas para los graves y huecas para los demás.
+**Lo que queda abierto:** el rombo y el círculo no dicen nada por sí mismos,
+y el orden de los cuatro se aprende. Se revisa con las pruebas con personas
+([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
+
 ### 2026-11-10 · El contrato de contraste se escribe con tokens semánticos
 
 **Decidió:** Daniel Ballinas, como dirección de diseño

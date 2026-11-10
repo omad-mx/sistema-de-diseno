@@ -8,53 +8,14 @@
   Ejemplo del elemento «tipografía y prosa» (paso 2.1 del plan).
   Se abre directo en el navegador desde el clon, sin servidor.
 
-  Todo lo que lleva el prefijo ej- es andamio de esta página (rótulos,
-  cajas de muestra, controles) y no forma parte del componente.
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente.
 
   Las muestras repiten encabezados fuera de orden para poder enseñarlos
   todos. Una página real no lo hace: lleva un solo h1 y no se salta niveles.
 -->
 <link rel="stylesheet" href="../../estilos/omad.css">
-<style>
-body { margin: 0; }
-.ej-pagina { max-inline-size: 72rem; margin-inline: auto; padding: var(--omad-esp-6) var(--omad-esp-4) var(--omad-esp-9); }
-.ej-volver { margin-block-end: var(--omad-esp-6); font-size: var(--omad-texto-sm); }
-.ej-volver a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); }
-
-.ej-controles {
-  display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6);
-  margin-block: var(--omad-esp-6); padding: var(--omad-esp-3) var(--omad-esp-4);
-  border: 1px solid var(--omad-borde-fuerte); border-radius: var(--omad-radio-1);
-  background: var(--omad-superficie);
-  font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal);
-}
-.ej-controles fieldset { border: 0; margin: 0; padding: 0; min-inline-size: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--omad-esp-4); }
-.ej-controles legend { float: inline-start; padding: 0; margin-inline-end: var(--omad-esp-4); font-weight: var(--omad-peso-fuerte); line-height: var(--omad-objetivo-min); }
-.ej-controles label { display: inline-flex; align-items: center; gap: var(--omad-esp-2); min-height: var(--omad-objetivo-min); cursor: pointer; }
-.ej-controles input { min-height: 0; inline-size: 1.25rem; block-size: 1.25rem; margin: 0; accent-color: var(--omad-accion-fondo); }
-
-.ej-marco { container-type: inline-size; transition: max-inline-size var(--omad-transicion); }
-.ej-marco[data-ancho="320"] { max-inline-size: 320px; outline: 1px dashed var(--omad-borde-fuerte); outline-offset: var(--omad-esp-2); }
-
-.ej-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
-.ej-seccion > * { min-inline-size: 0; }
-.ej-rotulo { font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); color: var(--omad-texto-secundario); max-inline-size: var(--omad-medida); }
-.ej-rotulo code { font-size: 0.9em; }
-.ej-muestra { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-5); background: var(--omad-superficie-alta); min-inline-size: 0; }
-.ej-marco[data-ancho="320"] .ej-muestra { padding: var(--omad-esp-4); }
-.ej-escala { display: grid; gap: var(--omad-esp-5); }
-.ej-escala > div { display: grid; gap: var(--omad-esp-1); min-inline-size: 0; }
-.ej-escala > div > * { min-inline-size: 0; }
-
-/* Espaciado de texto forzado, como lo pide WCAG 1.4.12. Lo que haría una
-   persona con su propia hoja de estilos; aquí lo prende el control. */
-[data-espaciado="forzado"] .ej-marco * {
-  line-height: 1.5 !important;
-  letter-spacing: 0.12em !important;
-  word-spacing: 0.16em !important;
-}
-[data-espaciado="forzado"] .ej-marco p { margin-block-end: 2em !important; }
-</style>
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
 </head>
 <body>
 <div class="ej-pagina">
@@ -93,7 +54,7 @@ body { margin: 0; }
       <h2 id="ej-encabezados">Encabezados</h2>
       <p class="ej-rotulo">Cuatro niveles. Cada uno se ve como su nivel: no hay clases para hacer que un <code>h2</code> parezca <code>h3</code>.</p>
       <p class="ej-rotulo">En un contenedor angosto los cuatro bajan un paso de la escala. El control «Ancho» lo enseña: a 320 px, el <code>h1</code> mide lo que el <code>h2</code> a todo lo ancho.</p>
-      <div class="ej-muestra ej-escala">
+      <div class="ej-muestra ej-pila">
         <div>
           <h1>Encabezado de primer nivel</h1>
           <p class="ej-rotulo"><code>h1</code> · <code>--omad-texto-3xl</code></p>
@@ -126,7 +87,7 @@ body { margin: 0; }
         <p class="entrada">La base es de 18 px, mayor que los 16 habituales: es el cuerpo mínimo cómodo, no el mínimo legal.</p>
       </div>
       <p class="ej-rotulo">Cada una por su lado, sin título.</p>
-      <div class="ej-muestra ej-escala">
+      <div class="ej-muestra ej-pila">
         <p class="cejilla">Una cejilla sola</p>
         <p class="entrada">Una entrada sola. Nunca pasa de la medida del sistema, por ancho que sea su contenedor: esta línea se corta aunque a la caja le sobre espacio a la derecha, porque una línea más larga se pierde al volver al margen.</p>
       </div>
@@ -199,22 +160,6 @@ body { margin: 0; }
   </main>
 </div>
 
-<script>
-/* Solo para los controles de esta página. El componente no usa JavaScript. */
-(function () {
-  var form = document.getElementById('controles');
-  var raiz = document.documentElement;
-  var marco = document.getElementById('marco');
-  function valor(nombre) { return form.querySelector('input[name="' + nombre + '"]:checked').value; }
-  function aplicar() {
-    var tema = valor('tema');
-    if (tema === 'sistema') raiz.removeAttribute('data-tema'); else raiz.setAttribute('data-tema', tema);
-    marco.setAttribute('data-ancho', valor('ancho'));
-    raiz.setAttribute('data-espaciado', valor('espaciado'));
-  }
-  form.addEventListener('change', aplicar);
-  aplicar();
-})();
-</script>
+<script src="../../estilos/ejemplo.js"></script>
 </body>
 </html>

@@ -25,7 +25,7 @@ prueben con tecnologías de apoyo.
 2. **Franja** (3.2). Se construye ya, como propuesta (D2); el registro como
    marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)) se
    lleva al consejo con la franja hecha.
-3. **Franja mini** (3.3).
+3. **Resultado por perfiles** (3.3), antes «franja mini».
 4. **Hallazgo** (3.4). Hay que resolver cómo se ve la evidencia.
 5. **Cifra citable** (3.5).
 6. **Tabla de datos** (3.6). Ojo: la caja con desplazamiento necesita

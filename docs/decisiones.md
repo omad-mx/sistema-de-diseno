@@ -21,6 +21,23 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · Sin franja mini: en una tabla, el resultado se escribe
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.3 del plan,
+[PR #19](https://github.com/omad-mx/sistema-de-diseno/pull/19)).
+**Qué:** la franja mini (seis casillas con palomita o tache) no entra al
+sistema. En una tabla con un trámite por fila, el resultado se escribe: «4 de
+6 · no completaron: baja visión y cognitivo». Es el componente
+`resultado-perfiles`.
+**Por qué:** las casillas no tienen pictograma ni nombre; había que saberse
+de memoria qué perfil era cada una o ir a una leyenda. Se comparó también una
+columna por perfil, con el pictograma en el encabezado: resuelve eso en
+escritorio, pero en un teléfono deja a la vista solo el nombre del trámite, y
+cruzar fila y columna para cada dato es más carga cognitiva que leer una
+frase.
+**Se pierde:** comparar un mismo perfil entre muchos trámites de un vistazo.
+Si hace falta, será una vista propia.
+
 ### 2026-11-10 · La franja: titular primero y dos filas de tres
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.2 del plan,

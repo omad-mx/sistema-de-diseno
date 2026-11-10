@@ -91,6 +91,26 @@
       </div>
     </section>
 
+    <section class="ej-seccion" aria-labelledby="ej-apilable">
+      <h2 id="ej-apilable">Apilable</h2>
+      <p class="ej-rotulo">Con <code>data-variante="apilable"</code>, en un contenedor angosto cada fila se acomoda como tarjeta: el trámite arriba y cada dato en su renglón, con el nombre de su columna. Para tablas con una cosa por fila, como el ranking. Elige «320 px» arriba para verlo. Lleva los roles de tabla escritos en el HTML (ver la ficha).</p>
+      <div class="ej-muestra">
+        <div class="tabla" data-variante="apilable" data-sobre="superficie-alta" role="region" aria-labelledby="t-apilable" tabindex="0">
+          <table role="table">
+            <caption id="t-apilable">Ranking de trámites<span class="tabla-nota">Datos de ejemplo.</span></caption>
+            <thead role="rowgroup">
+              <tr role="row"><th role="columnheader" scope="col" class="tabla-cifra">Lugar</th><th role="columnheader" scope="col">Trámite</th><th role="columnheader" scope="col">Dependencia</th><th role="columnheader" scope="col" class="tabla-cifra">Completaron</th><th role="columnheader" scope="col" class="tabla-cifra">Bloqueantes</th></tr>
+            </thead>
+            <tbody role="rowgroup">
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">1</td><th role="rowheader" scope="row">Trámite de ejemplo A</th><td role="cell" data-etiqueta="Dependencia">Dependencia de ejemplo uno</td><td role="cell" class="tabla-cifra" data-etiqueta="Completaron">6 de 6</td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">0</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">2</td><th role="rowheader" scope="row">Trámite de ejemplo B</th><td role="cell" data-etiqueta="Dependencia">Dependencia de ejemplo dos</td><td role="cell" class="tabla-cifra" data-etiqueta="Completaron">4 de 6</td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">1</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">3</td><th role="rowheader" scope="row">Un trámite de ejemplo con un nombre muy largo, de los que ocupan tres líneas en una columna angosta</th><td role="cell" data-etiqueta="Dependencia">Dependencia de ejemplo uno</td><td role="cell" class="tabla-cifra" data-etiqueta="Completaron">2 de 6</td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">3</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
     <section class="ej-seccion" aria-labelledby="ej-superficies">
       <h2 id="ej-superficies">Sobre la superficie</h2>
       <p class="ej-rotulo">La tabla no tiene fondo propio: toma el de lo que la contiene.</p>

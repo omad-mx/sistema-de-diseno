@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resultado por perfiles · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «resultado por perfiles» (paso 3.3 del plan,
+  antes «franja mini»).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo y
+  no forma parte del componente. Los trámites y los resultados son de
+  ejemplo: no existen.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.3</p>
+      <h1>Resultado por perfiles</h1>
+      <p class="entrada">El resultado de un trámite en una línea de texto, para una celda de tabla: el total y quién no completó, escrito. Sin marcas ni casillas: no hay nada que descifrar ni leyenda que buscar.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-ranking">
+      <h2 id="ej-ranking">En el ranking</h2>
+      <p class="ej-rotulo">Como se va a usar casi siempre, en una tabla apilable: a 320 px cada fila se acomoda como tarjeta, con el trámite arriba y cada dato en su renglón. Elige «320 px» arriba para verlo.</p>
+      <div class="ej-muestra">
+        <div class="tabla" data-variante="apilable" data-sobre="superficie-alta" role="region" aria-labelledby="t-ranking" tabindex="0">
+          <table role="table">
+            <caption id="t-ranking">Ranking de trámites<span class="tabla-nota">Datos de ejemplo.</span></caption>
+            <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col" class="tabla-cifra">Lugar</th><th role="columnheader" scope="col">Trámite</th><th role="columnheader" scope="col">Perfiles que completaron</th><th role="columnheader" scope="col" class="tabla-cifra">Bloqueantes</th></tr></thead>
+            <tbody role="rowgroup">
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">1</td><th role="rowheader" scope="row">Trámite de ejemplo A</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">6 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span></span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">0</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">2</td><th role="rowheader" scope="row">Trámite de ejemplo B</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">4 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completaron: baja visión y cognitivo</span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">1</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">3</td><th role="rowheader" scope="row">Trámite de ejemplo C</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">2 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completaron: lector de pantalla, solo teclado, motriz y cognitivo</span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">3</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">4</td><th role="rowheader" scope="row">Trámite de ejemplo D</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">1 de 6</strong><span class="visualmente-oculto"> perfiles completó</span> · no completaron: lector de pantalla, solo teclado, baja visión, motriz y cognitivo</span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">4</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">5</td><th role="rowheader" scope="row">Trámite de ejemplo E</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">0 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completó ninguno</span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">12</td></tr>
+              <tr role="row"><td role="cell" class="tabla-cifra" data-etiqueta="Lugar">6</td><th role="rowheader" scope="row">Trámite de ejemplo F</th><td role="cell" data-etiqueta="Perfiles que completaron"><span class="resultado-perfiles"><strong class="resultado-perfiles-total">5 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completó: persona sorda</span></td><td role="cell" class="tabla-cifra" data-etiqueta="Bloqueantes">0</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-casos">
+      <h2 id="ej-casos">Los casos</h2>
+      <p class="ej-rotulo">Seis de seis no dice nada más. Uno que no completó va en singular. Cero de seis no lista a los seis: dice «ninguno».</p>
+      <div class="ej-muestra ej-pila">
+        <p><span class="resultado-perfiles"><strong class="resultado-perfiles-total">6 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span></span></p>
+        <p><span class="resultado-perfiles"><strong class="resultado-perfiles-total">5 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completó: persona sorda</span></p>
+        <p><span class="resultado-perfiles"><strong class="resultado-perfiles-total">4 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completaron: baja visión y cognitivo</span></p>
+        <p><span class="resultado-perfiles"><strong class="resultado-perfiles-total">1 de 6</strong><span class="visualmente-oculto"> perfiles completó</span> · no completaron: lector de pantalla, solo teclado, baja visión, motriz y cognitivo</span></p>
+        <p><span class="resultado-perfiles"><strong class="resultado-perfiles-total">0 de 6</strong><span class="visualmente-oculto"> perfiles completaron</span> · no completó ninguno</span></p>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-oye">
+      <h2 id="ej-oye">Cómo se oye</h2>
+      <div class="prosa">
+        <p>Lo mismo que se ve, con dos palabras más que solo oye el lector de pantalla, para que el total se entienda fuera de la columna:</p>
+        <ul>
+          <li>«4 de 6 perfiles completaron · no completaron: baja visión y cognitivo».</li>
+          <li>«6 de 6 perfiles completaron».</li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

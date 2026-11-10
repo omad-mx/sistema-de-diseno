@@ -115,3 +115,67 @@
   color: var(--omad-texto-secundario);
   text-align: start;
 }
+
+/* -------------------------------------------------------------------------
+   Apilable: en un contenedor angosto, cada fila se acomoda como una
+   tarjeta. Arriba el encabezado de fila (el trámite) y debajo cada dato en
+   su renglón, con el nombre de su columna. Para tablas con una cosa por fila
+   (el ranking), donde desplazar a lo ancho esconde lo importante. Una tabla
+   para comparar muchas columnas no la lleva: se desplaza.
+
+   Al cambiar el display de las celdas, algunos navegadores dejan de
+   anunciar la tabla como tabla. Por eso la variante pide los roles
+   explícitos en el HTML (role="table", "row", "cell"…): ver la ficha.
+   ------------------------------------------------------------------------- */
+
+@container (max-width: 36rem) {
+  .tabla[data-variante='apilable'] {
+    overflow-x: visible;
+    background: none;
+  }
+
+  .tabla[data-variante='apilable'] :is(table, tbody, tr, th, td) {
+    display: block;
+  }
+
+  /* Los encabezados de columna no se ven: cada dato lleva el suyo. Siguen
+     en el HTML para lector de pantalla. */
+  .tabla[data-variante='apilable'] thead {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
+
+  .tabla[data-variante='apilable'] tbody tr {
+    padding-block: var(--omad-esp-3);
+    border-block-end: 1px solid var(--omad-borde);
+  }
+
+  .tabla[data-variante='apilable'] :is(th, td) {
+    padding: var(--omad-esp-1) 0;
+    border: 0;
+    text-align: start;
+  }
+
+  .tabla[data-variante='apilable'] tbody th[scope='row'] {
+    min-inline-size: 0;
+    font-size: var(--omad-texto-base);
+  }
+
+  /* El nombre de la columna, delante de cada dato. Viene del atributo
+     data-etiqueta de la celda. El texto alternativo vacío (después de la
+     barra) evita que un lector de pantalla lo lea dos veces: ya anuncia el
+     encabezado de la columna. */
+  .tabla[data-variante='apilable'] td[data-etiqueta]::before {
+    content: attr(data-etiqueta) ': ';
+    content: attr(data-etiqueta) ': ' / '';
+    font-weight: var(--omad-peso-medio);
+    color: var(--omad-texto-secundario);
+  }
+
+  .tabla[data-variante='apilable'] .tabla-vacia { padding-block: var(--omad-esp-3); }
+}

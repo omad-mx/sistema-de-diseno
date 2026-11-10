@@ -10,7 +10,7 @@ color: una palomita en el color de la marca del sistema para
 
 ## Cuándo se usa
 
-- En la franja y en la franja mini (pasos 3.2 y 3.3), una por perfil.
+- En la franja (paso 3.2), una por perfil.
 - En una tabla o un texto, cuando hay que decir el resultado de un perfil.
 
 ## Cuándo no

@@ -31,6 +31,23 @@ de hallazgos y cómo se piden.
 
 ## Tomadas
 
+### 2026-11-10 · Ninguna cifra sin su base
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.5 del plan,
+[PR #21](https://github.com/omad-mx/sistema-de-diseno/pull/21)).
+**Qué:** toda cifra que OMAD publica va con su base a la vista. La cifra
+citable usa como forma principal «X de N» («4 de 10 trámites auditados se
+pueden completar sin ayuda»). El porcentaje se usa solo con una base grande,
+como la cifra nacional, y nunca solo: siempre con «X de N» al lado.
+**Por qué:** un porcentaje esconde cuántos casos hay detrás. Una dependencia
+con 1 de 2 trámites accesibles (50 %) saldría mejor que una con 4 de 10
+(40 %), aunque la primera tiene un trámite que falla y la segunda, seis. Con
+dos trámites, un solo resultado distinto mueve la cifra de 0 a 100 %. «X de
+N» es además el mismo lenguaje que la franja.
+**Lo que no decide:** qué mide el índice, si se pondera por uso y desde qué
+base se permite un porcentaje. Es de metodología; está en
+[`pendientes.md`](pendientes.md).
+
 ### 2026-11-10 · La evidencia de un hallazgo es una captura de pantalla
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.4 del plan).

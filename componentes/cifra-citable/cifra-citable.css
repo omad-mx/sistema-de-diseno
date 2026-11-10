@@ -15,14 +15,25 @@
 
 .cifra-citable > * { margin: 0; min-inline-size: 0; }
 
-/* El número. Lo único grande de la página. Cifras tabulares para que
-   «08 %» y «100 %» midan lo mismo por dígito. */
+/* El número. Lo único grande de la página. Su forma principal es «X de N»:
+   la base va siempre a la vista, porque un porcentaje sin ella suena igual
+   de sólido con 2 trámites que con 200 (dictamen del 2026-11-10). Cifras
+   tabulares para que todos los dígitos midan lo mismo. */
 .cifra-citable-numero {
   font-size: var(--omad-texto-4xl);
   font-weight: var(--omad-peso-fuerte);
   line-height: 1;
   letter-spacing: -0.01em;
   font-variant-numeric: tabular-nums;
+}
+
+/* «de N», la base, en la misma línea y a la mitad del tamaño: se lee junto
+   al número sin competir con él. */
+.cifra-citable-base {
+  font-size: 0.5em;
+  font-weight: var(--omad-peso-medio);
+  letter-spacing: 0;
+  white-space: nowrap;
 }
 
 /* Qué mide, en una frase. Va pegado al número: sin esto, el número no dice

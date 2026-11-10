@@ -44,6 +44,19 @@ prueben con tecnologías de apoyo.
   es un lugar para el logo, que todavía no existe. Si el enlace a la portada
   lleva subrayado o es una excepción a la regla se decide con el logo.
 
+## Metodología
+
+- **Qué mide el índice.** Si un trámite «pasa» solo cuando lo completan los
+  seis perfiles o si se cuenta cada combinación de trámite y perfil; si se
+  pondera por cuánta gente usa cada trámite; y desde qué base tiene sentido
+  dar un porcentaje. El sistema ya garantiza que ninguna cifra aparezca sin
+  su base (ver [`decisiones.md`](decisiones.md), 2026-11-10).
+- **El ranking de dependencias no se ordena por porcentaje.** Con pocas
+  auditorías por dependencia, el porcentaje premia o castiga por cuántos
+  trámites se auditaron. Falta decidir el orden: por trámites que fallan, por
+  bloqueantes, o de otra forma, y cómo marcar las dependencias con pocos
+  trámites auditados.
+
 ## Contenido
 
 - **Explicaciones de los criterios WCAG en español.** Por ahora el componente

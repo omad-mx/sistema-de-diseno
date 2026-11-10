@@ -20,7 +20,7 @@ no la página.
 - **Para acomodar contenido en columnas.** Eso es la rejilla de una página.
 - **Para una sola fila o una sola columna.** Es una lista.
 - **Para el resultado de un trámite por perfil, de forma destacada.** Eso es
-  la franja (3.2). En una tabla con muchas filas va la franja mini (3.3).
+  la franja (3.2). En una tabla con un trámite por fila va el resultado por perfiles (3.3).
 
 ## Anatomía
 

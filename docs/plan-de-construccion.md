@@ -155,7 +155,7 @@ probarlo. Los pasos 2.2 a 2.6 pueden ir en paralelo después de 2.1.
 - **2.3 Distintivo de gravedad.** Los cuatro niveles, cada uno con marca,
   texto y color, porque el color nunca va solo (sección 4 del documento).
 - **2.4 Marca de resultado.** Completó (palomita) y no completó (tache), con su texto
-  para lector de pantalla. La usan la franja y la franja mini.
+  para lector de pantalla. La usa la franja.
 - **2.5 Criterio WCAG.** La referencia a un criterio (por ejemplo, 2.1.1),
   que enlaza a su explicación en la norma.
 - **2.6 Aviso.** Una franja de texto para avisos de página. Su primer uso es
@@ -182,8 +182,10 @@ Las piezas que cargan el contenido de OMAD.
   marca de resultado, más el titular «X de 6» como texto real. Un lector de
   pantalla la lee como lista de seis resultados (sección 5 del documento). En
   320 px de ancho no se corta ni se desborda: hay que diseñar qué hace.
-- **3.3 Franja mini.** La versión de una línea para las tablas, con su
-  etiqueta accesible «X de 6 perfiles completaron».
+- **3.3 Resultado por perfiles** (antes «franja mini»). El resultado de un
+  trámite en una celda de tabla, escrito: «4 de 6 · no completaron: baja
+  visión y cognitivo». Se descartó la cuadrícula de seis casillas
+  (2026-11-10).
 - **3.4 Hallazgo.** Distintivo de gravedad, descripción, criterios WCAG y
   perfiles afectados. Hay que resolver cómo se ve la evidencia: captura,
   fragmento de código en mono, o las dos.

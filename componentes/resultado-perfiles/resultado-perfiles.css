@@ -1,0 +1,15 @@
+/* =========================================================================
+   OMAD — resultado por perfiles
+   El resultado de un trámite en una línea de texto, para una celda de
+   tabla: el total («4 de 6») y quién no completó, escrito. Sin marcas ni
+   casillas: no hay nada que descifrar ni leyenda que buscar.
+   Reemplaza a la franja mini (dictamen del 2026-11-10).
+   Ficha: componentes/resultado-perfiles/README.md
+   ========================================================================= */
+
+/* El total, que es lo que se busca primero al recorrer una columna. */
+.resultado-perfiles-total {
+  font-weight: var(--omad-peso-fuerte);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}

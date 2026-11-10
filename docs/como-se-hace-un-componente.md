@@ -38,7 +38,7 @@ componentes/
 ```
 
 El nombre va en español, en singular, sin acentos, con ñ → n y con guiones
-entre palabras: `franja`, `franja-mini`, `cifra-citable`, `distintivo-gravedad`.
+entre palabras: `franja`, `resultado-perfiles`, `cifra-citable`, `distintivo-gravedad`.
 Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 (`componentes/<nombre>`).
 

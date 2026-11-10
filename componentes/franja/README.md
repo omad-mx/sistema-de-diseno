@@ -22,7 +22,8 @@ construye como propuesta (decisión del 2026-11-10).
 
 ## Cuándo no
 
-- **En una tabla con muchas filas.** Ahí va la franja mini (paso 3.3).
+- **En una tabla con un trámite por fila.** Ahí va el resultado por
+  perfiles (paso 3.3), escrito.
 - **Para menos de seis perfiles.** Si un perfil no se auditó, la franja no
   se usa hasta que se audite: la franja siempre son seis.
 - **Con otro orden.** El orden es fijo en todas las páginas, en el informe
@@ -49,7 +50,7 @@ construye como propuesta (decisión del 2026-11-10).
 - `.franja`: el bloque, con un ancho máximo de 36 rem para que las celdas no
   se estiren en una página ancha.
 - `.franja-resumen`: el titular, primero, escrito en el HTML. Con un solo
-  perfil va en singular: «1 de 6 perfil completó el trámite sin ayuda».
+  perfil va en singular: «1 de 6 perfiles completó el trámite sin ayuda».
 - `.franja-celdas`: la lista, con `role="list"` (Safari quita la semántica de
   lista cuando no hay viñetas) y su nombre.
 - `.franja-celda`: una por perfil, en el orden de la sección 5: lector de

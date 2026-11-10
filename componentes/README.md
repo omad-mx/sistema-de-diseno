@@ -20,7 +20,7 @@ Los primeros son los elementos de la fase 2 del
 | [`tabla`](tabla/README.md) | Resultados en filas y columnas, con desplazamiento propio. | `borrador` |
 | [`cabecera`](cabecera/README.md) | Saltar al contenido, la marca de OMAD y la navegación. | `borrador` |
 | [`pie`](pie/README.md) | Enlaces secundarios y créditos. | `borrador` |
-| [`franja-mini`](franja-mini/README.md) | La franja en pequeño, para una celda de tabla, con su leyenda. | `borrador` |
+| [`resultado-perfiles`](resultado-perfiles/README.md) | El resultado de un trámite en una celda de tabla, escrito: total y quién no completó. | `borrador` |
 | [`franja`](franja/README.md) | El componente firma: seis perfiles, su resultado y el titular «X de 6». Propuesta. | `borrador` |
 
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);

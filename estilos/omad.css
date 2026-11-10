@@ -10,3 +10,4 @@
 
 /* Componentes: uno por línea, en el orden en que entran al catálogo.
    @import url('../componentes/<nombre>/<nombre>.css'); */
+@import url('../componentes/tipografia/tipografia.css');

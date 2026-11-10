@@ -91,13 +91,18 @@ Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 ## 5. El ejemplo
 
 `ejemplo.html` es una página que se abre directo en el navegador, sin
-servidor. Carga los tokens con una ruta relativa y el CSS del componente, y
-nada más:
+servidor. Carga la hoja única del sistema con una ruta relativa, y nada más.
+El CSS del componente ya viene en ella, porque al entrar al catálogo se agrega
+a `estilos/omad.css`:
 
 ```html
-<link rel="stylesheet" href="../../tokens/omad-tokens.css">
-<link rel="stylesheet" href="<nombre>.css">
+<link rel="stylesheet" href="../../estilos/omad.css">
 ```
+
+Así el ejemplo se ve con las fuentes y las reglas base, igual que en una
+página real. Lo que el ejemplo necesite para mostrarse (rótulos, cajas de
+muestra, controles) va en un `<style>` de la propia página, con clases que
+empiezan con `ej-`, para que nadie lo confunda con el componente.
 
 Tiene una sección por estado y por variante, cada una con su encabezado. Y
 tiene los casos que rompen: el texto más largo que pueda llegar, el valor
@@ -180,8 +185,8 @@ pero no se usa en el prototipo.
    marcada.
 3. La CI en verde: contraste y, desde el paso 1.4, la revisión de
    componentes.
-4. El componente se agrega al catálogo (`componentes/index.html`, desde el
-   paso 1.6).
+4. El componente se agrega al catálogo (`componentes/index.html`) y su CSS,
+   a `estilos/omad.css`.
 5. Si el componente obligó a tomar una decisión que vale para todo el
    sistema, se registra en [`decisiones.md`](decisiones.md) y, si cambia esta
    receta, se cambia aquí en el mismo PR.

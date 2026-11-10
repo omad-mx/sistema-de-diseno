@@ -38,8 +38,6 @@
 body { margin: 0; }
 .pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
 main { padding-block: var(--omad-esp-7); }
-h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apretada); margin-block: 0 var(--omad-esp-4); }
-.prosa { max-inline-size: var(--omad-medida); }
 </style>
 </head>
 <body>
@@ -59,15 +57,17 @@ h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apreta
   </header>
 
   <main>
+    <div class="prosa">
     <h1>Prototipo del sitio</h1>
-    <p class="prosa"><strong>Datos de ejemplo.</strong> Nada de lo que
+    <p><strong>Datos de ejemplo.</strong> Nada de lo que
     aparezca en este prototipo es una auditoría real. Los trámites, las
     dependencias y los resultados son ficticios.</p>
-    <p class="prosa">Las páginas (portada, ranking, fichas de auditoría y
+    <p>Las páginas (portada, ranking, fichas de auditoría y
     metodología) llegan en la fase 4 del
     <a href="../docs/plan-de-construccion.md">plan de construcción</a>, cuando
     existan los componentes que las arman. Hasta entonces, esta página solo
     prueba que los tokens, las fuentes y las reglas base cargan.</p>
+    </div>
   </main>
 
   <footer class="sitio-pie">

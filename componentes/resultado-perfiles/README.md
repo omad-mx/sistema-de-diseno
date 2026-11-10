@@ -17,7 +17,8 @@ cognitiva que leer una frase.
 
 ## Cuándo se usa
 
-- En el ranking y en cualquier tabla con un trámite por fila.
+- En el ranking y en cualquier tabla con un trámite por fila, en una tabla
+  apilable.
 - En una lista o un texto, cuando hay que dar el resultado en una línea.
 
 ## Cuándo no
@@ -54,7 +55,7 @@ No tiene variantes. Cómo se escribe cada caso:
 | De 1 a 4 | «4 de 6 · no completaron: baja visión y cognitivo». |
 | 0 de 6 | «0 de 6 · no completó ninguno», sin listar a los seis. |
 
-A 320 px la frase se acomoda en varias líneas y el total no se parte. Pero dentro de una tabla de cuatro columnas, en un teléfono la columna queda fuera de la vista: la tabla se desplaza. Ver «Falta probar».
+A 320 px la frase se acomoda en varias líneas y el total no se parte. En una tabla, conviene la variante apilable de la tabla de datos: en un teléfono cada fila se acomoda como tarjeta y el resultado queda a la vista.
 
 ## Cómo se oye
 
@@ -75,10 +76,6 @@ lector de pantalla.
 
 ## Falta probar
 
-- **En un teléfono, dentro de una tabla, el resultado queda fuera de la
-  vista.** La tabla de datos solo deja ver el número y el trámite a 320 px.
-  Hace falta que la tabla sepa acomodarse en un ancho angosto; está en
-  discusión.
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
 - Que la frase se genere de los datos (paso 4.1 del plan) con las reglas de

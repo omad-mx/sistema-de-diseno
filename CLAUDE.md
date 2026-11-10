@@ -17,6 +17,7 @@ repositorios.
 - `herramientas/revisar-componentes.py` — lee el CSS de `componentes/` y falla si hay una primitiva, un color a mano, `outline: none` sin `:focus-visible` o `!important`. La CI lo corre en cada PR.
 - `herramientas/paleta-direccion-b.py` — deriva la paleta cálida de la maqueta de #1 (mismo L y C, tono girado) y la verifica. `--css` imprime el bloque que va en `docs/maqueta-direccion-visual.html`; ese bloque no se edita a mano.
 - `docs/` — el documento del sistema, el índice (`docs/README.md`) y el registro de decisiones (`docs/decisiones.md`).
+- `iconos/perfiles/` — los seis pictogramas de perfil, de Lucide (ISC), con su licencia. Se usan con `currentColor` y `aria-hidden`, siempre junto al nombre.
 - `componentes/` — el catálogo (`index.html`) y una carpeta por componente, según `docs/como-se-hace-un-componente.md`.
 - `prototipo/` — el sitio armado solo con componentes del catálogo; sin estilos propios.
 

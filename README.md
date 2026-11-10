@@ -38,6 +38,7 @@ primera paleta, está en
 | [`fuentes/`](fuentes/) | Atkinson Hyperlegible Next y JetBrains Mono en WOFF2, con sus licencias OFL. El sitio no depende de Google Fonts. |
 | [`docs/`](docs/) | Los documentos del sistema y el registro de decisiones. El [índice](docs/README.md) dice qué hay y en qué estado está. |
 | [`herramientas/`](herramientas/) | `verificar-contraste.py` verifica el contrato de contraste; `revisar-componentes.py` revisa que el CSS de componentes use solo tokens semánticos. Los dos corren en cada PR. |
+| [`iconos/`](iconos/) | Los seis pictogramas de perfil, de Lucide (licencia ISC). |
 | [`componentes/`](componentes/) | El catálogo (`index.html`) y una carpeta por componente. |
 | [`prototipo/`](prototipo/) | El sitio de OMAD armado solo con componentes del catálogo. Por ahora, un esqueleto. |
 

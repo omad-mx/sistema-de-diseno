@@ -21,6 +21,22 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · La franja: titular primero y dos filas de tres
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.2 del plan,
+[PR #18](https://github.com/omad-mx/sistema-de-diseno/pull/18)).
+**Qué:**
+- **Dos filas de tres celdas en todos los anchos**, no una fila de seis.
+- **El titular «X de 6» va antes de las celdas**, no debajo.
+**Por qué:** en un teléfono, una fila de seis obliga a encoger los nombres a
+12 px y a partir «Cognitivo»; dos filas de tres caben a 320 px sin encoger
+nada, y el orden se sigue leyendo de izquierda a derecha y de arriba abajo.
+El titular primero da el resultado antes del detalle, a la vista y para
+lector de pantalla.
+**Cambia:** el diagrama de la sección 5 del documento del sistema.
+**Sigue siendo:** una propuesta; su registro como marca lo decide el consejo
+([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)).
+
 ### 2026-11-10 · La dirección de diseño decide y el consejo opina después
 
 **Decidió:** Daniel Ballinas, como dirección de diseño.

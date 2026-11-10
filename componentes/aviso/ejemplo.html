@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Aviso · ejemplo · OMAD</title>
+<!--
+  Ejemplo del elemento «aviso» (paso 2.6 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · elemento 2.6</p>
+      <h1>Aviso</h1>
+      <p class="entrada">Un bloque de texto que avisa algo sobre toda la página. Su primer uso es «Datos de ejemplo»: tiene que verse en cualquier captura, no en una nota al pie.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-ejemplo">
+      <h2 id="ej-ejemplo">Datos de ejemplo</h2>
+      <p class="ej-rotulo">Va arriba de la página, antes del título, en toda página que muestre datos de ejemplo.</p>
+      <div class="ej-muestra" data-sobre="fondo">
+        <div class="aviso" role="note" aria-labelledby="aviso-1">
+          <p class="aviso-titulo" id="aviso-1">Datos de ejemplo</p>
+          <p>Nada de lo que aparece en esta página es una auditoría real. Los trámites, las dependencias y los resultados son ficticios.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-enlace">
+      <h2 id="ej-enlace">Con un enlace</h2>
+      <p class="ej-rotulo">Si el aviso tiene más que decir, enlaza a donde se dice.</p>
+      <div class="ej-muestra" data-sobre="fondo">
+        <div class="aviso" role="note" aria-labelledby="aviso-2">
+          <p class="aviso-titulo" id="aviso-2">Datos de ejemplo</p>
+          <p>Los resultados son ficticios. Cuando haya auditorías publicadas, esta página las mostrará. Mientras tanto, la <a href="#ej-enlace">metodología</a> explica cómo se van a hacer.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficies">
+      <h2 id="ej-superficies">Sobre cada superficie</h2>
+      <p class="ej-rotulo">Fondo, superficie y superficie alta, en ese orden. Sobre la superficie, el aviso tiene el mismo fondo que lo que lo rodea: lo separa el borde.</p>
+      <div class="ej-muestra" data-sobre="fondo"><div class="aviso" role="note" aria-labelledby="aviso-3"><p class="aviso-titulo" id="aviso-3">Datos de ejemplo</p><p>Los resultados son ficticios.</p></div></div>
+      <div class="ej-muestra" data-sobre="superficie"><div class="aviso" role="note" aria-labelledby="aviso-4"><p class="aviso-titulo" id="aviso-4">Datos de ejemplo</p><p>Los resultados son ficticios.</p></div></div>
+      <div class="ej-muestra"><div class="aviso" role="note" aria-labelledby="aviso-5"><p class="aviso-titulo" id="aviso-5">Datos de ejemplo</p><p>Los resultados son ficticios.</p></div></div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Un aviso largo, en un contenedor ancho: el texto no pasa de la medida de lectura aunque la caja sí ocupe todo el ancho.</p>
+      <div class="ej-muestra" data-sobre="fondo">
+        <div class="aviso" role="note" aria-labelledby="aviso-6">
+          <p class="aviso-titulo" id="aviso-6">Un título de aviso largo, de los que ocupan dos líneas en un teléfono</p>
+          <p>Un texto de aviso largo, para comprobar que se lee cómodo: no pasa de la medida del sistema, no se pega al borde y aguanta el espaciado de texto forzado a 320 px sin cortarse. Un aviso no debería ser así de largo; si lo es, lo que dice probablemente es contenido de la página.</p>
+          <p>Un segundo párrafo, para ver la separación entre los dos.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

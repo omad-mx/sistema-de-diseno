@@ -14,6 +14,9 @@ Los primeros son los elementos de la fase 2 del
 | [`tipografia`](tipografia/README.md) | Encabezados, párrafo, listas, cejilla, entrada y prosa. | `borrador` |
 | [`boton`](boton/README.md) | Botón primario y secundario, sobre un botón o sobre un enlace. | `borrador` |
 | [`distintivo-gravedad`](distintivo-gravedad/README.md) | Los cuatro niveles de un hallazgo, con marca, nombre y color. | `borrador` |
+| [`marca-resultado`](marca-resultado/README.md) | Si un perfil completó el trámite o no. | `borrador` |
+| [`criterio-wcag`](criterio-wcag/README.md) | La referencia a un criterio, enlazada a su explicación. | `borrador` |
+| [`aviso`](aviso/README.md) | Un aviso sobre toda la página, como «Datos de ejemplo». | `borrador` |
 
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);
 su especificación, incluido cómo se linealiza en un lector de pantalla, está

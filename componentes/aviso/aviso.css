@@ -1,0 +1,28 @@
+/* =========================================================================
+   OMAD — aviso
+   Un bloque de texto que avisa algo sobre toda la página. Su primer uso es
+   «Datos de ejemplo», que tiene que verse en cualquier captura.
+   Ficha: componentes/aviso/README.md
+   ========================================================================= */
+
+.aviso {
+  box-sizing: border-box;
+  padding: var(--omad-esp-4) var(--omad-esp-5);
+  /* El borde grueso del inicio es lo que lo separa del contenido aunque no
+     haya color: sigue ahí en forced-colors y en blanco y negro. */
+  border: 1px solid var(--omad-borde-fuerte);
+  border-inline-start-width: 6px;
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-superficie);
+  color: var(--omad-texto);
+  line-height: var(--omad-interlinea-normal);
+}
+
+.aviso > * {
+  max-inline-size: var(--omad-medida);
+  margin-block: 0;
+}
+
+.aviso > * + * { margin-block-start: var(--omad-esp-2); }
+
+.aviso-titulo { font-weight: var(--omad-peso-fuerte); }

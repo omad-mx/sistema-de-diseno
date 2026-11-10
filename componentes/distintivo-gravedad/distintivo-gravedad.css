@@ -6,15 +6,6 @@
    ========================================================================= */
 
 .distintivo-gravedad {
-  /* Alto de cada barra de la marca. Una barra «apagada» queda como un
-     talón en la base, para que siempre se cuenten cuatro lugares. */
-  --distintivo-gravedad-talon: 0.15em;
-  --distintivo-gravedad-tinta: currentColor;
-  --distintivo-gravedad-b1: var(--distintivo-gravedad-talon);
-  --distintivo-gravedad-b2: var(--distintivo-gravedad-talon);
-  --distintivo-gravedad-b3: var(--distintivo-gravedad-talon);
-  --distintivo-gravedad-b4: var(--distintivo-gravedad-talon);
-
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
@@ -33,57 +24,58 @@
   vertical-align: middle;
 }
 
-/* La marca: cuatro barras en escalera. Se encienden tantas como el nivel,
-   de menor (una) a bloqueante (cuatro). Se dibuja con el color del texto,
-   así que sigue al tema y sobrevive a forced-colors. Es decorativa para un
-   lector de pantalla: el nivel ya está escrito. */
-.distintivo-gravedad::before {
+/* La marca: una forma rellena por nivel (dictamen del 2026-11-10, opción C
+   de docs/maqueta-marca-gravedad.html). Las formas son máscaras: la forma
+   la da el SVG y el color, el del texto, así que sigue al tema. Es
+   decorativa para un lector de pantalla: el nivel ya está escrito.
+   Solo existe para los cuatro niveles válidos: un distintivo sin nivel, o
+   con uno que no existe, se queda sin marca. */
+.distintivo-gravedad:is([data-nivel='bloqueante'], [data-nivel='severa'],
+                        [data-nivel='moderada'], [data-nivel='menor'])::before {
   content: '';
   flex: none;
-  inline-size: 1.3em;
+  inline-size: 1em;
   block-size: 1em;
-  background:
-    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0      100% / 0.22em var(--distintivo-gravedad-b1) no-repeat,
-    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0.36em 100% / 0.22em var(--distintivo-gravedad-b2) no-repeat,
-    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 0.72em 100% / 0.22em var(--distintivo-gravedad-b3) no-repeat,
-    linear-gradient(var(--distintivo-gravedad-tinta) 0 0) 1.08em 100% / 0.22em var(--distintivo-gravedad-b4) no-repeat;
+  background-color: currentColor;
+  -webkit-mask: var(--distintivo-gravedad-forma) center / contain no-repeat;
+  mask: var(--distintivo-gravedad-forma) center / contain no-repeat;
 }
 
-.distintivo-gravedad[data-nivel='menor'] {
-  --distintivo-gravedad-b1: 40%;
-  background-color: var(--omad-menor-fondo);
-  color: var(--omad-menor-texto);
-}
-
-.distintivo-gravedad[data-nivel='moderada'] {
-  --distintivo-gravedad-b1: 40%;
-  --distintivo-gravedad-b2: 60%;
-  background-color: var(--omad-moderada-fondo);
-  color: var(--omad-moderada-texto);
-}
-
-.distintivo-gravedad[data-nivel='severa'] {
-  --distintivo-gravedad-b1: 40%;
-  --distintivo-gravedad-b2: 60%;
-  --distintivo-gravedad-b3: 80%;
-  background-color: var(--omad-severa-fondo);
-  color: var(--omad-severa-texto);
-}
-
+/* Bloqueante: octágono, la señal de alto. */
 .distintivo-gravedad[data-nivel='bloqueante'] {
-  --distintivo-gravedad-b1: 40%;
-  --distintivo-gravedad-b2: 60%;
-  --distintivo-gravedad-b3: 80%;
-  --distintivo-gravedad-b4: 100%;
+  --distintivo-gravedad-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2'/%3E%3C/svg%3E");
   background-color: var(--omad-bloqueante-fondo);
   color: var(--omad-bloqueante-texto);
 }
 
-/* En forced-colors el navegador quita los fondos, y la marca está hecha de
-   fondos. Se le pide que la deje, pintada con el color de texto del sistema. */
+/* Severa: triángulo, la señal de precaución. */
+.distintivo-gravedad[data-nivel='severa'] {
+  --distintivo-gravedad-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='8,1.2 15.4,14.6 0.6,14.6'/%3E%3C/svg%3E");
+  background-color: var(--omad-severa-fondo);
+  color: var(--omad-severa-texto);
+}
+
+/* Moderada: rombo. */
+.distintivo-gravedad[data-nivel='moderada'] {
+  --distintivo-gravedad-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpolygon points='8,0.8 15.2,8 8,15.2 0.8,8'/%3E%3C/svg%3E");
+  background-color: var(--omad-moderada-fondo);
+  color: var(--omad-moderada-texto);
+}
+
+/* Menor: círculo. */
+.distintivo-gravedad[data-nivel='menor'] {
+  --distintivo-gravedad-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='6'/%3E%3C/svg%3E");
+  background-color: var(--omad-menor-fondo);
+  color: var(--omad-menor-texto);
+}
+
+/* En forced-colors el navegador quita los fondos, y la marca es un fondo
+   recortado. Se le pide que lo deje, pintado con el color de texto del
+   sistema. */
 @media (forced-colors: active) {
-  .distintivo-gravedad::before {
-    --distintivo-gravedad-tinta: CanvasText;
+  .distintivo-gravedad:is([data-nivel='bloqueante'], [data-nivel='severa'],
+                          [data-nivel='moderada'], [data-nivel='menor'])::before {
     forced-color-adjust: none;
+    background-color: CanvasText;
   }
 }

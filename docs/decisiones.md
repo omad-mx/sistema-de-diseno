@@ -21,6 +21,25 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · La marca de gravedad es una forma por nivel
+
+**Decidió:** Daniel Ballinas, como dirección de diseño, «por ahora».
+**Qué:** cada nivel lleva una forma rellena antes de su nombre: octágono para
+bloqueante, triángulo para severa, rombo para moderada y círculo para menor.
+La dibuja el CSS del distintivo a partir de `data-nivel`.
+**Por qué lleva marca:** WCAG se cumple con el nombre escrito, pero un
+hallazgo se busca recorriendo la lista con la vista. Sin el tono rojo
+(daltonismo, alto contraste, impresión), el color deja de servir: en la
+simulación de deuteranopia, bloqueante y moderada casi se confunden. Sin
+marca, a esas personas solo les queda leer etiqueta por etiqueta.
+**Qué se descartó**, en [`maqueta-marca-gravedad.html`](maqueta-marca-gravedad.html):
+barras en escalera (se parecen a la señal del teléfono, donde más es mejor),
+cuadros en fila (pueden leerse como calificación) y una mixta, con formas
+rellenas para los graves y huecas para los demás.
+**Lo que queda abierto:** el rombo y el círculo no dicen nada por sí mismos,
+y el orden de los cuatro se aprende. Se revisa con las pruebas con personas
+([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
+
 ### 2026-11-10 · El contrato de contraste se escribe con tokens semánticos
 
 **Decidió:** Daniel Ballinas, como dirección de diseño

@@ -30,9 +30,9 @@ una marca, su nombre en texto y su color.
 ```
 
 - `.distintivo-gravedad`: la caja, con el color del nivel.
-- La marca: cuatro barras en escalera, antes del texto. La dibuja el CSS a
-  partir de `data-nivel`; no hay que escribirla en el HTML, así que no se
-  puede olvidar ni contradecir al texto.
+- La marca: una forma rellena, antes del texto. La dibuja el CSS a partir de
+  `data-nivel`; no hay que escribirla en el HTML, así que no se puede
+  olvidar ni contradecir al texto.
 - «Gravedad: », solo para lector de pantalla. Fuera de contexto, «severa» no
   dice de qué se habla.
 - El nombre del nivel, escrito normal. Las mayúsculas las pone el CSS.
@@ -42,18 +42,23 @@ una marca, su nombre en texto y su color.
 El nivel va en `data-nivel`, no en `data-variante`: no es una manera de verse,
 es el dato.
 
-| `data-nivel` | Barras encendidas |
+| `data-nivel` | Marca |
 |---|---|
-| `bloqueante` | cuatro |
-| `severa` | tres |
-| `moderada` | dos |
-| `menor` | una |
+| `bloqueante` | octágono, la señal de alto |
+| `severa` | triángulo, la señal de precaución |
+| `moderada` | rombo |
+| `menor` | círculo |
 
-Las barras apagadas quedan como un talón en la base, para que siempre se
-cuenten cuatro lugares.
+La marca se eligió el 2026-11-10 entre cuatro propuestas (barras en
+escalera, cuadros en fila, una forma por nivel y una mixta), en
+[`docs/maqueta-marca-gravedad.html`](../../docs/maqueta-marca-gravedad.html).
+Las barras se descartaron porque se parecen a la señal del teléfono, donde
+más barras es mejor. El octágono y el triángulo ya significan peligro; el
+rombo y el círculo no dicen nada por sí mismos, y el orden de los cuatro se
+aprende.
 
 Sin `data-nivel`, o con un nivel que no existe, el distintivo se queda sin
-color y con las cuatro barras apagadas. Es un error de marcado, y se nota.
+color y sin marca. Es un error de marcado, y se nota.
 
 No tiene estados: no es interactivo. No se parte en dos líneas; si no cabe
 junto al texto, baja completo.
@@ -87,8 +92,9 @@ La marca no se anuncia: es un dibujo del CSS, y el nivel ya está dicho.
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
 - `forced-colors` en Windows. En la emulación de Chromium la marca y el
   contorno se conservan.
-- Que la marca se entienda sin explicación: que cuatro barras se lean como
-  «lo más grave» y no como «lo mejor». Es una prueba con personas.
+- Que la marca se entienda sin explicación: que el octágono y el triángulo
+  se lean como lo más grave, y que la gente aprenda el orden de los cuatro.
+  Es una prueba con personas.
 - Las distancias de color de la sección 4 del documento se calcularon para
   las etiquetas sobre el fondo de la página, no para el texto de un nivel
   sobre su propio fondo. No se han vuelto a correr para este uso; por eso el

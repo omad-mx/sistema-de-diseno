@@ -21,6 +21,28 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · Los pictogramas de los seis perfiles vienen de Lucide
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.1 del plan,
+[PR #16](https://github.com/omad-mx/sistema-de-diseno/pull/16)).
+**Qué:** bocina (lector de pantalla), teclado (solo teclado), ojo (baja
+visión), mano que señala (motriz), globo de texto (persona sorda) y cerebro
+(cognitivo). Son íconos de [Lucide](https://lucide.dev), licencia ISC, sin
+cambios en el dibujo. Están en `iconos/perfiles/`, con la licencia.
+**Por qué de un set y no dibujados:** la decisión del 2026-10-31 (D3) pedía
+dibujarlos con tiempo acotado a partir de los bosquejos de la maqueta. Un set
+profesional cumple lo que pide el paso 3.1 (mismo trazo, misma retícula, se
+reconocen a 24 px) sin el riesgo de unas formas orgánicas dibujadas a mano,
+y en mucho menos tiempo. Los candidatos siguen las ideas de los bosquejos
+donde funcionaban.
+**Qué se descartó**, en [`maqueta-pictogramas.html`](maqueta-pictogramas.html):
+para persona sorda, los subtítulos (un rectángulo, como el teclado; a 24 px
+se confundían); de entrada, la silla de ruedas, la oreja tachada y la pieza
+de rompecabezas.
+**Pendiente:** si la franja se registra como marca
+([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)), el consejo
+tiene que saber que sus pictogramas vienen de un set público.
+
 ### 2026-11-10 · Marca de resultado, criterio WCAG y aviso
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (pasos 2.4 a 2.6 del

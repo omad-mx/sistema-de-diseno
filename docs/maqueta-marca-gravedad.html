@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca de gravedad · maqueta · OMAD</title>
+<!--
+  Maqueta para elegir la marca del distintivo de gravedad (paso 2.3 del plan).
+  2026-11-10 · estado: en discusión · decide: la dirección de diseño.
+
+  El documento del sistema pide que cada nivel lleve marca, texto y color.
+  La primera propuesta (barras en escalera, PR #14) se parece a la señal del
+  teléfono, donde más barras es mejor. Esta página pone esa propuesta junto
+  a tres alternativas, al tamaño real del componente, con los mismos
+  hallazgos y en las mismas condiciones.
+
+  Las marcas B, C y D son SVG dentro del HTML solo para compararlas. La que
+  se elija se dibuja desde el CSS del componente, como hoy las barras.
+
+  No tiene datos reales: los hallazgos son texto genérico.
+-->
+<link rel="stylesheet" href="../estilos/omad.css">
+<link rel="stylesheet" href="../estilos/ejemplo.css">
+<style>
+/* Las opciones B, C y D llevan su marca en el HTML: se apaga la del CSS. */
+[data-marca]:not([data-marca="barras"]) .distintivo-gravedad::before { content: none; }
+.mq-forma { flex: none; inline-size: 1em; block-size: 1em; }
+.mq-cuadros { flex: none; inline-size: 1.75em; block-size: 0.47em; }
+
+/* Solo la marca: el distintivo sin su nombre, para ver si la marca sola
+   separa y ordena los niveles. El nombre sigue ahí para lector de pantalla. */
+.mq-solas { display: inline-flex; gap: var(--omad-esp-2); }
+.mq-solo-marca { gap: 0; padding-inline: var(--omad-esp-2); }
+
+/* position: relative hace falta: sin ella, los .visualmente-oculto de la
+   tabla (que son absolutos) se salen de la caja y estiran la página. Va a
+   pasar igual en la tabla de datos (paso 3.6). */
+.mq-tabla-caja { position: relative; overflow-x: auto; }
+.mq-tabla { border-collapse: collapse; inline-size: 100%; min-inline-size: 52rem; font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.mq-tabla caption { text-align: start; caption-side: bottom; padding-block-start: var(--omad-esp-3); font-size: var(--omad-texto-xs); color: var(--omad-texto-terciario); }
+.mq-tabla th, .mq-tabla td { text-align: start; padding: var(--omad-esp-3); border-block-end: 1px solid var(--omad-borde); vertical-align: middle; }
+.mq-tabla thead th { font-size: var(--omad-texto-xs); font-weight: var(--omad-peso-medio); letter-spacing: 0.04em; text-transform: uppercase; color: var(--omad-texto-secundario); border-block-end: 2px solid var(--omad-borde-fuerte); }
+.mq-tabla th[scope="row"] { font-weight: var(--omad-peso-medio); }
+
+.mq-juicio { display: grid; gap: var(--omad-esp-4) var(--omad-esp-6); grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); max-inline-size: 60rem; font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.mq-juicio h3 { font-size: var(--omad-texto-base); margin-block-end: var(--omad-esp-2); }
+.mq-juicio ul { margin: 0; padding-inline-start: var(--omad-esp-5); }
+.mq-juicio li + li { margin-block-start: var(--omad-esp-2); }
+
+/* Vistas. «Grises» quita el tono; «Deuteranopia» es una simulación
+   aproximada (Machado, Oliveira y Fernandes, 2009, severidad 1.0); «Sin
+   color» imita lo que hace el modo de alto contraste: quita los fondos y
+   pinta todo de un color. */
+[data-vista="grises"] .ej-marco { filter: grayscale(1); }
+[data-vista="deuteranopia"] .ej-marco { filter: url(#deuteranopia); }
+[data-vista="sin-color"] .ej-marco .distintivo-gravedad { background: transparent; color: var(--omad-texto); border-color: var(--omad-texto); }
+
+.mq-guia { max-inline-size: var(--omad-medida); }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <filter id="deuteranopia" color-interpolation-filters="linearRGB">
+    <feColorMatrix type="matrix" values="0.367322 0.860646 -0.227968 0 0  0.280085 0.672501 0.047413 0 0  -0.011820 0.042940 0.968881 0 0  0 0 0 1 0"/>
+  </filter>
+</svg>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../componentes/distintivo-gravedad/ejemplo.html">Distintivo de gravedad</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles de la maqueta">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Color</legend>
+      <label><input type="radio" name="vista" value="color" checked> Color</label>
+      <label><input type="radio" name="vista" value="grises"> Grises</label>
+      <label><input type="radio" name="vista" value="deuteranopia"> Deuteranopia</label>
+      <label><input type="radio" name="vista" value="sin-color"> Sin color</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Maqueta · en discusión</p>
+      <h1>La marca de gravedad</h1>
+      <p class="entrada">Cada nivel lleva una marca, su nombre y su color. El nombre siempre está escrito; la marca es lo que separa los niveles cuando el color falla. Aquí están las cuatro propuestas, al tamaño real.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="mq-que-mirar">
+      <h2 id="mq-que-mirar">Qué mirar</h2>
+      <div class="prosa mq-guia">
+        <ol>
+          <li><strong>En «Grises», «Deuteranopia» y «Sin color», ¿se distinguen los cuatro niveles?</strong> Es el trabajo de la marca.</li>
+          <li><strong>En la columna «Solo la marca», ¿se entiende cuál es el más grave?</strong> El nombre siempre va escrito, pero de reojo se ve primero la marca.</li>
+          <li><strong>¿Alguna dice lo contrario que su texto?</strong> Una marca que contradice su nombre es peor que una que no dice nada.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="mq-juntas">
+      <h2 id="mq-juntas">Las cuatro, juntas</h2>
+      <div class="ej-muestra mq-tabla-caja">
+        <table class="mq-tabla">
+          <caption>Los cuatro niveles en cada propuesta. La última columna quita el nombre, solo para comparar: en el sitio el nombre siempre va escrito.</caption>
+          <thead>
+            <tr><th scope="col">Propuesta</th><th scope="col">Bloqueante</th><th scope="col">Severa</th><th scope="col">Moderada</th><th scope="col">Menor</th><th scope="col">Solo la marca</th></tr>
+          </thead>
+          <tbody>
+          <tr data-marca="barras"><th scope="row">A · Barras en escalera</th><td><span class="distintivo-gravedad" data-nivel="bloqueante"><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span></td><td><span class="distintivo-gravedad" data-nivel="severa"><span class="visualmente-oculto">Gravedad: </span>Severa</span></td><td><span class="distintivo-gravedad" data-nivel="moderada"><span class="visualmente-oculto">Gravedad: </span>Moderada</span></td><td><span class="distintivo-gravedad" data-nivel="menor"><span class="visualmente-oculto">Gravedad: </span>Menor</span></td><td><span class="mq-solas"><span class="distintivo-gravedad mq-solo-marca" data-nivel="bloqueante"><span class="visualmente-oculto">Bloqueante</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="severa"><span class="visualmente-oculto">Severa</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="moderada"><span class="visualmente-oculto">Moderada</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="menor"><span class="visualmente-oculto">Menor</span></span></span></td></tr>
+          <tr data-marca="cuadros"><th scope="row">B · Cuadros en fila</th><td><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21" y="1" width="5" height="5" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span></td><td><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span></td><td><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span></td><td><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span></td><td><span class="mq-solas"><span class="distintivo-gravedad mq-solo-marca" data-nivel="bloqueante"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21" y="1" width="5" height="5" fill="currentColor"/></svg><span class="visualmente-oculto">Bloqueante</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="severa"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Severa</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="moderada"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Moderada</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="menor"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Menor</span></span></span></td></tr>
+          <tr data-marca="formas"><th scope="row">C · Una forma por nivel</th><td><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span></td><td><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span></td><td><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,0.8 15.2,8 8,15.2 0.8,8" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span></td><td><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span></td><td><span class="mq-solas"><span class="distintivo-gravedad mq-solo-marca" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Bloqueante</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Severa</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,0.8 15.2,8 8,15.2 0.8,8" fill="currentColor"/></svg><span class="visualmente-oculto">Moderada</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg><span class="visualmente-oculto">Menor</span></span></span></td></tr>
+          <tr data-marca="mixta"><th scope="row">D · Forma para los graves, contorno para los demás</th><td><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span></td><td><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span></td><td><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,2.4 13.6,8 8,13.6 2.4,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span></td><td><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span></td><td><span class="mq-solas"><span class="distintivo-gravedad mq-solo-marca" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Bloqueante</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Severa</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,2.4 13.6,8 8,13.6 2.4,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Moderada</span></span><span class="distintivo-gravedad mq-solo-marca" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Menor</span></span></span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="ej-seccion" data-marca="barras" aria-labelledby="op-barras">
+      <h2 id="op-barras">A · Barras en escalera</h2>
+      <p class="ej-rotulo">La del PR #14. Cuatro barras de altura creciente; se encienden tantas como el nivel.</p>
+      <div class="ej-muestra">
+        <ul class="ej-hallazgos" aria-label="Hallazgos de muestra, opción A">
+            <li><span class="distintivo-gravedad" data-nivel="bloqueante"><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> <span>El botón de envío no es alcanzable con teclado.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="severa"><span class="visualmente-oculto">Gravedad: </span>Severa</span> <span>Los errores del formulario no se anuncian al lector de pantalla.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="moderada"><span class="visualmente-oculto">Gravedad: </span>Moderada</span> <span>El texto de ayuda no alcanza el contraste mínimo.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="menor"><span class="visualmente-oculto">Gravedad: </span>Menor</span> <span>El enlace «aquí» no describe su destino.</span></li>
+        </ul>
+      </div>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Un hallazgo <span class="distintivo-gravedad" data-nivel="bloqueante"><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> impide terminar el trámite a por lo menos un perfil. Uno <span class="distintivo-gravedad" data-nivel="menor"><span class="visualmente-oculto">Gravedad: </span>Menor</span> estorba, pero no detiene a nadie.</p>
+        </div>
+      </div>
+      <div class="mq-juicio">
+        <div><h3>A favor</h3><ul><li>El orden se lee solo: más barras, más grave.</li><li>Ya está hecha y se dibuja desde el CSS.</li></ul></div>
+        <div><h3>En contra</h3><ul><li>Es la señal del teléfono, donde más barras es mejor. La marca dice lo contrario que su texto.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" data-marca="cuadros" aria-labelledby="op-cuadros">
+      <h2 id="op-cuadros">B · Cuadros en fila</h2>
+      <p class="ej-rotulo">Cuatro cuadros iguales; se rellenan tantos como el nivel. Un medidor, no una señal.</p>
+      <div class="ej-muestra">
+        <ul class="ej-hallazgos" aria-label="Hallazgos de muestra, opción B">
+            <li><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21" y="1" width="5" height="5" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> <span>El botón de envío no es alcanzable con teclado.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span> <span>Los errores del formulario no se anuncian al lector de pantalla.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span> <span>El texto de ayuda no alcanza el contraste mínimo.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> <span>El enlace «aquí» no describe su destino.</span></li>
+        </ul>
+      </div>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Un hallazgo <span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7" y="1" width="5" height="5" fill="currentColor"/><rect x="14" y="1" width="5" height="5" fill="currentColor"/><rect x="21" y="1" width="5" height="5" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> impide terminar el trámite a por lo menos un perfil. Uno <span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-cuadros" viewBox="0 0 26 7" aria-hidden="true" focusable="false"><rect x="0" y="1" width="5" height="5" fill="currentColor"/><rect x="7.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="14.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/><rect x="21.6" y="1.6" width="3.8" height="3.8" fill="none" stroke="currentColor" stroke-width="1.2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> estorba, pero no detiene a nadie.</p>
+        </div>
+      </div>
+      <div class="mq-juicio">
+        <div><h3>A favor</h3><ul><li>Conserva el orden de las barras.</li><li>No se parece a la señal del teléfono.</li></ul></div>
+        <div><h3>En contra</h3><ul><li>Puede leerse como calificación, que también es «más es mejor», aunque menos fuerte.</li><li>A este tamaño los cuadros vacíos se ven poco.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" data-marca="formas" aria-labelledby="op-formas">
+      <h2 id="op-formas">C · Una forma por nivel</h2>
+      <p class="ej-rotulo">Octágono, triángulo, rombo y círculo, todos rellenos.</p>
+      <div class="ej-muestra">
+        <ul class="ej-hallazgos" aria-label="Hallazgos de muestra, opción C">
+            <li><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> <span>El botón de envío no es alcanzable con teclado.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span> <span>Los errores del formulario no se anuncian al lector de pantalla.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,0.8 15.2,8 8,15.2 0.8,8" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span> <span>El texto de ayuda no alcanza el contraste mínimo.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> <span>El enlace «aquí» no describe su destino.</span></li>
+        </ul>
+      </div>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Un hallazgo <span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> impide terminar el trámite a por lo menos un perfil. Uno <span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> estorba, pero no detiene a nadie.</p>
+        </div>
+      </div>
+      <div class="mq-juicio">
+        <div><h3>A favor</h3><ul><li>El octágono (alto) y el triángulo (precaución) ya significan peligro en todo el mundo.</li><li>Se distinguen sin color y sin contar nada.</li></ul></div>
+        <div><h3>En contra</h3><ul><li>El orden no se ve: hay que aprenderlo.</li><li>El rombo y el círculo no dicen nada por sí mismos.</li></ul></div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" data-marca="mixta" aria-labelledby="op-mixta">
+      <h2 id="op-mixta">D · Forma para los graves, contorno para los demás</h2>
+      <p class="ej-rotulo">Octágono y triángulo rellenos para bloqueante y severa; rombo y círculo huecos para moderada y menor.</p>
+      <div class="ej-muestra">
+        <ul class="ej-hallazgos" aria-label="Hallazgos de muestra, opción D">
+            <li><span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> <span>El botón de envío no es alcanzable con teclado.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="severa"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,1.2 15.4,14.6 0.6,14.6" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Severa</span> <span>Los errores del formulario no se anuncian al lector de pantalla.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="moderada"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="8,2.4 13.6,8 8,13.6 2.4,8" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Gravedad: </span>Moderada</span> <span>El texto de ayuda no alcanza el contraste mínimo.</span></li>
+            <li><span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> <span>El enlace «aquí» no describe su destino.</span></li>
+        </ul>
+      </div>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Un hallazgo <span class="distintivo-gravedad" data-nivel="bloqueante"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><polygon points="5.2,1 10.8,1 15,5.2 15,10.8 10.8,15 5.2,15 1,10.8 1,5.2" fill="currentColor"/></svg><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> impide terminar el trámite a por lo menos un perfil. Uno <span class="distintivo-gravedad" data-nivel="menor"><svg class="mq-forma" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="5" fill="none" stroke="currentColor" stroke-width="2"/></svg><span class="visualmente-oculto">Gravedad: </span>Menor</span> estorba, pero no detiene a nadie.</p>
+        </div>
+      </div>
+      <div class="mq-juicio">
+        <div><h3>A favor</h3><ul><li>Hace lo que dice la sección 3.3 del documento: solo los dos primeros niveles son la nota.</li><li>Los graves pesan más que los otros dos aunque no haya color.</li></ul></div>
+        <div><h3>En contra</h3><ul><li>Mezcla dos maneras de dibujar en una sola escala.</li><li>Moderada y menor se distinguen entre sí menos que en C.</li></ul></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* Solo para los controles de esta maqueta. */
+(function () {
+  var form = document.getElementById('controles');
+  var raiz = document.documentElement;
+  var marco = document.getElementById('marco');
+  function valor(n) { return form.querySelector('input[name="' + n + '"]:checked').value; }
+  function aplicar() {
+    var tema = valor('tema');
+    if (tema === 'sistema') raiz.removeAttribute('data-tema'); else raiz.setAttribute('data-tema', tema);
+    raiz.setAttribute('data-vista', valor('vista'));
+    marco.setAttribute('data-ancho', valor('ancho'));
+  }
+  form.addEventListener('change', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tipografía y prosa · ejemplo · OMAD</title>
+<!--
+  Ejemplo del elemento «tipografía y prosa» (paso 2.1 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de esta página (rótulos,
+  cajas de muestra, controles) y no forma parte del componente.
+
+  Las muestras repiten encabezados fuera de orden para poder enseñarlos
+  todos. Una página real no lo hace: lleva un solo h1 y no se salta niveles.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<style>
+body { margin: 0; }
+.ej-pagina { max-inline-size: 72rem; margin-inline: auto; padding: var(--omad-esp-6) var(--omad-esp-4) var(--omad-esp-9); }
+.ej-volver { margin-block-end: var(--omad-esp-6); font-size: var(--omad-texto-sm); }
+.ej-volver a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); }
+
+.ej-controles {
+  display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6);
+  margin-block: var(--omad-esp-6); padding: var(--omad-esp-3) var(--omad-esp-4);
+  border: 1px solid var(--omad-borde-fuerte); border-radius: var(--omad-radio-1);
+  background: var(--omad-superficie);
+  font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal);
+}
+.ej-controles fieldset { border: 0; margin: 0; padding: 0; min-inline-size: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--omad-esp-4); }
+.ej-controles legend { float: inline-start; padding: 0; margin-inline-end: var(--omad-esp-4); font-weight: var(--omad-peso-fuerte); line-height: var(--omad-objetivo-min); }
+.ej-controles label { display: inline-flex; align-items: center; gap: var(--omad-esp-2); min-height: var(--omad-objetivo-min); cursor: pointer; }
+.ej-controles input { min-height: 0; inline-size: 1.25rem; block-size: 1.25rem; margin: 0; accent-color: var(--omad-accion-fondo); }
+
+.ej-marco { container-type: inline-size; transition: max-inline-size var(--omad-transicion); }
+.ej-marco[data-ancho="320"] { max-inline-size: 320px; outline: 1px dashed var(--omad-borde-fuerte); outline-offset: var(--omad-esp-2); }
+
+.ej-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
+.ej-seccion > * { min-inline-size: 0; }
+.ej-rotulo { font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); color: var(--omad-texto-secundario); max-inline-size: var(--omad-medida); }
+.ej-rotulo code { font-size: 0.9em; }
+.ej-muestra { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-5); background: var(--omad-superficie-alta); min-inline-size: 0; }
+.ej-marco[data-ancho="320"] .ej-muestra { padding: var(--omad-esp-4); }
+.ej-escala { display: grid; gap: var(--omad-esp-5); }
+.ej-escala > div { display: grid; gap: var(--omad-esp-1); min-inline-size: 0; }
+.ej-escala > div > * { min-inline-size: 0; }
+
+/* Espaciado de texto forzado, como lo pide WCAG 1.4.12. Lo que haría una
+   persona con su propia hoja de estilos; aquí lo prende el control. */
+[data-espaciado="forzado"] .ej-marco * {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+[data-espaciado="forzado"] .ej-marco p { margin-block-end: 2em !important; }
+</style>
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <!-- La apertura de esta página ya es el primer ejemplo: cejilla, h1 y entrada. -->
+    <header>
+      <p class="cejilla">Catálogo · elemento 2.1</p>
+      <h1>Tipografía y prosa</h1>
+      <p class="entrada">Una sola familia, Atkinson Hyperlegible, compone todo el texto del observatorio. La jerarquía la cargan el tamaño, el peso y el espacio; no hay una segunda familia para titulares.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-encabezados">
+      <h2 id="ej-encabezados">Encabezados</h2>
+      <p class="ej-rotulo">Cuatro niveles. Cada uno se ve como su nivel: no hay clases para hacer que un <code>h2</code> parezca <code>h3</code>.</p>
+      <p class="ej-rotulo">En un contenedor angosto los cuatro bajan un paso de la escala. El control «Ancho» lo enseña: a 320 px, el <code>h1</code> mide lo que el <code>h2</code> a todo lo ancho.</p>
+      <div class="ej-muestra ej-escala">
+        <div>
+          <h1>Encabezado de primer nivel</h1>
+          <p class="ej-rotulo"><code>h1</code> · <code>--omad-texto-3xl</code></p>
+        </div>
+        <div>
+          <h2>Encabezado de segundo nivel</h2>
+          <p class="ej-rotulo"><code>h2</code> · <code>--omad-texto-2xl</code></p>
+        </div>
+        <div>
+          <h3>Encabezado de tercer nivel</h3>
+          <p class="ej-rotulo"><code>h3</code> · <code>--omad-texto-xl</code></p>
+        </div>
+        <div>
+          <h4>Encabezado de cuarto nivel</h4>
+          <p class="ej-rotulo"><code>h4</code> · <code>--omad-texto-lg</code></p>
+        </div>
+        <div>
+          <p>Párrafo de cuerpo. Es el tamaño base del sistema y el que lleva casi todo el texto del sitio.</p>
+          <p class="ej-rotulo"><code>p</code> · <code>--omad-texto-base</code></p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-apertura">
+      <h2 id="ej-apertura">Cejilla y entrada</h2>
+      <p class="ej-rotulo">La cejilla va sobre un título y dice a qué pertenece. La entrada va debajo y lo resume. Juntas abren una página o una sección.</p>
+      <div class="ej-muestra">
+        <p class="cejilla">Metodología</p>
+        <h2>Cómo se compone el texto</h2>
+        <p class="entrada">La base es de 18 px, mayor que los 16 habituales: es el cuerpo mínimo cómodo, no el mínimo legal.</p>
+      </div>
+      <p class="ej-rotulo">Cada una por su lado, sin título.</p>
+      <div class="ej-muestra ej-escala">
+        <p class="cejilla">Una cejilla sola</p>
+        <p class="entrada">Una entrada sola. Nunca pasa de la medida del sistema, por ancho que sea su contenedor: esta línea se corta aunque a la caja le sobre espacio a la derecha, porque una línea más larga se pierde al volver al margen.</p>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-prosa">
+      <h2 id="ej-prosa">Prosa</h2>
+      <p class="ej-rotulo">El contenedor <code>.prosa</code> pone la medida y el espacio entre párrafos, listas y encabezados. Lo que va dentro es HTML sin clases.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <h2>Una sola familia</h2>
+          <p>Atkinson Hyperlegible es del Braille Institute y se diseñó para baja visión: sus letras separan los caracteres que suelen confundirse. El observatorio compone su texto en la tipografía hecha para las personas por las que audita.</p>
+          <p>Eso resuelve la identidad sin inventar una pareja tipográfica. La decisión está en el <a href="../../docs/decisiones.md">registro de decisiones</a> y su razón, en la sección 6 del <a href="../../docs/omad-sistema-de-diseno.md">documento del sistema</a>.</p>
+          <h3>Qué carga la jerarquía</h3>
+          <p>Como no hay una segunda familia, un titular se distingue del cuerpo por tres cosas:</p>
+          <ul>
+            <li>El <strong>tamaño</strong>, en una escala de 1.25 sobre la base.</li>
+            <li>El <strong>peso</strong>: el cuerpo va en 400 y los encabezados en 700.</li>
+            <li>El <strong>espacio</strong>: hay más aire antes de un encabezado que después, porque el encabezado pertenece a lo que sigue.
+              <ul>
+                <li>Antes de un encabezado de segundo nivel va el espacio mayor.</li>
+                <li>Entre dos párrafos, el menor.</li>
+              </ul>
+            </li>
+          </ul>
+          <h3>El orden de una página</h3>
+          <ol>
+            <li>Una cejilla, si la página pertenece a una sección.</li>
+            <li>Un solo encabezado de primer nivel.</li>
+            <li>Una entrada que lo resume.</li>
+            <li>La prosa, con sus encabezados en orden y sin saltarse niveles.</li>
+          </ol>
+          <h4>La mono</h4>
+          <p>Hay una segunda fuente, de ancho fijo, pero solo aparece en fragmentos de código dentro de la evidencia de una auditoría. No se usa como estilo de rótulo.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Lo más largo que puede llegar. Conviene verlos a 320 px y con el espaciado forzado.</p>
+
+      <p class="ej-rotulo">Un título de varias líneas, con palabras largas.</p>
+      <div class="ej-muestra">
+        <p class="cejilla">Una cejilla larga, de las que ocupan más de una línea en un teléfono</p>
+        <h1>Accesibilidad e interoperabilidad de los trámites, desproporcionadamente institucionalizados</h1>
+        <p class="entrada">Una entrada larga, para ver que la medida la contiene y que no se pega al título ni a lo que sigue cuando el texto ocupa cuatro o cinco líneas en lugar de dos, que es lo que pasa en una pantalla angosta o con el zoom al 400&nbsp;%.</p>
+      </div>
+
+      <p class="ej-rotulo">Un texto que no se puede partir por los espacios, y una lista con elementos largos.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <h3>Un encabezado de tercer nivel que ocupa dos o tres líneas porque alguien necesitó decirlo todo en el título</h3>
+          <p>Una dirección sin espacios: https://ejemplo.invalid/una/ruta/muy/larga/que/no/tiene/donde/cortarse/y/sigue/y/sigue/hasta-el-final.html</p>
+          <ul>
+            <li>Un elemento de lista de varias líneas, para comprobar que la segunda línea se alinea con la primera y no con la viñeta, y que el espacio entre elementos sigue siendo menor que el espacio entre párrafos.</li>
+            <li>Corto.</li>
+          </ul>
+          <ol start="9">
+            <li>Una lista numerada que pasa de un dígito a dos.</li>
+            <li>El número de dos cifras no se sale del margen.</li>
+          </ol>
+          <h4>Un encabezado justo después de una lista</h4>
+          <h4>Y otro encabezado inmediatamente después, sin texto entre los dos</h4>
+          <p>Un párrafo final.</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+/* Solo para los controles de esta página. El componente no usa JavaScript. */
+(function () {
+  var form = document.getElementById('controles');
+  var raiz = document.documentElement;
+  var marco = document.getElementById('marco');
+  function valor(nombre) { return form.querySelector('input[name="' + nombre + '"]:checked').value; }
+  function aplicar() {
+    var tema = valor('tema');
+    if (tema === 'sistema') raiz.removeAttribute('data-tema'); else raiz.setAttribute('data-tema', tema);
+    marco.setAttribute('data-ancho', valor('ancho'));
+    raiz.setAttribute('data-espaciado', valor('espaciado'));
+  }
+  form.addEventListener('change', aplicar);
+  aplicar();
+})();
+</script>
+</body>
+</html>

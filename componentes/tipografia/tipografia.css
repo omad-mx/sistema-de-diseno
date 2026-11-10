@@ -1,0 +1,88 @@
+/* =========================================================================
+   OMAD — tipografía y prosa
+   Encabezados h1 a h4, párrafo, cejilla, entrada y el contenedor de prosa.
+   Ficha: componentes/tipografia/README.md
+   ========================================================================= */
+
+/* -------------------------------------------------------------------------
+   Encabezados y párrafo
+   Se estilan por elemento: un encabezado se ve como su nivel, y el nivel lo
+   decide la estructura de la página, no el tamaño que se quiera.
+   No traen margen. El espacio entre piezas lo pone quien las contiene: la
+   prosa (abajo) o la rejilla de un componente.
+   ------------------------------------------------------------------------- */
+
+h1, h2, h3, h4 {
+  margin: 0;
+  font-weight: var(--omad-peso-fuerte);
+  line-height: var(--omad-interlinea-apretada);
+  text-wrap: balance;
+}
+
+/* En un contenedor angosto toda la escala de encabezados baja un paso, y lo
+   recupera poco a poco al ensancharse. A tamaño completo, «accesibilidad» no
+   cabe en una línea de 320 px con el espaciado de texto forzado (WCAG
+   1.4.12) y se parte a media palabra; el ejemplo lo muestra. Bajan los
+   cuatro niveles y no solo el primero, para que ninguno alcance al
+   siguiente. Los límites son pasos de la escala, en rem, así que el zoom
+   del navegador sigue agrandando el texto.
+   cqi mide el contenedor más cercano; si no hay ninguno, mide la pantalla. */
+h1 { font-size: clamp(var(--omad-texto-2xl),  1.5rem  + 3cqi,   var(--omad-texto-3xl)); }
+h2 { font-size: clamp(var(--omad-texto-xl),   1.2rem  + 2.5cqi, var(--omad-texto-2xl)); }
+h3 { font-size: clamp(var(--omad-texto-lg),   0.95rem + 2cqi,   var(--omad-texto-xl)); }
+h4 { font-size: clamp(var(--omad-texto-base), 0.8rem  + 1.5cqi, var(--omad-texto-lg)); line-height: var(--omad-interlinea-normal); }
+
+p { margin: 0; }
+
+/* -------------------------------------------------------------------------
+   Cejilla: el rótulo pequeño que va sobre un título.
+   Las mayúsculas las pone el CSS. En el HTML el texto va escrito normal,
+   para que un lector de pantalla no lo deletree.
+   ------------------------------------------------------------------------- */
+
+.cejilla {
+  font-size: var(--omad-texto-sm);
+  font-weight: var(--omad-peso-medio);
+  line-height: var(--omad-interlinea-normal);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--omad-texto-terciario);
+}
+
+.cejilla + :is(h1, h2, h3, h4) { margin-block-start: var(--omad-esp-2); }
+
+/* -------------------------------------------------------------------------
+   Entrada: el párrafo de apertura, bajo el título.
+   ------------------------------------------------------------------------- */
+
+.entrada {
+  max-inline-size: var(--omad-medida);
+  font-size: var(--omad-texto-lg);
+  line-height: var(--omad-interlinea-normal);
+  color: var(--omad-texto-secundario);
+}
+
+:is(h1, h2) + .entrada { margin-block-start: var(--omad-esp-4); }
+
+/* -------------------------------------------------------------------------
+   Prosa: texto corrido de lectura. Pone la medida y el espacio vertical
+   entre sus hijos directos. Lo que va dentro es HTML sin clases.
+   ------------------------------------------------------------------------- */
+
+.prosa { max-inline-size: var(--omad-medida); }
+
+.prosa > * { margin-block: 0; }
+.prosa > * + * { margin-block-start: var(--omad-esp-4); }
+
+/* Antes de un encabezado, más aire: separa la sección que termina. */
+.prosa > * + h2 { margin-block-start: var(--omad-esp-7); }
+.prosa > * + h3 { margin-block-start: var(--omad-esp-6); }
+.prosa > * + h4 { margin-block-start: var(--omad-esp-5); }
+
+/* Después, menos: el encabezado pertenece a lo que sigue. */
+.prosa > h2 + * { margin-block-start: var(--omad-esp-3); }
+.prosa > :is(h3, h4) + * { margin-block-start: var(--omad-esp-2); }
+
+.prosa :is(ul, ol) { padding-inline-start: var(--omad-esp-6); }
+.prosa li + li { margin-block-start: var(--omad-esp-2); }
+.prosa li > :is(ul, ol) { margin-block: var(--omad-esp-2) 0; }

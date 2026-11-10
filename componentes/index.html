@@ -34,14 +34,10 @@
 body { margin: 0; }
 .pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
 main { padding-block: var(--omad-esp-7); }
-h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apretada); margin-block: 0 var(--omad-esp-4); }
-.prosa { max-inline-size: var(--omad-medida); }
 .catalogo { list-style: none; padding: 0; margin: var(--omad-esp-7) 0 0; display: grid; gap: var(--omad-esp-4); grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
 .catalogo li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4); background: var(--omad-superficie); }
-.catalogo h2 { font-size: var(--omad-texto-lg); margin-block: 0 var(--omad-esp-2); }
+.catalogo h2 { font-size: var(--omad-texto-lg); line-height: var(--omad-interlinea-normal); margin-block: 0 var(--omad-esp-2); }
 .catalogo p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); }
-.vacio { border: 1px dashed var(--omad-borde-fuerte); border-radius: var(--omad-radio-1); padding: var(--omad-esp-5); margin-top: var(--omad-esp-7); max-inline-size: var(--omad-medida); }
-.vacio p { margin: 0; }
 </style>
 </head>
 <body>
@@ -61,24 +57,21 @@ h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apreta
   </header>
 
   <main>
+    <div class="prosa">
     <h1>Catálogo de componentes</h1>
-    <p class="prosa">Cada componente del sistema, con todos sus estados y
+    <p>Cada componente del sistema, con todos sus estados y
     variantes, enlazado a su ejemplo y a su ficha. Lo que no está aquí no se
     usa en el prototipo. La receta para agregar uno está en
     <a href="../docs/como-se-hace-un-componente.md">cómo se hace un componente</a>.</p>
+    </div>
 
-    <!-- Un <li> por componente, en el orden en que entran al catálogo:
+    <!-- Un <li> por componente, en el orden en que entran al catálogo. -->
     <ul class="catalogo">
       <li>
-        <h2><a href="franja/ejemplo.html">Franja</a></h2>
-        <p>Seis perfiles, un resultado cada uno. <a href="franja/README.md">Ficha</a>.</p>
+        <h2><a href="tipografia/ejemplo.html">Tipografía y prosa</a></h2>
+        <p>Encabezados, párrafo, listas, cejilla, entrada y la medida de lectura. <a href="tipografia/README.md">Ficha</a>.</p>
       </li>
     </ul>
-    -->
-    <div class="vacio">
-      <p>Todavía no hay componentes. El primero llega en la fase 2 del
-      <a href="../docs/plan-de-construccion.md">plan de construcción</a>.</p>
-    </div>
   </main>
 
   <footer class="sitio-pie">

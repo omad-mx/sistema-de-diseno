@@ -5,9 +5,14 @@ componentes en una página; cada uno tiene su carpeta con su CSS, su ejemplo
 y su ficha. La receta completa está en
 [`docs/como-se-hace-un-componente.md`](../docs/como-se-hace-un-componente.md).
 
-Todavía no hay componentes. Los primeros son los elementos de la fase 2 del
+Los primeros son los elementos de la fase 2 del
 [plan](../docs/plan-de-construccion.md); se extraen de la
 [maqueta de la dirección visual](../docs/maqueta-direccion-visual.html).
+
+| Componente | Qué es | Estado |
+|---|---|---|
+| [`tipografia`](tipografia/README.md) | Encabezados, párrafo, listas, cejilla, entrada y prosa. | `borrador` |
+
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);
 su especificación, incluido cómo se linealiza en un lector de pantalla, está
 en [el documento del sistema](../docs/omad-sistema-de-diseno.md#5-los-seis-perfiles).

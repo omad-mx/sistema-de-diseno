@@ -62,9 +62,10 @@ Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 - **Solo tokens semánticos** (capa 2 de `tokens/omad-tokens.css`). Nunca una
   primitiva como `--omad-petroleo-600`, nunca un hex, `rgb()` ni `oklch()`
   escrito a mano. Desde el paso 1.4 la CI lo revisa.
-- **Si falta un token, se agrega en el mismo PR**, en la capa 2. Si es un
-  color, también se agrega al par correspondiente del script de contraste y
-  se corre antes de abrir el PR.
+- **Si falta un token, se agrega en el mismo PR**, en la capa 2 y en los dos
+  temas. Si es un color, apunta a una primitiva con `var()` y entra al
+  contrato de `herramientas/verificar-contraste.py` con el fondo sobre el que
+  va; el script falla mientras un token de color no esté en ningún par.
 - **La clase raíz es el nombre del componente**, sin prefijo: `.franja`,
   no `.omad-franja`. Sus partes llevan
   el nombre como prefijo: `.franja-celda`, `.franja-marca`. Así ningún
@@ -90,13 +91,18 @@ Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 ## 5. El ejemplo
 
 `ejemplo.html` es una página que se abre directo en el navegador, sin
-servidor. Carga los tokens con una ruta relativa y el CSS del componente, y
-nada más:
+servidor. Carga la hoja única del sistema con una ruta relativa, y nada más.
+El CSS del componente ya viene en ella, porque al entrar al catálogo se agrega
+a `estilos/omad.css`:
 
 ```html
-<link rel="stylesheet" href="../../tokens/omad-tokens.css">
-<link rel="stylesheet" href="<nombre>.css">
+<link rel="stylesheet" href="../../estilos/omad.css">
 ```
+
+Así el ejemplo se ve con las fuentes y las reglas base, igual que en una
+página real. Lo que el ejemplo necesite para mostrarse (rótulos, cajas de
+muestra, controles) va en un `<style>` de la propia página, con clases que
+empiezan con `ej-`, para que nadie lo confunda con el componente.
 
 Tiene una sección por estado y por variante, cada una con su encabezado. Y
 tiene los casos que rompen: el texto más largo que pueda llegar, el valor
@@ -179,8 +185,8 @@ pero no se usa en el prototipo.
    marcada.
 3. La CI en verde: contraste y, desde el paso 1.4, la revisión de
    componentes.
-4. El componente se agrega al catálogo (`componentes/index.html`, desde el
-   paso 1.6).
+4. El componente se agrega al catálogo (`componentes/index.html`) y su CSS,
+   a `estilos/omad.css`.
 5. Si el componente obligó a tomar una decisión que vale para todo el
    sistema, se registra en [`decisiones.md`](decisiones.md) y, si cambia esta
    receta, se cambia aquí en el mismo PR.

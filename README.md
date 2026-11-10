@@ -38,17 +38,21 @@ primera paleta, está en
 | [`fuentes/`](fuentes/) | Atkinson Hyperlegible Next y JetBrains Mono en WOFF2, con sus licencias OFL. El sitio no depende de Google Fonts. |
 | [`docs/`](docs/) | Los documentos del sistema y el registro de decisiones. El [índice](docs/README.md) dice qué hay y en qué estado está. |
 | [`herramientas/`](herramientas/) | `verificar-contraste.py` verifica el contrato de contraste; `revisar-componentes.py` revisa que el CSS de componentes use solo tokens semánticos. Los dos corren en cada PR. |
-| [`componentes/`](componentes/) | El catálogo (`index.html`) y una carpeta por componente. Todavía sin componentes. |
+| [`componentes/`](componentes/) | El catálogo (`index.html`) y una carpeta por componente. |
 | [`prototipo/`](prototipo/) | El sitio de OMAD armado solo con componentes del catálogo. Por ahora, un esqueleto. |
 
 ## El contrato de contraste
 
 El sistema promete que ciertos pares de color cumplen un mínimo concreto:
-texto principal, texto secundario, enlaces, anillo de foco, las cuatro etiquetas
-de gravedad, en tema claro y en tema oscuro. Esa promesa está escrita como una
-lista explícita en la constante `CONTRATO` de
-[`herramientas/verificar-contraste.py`](herramientas/verificar-contraste.py),
-que hoy verifica **31 pares**.
+texto, enlaces, anillo de foco, botón, marcas de resultado y las cuatro
+etiquetas de gravedad. Esa promesa está escrita como una lista explícita en
+[`herramientas/verificar-contraste.py`](herramientas/verificar-contraste.py).
+
+El contrato está escrito con los **tokens semánticos**, que son los que usan
+los componentes (`texto` sobre `fondo`, `enlace` sobre `superficie`…), y cada
+par se mide dos veces: en tema claro y en tema oscuro. El script también falla
+si un token de color no está en ningún par, o si alguien escribe un color a
+mano fuera de la capa 1.
 
 ```sh
 # verificar el contrato (sale con código 1 si algún par incumple)
@@ -61,7 +65,8 @@ python3 herramientas/verificar-contraste.py --csv > contrastes.csv
 Solo necesita Python 3, sin dependencias.
 
 **Los colores viven en la capa 1 de `tokens/omad-tokens.css`.** El script los
-lee de ahí. Si cambias un valor, vuelve a correrlo antes de abrir el PR.
+lee de ahí. Si cambias un valor, o a qué primitiva apunta un token semántico,
+vuelve a correrlo antes de abrir el PR.
 
 ### Verificación automática
 

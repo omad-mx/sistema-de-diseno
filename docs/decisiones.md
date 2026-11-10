@@ -21,6 +21,30 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · El contrato de contraste se escribe con tokens semánticos
+
+**Decidió:** Daniel Ballinas, como dirección de diseño
+([#11](https://github.com/omad-mx/sistema-de-diseno/issues/11)).
+**Qué:** el contrato de `herramientas/verificar-contraste.py` deja de listar
+pares de primitivas (`tinta-900` sobre `tinta-0`) y lista pares de tokens
+semánticos (`texto` sobre `fondo`). Cada par se mide en tema claro y en tema
+oscuro. Lo que es texto, enlace, marca de resultado o etiqueta de gravedad se
+mide sobre las tres superficies (`fondo`, `superficie` y `superficie-alta`)
+con el mínimo de texto; el anillo de foco, el borde de control y el contorno
+del botón, con el mínimo de lo no textual.
+**Por qué:** los componentes solo pueden usar tokens semánticos, y el contrato
+medía otra cosa. Apuntar `texto` a un gris claro dejaba el texto ilegible y la
+CI pasaba en verde. Tres colores escritos directo en la capa 2 no se medían
+nunca.
+**De paso:**
+- Esos tres colores pasan a la capa 1 con nombre: `blanco`, `severa-900` y
+  `moderada-900`. Ningún valor cambió. La capa 2 ya solo admite `var()` a una
+  primitiva.
+- El script falla si los dos bloques del tema oscuro difieren, y si un token
+  de color no está en ningún par ni en la lista de exentos.
+- El único exento es `borde`: es una línea divisoria decorativa. Lo que
+  delimita un control usa `borde-fuerte`, que sí se mide.
+
 ### 2026-11-09 · Los tokens y las reglas base viven en archivos distintos
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (decisión D4 del plan,

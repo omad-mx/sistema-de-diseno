@@ -45,6 +45,9 @@ body {
   font-family: var(--omad-fuente);
   font-size: var(--omad-texto-base);
   line-height: var(--omad-interlinea-suelta);
+  /* Una palabra o una dirección más ancha que su columna se parte en lugar
+     de desbordar la página (reflujo a 320px, WCAG 1.4.10). */
+  overflow-wrap: break-word;
 }
 
 code, pre, kbd, samp {

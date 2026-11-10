@@ -1,0 +1,93 @@
+/* =========================================================================
+   OMAD — franja de seis perfiles
+   El componente firma: seis celdas en orden fijo, una por perfil, con su
+   pictograma, su nombre y su resultado, y el titular «X de 6» como texto.
+   Es una propuesta: su registro como marca lo decide el consejo (#3).
+   Ficha: componentes/franja/README.md
+   ========================================================================= */
+
+.franja {
+  container-type: inline-size;
+  display: grid;
+  gap: var(--omad-esp-3);
+}
+
+/* Las seis celdas. Las líneas entre celdas son el hueco de la rejilla, que
+   deja ver el color del borde de fondo: así sirven igual en una fila de seis
+   que en dos filas de tres. */
+.franja-celdas {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  border: 1px solid var(--omad-borde-fuerte);
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-borde);
+}
+
+.franja-celda {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  justify-items: center;
+  align-items: center;
+  gap: var(--omad-esp-2);
+  padding: var(--omad-esp-3) var(--omad-esp-1) var(--omad-esp-4);
+  background: var(--omad-superficie-alta);
+  text-align: center;
+}
+
+/* Una barra en la base de cada celda, del color del resultado. Acompaña a la
+   marca; no la sustituye. */
+.franja-celda:has(.marca-resultado[data-resultado='si']) { box-shadow: inset 0 -4px 0 var(--omad-completo); }
+.franja-celda:has(.marca-resultado[data-resultado='no']) { box-shadow: inset 0 -4px 0 var(--omad-no-completo); }
+
+.franja-picto {
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  color: var(--omad-texto-secundario);
+}
+
+.franja-nombre {
+  max-inline-size: 100%;
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-medio);
+  line-height: 1.2;
+  /* Con el espaciado de texto forzado (1.4.12), «Cognitivo» no cabe en un
+     tercio de 320 px: se parte con guion, y si el navegador no sabe partir
+     en español, se parte donde sea antes que salirse de la celda. */
+  hyphens: auto;
+  overflow-wrap: anywhere;
+}
+
+.franja-marca { font-size: var(--omad-texto-xl); }
+
+/* El titular. Es texto real, escrito en el HTML: no se calcula en el
+   navegador ni va en una imagen. */
+.franja-resumen {
+  margin: 0;
+  font-size: var(--omad-texto-lg);
+  font-weight: var(--omad-peso-medio);
+  line-height: var(--omad-interlinea-normal);
+}
+
+.franja-resumen strong {
+  font-weight: var(--omad-peso-fuerte);
+  font-variant-numeric: tabular-nums;
+}
+
+/* En un contenedor angosto, dos filas de tres. El orden se conserva: se lee
+   de izquierda a derecha y de arriba abajo, como en la fila de seis. */
+@container (max-width: 30rem) {
+  .franja-celdas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+/* En forced-colors el navegador quita los fondos y las sombras: las líneas
+   entre celdas y la barra del resultado desaparecen. Las celdas se dibujan
+   con un contorno del color de texto del sistema. */
+@media (forced-colors: active) {
+  .franja-celdas { gap: 0; }
+  .franja-celda { outline: 1px solid CanvasText; }
+}

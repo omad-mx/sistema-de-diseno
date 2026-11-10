@@ -1,0 +1,370 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franja de seis perfiles · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «franja de seis perfiles» (paso 3.2 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css y el estilo de esta página) y no forma parte del
+  componente. Los resultados son de ejemplo: no corresponden a ningún
+  trámite.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+
+<style>
+/* Andamio de esta página: la comparación a 320 px. */
+.ej-comparar { display: grid; gap: var(--omad-esp-6); grid-template-columns: repeat(auto-fit, minmax(min(20rem, 100%), 1fr)); }
+.ej-comparar > div { display: grid; gap: var(--omad-esp-3); align-content: start; min-inline-size: 0; }
+.ej-comparar h3 { font-size: var(--omad-texto-lg); }
+.ej-angosta { max-inline-size: 320px; padding: var(--omad-esp-4); }
+/* La propuesta B: anula las dos filas y encoge, como la maqueta. */
+@container (max-width: 30rem) {
+  .ej-franja-encogida .franja-celdas { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .ej-franja-encogida .franja-celda { padding-inline: 2px; }
+  .ej-franja-encogida .franja-nombre { font-size: var(--omad-texto-2xs); hyphens: auto; }
+  .ej-franja-encogida .franja-marca { font-size: var(--omad-texto-lg); }
+}
+</style>
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.2</p>
+      <h1>Franja de seis perfiles</h1>
+      <p class="entrada">El componente firma del sistema. Seis celdas, siempre las mismas y en el mismo orden, con el resultado de cada perfil, y el titular «X de 6» como texto. Acompaña a cada trámite auditado.</p>
+    </header>
+
+    <div class="aviso" role="note" aria-labelledby="aviso-propuesta">
+      <p class="aviso-titulo" id="aviso-propuesta">Propuesta, sin aprobación del consejo</p>
+      <p>Si la franja se registra como marca lo decide el consejo (<a href="https://github.com/omad-mx/sistema-de-diseno/issues/3">#3</a>). Sus pictogramas vienen de un set público, Lucide. Todos los resultados de esta página son de ejemplo.</p>
+    </div>
+
+    <section class="ej-seccion" aria-labelledby="ej-franja">
+      <h2 id="ej-franja">La franja</h2>
+      <p class="ej-rotulo">El resultado de ejemplo de la sección 5 del documento del sistema. El color de la barra de cada celda acompaña a la marca; no la sustituye.</p>
+      <div class="ej-muestra">
+        <div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Solo teclado: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Baja visión: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Motriz: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-angosta">
+      <h2 id="ej-angosta">A 320 px: dos propuestas</h2>
+      <p class="ej-rotulo">Seis celdas no caben cómodas en un teléfono. Las dos van a 320 px, sin importar el control de ancho de arriba.</p>
+      <div class="ej-comparar">
+        <div>
+          <h3>A · Dos filas de tres</h3>
+          <p class="ej-rotulo">Los nombres y las marcas conservan su tamaño. El orden se lee igual: de izquierda a derecha y de arriba abajo. Es la que está en el CSS.</p>
+          <div class="ej-muestra ej-angosta"><div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, propuesta A">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Solo teclado: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Baja visión: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Motriz: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div></div>
+        </div>
+        <div>
+          <h3>B · Las seis encogidas</h3>
+          <p class="ej-rotulo">Como en la maqueta: una sola fila, con los nombres a 12 px y la marca más chica. Conserva la forma de franja; «Cognitivo» y «Baja visión» quedan muy apretados.</p>
+          <div class="ej-muestra ej-angosta"><div class="franja ej-franja-encogida">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, propuesta B">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Solo teclado: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Baja visión: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Motriz: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-extremos">
+      <h2 id="ej-extremos">Los extremos</h2>
+      <p class="ej-rotulo">Seis de seis, cero de seis y uno de seis, con su titular en singular.</p>
+      <div class="ej-muestra ej-pila">
+        <div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, seis de seis">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Lector de pantalla: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Solo teclado: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Baja visión: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Motriz: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Cognitivo: completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>6 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div>
+        <div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, cero de seis">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Solo teclado: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Baja visión: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Motriz: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Persona sorda: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>0 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div>
+        <div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, uno de seis">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Lector de pantalla: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Solo teclado: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Baja visión: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Motriz: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>1 de 6</strong> perfil completó el trámite sin ayuda.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficie">
+      <h2 id="ej-superficie">Sobre la superficie</h2>
+      <p class="ej-rotulo">Las celdas tienen fondo propio, así que la franja se ve igual sobre cualquier superficie.</p>
+      <div class="ej-muestra" data-sobre="superficie">
+        <div class="franja">
+          <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso, sobre la superficie">
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Lector</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Lector de pantalla: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Teclado</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Solo teclado: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Baja visión</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Baja visión: no completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Motriz</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Motriz: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Sorda</span>
+              <span class="marca-resultado franja-marca" data-resultado="si"><span class="visualmente-oculto">Persona sorda: completó el trámite</span></span>
+            </li>
+            <li class="franja-celda">
+              <svg class="franja-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg>
+              <span class="franja-nombre" aria-hidden="true">Cognitivo</span>
+              <span class="marca-resultado franja-marca" data-resultado="no"><span class="visualmente-oculto">Cognitivo: no completó el trámite</span></span>
+            </li>
+          </ul>
+          <p class="franja-resumen"><strong>4 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-oye">
+      <h2 id="ej-oye">Cómo se oye</h2>
+      <div class="prosa">
+        <p>Un lector de pantalla la lee como una lista de seis resultados, cada uno con su perfil completo, y luego el titular:</p>
+        <ol>
+          <li>«Resultado por perfil de uso, lista, 6 elementos».</li>
+          <li>«Lector de pantalla: no completó el trámite». Y así los seis, en orden.</li>
+          <li>«2 de 6 perfiles completaron el trámite sin ayuda».</li>
+        </ol>
+        <p>Los nombres cortos y los pictogramas no se leen: el texto completo de cada celda ya dice el perfil.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

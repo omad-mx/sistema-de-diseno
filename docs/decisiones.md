@@ -21,6 +21,23 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · Marca de resultado, criterio WCAG y aviso
+
+**Decidió:** Daniel Ballinas, como dirección de diseño (pasos 2.4 a 2.6 del
+plan, [PR #15](https://github.com/omad-mx/sistema-de-diseno/pull/15)).
+**Qué:**
+- **«Completó» es una palomita, no un círculo.** El círculo ya es «menor» en
+  el distintivo de gravedad, y en grises, en alto contraste o impreso se
+  confundían. Palomita y tache se entienden en México sin explicación.
+  Ninguna forma se repite entre la escala de gravedad y la de resultado.
+- **Los criterios WCAG enlazan a las explicaciones del W3C, en inglés, por
+  ahora.** No hay traducción oficial de WCAG 2.2 al español; la del W3C en
+  español es de la 2.0. El destino en inglés se avisa con `hreflang` y con
+  texto para lector de pantalla, y la página de ejemplo lo dice a la vista.
+  Escribir explicaciones propias en español queda en
+  [`pendientes.md`](pendientes.md).
+- **El aviso es neutro y basta así.** No usa los colores de gravedad.
+
 ### 2026-11-10 · Los botones: tres variantes, y la única excepción al subrayado
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 2.2 del plan,

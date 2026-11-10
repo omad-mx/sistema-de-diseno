@@ -77,10 +77,11 @@ lector de pantalla.
 
 ## Falta probar
 
-- **Los enlaces van a las explicaciones del W3C, que están en inglés.** No
-  hay traducción oficial de WCAG 2.2 al español; la del W3C en español es de
-  la 2.0. Si se quiere que el sitio enlace a explicaciones propias en
-  español, hay que escribirlas.
+- **Los enlaces van a las explicaciones del W3C, que están en inglés, por
+  ahora** (dictamen del 2026-11-10). No hay traducción oficial de WCAG 2.2
+  al español; la del W3C en español es de la 2.0. Escribir explicaciones
+  propias en español está en `docs/pendientes.md`. El ejemplo lo avisa
+  arriba.
 - Los nombres en español de los criterios son traducción nuestra, a falta de
   la oficial. Conviene una tabla única de números y nombres para que no se
   traduzcan distinto en cada página.

@@ -5,7 +5,7 @@ Estado: `borrador`
 ## Qué es
 
 Dice si un perfil completó el trámite sin ayuda o no. Lleva marca, texto y
-color: un círculo relleno en el color de la marca del sistema para
+color: una palomita en el color de la marca del sistema para
 «completó», y un tache en el rojo de bloqueante para «no completó».
 
 ## Cuándo se usa
@@ -44,8 +44,13 @@ color: un círculo relleno en el color de la marca del sistema para
 
 | `data-resultado` | Marca | Color |
 |---|---|---|
-| `si` | círculo relleno | `completo` (petróleo) |
+| `si` | palomita | `completo` (petróleo) |
 | `no` | tache | `no-completo` (rojo de bloqueante) |
+
+La palomita reemplazó al círculo de la maqueta el 2026-11-10: el círculo ya
+es «menor» en el distintivo de gravedad, y en grises, en alto contraste o
+impreso se confundían. Ninguna forma del sistema se repite entre las dos
+escalas.
 
 No tiene variantes de tamaño: la marca mide lo que mide la letra que la
 rodea. Si el texto a la vista ocupa dos líneas, la marca se queda junto a la
@@ -81,10 +86,6 @@ trámite», sí. Ese texto lo pone la franja (3.2).
 
 ## Falta probar
 
-- **El círculo de «completó» es la misma forma que el círculo de «menor»**
-  en el distintivo de gravedad. Cambia el color, pero en grises, en alto
-  contraste o impreso son iguales, y van a aparecer en la misma ficha. Se
-  decide antes de usar los dos juntos; el ejemplo lo muestra.
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
 - `forced-colors` en Windows. En la emulación de Chromium la marca se

@@ -51,6 +51,9 @@ body { margin: 0; }
 .ej-fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3); }
 :where(.ej-fila) > * { min-inline-size: 0; }
 
+/* Un aviso sobre la página de ejemplo, debajo de su entrada. */
+.ej-marco > .aviso { margin-block-start: var(--omad-esp-6); }
+
 /* Tamaños de texto para mostrar un componente que crece con la letra. */
 .ej-texto-xs { font-size: var(--omad-texto-xs); }
 .ej-texto-xl { font-size: var(--omad-texto-xl); }

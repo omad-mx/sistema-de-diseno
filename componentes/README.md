@@ -22,6 +22,7 @@ Los primeros son los elementos de la fase 2 del
 | [`pie`](pie/README.md) | Enlaces secundarios y créditos. | `borrador` |
 | [`resultado-perfiles`](resultado-perfiles/README.md) | El resultado de un trámite en una celda de tabla, escrito: total y quién no completó. | `borrador` |
 | [`hallazgo`](hallazgo/README.md) | Un problema de una auditoría: gravedad, criterios, perfiles y la captura que lo prueba. | `borrador` |
+| [`cifra-citable`](cifra-citable/README.md) | El número de OMAD, qué mide, de cuándo es y cómo citarlo. | `borrador` |
 | [`franja`](franja/README.md) | El componente firma: seis perfiles, su resultado y el titular «X de 6». Propuesta. | `borrador` |
 
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);

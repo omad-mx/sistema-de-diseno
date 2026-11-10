@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cifra citable · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «cifra citable» (paso 3.5 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo y
+  no forma parte del componente. Los números son marcadores («00 %»): no
+  hay auditorías publicadas.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.5</p>
+      <h1>Cifra citable</h1>
+      <p class="entrada">El primer trabajo del sistema: que quien vea la cifra salga con un dato exacto y una fuente, no con una impresión. El número, qué mide, de cuándo es y el texto listo para citarla.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-cifra">
+      <h2 id="ej-cifra">La cifra</h2>
+      <p class="ej-rotulo">Los números de esta página son marcadores. La línea del corte dice que es una cifra de ejemplo, pegada al número, para que se lea aunque alguien recorte la imagen.</p>
+      <div class="ej-muestra">
+        <figure class="cifra-citable" aria-labelledby="c1-numero c1-que">
+          <p class="cifra-citable-numero" id="c1-numero" data-cifra>00 %</p>
+          <p class="cifra-citable-que" id="c1-que">de los trámites auditados se pueden completar sin ayuda.</p>
+          <p class="cifra-citable-corte">Índice de trámites completables · corte al [fecha de ejemplo] · 00 trámites auditados · <strong>cifra de ejemplo, no es un resultado de auditoría</strong></p>
+          <div class="cifra-citable-cita" role="group" aria-labelledby="c1-cita">
+            <p class="cifra-citable-cita-titulo" id="c1-cita">Cómo citar</p>
+            <p class="cifra-citable-cita-texto">Observatorio Mexicano de Accesibilidad Digital (OMAD). Índice de trámites completables, corte al [fecha de ejemplo]: 00 % de los trámites auditados se pueden completar sin ayuda. Consultado en [dirección de la página].</p>
+            <div class="cifra-citable-cita-acciones">
+              <p class="cifra-citable-estado" role="status"></p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-copiar">
+      <h2 id="ej-copiar">Copiar la cita</h2>
+      <p class="ej-rotulo">El texto de la cita se ve siempre y se puede seleccionar a mano. Con JavaScript aparece el botón «Copiar la cita»; al usarlo, un mensaje dice «Cita copiada», a la vista y para el lector de pantalla. Si el navegador no deja copiar, la cita queda seleccionada y el mensaje lo explica.</p>
+      <div class="ej-muestra">
+        <div class="prosa">
+          <p>Sin JavaScript, el bloque es el mismo, sin el botón. Nada se esconde.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">El número más ancho que puede llegar y una frase larga de qué mide. Conviene verlo a 320 px y con el espaciado forzado.</p>
+      <div class="ej-muestra">
+        <figure class="cifra-citable" aria-labelledby="c2-numero c2-que">
+          <p class="cifra-citable-numero" id="c2-numero" data-cifra>100 %</p>
+          <p class="cifra-citable-que" id="c2-que">de los trámites de una dependencia de ejemplo se pueden completar sin ayuda con los seis perfiles de uso, incluido el de lector de pantalla y el de solo teclado.</p>
+          <p class="cifra-citable-corte">Índice de trámites completables por dependencia · corte al [fecha de ejemplo] · 00 trámites auditados de 00 publicados · <strong>cifra de ejemplo, no es un resultado de auditoría</strong></p>
+          <div class="cifra-citable-cita" role="group" aria-labelledby="c2-cita">
+            <p class="cifra-citable-cita-titulo" id="c2-cita">Cómo citar</p>
+            <p class="cifra-citable-cita-texto">Observatorio Mexicano de Accesibilidad Digital (OMAD). Índice de trámites completables, corte al [fecha de ejemplo]: 100 % de los trámites auditados se pueden completar sin ayuda. Consultado en [dirección de la página].</p>
+            <div class="cifra-citable-cita-acciones">
+              <p class="cifra-citable-estado" role="status"></p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-oye">
+      <h2 id="ej-oye">Cómo se oye</h2>
+      <div class="prosa">
+        <ol>
+          <li>La figura se nombra con el número y la frase: «00 % de los trámites auditados se pueden completar sin ayuda».</li>
+          <li>El corte, con «cifra de ejemplo, no es un resultado de auditoría».</li>
+          <li>«Cómo citar, grupo», el texto de la cita y «Copiar la cita, botón».</li>
+          <li>Al copiar: «Cita copiada.», sin mover el foco.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+<script src="cifra-citable.js"></script>
+</body>
+</html>

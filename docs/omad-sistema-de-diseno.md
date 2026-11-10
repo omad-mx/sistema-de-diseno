@@ -162,7 +162,7 @@ Escala de espacio en base 4. Radio de 8px en controles y 0 en tablas de datos. E
 
 **Anillo de foco de doble capa**, 3px de color de marca más 2px de separación en el color de fondo. Funciona sobre cualquier superficie sin redefinirse por componente, y cumple 2.4.11 y 2.4.13. `outline: none` sin un `:focus-visible` equivalente es motivo de rechazo de PR, sin excepción.
 
-Los enlaces conservan subrayado siempre. El color no distingue un enlace del texto que lo rodea.
+Los enlaces conservan subrayado siempre. El color no distingue un enlace del texto que lo rodea. La única excepción es el botón primario y el secundario, que se distinguen por su forma y se subrayan con el puntero encima (dictamen del 2026-11-10).
 
 Movimiento solo como respuesta a una acción de la persona, y anulado bajo `prefers-reduced-motion`.
 

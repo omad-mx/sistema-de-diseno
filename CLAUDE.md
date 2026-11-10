@@ -26,7 +26,7 @@ repositorios.
 - **La escala de gravedad no vuelve al semáforo y no hay verde de «completado».** Sale de distancias CIE76 bajo deuteranopia (sección 4 del documento). No se re-litiga sin volver a correr las distancias.
 - **Los seis perfiles no tienen color propio.** Marca gráfica y posición fija.
 - En CSS de componentes **solo tokens semánticos**. Nunca primitivas, nunca un hex suelto.
-- `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
+- `outline: none` sin `:focus-visible` equivalente es motivo de rechazo. Enlaces siempre subrayados, con una sola excepción: el botón primario y el secundario (`.boton`), donde la forma dice que es activable; con el puntero encima, se subrayan también. Objetivo táctil 44×44. Sin alturas fijas en contenedores de texto.
 - Una sola familia: Atkinson Hyperlegible. Base 18px.
 - Nombres (tokens, clases, archivos, ramas) en español, **sin acentos y con ñ → n**: `petroleo`, `tipografia`, `tamano`. Nunca `tamanio`.
 

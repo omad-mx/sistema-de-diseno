@@ -88,7 +88,10 @@ sobreescriba tiene que justificarlo en la revisión:
 - **`outline: none` sin un `:focus-visible` equivalente es motivo de rechazo de
   PR**, sin excepción. El anillo de foco es de doble capa y funciona sobre
   cualquier superficie sin redefinirse por componente.
-- **Los enlaces conservan subrayado siempre.**
+- **Los enlaces conservan subrayado siempre.** La única excepción es el
+  botón primario y el secundario: su contorno y su relleno dicen que se
+  pueden activar, y con el puntero encima también se subrayan. El botón
+  terciario, que se ve como enlace, va subrayado siempre.
 - **Objetivo táctil mínimo de 44×44px.** WCAG 2.2 AA exige 24 en el criterio
   2.5.8; el sistema exige 44, porque el mínimo legal es exactamente el tipo de
   conformidad de trámite que OMAD va a criticar.

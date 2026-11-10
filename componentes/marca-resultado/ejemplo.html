@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca de resultado · ejemplo · OMAD</title>
+<!--
+  Ejemplo del elemento «marca de resultado» (paso 2.4 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · elemento 2.4</p>
+      <h1>Marca de resultado</h1>
+      <p class="entrada">Dice si un perfil completó el trámite o no. Lleva marca, texto y color. El texto va siempre en el HTML: a la vista, o solo para lector de pantalla cuando la marca va sola.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-dos">
+      <h2 id="ej-dos">Los dos resultados</h2>
+      <p class="ej-rotulo">Completó: círculo relleno, en el color de la marca del sistema. No completó: tache, en el rojo de bloqueante. Con el texto a la vista.</p>
+      <div class="ej-muestra ej-fila">
+        <span class="marca-resultado" data-resultado="si">Completó</span>
+        <span class="marca-resultado" data-resultado="no">No completó</span>
+      </div>
+      <p class="ej-rotulo">Solo la marca. El texto sigue en el HTML, para lector de pantalla.</p>
+      <div class="ej-muestra ej-fila">
+        <span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span>
+        <span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-tamano">
+      <h2 id="ej-tamano">Tamaño</h2>
+      <p class="ej-rotulo">La marca mide lo que mide la letra que la rodea. No hay variantes de tamaño: quien la usa pone el tamaño del texto.</p>
+      <div class="ej-muestra ej-pila">
+        <p class="ej-texto-xs"><span class="marca-resultado" data-resultado="si">Completó</span> <span class="marca-resultado" data-resultado="no">No completó</span> · 14 px, como en una tabla</p>
+        <p><span class="marca-resultado" data-resultado="si">Completó</span> <span class="marca-resultado" data-resultado="no">No completó</span> · 18 px, el cuerpo</p>
+        <p class="ej-texto-xl"><span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span> <span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span> · 28 px, como en la franja</p>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-seis">
+      <h2 id="ej-seis">Seis en fila</h2>
+      <p class="ej-rotulo">Como los va a acomodar la franja: un resultado por perfil, en orden fijo. La fila es andamio de esta página; la franja llega en el paso 3.2.</p>
+      <div class="ej-muestra">
+        <p class="ej-texto-xl"><span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span> <span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span> <span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span> <span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span> <span class="marca-resultado" data-resultado="si"><span class="visualmente-oculto">Completó</span></span> <span class="marca-resultado" data-resultado="no"><span class="visualmente-oculto">No completó</span></span></p>
+        <p><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-distintivo">
+      <h2 id="ej-distintivo">Junto al distintivo de gravedad</h2>
+      <p class="ej-rotulo">Van a aparecer en la misma ficha. El círculo de «completó» es la misma forma que el círculo de «menor»: cambia el color, pero en grises o en alto contraste son iguales.</p>
+      <div class="ej-muestra ej-fila">
+        <span class="marca-resultado" data-resultado="si">Completó</span>
+        <span class="distintivo-gravedad" data-nivel="menor"><span class="visualmente-oculto">Gravedad: </span>Menor</span>
+        <span class="marca-resultado" data-resultado="no">No completó</span>
+        <span class="distintivo-gravedad" data-nivel="bloqueante"><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficies">
+      <h2 id="ej-superficies">Sobre cada superficie</h2>
+      <p class="ej-rotulo">Fondo, superficie y superficie alta, en ese orden.</p>
+      <div class="ej-muestra ej-fila" data-sobre="fondo"><span class="marca-resultado" data-resultado="si">Completó</span> <span class="marca-resultado" data-resultado="no">No completó</span></div>
+      <div class="ej-muestra ej-fila" data-sobre="superficie"><span class="marca-resultado" data-resultado="si">Completó</span> <span class="marca-resultado" data-resultado="no">No completó</span></div>
+      <div class="ej-muestra ej-fila"><span class="marca-resultado" data-resultado="si">Completó</span> <span class="marca-resultado" data-resultado="no">No completó</span></div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Un texto largo a la vista: se acomoda en varias líneas y la marca se queda junto a la primera.</p>
+      <div class="ej-muestra">
+        <p>El perfil de baja visión <span class="marca-resultado" data-resultado="no">no completó el trámite sin pedir ayuda</span> porque el formulario no se puede ampliar.</p>
+      </div>
+      <p class="ej-rotulo">Sin resultado, o con uno que no existe: sin marca y sin color. Es un error de marcado, y se nota.</p>
+      <div class="ej-muestra ej-fila">
+        <span class="marca-resultado">Sin resultado</span>
+        <span class="marca-resultado" data-resultado="parcial">Parcial</span>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+/* =========================================================================
+   OMAD — marca de resultado
+   Si un perfil completó el trámite o no. Lleva marca, texto y color: el
+   texto va siempre en el HTML, visible o solo para lector de pantalla.
+   La usan la franja y la franja mini (pasos 3.2 y 3.3).
+   Ficha: componentes/marca-resultado/README.md
+   ========================================================================= */
+
+.marca-resultado {
+  display: inline-flex;
+  /* Arriba y no al centro: si el texto a la vista ocupa dos líneas, la
+     marca se queda junto a la primera. */
+  align-items: flex-start;
+  gap: 0.35em;
+  max-inline-size: 100%;
+  font-weight: var(--omad-peso-medio);
+  vertical-align: top;
+}
+
+/* La marca mide lo que mide la letra: la hace grande o chica el texto que
+   la rodea, no una variante. Solo existe para los dos resultados válidos;
+   sin resultado, no hay marca. */
+.marca-resultado:is([data-resultado='si'], [data-resultado='no'])::before {
+  content: '';
+  flex: none;
+  inline-size: 1em;
+  block-size: 1em;
+  /* Centra la marca en la altura de la primera línea. */
+  margin-block-start: calc((1lh - 1em) / 2);
+  background-color: currentColor;
+  -webkit-mask: var(--marca-resultado-forma) center / contain no-repeat;
+  mask: var(--marca-resultado-forma) center / contain no-repeat;
+}
+
+/* Completó: círculo relleno. */
+.marca-resultado[data-resultado='si'] {
+  --marca-resultado-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Ccircle cx='8' cy='8' r='5.5'/%3E%3C/svg%3E");
+  color: var(--omad-completo);
+}
+
+/* No completó: tache. */
+.marca-resultado[data-resultado='no'] {
+  --marca-resultado-forma: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M3.6 1.8 8 6.2l4.4-4.4 1.8 1.8L9.8 8l4.4 4.4-1.8 1.8L8 9.8l-4.4 4.4-1.8-1.8L6.2 8 1.8 3.6z'/%3E%3C/svg%3E");
+  color: var(--omad-no-completo);
+}
+
+/* En forced-colors el navegador quita los fondos, y la marca es un fondo
+   recortado. Se le pide que lo deje, con el color de texto del sistema. */
+@media (forced-colors: active) {
+  .marca-resultado:is([data-resultado='si'], [data-resultado='no'])::before {
+    forced-color-adjust: none;
+    background-color: CanvasText;
+  }
+}

@@ -60,6 +60,12 @@ prueben con tecnologías de apoyo.
   Es el paso 5.2, pero cada componente se puede probar en cuanto exista. De
   estas pruebas depende poder declarar conformidad.
 
+## Decisiones abiertas
+
+- **¿Los hallazgos se publican o se dan bajo pedido?** Todavía no se decide.
+  El componente ya está hecho y sirve en los dos casos. Ver
+  [`decisiones.md`](decisiones.md), «Abiertas».
+
 ## Esperan al consejo
 
 - Ratificar que este repositorio sea público (decidido el 2026-09-15, ver

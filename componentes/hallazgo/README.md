@@ -98,6 +98,9 @@ lector de pantalla.
 
 ## Falta probar
 
+- **No está decidido si los hallazgos se publican** en la ficha del trámite
+  o se dan bajo pedido (`docs/decisiones.md`, «Abiertas»). El componente
+  sirve en los dos casos.
 - **Una tabla única de números y nombres de criterios en español**, para que
   el mismo criterio no se llame distinto en cada hallazgo. Está en
   `docs/pendientes.md`; hoy los nombres se escriben a mano.

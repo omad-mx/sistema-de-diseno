@@ -48,9 +48,8 @@ jobs:
             else
               echo '**Hay pares que incumplen el contrato. El build falla a propósito.**'
               echo
-              echo 'Corrige el valor en `tokens/omad-tokens.css` y en la paleta de'
-              echo '`herramientas/verificar-contraste.py`, o justifica el cambio del'
-              echo 'contrato en la descripción del PR.'
+              echo 'Corrige el valor en `tokens/omad-tokens.css`, o justifica el cambio'
+              echo 'del contrato en la descripción del PR.'
             fi
             echo
             echo '```'

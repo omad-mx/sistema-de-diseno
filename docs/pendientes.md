@@ -1,6 +1,6 @@
 # Pendientes
 
-Fecha: 2026-11-03 · Estado: vivo
+Fecha: 2026-11-05 · Estado: vivo
 
 Lo que falta ahora, en el orden en que conviene hacerlo. El camino completo
 está en [`plan-de-construccion.md`](plan-de-construccion.md); esta lista
@@ -13,9 +13,8 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## En curso
 
-- **Cómo se hace un componente** (paso 1.1,
-  [PR #9](https://github.com/omad-mx/sistema-de-diseno/pull/9)). Listo para
-  merge.
+- **Paleta única** (paso 1.5, [#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).
+  El script lee los colores del CSS. Listo para merge.
 
 ## Siguiente: fase 1 del plan, cimientos
 
@@ -25,12 +24,6 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
    `--omad-radio-2` se quedó en 4, así que la escala quedó al revés.
 3. **Revisión automática de componentes en la CI** (paso 1.4).
 4. **Esqueletos del catálogo y del prototipo** (paso 1.6).
-
-## Herramientas
-
-- **La paleta está duplicada entre el CSS y el script** ([#5](https://github.com/omad-mx/sistema-de-diseno/issues/5)).
-  Si un color cambia solo en el CSS, la revisión automática pasa en verde.
-  Es el paso 1.5 y puede ir en paralelo con el resto de la fase 1.
 
 ## Verificación
 

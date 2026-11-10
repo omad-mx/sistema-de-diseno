@@ -22,6 +22,10 @@ main { padding-block: var(--omad-esp-7); }
 .catalogo li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4); background: var(--omad-superficie); }
 .catalogo h2 { font-size: var(--omad-texto-lg); line-height: var(--omad-interlinea-normal); margin-block: 0 var(--omad-esp-2); }
 .catalogo p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); }
+.maquetas { margin-block-start: var(--omad-esp-8); max-inline-size: var(--omad-medida); }
+.maquetas h2 { margin-block-end: var(--omad-esp-3); }
+.maquetas ul { margin-block: var(--omad-esp-3) 0; padding-inline-start: var(--omad-esp-5); }
+.maquetas li + li { margin-block-start: var(--omad-esp-2); }
 </style>
 </head>
 <body>
@@ -89,6 +93,16 @@ main { padding-block: var(--omad-esp-7); }
         <p>Enlaces secundarios y créditos. <a href="pie/README.md">Ficha</a>.</p>
       </li>
     </ul>
+
+    <section class="maquetas" aria-labelledby="titulo-maquetas">
+      <h2 id="titulo-maquetas">Maquetas</h2>
+      <p>Las páginas con las que se decide el diseño antes de construir un componente.</p>
+      <ul>
+        <li><a href="../docs/maqueta-pictogramas.html">Pictogramas de los seis perfiles</a>: elegidos; están en <code>iconos/perfiles/</code>.</li>
+        <li><a href="../docs/maqueta-marca-gravedad.html">Marca de gravedad</a>: se eligió una forma por nivel.</li>
+        <li><a href="../docs/maqueta-direccion-visual.html">Dirección visual</a>: ratificada el 2026-09-20.</li>
+      </ul>
+    </section>
   </main>
 
   <footer class="pie">

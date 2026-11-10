@@ -21,6 +21,28 @@
   container-type: inline-size;
 }
 
+/* Señal de que la tabla sigue. Cuando hay columnas fuera de la vista, una
+   sombra suave aparece en ese borde, y se va al llegar al extremo. Sin
+   JavaScript: son cuatro fondos. Dos sombras fijas a la caja (scroll) y dos
+   «tapas» del color del fondo que viajan con el contenido (local) y cubren la
+   sombra cuando ya no hay nada más de ese lado.
+   Las tapas tienen que ser del color de lo que está detrás de la tabla: por
+   eso la tabla dice sobre qué va (data-sobre). En forced-colors los fondos
+   desaparecen y la señal con ellos; la tabla se sigue viendo cortada. */
+.tabla {
+  --tabla-fondo: var(--omad-fondo);
+  --tabla-sombra: color-mix(in srgb, var(--omad-texto) 22%, transparent);
+  background:
+    linear-gradient(to right, var(--tabla-fondo) 40%, transparent) left center / 2.5rem 100% no-repeat local,
+    linear-gradient(to left, var(--tabla-fondo) 40%, transparent) right center / 2.5rem 100% no-repeat local,
+    radial-gradient(farthest-side at 0 50%, var(--tabla-sombra), transparent) left center / 0.875rem 100% no-repeat scroll,
+    radial-gradient(farthest-side at 100% 50%, var(--tabla-sombra), transparent) right center / 0.875rem 100% no-repeat scroll;
+  background-color: var(--tabla-fondo);
+}
+
+.tabla[data-sobre='superficie'] { --tabla-fondo: var(--omad-superficie); }
+.tabla[data-sobre='superficie-alta'] { --tabla-fondo: var(--omad-superficie-alta); }
+
 .tabla > table {
   inline-size: 100%;
   border-collapse: collapse;

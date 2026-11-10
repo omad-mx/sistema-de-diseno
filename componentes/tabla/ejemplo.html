@@ -51,7 +51,7 @@
       <h2 id="ej-ranking">Ranking</h2>
       <p class="ej-rotulo">El caso común. El trámite es el encabezado de cada fila; las columnas de cifras van a la derecha.</p>
       <div class="ej-muestra">
-        <div class="tabla" role="region" aria-labelledby="t-ranking" tabindex="0">
+        <div class="tabla" data-sobre="superficie-alta" role="region" aria-labelledby="t-ranking" tabindex="0">
           <table>
             <caption id="t-ranking">Ranking de trámites<span class="tabla-nota">Datos de ejemplo: no son resultados de auditoría.</span></caption>
             <thead>
@@ -71,9 +71,9 @@
 
     <section class="ej-seccion" aria-labelledby="ej-ancha">
       <h2 id="ej-ancha">Una tabla que no cabe</h2>
-      <p class="ej-rotulo">Ocho columnas, una por perfil. En pantallas angostas se desplaza a lo ancho dentro de su caja. Con el teclado: tabulador hasta la tabla y flechas. Cada resultado es una marca de resultado; el lector de pantalla dice el perfil desde el encabezado de su columna.</p>
+      <p class="ej-rotulo">Ocho columnas, una por perfil. En pantallas angostas se desplaza a lo ancho dentro de su caja, y una sombra en el borde avisa que hay más columnas de ese lado; se va al llegar al extremo. Para verla, elige «320 px» arriba. Con el teclado: tabulador hasta la tabla y flechas. Cada resultado es una marca de resultado; el lector de pantalla dice el perfil desde el encabezado de su columna.</p>
       <div class="ej-muestra">
-        <div class="tabla" role="region" aria-labelledby="t-perfiles" tabindex="0">
+        <div class="tabla" data-sobre="superficie-alta" role="region" aria-labelledby="t-perfiles" tabindex="0">
           <table>
             <caption id="t-perfiles">Resultado por perfil<span class="tabla-nota">Datos de ejemplo. Los perfiles siguen su orden fijo.</span></caption>
             <thead>
@@ -95,7 +95,7 @@
       <h2 id="ej-superficies">Sobre la superficie</h2>
       <p class="ej-rotulo">La tabla no tiene fondo propio: toma el de lo que la contiene.</p>
       <div class="ej-muestra" data-sobre="superficie">
-        <div class="tabla" role="region" aria-labelledby="t-sup" tabindex="0">
+        <div class="tabla" data-sobre="superficie" role="region" aria-labelledby="t-sup" tabindex="0">
           <table>
             <caption id="t-sup">Bloqueantes por dependencia</caption>
             <thead><tr><th scope="col">Dependencia</th><th scope="col" class="tabla-cifra">Trámites</th><th scope="col" class="tabla-cifra">Bloqueantes</th></tr></thead>
@@ -113,7 +113,7 @@
       <h2 id="ej-limite">Casos que rompen</h2>
       <p class="ej-rotulo">Sin datos: una sola fila que dice por qué. La tabla y sus encabezados se quedan, para que se sepa qué habría.</p>
       <div class="ej-muestra">
-        <div class="tabla" role="region" aria-labelledby="t-vacia" tabindex="0">
+        <div class="tabla" data-sobre="superficie-alta" role="region" aria-labelledby="t-vacia" tabindex="0">
           <table>
             <caption id="t-vacia">Hallazgos bloqueantes</caption>
             <thead><tr><th scope="col">Trámite</th><th scope="col">Hallazgo</th><th scope="col">Criterio</th></tr></thead>

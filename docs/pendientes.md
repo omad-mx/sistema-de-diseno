@@ -30,9 +30,6 @@ primero; del 2.2 al 2.6 pueden ir juntos.
 
 ## Herramientas
 
-- **El contrato de contraste mide primitivas, no semánticos**
-  ([#11](https://github.com/omad-mx/sistema-de-diseno/issues/11)). Conviene
-  antes de que los componentes usen la capa 2, es decir, ya.
 - **Escala de radio al revés:** `--omad-radio-1` es 8 px y `--omad-radio-2`
   sigue en 4. Nadie usa el 2 todavía; se define cuando un componente lo pida.
 

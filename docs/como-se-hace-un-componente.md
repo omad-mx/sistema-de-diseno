@@ -62,9 +62,10 @@ Es el mismo en la carpeta, en los archivos, en la clase y en la rama
 - **Solo tokens semánticos** (capa 2 de `tokens/omad-tokens.css`). Nunca una
   primitiva como `--omad-petroleo-600`, nunca un hex, `rgb()` ni `oklch()`
   escrito a mano. Desde el paso 1.4 la CI lo revisa.
-- **Si falta un token, se agrega en el mismo PR**, en la capa 2. Si es un
-  color, también se agrega al par correspondiente del script de contraste y
-  se corre antes de abrir el PR.
+- **Si falta un token, se agrega en el mismo PR**, en la capa 2 y en los dos
+  temas. Si es un color, apunta a una primitiva con `var()` y entra al
+  contrato de `herramientas/verificar-contraste.py` con el fondo sobre el que
+  va; el script falla mientras un token de color no esté en ningún par.
 - **La clase raíz es el nombre del componente**, sin prefijo: `.franja`,
   no `.omad-franja`. Sus partes llevan
   el nombre como prefijo: `.franja-celda`, `.franja-marca`. Así ningún

@@ -7,17 +7,20 @@
    ========================================================================= */
 
 .franja {
-  container-type: inline-size;
   display: grid;
   gap: var(--omad-esp-3);
+  /* Dos filas de tres celdas en todos los anchos (dictamen del 2026-11-10).
+     Un tope de ancho evita que, en una página ancha, cada celda se estire a
+     un tercio de la pantalla. */
+  max-inline-size: 36rem;
 }
 
-/* Las seis celdas. Las líneas entre celdas son el hueco de la rejilla, que
-   deja ver el color del borde de fondo: así sirven igual en una fila de seis
-   que en dos filas de tres. */
+/* Las seis celdas, en dos filas de tres. El orden se lee de izquierda a
+   derecha y de arriba abajo. Las líneas entre celdas son el hueco de la
+   rejilla, que deja ver el color del borde de fondo. */
 .franja-celdas {
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1px;
   margin: 0;
   padding: 0;
@@ -64,8 +67,9 @@
 
 .franja-marca { font-size: var(--omad-texto-xl); }
 
-/* El titular. Es texto real, escrito en el HTML: no se calcula en el
-   navegador ni va en una imagen. */
+/* El titular, antes de las celdas: primero el resultado, luego el detalle
+   (dictamen del 2026-11-10). Es texto real, escrito en el HTML: no se
+   calcula en el navegador ni va en una imagen. */
 .franja-resumen {
   margin: 0;
   font-size: var(--omad-texto-lg);
@@ -76,12 +80,6 @@
 .franja-resumen strong {
   font-weight: var(--omad-peso-fuerte);
   font-variant-numeric: tabular-nums;
-}
-
-/* En un contenedor angosto, dos filas de tres. El orden se conserva: se lee
-   de izquierda a derecha y de arriba abajo, como en la fila de seis. */
-@container (max-width: 30rem) {
-  .franja-celdas { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }
 
 /* En forced-colors el navegador quita los fondos y las sombras: las líneas

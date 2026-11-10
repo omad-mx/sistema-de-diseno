@@ -4,9 +4,10 @@ Estado: `borrador` · **propuesta, sin aprobación del consejo**
 
 ## Qué es
 
-El componente firma del sistema: seis celdas, una por perfil, siempre en el
-mismo orden, con su pictograma, su nombre corto y su resultado, y el titular
-«X de 6 perfiles completaron el trámite sin ayuda» como texto real.
+El componente firma del sistema: el titular «X de 6 perfiles completaron el
+trámite sin ayuda» como texto real y, debajo, seis celdas en dos filas de
+tres, una por perfil, siempre en el mismo orden, con su pictograma, su
+nombre corto y su resultado.
 Acompaña a cada trámite auditado. Su especificación está en la sección 5 del
 [documento del sistema](../../docs/omad-sistema-de-diseno.md#5-los-seis-perfiles).
 
@@ -31,6 +32,7 @@ construye como propuesta (decisión del 2026-11-10).
 
 ```html
 <div class="franja">
+  <p class="franja-resumen"><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
   <ul class="franja-celdas" role="list" aria-label="Resultado por perfil de uso">
     <li class="franja-celda">
       <svg class="franja-picto" aria-hidden="true" focusable="false">…</svg>
@@ -41,12 +43,13 @@ construye como propuesta (decisión del 2026-11-10).
     </li>
     <!-- …las otras cinco, en orden -->
   </ul>
-  <p class="franja-resumen"><strong>2 de 6</strong> perfiles completaron el trámite sin ayuda.</p>
 </div>
 ```
 
-- `.franja`: el bloque. Es un contenedor: su ancho decide si las celdas van
-  en una fila o en dos.
+- `.franja`: el bloque, con un ancho máximo de 36 rem para que las celdas no
+  se estiren en una página ancha.
+- `.franja-resumen`: el titular, primero, escrito en el HTML. Con un solo
+  perfil va en singular: «1 de 6 perfil completó el trámite sin ayuda».
 - `.franja-celdas`: la lista, con `role="list"` (Safari quita la semántica de
   lista cuando no hay viñetas) y su nombre.
 - `.franja-celda`: una por perfil, en el orden de la sección 5: lector de
@@ -57,8 +60,6 @@ construye como propuesta (decisión del 2026-11-10).
   la marca ya dice el perfil.
 - La marca de resultado (componente 2.4), con el texto completo para lector
   de pantalla: «Perfil: completó / no completó el trámite».
-- `.franja-resumen`: el titular, escrito en el HTML. Con un solo perfil va en
-  singular: «1 de 6 perfil completó el trámite sin ayuda».
 
 ## Variantes y estados
 
@@ -66,8 +67,11 @@ No tiene variantes. Comportamiento:
 
 - Cada celda lleva en la base una barra del color de su resultado. Acompaña a
   la marca; no la sustituye.
-- **En un contenedor de menos de 30 rem, dos filas de tres.** El orden se lee
-  igual: de izquierda a derecha y de arriba abajo.
+- **Dos filas de tres en todos los anchos** (dictamen del 2026-11-10). El
+  orden se lee de izquierda a derecha y de arriba abajo. Se eligió sobre una
+  sola fila de seis, que en un teléfono obliga a encoger los nombres a 12 px.
+- **El titular va antes de las celdas** (dictamen del 2026-11-10): primero el
+  resultado, luego el detalle, a la vista y para lector de pantalla.
 - Los nombres cortos se parten con guion si no caben (con el espaciado de
   texto forzado, «Cognitivo» no cabe en un tercio de 320 px).
 - En `forced-colors` desaparecen la barra y las líneas entre celdas; las
@@ -78,29 +82,23 @@ No tiene variantes. Comportamiento:
 Comprobado en el árbol de accesibilidad de Chromium; no se ha probado con un
 lector de pantalla.
 
-1. «Resultado por perfil de uso, lista, 6 elementos».
-2. «Lector de pantalla: no completó el trámite», y así los seis, en orden.
-3. «2 de 6 perfiles completaron el trámite sin ayuda».
+1. «2 de 6 perfiles completaron el trámite sin ayuda».
+2. «Resultado por perfil de uso, lista, 6 elementos».
+3. «Lector de pantalla: no completó el trámite», y así los seis, en orden.
 
 ## Criterios WCAG
 
 - **1.3.1 Información y relaciones.** Una lista de seis resultados, no una
   tabla de símbolos sueltos.
 - **1.3.2 Secuencia significativa.** El orden del HTML es el orden fijo de
-  los perfiles, en una fila o en dos.
+  los perfiles.
 - **1.4.1 Uso del color.** El resultado está en la marca y en el texto; la
   barra de color lo acompaña.
-- **1.4.10 Reflujo.** Dos filas de tres en lugar de seis celdas aplastadas.
+- **1.4.10 Reflujo.** Dos filas de tres caben a 320 px sin encoger nada.
 - **1.4.12 Espaciado del texto.** Los nombres se parten antes que salirse.
 
 ## Falta probar
 
-- **Qué hace a 320 px:** el ejemplo compara dos filas de tres (lo que está en
-  el CSS) con las seis encogidas de la maqueta. Lo decide la dirección de
-  diseño.
-- Si el titular va antes o después de las celdas. Hoy va después, como en el
-  documento; para un lector de pantalla, oír primero «2 de 6» podría ser más
-  claro.
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
 - Safari y Firefox. Hasta ahora solo se ha visto en Chromium: 320 px y

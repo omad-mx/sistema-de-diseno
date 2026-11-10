@@ -116,14 +116,19 @@ Cada perfil tiene identidad fija: nombre, marca gráfica y posición constante e
 Es el único lugar donde el sistema levanta la voz. Seis celdas de ancho fijo, siempre las mismas, siempre en el mismo orden, que acompañan a toda entidad auditada como una marca de conformidad.
 
 ```
-┌────────┬────────┬────────┬────────┬────────┬────────┐
-│ Lector │Teclado │  Baja  │ Motriz │ Sorda  │ Cogni- │
-│        │        │ visión │        │        │  tivo  │
-├────────┼────────┼────────┼────────┼────────┼────────┤
-│   ×    │   ×    │   ●    │   ×    │   ●    │   ×    │
-└────────┴────────┴────────┴────────┴────────┴────────┘
-   2 de 6 perfiles completaron el trámite sin ayuda
+ 2 de 6 perfiles completaron el trámite sin ayuda
+┌─────────────┬─────────────┬─────────────┐
+│   Lector    │   Teclado   │ Baja visión │
+│      ×      │      ×      │      ✓      │
+├─────────────┼─────────────┼─────────────┤
+│   Motriz    │    Sorda    │  Cognitivo  │
+│      ×      │      ✓      │      ×      │
+└─────────────┴─────────────┴─────────────┘
 ```
+
+Primero el titular, luego las seis celdas en dos filas de tres, en todos los
+anchos (dictamen del 2026-11-10; antes era una fila de seis con el titular
+debajo). El componente está en `componentes/franja/`.
 
 Linealizada por un lector de pantalla, la franja debe leerse como una lista de seis resultados con su etiqueta, no como una tabla de símbolos sueltos. Se marca con `role="list"`, cada celda con su texto accesible completo, y el titular de "X de 6" existe como texto real, no como imagen ni como suma calculada en el cliente.
 

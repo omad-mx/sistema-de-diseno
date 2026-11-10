@@ -43,7 +43,9 @@ no la página.
 
 - `.tabla`: la caja que se desplaza. Lleva `role="region"`, el nombre de la
   tabla (`aria-labelledby` apuntando al `caption`) y `tabindex="0"`, para que
-  se pueda desplazar con las flechas del teclado.
+  se pueda desplazar con las flechas del teclado. Si no va sobre el fondo de
+  la página, dice sobre qué va: `data-sobre="superficie"` o
+  `data-sobre="superficie-alta"` (lo necesita la sombra del borde).
 - `<table>` sin clases.
 - `<caption>`, obligatorio: el nombre de la tabla. Va arriba.
 - `.tabla-nota`, opcional, dentro del `caption`: la fuente, el corte o
@@ -66,6 +68,11 @@ No tiene variantes. Comportamiento:
 - El encabezado de fila tiene un ancho mínimo de 11 rem: en una pantalla
   angosta, la tabla se desplaza en lugar de partir el trámite en una palabra
   por renglón.
+- **Cuando hay columnas fuera de la vista, una sombra suave aparece en ese
+  borde**, y se va al llegar al extremo. Sin JavaScript: dos sombras fijas a
+  la caja y dos «tapas» del color del fondo que viajan con el contenido. Por
+  eso la tabla tiene que saber sobre qué fondo va. En `forced-colors` la
+  sombra desaparece; la tabla se sigue viendo cortada.
 - La caja recibe el foco con el tabulador (el anillo de la base) y se
   desplaza con las flechas.
 - Sin datos, una sola fila dice por qué. Los encabezados se quedan, para que
@@ -98,8 +105,8 @@ Esperado; no se ha probado con un lector de pantalla.
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)). En especial,
   que el `caption` fijo no cambie cómo se anuncia la tabla.
-- No hay una señal visual de que la tabla sigue a la derecha cuando no cabe.
-  Se ve cortada, pero nada dice «desplaza». Se decide si hace falta.
+- La sombra del borde en tema oscuro es más clara que el fondo y se nota
+  menos que en claro. Aprobada así por ahora (2026-11-10).
 - Ordenar y filtrar: el plan los deja para después (paso 4.3).
 - Safari y Firefox. Hasta ahora solo se ha visto en Chromium: 320 px y
   escritorio, tema claro y oscuro, con y sin espaciado forzado.

@@ -21,7 +21,7 @@
   container-type: inline-size;
 }
 
-/* Señal de que la tabla sigue. Cuando hay columnas fuera de la vista, una
+/* Señal de que la tabla sigue (aprobada por la dirección de diseño, 2026-11-10). Cuando hay columnas fuera de la vista, una
    sombra suave aparece en ese borde, y se va al llegar al extremo. Sin
    JavaScript: son cuatro fondos. Dos sombras fijas a la caja (scroll) y dos
    «tapas» del color del fondo que viajan con el contenido (local) y cubren la

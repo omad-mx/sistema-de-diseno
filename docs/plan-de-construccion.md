@@ -187,8 +187,8 @@ Las piezas que cargan el contenido de OMAD.
   visión y cognitivo». Se descartó la cuadrícula de seis casillas
   (2026-11-10).
 - **3.4 Hallazgo.** Distintivo de gravedad, descripción, criterios WCAG y
-  perfiles afectados. Hay que resolver cómo se ve la evidencia: captura,
-  fragmento de código en mono, o las dos.
+  perfiles afectados. La evidencia es una captura de pantalla, sin fragmento
+  de código (decidido el 2026-11-10).
 - **3.5 Cifra citable.** El número grande, qué mide, la fecha de corte y un
   bloque «Cómo citar» con el texto listo para copiar. Es el primer trabajo del
   sistema, según la sección 1 del documento.

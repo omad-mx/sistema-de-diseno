@@ -1,0 +1,110 @@
+/* =========================================================================
+   OMAD — hallazgo
+   Un problema encontrado en una auditoría: su gravedad, qué pasa, los
+   criterios WCAG que incumple, los perfiles a los que afecta y la captura
+   de pantalla que lo prueba. Va dentro de una lista de hallazgos.
+   Ficha: componentes/hallazgo/README.md
+   ========================================================================= */
+
+/* La lista de hallazgos de una ficha. */
+.hallazgos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-inline-size: var(--omad-medida);
+}
+
+.hallazgo {
+  container-type: inline-size;
+  display: grid;
+  gap: var(--omad-esp-3);
+  padding-block: var(--omad-esp-5);
+  border-block-start: 1px solid var(--omad-borde);
+}
+
+.hallazgos > .hallazgo:last-child { border-block-end: 1px solid var(--omad-borde); }
+
+.hallazgo > * { margin: 0; min-inline-size: 0; }
+
+/* El distintivo mide lo que su texto, no el ancho del hallazgo. */
+.hallazgo > .distintivo-gravedad { justify-self: start; }
+
+/* Qué pasa, en una frase. No es un encabezado: un h3 por hallazgo mediría
+   28 px. La lista y el distintivo ya dan la estructura. */
+.hallazgo-titulo {
+  font-size: var(--omad-texto-lg);
+  font-weight: var(--omad-peso-medio);
+  line-height: var(--omad-interlinea-normal);
+}
+
+.hallazgo-descripcion { color: var(--omad-texto-secundario); }
+
+/* Los datos: criterios, perfiles afectados y dónde. Etiqueta y valor en dos
+   columnas; en un contenedor angosto, uno debajo del otro. */
+.hallazgo-datos {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--omad-esp-1) var(--omad-esp-4);
+  align-items: baseline;
+  font-size: var(--omad-texto-sm);
+  line-height: var(--omad-interlinea-normal);
+}
+
+.hallazgo-datos dt {
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--omad-texto-terciario);
+}
+
+.hallazgo-datos dd { margin: 0; min-inline-size: 0; }
+
+@container (max-width: 30rem) {
+  .hallazgo-datos { grid-template-columns: 1fr; }
+  .hallazgo-datos dd + dt { margin-block-start: var(--omad-esp-2); }
+}
+
+/* La evidencia: una captura de pantalla, plegada. Se abre con el botón
+   terciario «Ver la evidencia» (un summary), sin JavaScript. */
+.hallazgo-evidencia > summary {
+  inline-size: fit-content;
+  list-style: none;
+}
+
+.hallazgo-evidencia > summary::-webkit-details-marker { display: none; }
+
+/* Un triángulo que gira al abrir, para que se vea que se despliega. Es
+   decorativo: el summary ya anuncia si está abierto o cerrado. */
+.hallazgo-evidencia > summary::after {
+  content: '';
+  inline-size: 0.5em;
+  block-size: 0.5em;
+  margin-inline-start: var(--omad-esp-2);
+  border-inline-end: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+  transform: rotate(45deg) translate(-25%, -25%);
+  transition: transform var(--omad-transicion);
+}
+
+.hallazgo-evidencia[open] > summary::after { transform: rotate(-135deg) translate(-25%, -25%); }
+
+.hallazgo-evidencia figure {
+  display: grid;
+  gap: var(--omad-esp-2);
+  margin: var(--omad-esp-3) 0 0;
+}
+
+.hallazgo-evidencia img {
+  display: block;
+  max-inline-size: 100%;
+  block-size: auto;
+  border: 1px solid var(--omad-borde-fuerte);
+  border-radius: var(--omad-radio-1);
+}
+
+.hallazgo-evidencia figcaption {
+  font-size: var(--omad-texto-xs);
+  line-height: var(--omad-interlinea-normal);
+  color: var(--omad-texto-secundario);
+}

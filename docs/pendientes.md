@@ -26,7 +26,7 @@ prueben con tecnologías de apoyo.
    marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)) se
    lleva al consejo con la franja hecha.
 3. **Resultado por perfiles** (3.3), antes «franja mini».
-4. **Hallazgo** (3.4). Hay que resolver cómo se ve la evidencia.
+4. **Hallazgo** (3.4). La evidencia es una captura de pantalla.
 5. **Cifra citable** (3.5).
 6. **Tabla de datos** (3.6). Ojo: la caja con desplazamiento necesita
    `position: relative`, o los textos ocultos para lector de pantalla se

@@ -13,25 +13,22 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## En curso
 
-Nada. La fase 2 (elementos) está completa: tipografía, botón, distintivo de
-gravedad, marca de resultado, criterio WCAG y aviso están en el
-[catálogo](../componentes/index.html), los seis como `borrador` hasta que se
-prueben con tecnologías de apoyo.
+Nada. La fase 3 (componentes) está completa: pictogramas, franja, resultado
+por perfiles (en lugar de la franja mini), hallazgo, cifra citable, tabla de
+datos (con su variante apilable), cabecera y pie están en el
+[catálogo](../componentes/index.html), todos como `borrador` hasta que se
+prueben con tecnologías de apoyo. A quién sirve cada parte está en
+[`quien-usa-omad.md`](quien-usa-omad.md).
 
-## Siguiente: fase 3 del plan, componentes
+## Siguiente: fase 4 del plan, prototipo
 
-1. **Pictogramas de los seis perfiles** (3.1). Los dibujamos la dirección de
-   diseño y Claude, con tiempo acotado (D3).
-2. **Franja** (3.2). Se construye ya, como propuesta (D2); el registro como
-   marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)) se
-   lleva al consejo con la franja hecha.
-3. **Resultado por perfiles** (3.3), antes «franja mini».
-4. **Hallazgo** (3.4). La evidencia es una captura de pantalla.
-5. **Cifra citable** (3.5).
-6. **Tabla de datos** (3.6). Ojo: la caja con desplazamiento necesita
-   `position: relative`, o los textos ocultos para lector de pantalla se
-   salen y estiran la página (se vio en la maqueta de la marca de gravedad).
-7. **Cabecera, navegación y pie** (3.7).
+1. **El modelo de una auditoría y los datos de ejemplo** (4.1). La forma de
+   una auditoría (trámite, perfiles, hallazgos) escrita una vez, los datos de
+   ejemplo con esa forma, y una plantilla de hoja de cálculo para quien
+   audita. Es lo que une a los cuatro niveles de
+   [`quien-usa-omad.md`](quien-usa-omad.md).
+2. **Portada** (4.2), **ranking** (4.3), **fichas de auditoría** (4.4) y
+   **metodología** (4.5).
 
 ## Herramientas
 

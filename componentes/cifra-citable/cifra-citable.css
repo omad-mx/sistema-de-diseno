@@ -1,0 +1,95 @@
+/* =========================================================================
+   OMAD — cifra citable
+   El primer trabajo del sistema (sección 1 del documento): que alguien vea
+   la cifra y salga con un dato exacto y una fuente. El número grande, qué
+   mide, de cuándo es y un bloque «Cómo citar» con el texto listo.
+   Ficha: componentes/cifra-citable/README.md
+   ========================================================================= */
+
+.cifra-citable {
+  display: grid;
+  gap: var(--omad-esp-3);
+  max-inline-size: var(--omad-medida);
+  margin: 0;
+}
+
+.cifra-citable > * { margin: 0; min-inline-size: 0; }
+
+/* El número. Lo único grande de la página. Su forma principal es «X de N»:
+   la base va siempre a la vista, porque un porcentaje sin ella suena igual
+   de sólido con 2 trámites que con 200 (dictamen del 2026-11-10). Cifras
+   tabulares para que todos los dígitos midan lo mismo. */
+.cifra-citable-numero {
+  font-size: var(--omad-texto-4xl);
+  font-weight: var(--omad-peso-fuerte);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* «de N», la base, en la misma línea y a la mitad del tamaño: se lee junto
+   al número sin competir con él. */
+.cifra-citable-base {
+  font-size: 0.5em;
+  font-weight: var(--omad-peso-medio);
+  letter-spacing: 0;
+  white-space: nowrap;
+}
+
+/* Qué mide, en una frase. Va pegado al número: sin esto, el número no dice
+   nada. */
+.cifra-citable-que {
+  font-size: var(--omad-texto-lg);
+  line-height: var(--omad-interlinea-normal);
+}
+
+/* De cuándo es y de dónde sale: el corte, el universo y el método. */
+.cifra-citable-corte {
+  font-size: var(--omad-texto-sm);
+  line-height: var(--omad-interlinea-normal);
+  color: var(--omad-texto-secundario);
+}
+
+/* Cómo citar. El texto se ve siempre, y se puede seleccionar a mano; el
+   botón para copiarlo lo agrega el script, si lo hay. */
+.cifra-citable-cita {
+  display: grid;
+  gap: var(--omad-esp-2);
+  margin-block-start: var(--omad-esp-3);
+  padding: var(--omad-esp-4);
+  border: 1px solid var(--omad-borde-fuerte);
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-superficie);
+}
+
+.cifra-citable-cita > * { margin: 0; }
+
+.cifra-citable-cita-titulo {
+  font-size: var(--omad-texto-xs);
+  font-weight: var(--omad-peso-medio);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--omad-texto-terciario);
+}
+
+.cifra-citable-cita-texto {
+  font-size: var(--omad-texto-sm);
+  line-height: var(--omad-interlinea-normal);
+  overflow-wrap: anywhere;
+}
+
+.cifra-citable-cita-acciones {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--omad-esp-1) var(--omad-esp-3);
+}
+
+/* El aviso de «Cita copiada». Está siempre en el HTML (vacío) para que el
+   lector de pantalla lo anuncie al llenarse. */
+.cifra-citable-estado {
+  font-size: var(--omad-texto-sm);
+  color: var(--omad-texto-secundario);
+}
+
+.cifra-citable-estado:empty { display: none; }

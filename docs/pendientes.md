@@ -44,6 +44,19 @@ prueben con tecnologías de apoyo.
   es un lugar para el logo, que todavía no existe. Si el enlace a la portada
   lleva subrayado o es una excepción a la regla se decide con el logo.
 
+## Metodología
+
+- **Qué mide el índice.** Si un trámite «pasa» solo cuando lo completan los
+  seis perfiles o si se cuenta cada combinación de trámite y perfil; si se
+  pondera por cuánta gente usa cada trámite; y desde qué base tiene sentido
+  dar un porcentaje. El sistema ya garantiza que ninguna cifra aparezca sin
+  su base (ver [`decisiones.md`](decisiones.md), 2026-11-10).
+- **El ranking de dependencias no se ordena por porcentaje.** Con pocas
+  auditorías por dependencia, el porcentaje premia o castiga por cuántos
+  trámites se auditaron. Falta decidir el orden: por trámites que fallan, por
+  bloqueantes, o de otra forma, y cómo marcar las dependencias con pocos
+  trámites auditados.
+
 ## Contenido
 
 - **Explicaciones de los criterios WCAG en español.** Por ahora el componente
@@ -59,6 +72,12 @@ prueben con tecnologías de apoyo.
   NVDA, TalkBack, VoiceOver, zoom al 400% y espaciado de texto forzado.
   Es el paso 5.2, pero cada componente se puede probar en cuanto exista. De
   estas pruebas depende poder declarar conformidad.
+
+## Decisiones abiertas
+
+- **¿Los hallazgos se publican o se dan bajo pedido?** Todavía no se decide.
+  El componente ya está hecho y sirve en los dos casos. Ver
+  [`decisiones.md`](decisiones.md), «Abiertas».
 
 ## Esperan al consejo
 

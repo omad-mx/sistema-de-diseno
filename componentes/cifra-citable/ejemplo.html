@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cifra citable · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «cifra citable» (paso 3.5 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo y
+  no forma parte del componente. Los números son marcadores («00 %»): no
+  hay auditorías publicadas.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.5</p>
+      <h1>Cifra citable</h1>
+      <p class="entrada">El primer trabajo del sistema: que quien vea la cifra salga con un dato exacto y una fuente, no con una impresión. El número con su base, qué mide, de cuándo es y el texto listo para citarla.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-cifra">
+      <h2 id="ej-cifra">La cifra: «X de N»</h2>
+      <p class="ej-rotulo">La forma principal. La base («de 00») va en la misma línea, a la mitad del tamaño: nadie puede leer el número sin saber de cuántos trámites sale. Es el mismo lenguaje que la franja («2 de 6 perfiles»). Los números de esta página son marcadores.</p>
+      <div class="ej-muestra">
+        <figure class="cifra-citable" aria-labelledby="c1-numero c1-que">
+          <p class="cifra-citable-numero" id="c1-numero" data-cifra>00 <span class="cifra-citable-base">de 00</span></p>
+          <p class="cifra-citable-que" id="c1-que">trámites auditados se pueden completar sin ayuda.</p>
+          <p class="cifra-citable-corte">Índice de trámites completables · corte al [fecha de ejemplo] · <strong>cifra de ejemplo, no es un resultado de auditoría</strong></p>
+          <div class="cifra-citable-cita" role="group" aria-labelledby="c1-cita">
+            <p class="cifra-citable-cita-titulo" id="c1-cita">Cómo citar</p>
+            <p class="cifra-citable-cita-texto">Observatorio Mexicano de Accesibilidad Digital (OMAD). Índice de trámites completables, corte al [fecha de ejemplo]: 00 de 00 trámites auditados se pueden completar sin ayuda. Consultado en [dirección de la página].</p>
+            <div class="cifra-citable-cita-acciones">
+              <p class="cifra-citable-estado" role="status"></p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-porcentaje">
+      <h2 id="ej-porcentaje">Con porcentaje, siempre con su base</h2>
+      <p class="ej-rotulo">Para cuando la base es grande, como la cifra nacional. El porcentaje nunca va solo: la frase dice de cuántos trámites sale. Si la base es chica, se usa «X de N».</p>
+      <div class="ej-muestra">
+        <figure class="cifra-citable" aria-labelledby="c2-numero c2-que">
+          <p class="cifra-citable-numero" id="c2-numero" data-cifra>00 %</p>
+          <p class="cifra-citable-que" id="c2-que">de los trámites auditados se pueden completar sin ayuda: 00 de 00.</p>
+          <p class="cifra-citable-corte">Índice de trámites completables · corte al [fecha de ejemplo] · <strong>cifra de ejemplo, no es un resultado de auditoría</strong></p>
+          <div class="cifra-citable-cita" role="group" aria-labelledby="c2-cita">
+            <p class="cifra-citable-cita-titulo" id="c2-cita">Cómo citar</p>
+            <p class="cifra-citable-cita-texto">Observatorio Mexicano de Accesibilidad Digital (OMAD). Índice de trámites completables, corte al [fecha de ejemplo]: 00 % de los trámites auditados (00 de 00) se pueden completar sin ayuda. Consultado en [dirección de la página].</p>
+            <div class="cifra-citable-cita-acciones">
+              <p class="cifra-citable-estado" role="status"></p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-porque">
+      <h2 id="ej-porque">Por qué no el porcentaje solo</h2>
+      <p class="ej-rotulo">Dos dependencias ficticias. Por porcentaje, la primera sale mejor; pero tiene un trámite que falla y la segunda, seis. Y con dos trámites, un solo resultado distinto mueve la cifra de 0 a 100 %.</p>
+      <div class="ej-muestra">
+        <div class="tabla" data-variante="apilable" data-sobre="superficie-alta" role="region" aria-labelledby="t-porque" tabindex="0">
+          <table role="table">
+            <caption id="t-porque">El mismo resultado, contado de dos maneras<span class="tabla-nota">Dependencias ficticias.</span></caption>
+            <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Dependencia</th><th role="columnheader" scope="col" class="tabla-cifra">Porcentaje</th><th role="columnheader" scope="col" class="tabla-cifra">Se completan</th><th role="columnheader" scope="col" class="tabla-cifra">Fallan</th></tr></thead>
+            <tbody role="rowgroup">
+              <tr role="row"><th role="rowheader" scope="row">Dependencia de ejemplo A</th><td role="cell" class="tabla-cifra" data-etiqueta="Porcentaje">50 %</td><td role="cell" class="tabla-cifra" data-etiqueta="Se completan">1 de 2</td><td role="cell" class="tabla-cifra" data-etiqueta="Fallan">1</td></tr>
+              <tr role="row"><th role="rowheader" scope="row">Dependencia de ejemplo B</th><td role="cell" class="tabla-cifra" data-etiqueta="Porcentaje">40 %</td><td role="cell" class="tabla-cifra" data-etiqueta="Se completan">4 de 10</td><td role="cell" class="tabla-cifra" data-etiqueta="Fallan">6</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-copiar">
+      <h2 id="ej-copiar">Copiar la cita</h2>
+      <p class="ej-rotulo">El texto de la cita se ve siempre y se puede seleccionar a mano. Con JavaScript aparece el botón «Copiar la cita»; al usarlo, un mensaje dice «Cita copiada», a la vista y para el lector de pantalla. Si el navegador no deja copiar, la cita queda seleccionada y el mensaje lo explica. Sin JavaScript, el bloque es el mismo, sin el botón.</p>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">La base más ancha que puede llegar y una frase larga de qué mide. Conviene verlo a 320 px y con el espaciado forzado.</p>
+      <div class="ej-muestra">
+        <figure class="cifra-citable" aria-labelledby="c3-numero c3-que">
+          <p class="cifra-citable-numero" id="c3-numero" data-cifra>000 <span class="cifra-citable-base">de 0,000</span></p>
+          <p class="cifra-citable-que" id="c3-que">trámites de las dependencias de ejemplo se pueden completar sin ayuda con los seis perfiles de uso, incluido el de lector de pantalla y el de solo teclado.</p>
+          <p class="cifra-citable-corte">Índice de trámites completables por dependencia · corte al [fecha de ejemplo] · <strong>cifra de ejemplo, no es un resultado de auditoría</strong></p>
+          <div class="cifra-citable-cita" role="group" aria-labelledby="c3-cita">
+            <p class="cifra-citable-cita-titulo" id="c3-cita">Cómo citar</p>
+            <p class="cifra-citable-cita-texto">Observatorio Mexicano de Accesibilidad Digital (OMAD). Índice de trámites completables, corte al [fecha de ejemplo]: 000 de 0,000 trámites auditados se pueden completar sin ayuda. Consultado en [dirección de la página].</p>
+            <div class="cifra-citable-cita-acciones">
+              <p class="cifra-citable-estado" role="status"></p>
+            </div>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-oye">
+      <h2 id="ej-oye">Cómo se oye</h2>
+      <div class="prosa">
+        <ol>
+          <li>La figura se nombra con el número y la frase: «00 de 00 trámites auditados se pueden completar sin ayuda».</li>
+          <li>El corte, con «cifra de ejemplo, no es un resultado de auditoría».</li>
+          <li>«Cómo citar, grupo», el texto de la cita y «Copiar la cita, botón».</li>
+          <li>Al copiar: «Cita copiada.», sin mover el foco.</li>
+        </ol>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+<script src="cifra-citable.js"></script>
+</body>
+</html>

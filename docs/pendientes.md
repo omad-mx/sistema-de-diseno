@@ -1,6 +1,6 @@
 # Pendientes
 
-Fecha: 2026-11-05 · Estado: vivo
+Fecha: 2026-11-10 · Estado: vivo
 
 Lo que falta ahora, en el orden en que conviene hacerlo. El camino completo
 está en [`plan-de-construccion.md`](plan-de-construccion.md); esta lista
@@ -13,25 +13,39 @@ Al terminar algo, se borra de esta lista. Si fue una decisión, pasa a
 
 ## En curso
 
-Nada. La fase 1 (cimientos) está completa.
+Nada. La fase 2 (elementos) está completa: tipografía, botón, distintivo de
+gravedad, marca de resultado, criterio WCAG y aviso están en el
+[catálogo](../componentes/index.html), los seis como `borrador` hasta que se
+prueben con tecnologías de apoyo.
 
-## Siguiente: fase 2 del plan, elementos
+## Siguiente: fase 3 del plan, componentes
 
-Se extraen de la [maqueta](maqueta-direccion-visual.html) siguiendo
-[cómo se hace un componente](como-se-hace-un-componente.md). El 2.1 va
-primero; del 2.2 al 2.6 pueden ir juntos.
-
-1. **Tipografía y prosa** (2.1).
-2. **Enlace y botón** (2.2).
-3. **Distintivo de gravedad** (2.3).
-4. **Marca de resultado** (2.4).
-5. **Criterio WCAG** (2.5).
-6. **Aviso** (2.6). Su primer uso es «Datos de ejemplo» en el prototipo.
+1. **Pictogramas de los seis perfiles** (3.1). Los dibujamos la dirección de
+   diseño y Claude, con tiempo acotado (D3).
+2. **Franja** (3.2). Necesita que el consejo decida
+   [#3](https://github.com/omad-mx/sistema-de-diseno/issues/3) (D2), o
+   construirla marcada como propuesta.
+3. **Franja mini** (3.3).
+4. **Hallazgo** (3.4). Hay que resolver cómo se ve la evidencia.
+5. **Cifra citable** (3.5).
+6. **Tabla de datos** (3.6). Ojo: la caja con desplazamiento necesita
+   `position: relative`, o los textos ocultos para lector de pantalla se
+   salen y estiran la página (se vio en la maqueta de la marca de gravedad).
+7. **Cabecera, navegación y pie** (3.7).
 
 ## Herramientas
 
 - **Escala de radio al revés:** `--omad-radio-1` es 8 px y `--omad-radio-2`
   sigue en 4. Nadie usa el 2 todavía; se define cuando un componente lo pida.
+
+## Contenido
+
+- **Explicaciones de los criterios WCAG en español.** Por ahora el componente
+  criterio WCAG enlaza a las del W3C, en inglés, porque no hay traducción
+  oficial de WCAG 2.2 (ver [`decisiones.md`](decisiones.md), 2026-11-10).
+- **Una tabla única de números y nombres de criterios en español**, para que
+  no se traduzcan distinto en cada página. Hace falta antes del hallazgo
+  (3.4).
 
 ## Verificación
 

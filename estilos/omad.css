@@ -13,3 +13,6 @@
 @import url('../componentes/tipografia/tipografia.css');
 @import url('../componentes/boton/boton.css');
 @import url('../componentes/distintivo-gravedad/distintivo-gravedad.css');
+@import url('../componentes/marca-resultado/marca-resultado.css');
+@import url('../componentes/criterio-wcag/criterio-wcag.css');
+@import url('../componentes/aviso/aviso.css');

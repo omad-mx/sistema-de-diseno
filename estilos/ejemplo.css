@@ -51,6 +51,13 @@ body { margin: 0; }
 .ej-fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3); }
 :where(.ej-fila) > * { min-inline-size: 0; }
 
+/* Un aviso sobre la página de ejemplo, debajo de su entrada. */
+.ej-marco > .aviso { margin-block-start: var(--omad-esp-6); }
+
+/* Tamaños de texto para mostrar un componente que crece con la letra. */
+.ej-texto-xs { font-size: var(--omad-texto-xs); }
+.ej-texto-xl { font-size: var(--omad-texto-xl); }
+
 /* Lista de hallazgos de muestra, mientras no exista el componente (3.4). */
 .ej-hallazgos { list-style: none; margin: 0; padding: 0; max-inline-size: var(--omad-medida); }
 .ej-hallazgos li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--omad-esp-2) var(--omad-esp-3); padding-block: var(--omad-esp-3); border-block-start: 1px solid var(--omad-borde); }

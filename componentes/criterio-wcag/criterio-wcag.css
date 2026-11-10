@@ -1,0 +1,42 @@
+/* =========================================================================
+   OMAD — criterio WCAG
+   La referencia a un criterio de éxito (por ejemplo, 2.1.1 Teclado), que
+   enlaza a su explicación en la norma. Es un enlace, así que va subrayado.
+   Ficha: componentes/criterio-wcag/README.md
+   ========================================================================= */
+
+.criterio-wcag {
+  /* inline-block y no flex: así se conserva el espacio entre el número y el
+     nombre, y un lector de pantalla no los lee pegados. */
+  display: inline-block;
+  /* Objetivo de 44 px de alto sin altura fija: el relleno completa lo que
+     le falta a una línea. Si el nombre ocupa dos líneas, crece. */
+  padding-block: max(0px, calc((var(--omad-objetivo-min) - var(--omad-interlinea-normal) * 1em) / 2));
+  line-height: var(--omad-interlinea-normal);
+}
+
+.criterio-wcag-numero {
+  font-weight: var(--omad-peso-medio);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Compacto: solo el número a la vista. El nombre sigue en el enlace para
+   lector de pantalla, porque «2.1.1» solo no dice a dónde lleva (2.4.4). */
+.criterio-wcag[data-variante='compacto'] .criterio-wcag-nombre {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Entre dos criterios seguidos. Sin separador, los subrayados se juntan y
+   no se ve dónde termina uno. Va con aria-hidden: no se lee en voz alta. */
+.criterio-wcag-separador {
+  margin-inline: var(--omad-esp-1);
+  color: var(--omad-texto-terciario);
+}

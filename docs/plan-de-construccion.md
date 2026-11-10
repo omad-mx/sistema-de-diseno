@@ -154,7 +154,7 @@ probarlo. Los pasos 2.2 a 2.6 pueden ir en paralelo después de 2.1.
   si algo no se puede hacer, se explica por qué.
 - **2.3 Distintivo de gravedad.** Los cuatro niveles, cada uno con marca,
   texto y color, porque el color nunca va solo (sección 4 del documento).
-- **2.4 Marca de resultado.** Completó (●) y no completó (×), con su texto
+- **2.4 Marca de resultado.** Completó (palomita) y no completó (tache), con su texto
   para lector de pantalla. La usan la franja y la franja mini.
 - **2.5 Criterio WCAG.** La referencia a un criterio (por ejemplo, 2.1.1),
   que enlaza a su explicación en la norma.

@@ -11,8 +11,8 @@
 
   Esqueleto del paso 1.6 del plan. La cabecera y el pie son provisionales,
   copiados de la maqueta de #1; se reemplazan por el componente del paso 3.7.
-  Todo dato que aparezca aquí es de ejemplo (sección 2 del plan); mientras no
-  exista el componente «aviso» (2.6), lo dice este párrafo.
+  Todo dato que aparezca aquí es de ejemplo (sección 2 del plan), y la
+  página lo avisa con el componente «aviso», arriba del título.
 -->
 <link rel="stylesheet" href="../estilos/omad.css">
 <style>
@@ -38,6 +38,7 @@
 body { margin: 0; }
 .pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
 main { padding-block: var(--omad-esp-7); }
+main > .aviso { margin-block-end: var(--omad-esp-6); }
 </style>
 </head>
 <body>
@@ -57,11 +58,14 @@ main { padding-block: var(--omad-esp-7); }
   </header>
 
   <main>
+    <div class="aviso" role="note" aria-labelledby="aviso-datos">
+      <p class="aviso-titulo" id="aviso-datos">Datos de ejemplo</p>
+      <p>Nada de lo que aparezca en este prototipo es una auditoría real. Los
+      trámites, las dependencias y los resultados son ficticios.</p>
+    </div>
+
     <div class="prosa">
     <h1>Prototipo del sitio</h1>
-    <p><strong>Datos de ejemplo.</strong> Nada de lo que
-    aparezca en este prototipo es una auditoría real. Los trámites, las
-    dependencias y los resultados son ficticios.</p>
     <p>Las páginas (portada, ranking, fichas de auditoría y
     metodología) llegan en la fase 4 del
     <a href="../docs/plan-de-construccion.md">plan de construcción</a>, cuando

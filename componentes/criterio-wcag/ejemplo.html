@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Criterio WCAG · ejemplo · OMAD</title>
+<!--
+  Ejemplo del elemento «criterio WCAG» (paso 2.5 del plan).
+  Los enlaces van a las explicaciones del W3C (en inglés), que existen.
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo
+  (estilos/ejemplo.css) y no forma parte del componente.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · elemento 2.5</p>
+      <h1>Criterio WCAG</h1>
+      <p class="entrada">La referencia a un criterio de éxito de WCAG 2.2, con su número y su nombre, que enlaza a su explicación en el sitio del W3C. Es un enlace, así que va subrayado.</p>
+    </header>
+
+    <div class="aviso" role="note" aria-labelledby="aviso-ingles">
+      <p class="aviso-titulo" id="aviso-ingles">Los enlaces llevan a páginas en inglés, por ahora</p>
+      <p>No hay traducción oficial de WCAG 2.2 al español: la que publica el W3C en español es de la 2.0. Mientras no exista, los criterios enlazan a las explicaciones oficiales del W3C, en inglés, y el destino se avisa para lector de pantalla. Los nombres de los criterios en español son traducción nuestra. Escribir explicaciones propias en español es un pendiente del sistema.</p>
+    </div>
+
+    <section class="ej-seccion" aria-labelledby="ej-normal">
+      <h2 id="ej-normal">Con nombre</h2>
+      <p class="ej-rotulo">Como va casi siempre: el número y el nombre a la vista.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html" hreflang="en"><span class="criterio-wcag-numero">2.1.1</span> <span class="criterio-wcag-nombre">Teclado</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+        <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/contrast-minimum.html" hreflang="en"><span class="criterio-wcag-numero">1.4.3</span> <span class="criterio-wcag-nombre">Contraste (mínimo)</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-compacto">
+      <h2 id="ej-compacto">Compacto</h2>
+      <p class="ej-rotulo">Solo el número a la vista, para tablas y espacios estrechos. Lleva <code>data-variante="compacto"</code>. El nombre sigue en el enlace para lector de pantalla: «2.1.1» solo no dice a dónde lleva.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html" hreflang="en"><span class="criterio-wcag-numero">2.1.1</span> <span class="criterio-wcag-nombre">Teclado</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+        <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html" hreflang="en"><span class="criterio-wcag-numero">3.3.1</span> <span class="criterio-wcag-nombre">Identificación de errores</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+        <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html" hreflang="en"><span class="criterio-wcag-numero">4.1.3</span> <span class="criterio-wcag-nombre">Mensajes de estado</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-hallazgo">
+      <h2 id="ej-hallazgo">En una lista de hallazgos</h2>
+      <p class="ej-rotulo">Como irá en un hallazgo: uno o varios criterios, después de la descripción. Si van varios seguidos, los separa un punto medio, que no se lee en voz alta; sin él, los subrayados se juntan. La lista es andamio de esta página; el componente «hallazgo» llega en el paso 3.4.</p>
+      <div class="ej-muestra">
+        <ul class="ej-hallazgos">
+          <li><span class="distintivo-gravedad" data-nivel="bloqueante"><span class="visualmente-oculto">Gravedad: </span>Bloqueante</span> <span>El botón de envío no es alcanzable con teclado. <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/keyboard.html" hreflang="en"><span class="criterio-wcag-numero">2.1.1</span> <span class="criterio-wcag-nombre">Teclado</span><span class="visualmente-oculto"> (explicación en inglés)</span></a></span></li>
+          <li><span class="distintivo-gravedad" data-nivel="severa"><span class="visualmente-oculto">Gravedad: </span>Severa</span> <span>Los errores del formulario no se anuncian al lector de pantalla. <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/error-identification.html" hreflang="en"><span class="criterio-wcag-numero">3.3.1</span> <span class="criterio-wcag-nombre">Identificación de errores</span><span class="visualmente-oculto"> (explicación en inglés)</span></a> <span class="criterio-wcag-separador" aria-hidden="true">·</span> <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/status-messages.html" hreflang="en"><span class="criterio-wcag-numero">4.1.3</span> <span class="criterio-wcag-nombre">Mensajes de estado</span><span class="visualmente-oculto"> (explicación en inglés)</span></a></span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-superficies">
+      <h2 id="ej-superficies">Sobre cada superficie</h2>
+      <p class="ej-rotulo">Fondo, superficie y superficie alta, en ese orden.</p>
+      <div class="ej-muestra ej-fila" data-sobre="fondo"><a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html" hreflang="en"><span class="criterio-wcag-numero">1.3.1</span> <span class="criterio-wcag-nombre">Información y relaciones</span><span class="visualmente-oculto"> (explicación en inglés)</span></a> <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" hreflang="en"><span class="criterio-wcag-numero">1.4.1</span> <span class="criterio-wcag-nombre">Uso del color</span><span class="visualmente-oculto"> (explicación en inglés)</span></a></div>
+      <div class="ej-muestra ej-fila" data-sobre="superficie"><a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html" hreflang="en"><span class="criterio-wcag-numero">1.3.1</span> <span class="criterio-wcag-nombre">Información y relaciones</span><span class="visualmente-oculto"> (explicación en inglés)</span></a> <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" hreflang="en"><span class="criterio-wcag-numero">1.4.1</span> <span class="criterio-wcag-nombre">Uso del color</span><span class="visualmente-oculto"> (explicación en inglés)</span></a></div>
+      <div class="ej-muestra ej-fila"><a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/info-and-relationships.html" hreflang="en"><span class="criterio-wcag-numero">1.3.1</span> <span class="criterio-wcag-nombre">Información y relaciones</span><span class="visualmente-oculto"> (explicación en inglés)</span></a> <a class="criterio-wcag" data-variante="compacto" href="https://www.w3.org/WAI/WCAG22/Understanding/use-of-color.html" hreflang="en"><span class="criterio-wcag-numero">1.4.1</span> <span class="criterio-wcag-nombre">Uso del color</span><span class="visualmente-oculto"> (explicación en inglés)</span></a></div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-limite">
+      <h2 id="ej-limite">Casos que rompen</h2>
+      <p class="ej-rotulo">Un nombre largo: se parte en dos líneas y el enlace crece. Conviene verlo a 320 px y con el espaciado forzado.</p>
+      <div class="ej-muestra ej-fila">
+        <a class="criterio-wcag" href="https://www.w3.org/WAI/WCAG22/Understanding/link-purpose-in-context.html" hreflang="en"><span class="criterio-wcag-numero">2.4.4</span> <span class="criterio-wcag-nombre">Propósito de los enlaces (en contexto)</span><span class="visualmente-oculto"> (explicación en inglés)</span></a>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

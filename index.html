@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inicio · Sistema de diseño OMAD</title>
+<meta name="description" content="Las piezas con las que se construye el sitio de OMAD.">
+<!--
+  Página de inicio del sitio del sistema de diseño.
+  Se abre directo en el navegador desde el clon, sin servidor. Hecha solo con
+  componentes del catálogo; la disposición de la página va en su <style>.
+-->
+<link rel="stylesheet" href="estilos/omad.css">
+<style>
+/* Disposición de las páginas del sitio del sistema. Los componentes vienen del sistema. */
+body { margin: 0; }
+.pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
+main { padding-block: var(--omad-esp-7) var(--omad-esp-8); }
+.si-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
+.si-seccion > * { min-inline-size: 0; }
+.si-tarjetas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--omad-esp-4); grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
+.si-tarjetas li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4) var(--omad-esp-5); background: var(--omad-superficie); display: grid; gap: var(--omad-esp-2); align-content: start; }
+.si-tarjetas h2, .si-tarjetas h3 { font-size: var(--omad-texto-lg); line-height: var(--omad-interlinea-normal); margin: 0; }
+.si-tarjetas p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.si-entrada-bitacora { border-block-start: 2px solid var(--omad-borde-fuerte); padding-block-start: var(--omad-esp-5); }
+.si-fecha { font-variant-numeric: tabular-nums; }
+main > .aviso { margin-block-end: var(--omad-esp-6); }
+</style>
+</head>
+<body>
+<a class="cabecera-saltar" href="#contenido">Saltar al contenido</a>
+<div class="pagina">
+  <header class="cabecera">
+    <a class="cabecera-marca" href="index.html">
+      <span class="cabecera-sigla">OMAD</span>
+      <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+    </a>
+    <nav class="cabecera-nav" aria-label="Sistema de diseño">
+      <ul>
+        <li><a href="index.html" aria-current="page">Inicio</a></li>
+        <li><a href="docs/avance.html">Avance</a></li>
+        <li><a href="componentes/index.html">Catálogo</a></li>
+        <li><a href="docs/quien-usa-omad.html">Quién usa OMAD</a></li>
+        <li><a href="prototipo/index.html">Prototipo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <header>
+      <p class="cejilla">Versión 0.1 · documento de trabajo</p>
+      <h1>Sistema de diseño de OMAD</h1>
+      <p class="entrada">Las piezas con las que se construye el sitio del Observatorio Mexicano de Accesibilidad Digital: colores, tipografía, componentes y las reglas que los hacen accesibles. Cada pieza se prueba contra WCAG 2.2 antes de entrar.</p>
+    </header>
+
+    <section class="si-seccion" aria-labelledby="t-secciones">
+      <h2 id="t-secciones" class="visualmente-oculto">Secciones</h2>
+      <ul class="si-tarjetas">
+        <li>
+          <h3><a href="docs/avance.html">Avance</a></h3>
+          <p>Qué se ha hecho, qué se decidió y qué falta decidir, por fecha. Lo más reciente, arriba.</p>
+        </li>
+        <li>
+          <h3><a href="componentes/index.html">Catálogo de componentes</a></h3>
+          <p>Cada componente con todos sus estados, su ejemplo y su ficha. También las maquetas con las que se decidió el diseño.</p>
+        </li>
+        <li>
+          <h3><a href="docs/quien-usa-omad.html">Quién usa OMAD</a></h3>
+          <p>Los cuatro niveles de quien llega a OMAD, qué necesita cada uno y qué existe hoy.</p>
+        </li>
+        <li>
+          <h3><a href="prototipo/index.html">Prototipo</a></h3>
+          <p>El sitio de OMAD armado solo con componentes del catálogo, con datos de ejemplo. Llega en la fase 4.</p>
+        </li>
+        <li>
+          <h3><a href="docs/plan-de-construccion.md">Plan de construcción</a></h3>
+          <p>Las cinco fases, del documento 0.1 a un prototipo verificado.</p>
+        </li>
+        <li>
+          <h3><a href="docs/README.md">Documentos</a></h3>
+          <p>El documento del sistema, el registro de decisiones y lo pendiente.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section class="si-seccion" aria-labelledby="t-nota">
+      <h2 id="t-nota">Lo que no es</h2>
+      <div class="prosa">
+        <p>No es el sitio de OMAD: es el sistema con el que se va a construir. Y es una propuesta de la dirección de diseño, <strong>sin aprobación del consejo</strong>. Las cifras y los trámites que aparecen en los ejemplos son ficticios.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <nav class="pie-nav" aria-label="Pie">
+      <ul>
+        <li><a href="docs/decisiones.md">Registro de decisiones</a></li>
+        <li><a href="https://github.com/omad-mx/sistema-de-diseno" hreflang="en">Repositorio<span class="visualmente-oculto"> (GitHub, en inglés)</span></a></li>
+      </ul>
+    </nav>
+    <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  </footer>
+</div>
+</body>
+</html>

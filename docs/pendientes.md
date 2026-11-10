@@ -18,7 +18,7 @@ por perfiles (en lugar de la franja mini), hallazgo, cifra citable, tabla de
 datos (con su variante apilable), cabecera y pie están en el
 [catálogo](../componentes/index.html), todos como `borrador` hasta que se
 prueben con tecnologías de apoyo. A quién sirve cada parte está en
-[`quien-usa-omad.md`](quien-usa-omad.md).
+[`quien-usa-omad.html`](quien-usa-omad.html).
 
 ## Siguiente: fase 4 del plan, prototipo
 
@@ -26,7 +26,7 @@ prueben con tecnologías de apoyo. A quién sirve cada parte está en
    una auditoría (trámite, perfiles, hallazgos) escrita una vez, los datos de
    ejemplo con esa forma, y una plantilla de hoja de cálculo para quien
    audita. Es lo que une a los cuatro niveles de
-   [`quien-usa-omad.md`](quien-usa-omad.md).
+   [`quien-usa-omad.html`](quien-usa-omad.html).
 2. **Portada** (4.2), **ranking** (4.3), **fichas de auditoría** (4.4) y
    **metodología** (4.5).
 

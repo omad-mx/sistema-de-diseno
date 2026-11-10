@@ -8,6 +8,10 @@ Observatorio Mexicano de Accesibilidad Digital.
 > una propuesta abierta a discusión, no una decisión tomada. Ver
 > [Decisiones abiertas](docs/omad-sistema-de-diseno.md#9-decisiones-abiertas).
 
+**Para verlo:** abre [`index.html`](index.html) en el navegador desde el
+clon, sin servidor. Desde ahí se llega al avance, al catálogo de componentes,
+a quién usa OMAD y al prototipo.
+
 ---
 
 ## Qué es esto

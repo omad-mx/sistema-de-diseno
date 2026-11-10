@@ -1,0 +1,35 @@
+/* =========================================================================
+   OMAD — pie
+   Enlaces secundarios y la línea de créditos al final de cada página.
+   Ficha: componentes/pie/README.md
+   ========================================================================= */
+
+.pie {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--omad-esp-3) var(--omad-esp-6);
+  padding-block: var(--omad-esp-5) var(--omad-esp-6);
+  border-block-start: 1px solid var(--omad-borde);
+  font-size: var(--omad-texto-sm);
+  line-height: var(--omad-interlinea-normal);
+  color: var(--omad-texto-secundario);
+}
+
+.pie-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--omad-esp-2) var(--omad-esp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pie-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--omad-objetivo-min);
+}
+
+.pie-creditos { margin: 0; }

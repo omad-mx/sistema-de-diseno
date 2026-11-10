@@ -22,9 +22,9 @@ prueben con tecnologías de apoyo.
 
 1. **Pictogramas de los seis perfiles** (3.1). Los dibujamos la dirección de
    diseño y Claude, con tiempo acotado (D3).
-2. **Franja** (3.2). Necesita que el consejo decida
-   [#3](https://github.com/omad-mx/sistema-de-diseno/issues/3) (D2), o
-   construirla marcada como propuesta.
+2. **Franja** (3.2). Se construye ya, como propuesta (D2); el registro como
+   marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)) se
+   lleva al consejo con la franja hecha.
 3. **Franja mini** (3.3).
 4. **Hallazgo** (3.4). Hay que resolver cómo se ve la evidencia.
 5. **Cifra citable** (3.5).
@@ -37,6 +37,12 @@ prueben con tecnologías de apoyo.
 
 - **Escala de radio al revés:** `--omad-radio-1` es 8 px y `--omad-radio-2`
   sigue en 4. Nadie usa el 2 todavía; se define cuando un componente lo pida.
+
+## Diseño
+
+- **La marca de OMAD en la cabecera es provisional.** La sigla con su barra
+  es un lugar para el logo, que todavía no existe. Si el enlace a la portada
+  lleva subrayado o es una excepción a la regla se decide con el logo.
 
 ## Contenido
 
@@ -58,7 +64,9 @@ prueben con tecnologías de apoyo.
 
 - Ratificar que este repositorio sea público (decidido el 2026-09-15, ver
   [`decisiones.md`](decisiones.md)).
-- Registrar la franja como marca ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)).
-  El documento pide decidirlo antes de publicarla, y el repositorio es público.
-  Es la decisión D2 del plan: conviene que el consejo la tome antes de la
-  fase 3.
+- Su opinión sobre lo construido, cuando haya algo que enseñar. Por ahora la
+  dirección de diseño decide y el consejo opina después (ver
+  [`decisiones.md`](decisiones.md), 2026-11-10). Lo primero que se le lleva:
+  la franja hecha y si se registra como marca
+  ([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)), con el dato
+  de que sus pictogramas vienen de un set público.

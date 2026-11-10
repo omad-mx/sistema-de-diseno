@@ -21,6 +21,21 @@ la mesa cuando se tomó.
 
 ## Tomadas
 
+### 2026-11-10 · La dirección de diseño decide y el consejo opina después
+
+**Decidió:** Daniel Ballinas, como dirección de diseño.
+**Qué:** por ahora, las decisiones de diseño no esperan al consejo. Se toman,
+se construyen y se le enseñan al consejo para que dé su opinión. Lo primero
+es la franja: se construye ya en el repositorio público, marcada como
+propuesta (decisión D2 del plan), y el registro como marca
+([#3](https://github.com/omad-mx/sistema-de-diseno/issues/3)) se lleva al
+consejo con la franja hecha.
+**Por qué:** #3 lleva desde el 2026-09-15 sin respuesta, y la fase 3 no
+puede detenerse por eso. Al consejo le es más fácil opinar sobre algo que
+puede ver que sobre una pregunta abstracta.
+**Lo que no cambia:** el sistema sigue siendo una propuesta sin aprobación
+del consejo, y así lo dice cada página.
+
 ### 2026-11-10 · Los pictogramas de los seis perfiles vienen de Lucide
 
 **Decidió:** Daniel Ballinas, como dirección de diseño (paso 3.1 del plan,

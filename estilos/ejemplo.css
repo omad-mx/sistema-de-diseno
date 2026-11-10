@@ -51,6 +51,9 @@ body { margin: 0; }
 .ej-fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3); }
 :where(.ej-fila) > * { min-inline-size: 0; }
 
+/* Código de muestra: se parte en lugar de desbordar la página. */
+.ej-muestra pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+
 /* Un aviso sobre la página de ejemplo, debajo de su entrada. */
 .ej-marco > .aviso { margin-block-start: var(--omad-esp-6); }
 

@@ -1,0 +1,105 @@
+/* =========================================================================
+   OMAD — cabecera
+   El enlace para saltar al contenido, la marca de OMAD y la navegación
+   principal. Sin JavaScript: en un teléfono la navegación se acomoda en
+   varias líneas en lugar de esconderse en un menú.
+   Ficha: componentes/cabecera/README.md
+   ========================================================================= */
+
+.cabecera {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--omad-esp-3) var(--omad-esp-6);
+  padding-block: var(--omad-esp-4);
+  border-block-end: 1px solid var(--omad-borde);
+}
+
+/* Saltar al contenido (2.4.1). Fuera de la vista hasta que recibe el foco;
+   entonces aparece arriba, sobre todo lo demás. Es el primer elemento de
+   la página que se alcanza con el tabulador. */
+.cabecera-saltar {
+  position: absolute;
+  inset-block-start: var(--omad-esp-2);
+  inset-inline-start: var(--omad-esp-2);
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--omad-objetivo-min);
+  padding-inline: var(--omad-esp-4);
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-accion-fondo);
+  color: var(--omad-accion-texto);
+  font-weight: var(--omad-peso-medio);
+  transform: translateY(-200%);
+}
+
+.cabecera-saltar:visited { color: var(--omad-accion-texto); }
+.cabecera-saltar:focus { transform: none; }
+
+/* La marca: la sigla con su barra y el nombre completo. Es un enlace a la
+   portada; sin subrayado porque su forma de marca lo dice, igual que la
+   de un botón. */
+.cabecera-marca {
+  display: inline-flex;
+  flex-direction: column;
+  min-block-size: var(--omad-objetivo-min);
+  justify-content: center;
+  color: var(--omad-texto);
+  text-decoration-line: none;
+}
+
+.cabecera-marca:visited { color: var(--omad-texto); }
+
+.cabecera-sigla {
+  font-size: var(--omad-texto-xl);
+  font-weight: var(--omad-peso-fuerte);
+  letter-spacing: 0.06em;
+  line-height: 1;
+}
+
+/* La barra petróleo bajo la sigla. Decorativa. */
+.cabecera-sigla::after {
+  content: '';
+  display: block;
+  inline-size: 2ch;
+  block-size: 4px;
+  margin-block-start: 4px;
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-enlace);
+}
+
+.cabecera-nombre {
+  margin-block-start: var(--omad-esp-1);
+  font-size: var(--omad-texto-xs);
+  line-height: var(--omad-interlinea-normal);
+  color: var(--omad-texto-secundario);
+}
+
+.cabecera-marca:hover .cabecera-nombre {
+  text-decoration-line: underline;
+  text-underline-offset: 0.2em;
+}
+
+.cabecera-nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--omad-esp-2) var(--omad-esp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cabecera-nav a {
+  display: inline-flex;
+  align-items: center;
+  min-block-size: var(--omad-objetivo-min);
+  font-weight: var(--omad-peso-medio);
+}
+
+/* La página actual: en color de texto y con el subrayado grueso. No solo
+   el color: el grosor también cambia. */
+.cabecera-nav a[aria-current='page'] {
+  color: var(--omad-texto);
+  text-decoration-thickness: 0.15em;
+}

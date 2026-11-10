@@ -12,11 +12,14 @@ Los primeros son los elementos de la fase 2 del
 | Componente | Qué es | Estado |
 |---|---|---|
 | [`tipografia`](tipografia/README.md) | Encabezados, párrafo, listas, cejilla, entrada y prosa. | `borrador` |
-| [`boton`](boton/README.md) | Botón primario y secundario, sobre un botón o sobre un enlace. | `borrador` |
+| [`boton`](boton/README.md) | Botón primario, secundario y terciario, sobre un botón o sobre un enlace. | `borrador` |
 | [`distintivo-gravedad`](distintivo-gravedad/README.md) | Los cuatro niveles de un hallazgo, con marca, nombre y color. | `borrador` |
 | [`marca-resultado`](marca-resultado/README.md) | Si un perfil completó el trámite o no. | `borrador` |
 | [`criterio-wcag`](criterio-wcag/README.md) | La referencia a un criterio, enlazada a su explicación. | `borrador` |
 | [`aviso`](aviso/README.md) | Un aviso sobre toda la página, como «Datos de ejemplo». | `borrador` |
+| [`tabla`](tabla/README.md) | Resultados en filas y columnas, con desplazamiento propio. | `borrador` |
+| [`cabecera`](cabecera/README.md) | Saltar al contenido, la marca de OMAD y la navegación. | `borrador` |
+| [`pie`](pie/README.md) | Enlaces secundarios y créditos. | `borrador` |
 
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);
 su especificación, incluido cómo se linealiza en un lector de pantalla, está

@@ -100,9 +100,13 @@ a `estilos/omad.css`:
 ```
 
 Así el ejemplo se ve con las fuentes y las reglas base, igual que en una
-página real. Lo que el ejemplo necesite para mostrarse (rótulos, cajas de
-muestra, controles) va en un `<style>` de la propia página, con clases que
-empiezan con `ej-`, para que nadie lo confunda con el componente.
+página real.
+
+Lo que la página necesita para mostrarse (rótulos, cajas de muestra y los
+controles de tema, ancho y espaciado de texto) es andamio, no componente.
+Vive en `estilos/ejemplo.css` y `estilos/ejemplo.js`, que el ejemplo carga
+después de la hoja única, y todas sus clases empiezan con `ej-`. Lo más
+rápido es copiar el ejemplo de un componente que ya exista.
 
 Tiene una sección por estado y por variante, cada una con su encabezado. Y
 tiene los casos que rompen: el texto más largo que pueda llegar, el valor

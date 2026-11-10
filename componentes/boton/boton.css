@@ -1,0 +1,68 @@
+/* =========================================================================
+   OMAD — botón
+   Primario y secundario. La misma clase viste a un <button> y a un enlace
+   que lleva a una acción (<a class="boton" href>).
+   Ficha: componentes/boton/README.md
+   ========================================================================= */
+
+.boton {
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-inline-size: 100%;
+  min-inline-size: var(--omad-objetivo-min);
+  min-block-size: var(--omad-objetivo-min);
+  /* Sin altura fija: una etiqueta larga ocupa dos líneas y el botón crece. */
+  padding: var(--omad-esp-2) var(--omad-esp-5);
+  border: 2px solid var(--omad-accion-fondo);
+  border-radius: var(--omad-radio-1);
+  background: var(--omad-accion-fondo);
+  color: var(--omad-accion-texto);
+  font: inherit;
+  font-weight: var(--omad-peso-medio);
+  line-height: var(--omad-interlinea-normal);
+  text-align: center;
+  /* Una palabra más ancha que el botón se parte en lugar de empujar la
+     página. Hace falta «anywhere»: dentro de un flex, «break-word» no basta. */
+  overflow-wrap: anywhere;
+  /* Único enlace sin subrayado del sistema: aquí lo que dice «esto se
+     puede activar» es la forma del botón, no el color del texto. */
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color var(--omad-transicion),
+              border-color var(--omad-transicion);
+}
+
+.boton:visited { color: var(--omad-accion-texto); }
+
+.boton:hover {
+  background: var(--omad-accion-hover);
+  border-color: var(--omad-accion-hover);
+}
+
+.boton:active {
+  background: var(--omad-accion-activo);
+  border-color: var(--omad-accion-activo);
+}
+
+/* -------------------------------------------------------------------------
+   Secundario: solo contorno. Para la acción que acompaña a la principal.
+   ------------------------------------------------------------------------- */
+
+.boton[data-variante='secundario'] {
+  background: transparent;
+  color: var(--omad-enlace);
+}
+
+.boton[data-variante='secundario']:visited { color: var(--omad-enlace); }
+
+.boton[data-variante='secundario']:hover {
+  background: var(--omad-resalte);
+  border-color: var(--omad-accion-fondo);
+}
+
+.boton[data-variante='secundario']:active {
+  background: var(--omad-resalte);
+  border-color: var(--omad-accion-activo);
+}

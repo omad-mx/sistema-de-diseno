@@ -1,0 +1,63 @@
+/* =========================================================================
+   OMAD — andamio de las páginas de ejemplo
+   Lo carga el ejemplo.html de cada componente, después de omad.css. Trae
+   lo que la página necesita para mostrarse (rótulos, cajas de muestra y
+   controles) y nada del componente. Todas sus clases empiezan con ej-.
+   No lo carga ninguna página del sitio.
+   ========================================================================= */
+
+body { margin: 0; }
+.ej-pagina { max-inline-size: 72rem; margin-inline: auto; padding: var(--omad-esp-6) var(--omad-esp-4) var(--omad-esp-9); }
+.ej-volver { margin-block-end: var(--omad-esp-6); font-size: var(--omad-texto-sm); }
+.ej-volver a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); }
+
+/* Controles: tema, ancho y espaciado de texto. */
+.ej-controles {
+  display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6);
+  margin-block: var(--omad-esp-6); padding: var(--omad-esp-3) var(--omad-esp-4);
+  border: 1px solid var(--omad-borde-fuerte); border-radius: var(--omad-radio-1);
+  background: var(--omad-superficie);
+  font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal);
+}
+.ej-controles fieldset { border: 0; margin: 0; padding: 0; min-inline-size: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 0 var(--omad-esp-4); }
+.ej-controles legend { float: inline-start; padding: 0; margin-inline-end: var(--omad-esp-4); font-weight: var(--omad-peso-fuerte); line-height: var(--omad-objetivo-min); }
+.ej-controles label { display: inline-flex; align-items: center; gap: var(--omad-esp-2); min-height: var(--omad-objetivo-min); cursor: pointer; }
+.ej-controles input { min-height: 0; inline-size: 1.25rem; block-size: 1.25rem; margin: 0; accent-color: var(--omad-accion-fondo); }
+
+/* El marco es un contenedor: lo que mida, miden las consultas de contenedor
+   de los componentes que tiene dentro. */
+.ej-marco { container-type: inline-size; transition: max-inline-size var(--omad-transicion); }
+.ej-marco[data-ancho="320"] { max-inline-size: 320px; outline: 1px dashed var(--omad-borde-fuerte); outline-offset: var(--omad-esp-2); }
+
+.ej-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
+.ej-seccion > * { min-inline-size: 0; }
+.ej-rotulo { font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); color: var(--omad-texto-secundario); max-inline-size: var(--omad-medida); }
+.ej-rotulo code { font-size: 0.9em; }
+
+/* Caja de muestra. Por omisión va sobre la superficie alta; data-sobre la
+   cambia para ver el componente en las otras dos. */
+.ej-muestra { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-5); background: var(--omad-superficie-alta); min-inline-size: 0; }
+.ej-muestra[data-sobre="fondo"] { background: var(--omad-fondo); }
+.ej-muestra[data-sobre="superficie"] { background: var(--omad-superficie); }
+.ej-marco[data-ancho="320"] .ej-muestra { padding: var(--omad-esp-4); }
+.ej-pila { display: grid; gap: var(--omad-esp-5); }
+.ej-pila > * { min-inline-size: 0; }
+.ej-pila > div { display: grid; gap: var(--omad-esp-1); }
+.ej-pila > div > * { min-inline-size: 0; }
+.ej-fila { display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3); }
+.ej-fila > * { min-inline-size: 0; }
+
+/* Lista de hallazgos de muestra, mientras no exista el componente (3.4). */
+.ej-hallazgos { list-style: none; margin: 0; padding: 0; max-inline-size: var(--omad-medida); }
+.ej-hallazgos li { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--omad-esp-2) var(--omad-esp-3); padding-block: var(--omad-esp-3); border-block-start: 1px solid var(--omad-borde); }
+.ej-hallazgos li:last-child { border-block-end: 1px solid var(--omad-borde); }
+.ej-hallazgos li > :last-child { flex: 1 1 16rem; min-inline-size: 0; }
+
+/* Espaciado de texto forzado, como lo pide WCAG 1.4.12. Lo que haría una
+   persona con su propia hoja de estilos; aquí lo prende el control. */
+[data-espaciado="forzado"] .ej-marco * {
+  line-height: 1.5 !important;
+  letter-spacing: 0.12em !important;
+  word-spacing: 0.16em !important;
+}
+[data-espaciado="forzado"] .ej-marco p { margin-block-end: 2em !important; }

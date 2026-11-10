@@ -26,6 +26,10 @@ a {
 
 a:visited { color: var(--omad-enlace-visitado); }
 
+/* Con el puntero encima el subrayado engruesa. El color no cambia: un
+   cambio de color solo no lo vería todo el mundo. */
+a:hover { text-decoration-thickness: 0.16em; }
+
 button, [role='button'], input, select, textarea, summary {
   min-height: var(--omad-objetivo-min);
   font-family: inherit;

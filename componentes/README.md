@@ -12,6 +12,8 @@ Los primeros son los elementos de la fase 2 del
 | Componente | Qué es | Estado |
 |---|---|---|
 | [`tipografia`](tipografia/README.md) | Encabezados, párrafo, listas, cejilla, entrada y prosa. | `borrador` |
+| [`boton`](boton/README.md) | Botón primario y secundario, sobre un botón o sobre un enlace. | `borrador` |
+| [`distintivo-gravedad`](distintivo-gravedad/README.md) | Los cuatro niveles de un hallazgo, con marca, nombre y color. | `borrador` |
 
 El componente firma del sistema es **la franja de seis perfiles** (fase 3);
 su especificación, incluido cómo se linealiza en un lector de pantalla, está

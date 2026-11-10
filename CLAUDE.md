@@ -12,6 +12,7 @@ repositorios.
 
 - `tokens/omad-tokens.css` — solo variables, dos capas: primitivas (capa 1) y semánticos (capa 2).
 - `estilos/omad.css` — la hoja única que carga una página. Importa los tokens, `fuentes.css` (las dos familias desde `fuentes/`, sin Google Fonts) y `base.css` (foco, enlaces, cuerpo, `.visualmente-oculto`).
+- `estilos/ejemplo.css` y `estilos/ejemplo.js` — andamio de las páginas de ejemplo de los componentes (clases `ej-`, controles de tema, ancho y espaciado). No los carga ninguna página del sitio.
 - `herramientas/verificar-contraste.py` — lee los tokens y verifica el contrato de contraste WCAG 2.2 AA: pares de tokens semánticos, medidos en tema claro y en oscuro. Falla también si un token de color queda sin medir o si la capa 2 trae un color a mano. Sin dependencias. Sale con 1 si alguno incumple; la CI lo corre en cada PR.
 - `herramientas/revisar-componentes.py` — lee el CSS de `componentes/` y falla si hay una primitiva, un color a mano, `outline: none` sin `:focus-visible` o `!important`. La CI lo corre en cada PR.
 - `herramientas/paleta-direccion-b.py` — deriva la paleta cálida de la maqueta de #1 (mismo L y C, tono girado) y la verifica. `--css` imprime el bloque que va en `docs/maqueta-direccion-visual.html`; ese bloque no se edita a mano.

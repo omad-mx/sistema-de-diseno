@@ -168,6 +168,10 @@ SOBRE_FONDOS = [
 PARES_PROPIOS = [
     ("accion-texto",     "accion-fondo",     TEXTO, "texto del botón"),
     ("accion-texto",     "accion-hover",     TEXTO, "texto del botón con el puntero encima"),
+    ("accion-texto",     "accion-activo",    TEXTO, "texto del botón al presionarlo"),
+    ("enlace",           "resalte",          TEXTO, "texto del botón secundario con el puntero encima"),
+    ("accion-fondo",     "resalte",          NO_TEXTUAL, "contorno del botón secundario con el puntero encima"),
+    ("accion-activo",    "resalte",          NO_TEXTUAL, "contorno del botón secundario al presionarlo"),
     ("texto-invertido",  "texto",            TEXTO, "texto invertido"),
     ("foco",             "foco-contorno",    NO_TEXTUAL, "las dos capas del anillo de foco"),
     ("bloqueante-texto", "bloqueante-fondo", TEXTO, "distintivo bloqueante"),

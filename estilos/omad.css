@@ -1,0 +1,12 @@
+/* =========================================================================
+   OMAD — hoja única
+   Una página carga solo este archivo. Importa los tokens, las fuentes, las
+   reglas base y, conforme existan, los componentes del catálogo.
+   ========================================================================= */
+
+@import url('../tokens/omad-tokens.css');
+@import url('fuentes.css');
+@import url('base.css');
+
+/* Componentes: uno por línea, en el orden en que entran al catálogo.
+   @import url('../componentes/<nombre>/<nombre>.css'); */

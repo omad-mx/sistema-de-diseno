@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portada · OMAD (prototipo)</title>
+<!--
+  Prototipo del sitio de OMAD, armado solo con componentes del catálogo.
+  Ninguna página lleva estilos propios: si algo falta, se agrega primero al
+  catálogo. Se abre directo en el navegador desde el clon, sin servidor.
+
+  Esqueleto del paso 1.6 del plan. La cabecera y el pie son provisionales,
+  copiados de la maqueta de #1; se reemplazan por el componente del paso 3.7.
+  Todo dato que aparezca aquí es de ejemplo (sección 2 del plan); mientras no
+  exista el componente «aviso» (2.6), lo dice este párrafo.
+-->
+<link rel="stylesheet" href="../estilos/omad.css">
+<style>
+/* Provisional (paso 1.6). Sale cuando exista componentes/cabecera (3.7). */
+.sitio-cabecera {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3) var(--omad-esp-6);
+  padding-block: var(--omad-esp-4);
+  border-bottom: 1px solid var(--omad-borde);
+}
+.marca-omad { display: flex; flex-direction: column; text-decoration: none; color: var(--omad-texto); }
+.marca-omad:visited { color: var(--omad-texto); }
+.marca-omad .sigla { font-size: var(--omad-texto-xl); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.06em; line-height: 1; }
+.marca-omad .sigla::after { content: ""; display: block; height: 4px; width: 2ch; margin-top: 4px; background: var(--omad-enlace); border-radius: var(--omad-radio-1); }
+.marca-omad .nombre { font-size: var(--omad-texto-xs); color: var(--omad-texto-secundario); margin-top: var(--omad-esp-1); }
+.sitio-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
+.sitio-nav a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); font-weight: var(--omad-peso-medio); }
+.sitio-nav a[aria-current="page"] { color: var(--omad-texto); text-decoration-thickness: 0.15em; }
+.sitio-pie { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-5) var(--omad-esp-6); display: flex; flex-wrap: wrap; gap: var(--omad-esp-3) var(--omad-esp-6); justify-content: space-between; font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); }
+.sitio-pie ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
+.sitio-pie p { margin: 0; }
+
+/* Provisional también: se quita cuando las páginas estén hechas de componentes. */
+body { margin: 0; }
+.pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
+main { padding-block: var(--omad-esp-7); }
+h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apretada); margin-block: 0 var(--omad-esp-4); }
+.prosa { max-inline-size: var(--omad-medida); }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header class="sitio-cabecera">
+    <a class="marca-omad" href="index.html">
+      <span class="sigla">OMAD</span>
+      <span class="nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+    </a>
+    <nav class="sitio-nav" aria-label="Principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Portada</a></li>
+        <li><a href="ranking.html">Ranking</a></li>
+        <li><a href="metodologia.html">Metodología</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Prototipo del sitio</h1>
+    <p class="prosa"><strong>Datos de ejemplo.</strong> Nada de lo que
+    aparezca en este prototipo es una auditoría real. Los trámites, las
+    dependencias y los resultados son ficticios.</p>
+    <p class="prosa">Las páginas (portada, ranking, fichas de auditoría y
+    metodología) llegan en la fase 4 del
+    <a href="../docs/plan-de-construccion.md">plan de construcción</a>, cuando
+    existan los componentes que las arman. Hasta entonces, esta página solo
+    prueba que los tokens, las fuentes y las reglas base cargan.</p>
+  </main>
+
+  <footer class="sitio-pie">
+    <ul>
+      <li><a href="metodologia.html">Metodología</a></li>
+      <li><a href="../componentes/index.html">Catálogo de componentes</a></li>
+    </ul>
+    <p>Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  </footer>
+</div>
+</body>
+</html>

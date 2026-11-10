@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Catálogo de componentes · OMAD</title>
+<!--
+  Catálogo del sistema de diseño: todos los componentes en una página, cada
+  uno enlazado a su ejemplo y a su ficha. Es la documentación del sistema.
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Esqueleto del paso 1.6 del plan. La cabecera y el pie son provisionales,
+  copiados de la maqueta de #1; se reemplazan por el componente del paso 3.7.
+-->
+<link rel="stylesheet" href="../estilos/omad.css">
+<style>
+/* Provisional (paso 1.6). Sale cuando exista componentes/cabecera (3.7). */
+.sitio-cabecera {
+  display: flex; flex-wrap: wrap; align-items: center; gap: var(--omad-esp-3) var(--omad-esp-6);
+  padding-block: var(--omad-esp-4);
+  border-bottom: 1px solid var(--omad-borde);
+}
+.marca-omad { display: flex; flex-direction: column; text-decoration: none; color: var(--omad-texto); }
+.marca-omad:visited { color: var(--omad-texto); }
+.marca-omad .sigla { font-size: var(--omad-texto-xl); font-weight: var(--omad-peso-fuerte); letter-spacing: 0.06em; line-height: 1; }
+.marca-omad .sigla::after { content: ""; display: block; height: 4px; width: 2ch; margin-top: 4px; background: var(--omad-enlace); border-radius: var(--omad-radio-1); }
+.marca-omad .nombre { font-size: var(--omad-texto-xs); color: var(--omad-texto-secundario); margin-top: var(--omad-esp-1); }
+.sitio-nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: var(--omad-esp-2) var(--omad-esp-4); }
+.sitio-nav a { display: inline-flex; align-items: center; min-height: var(--omad-objetivo-min); font-weight: var(--omad-peso-medio); }
+.sitio-nav a[aria-current="page"] { color: var(--omad-texto); text-decoration-thickness: 0.15em; }
+.sitio-pie { border-top: 1px solid var(--omad-borde); padding-block: var(--omad-esp-5) var(--omad-esp-6); font-size: var(--omad-texto-sm); color: var(--omad-texto-secundario); }
+
+/* Disposición de la página del catálogo. */
+body { margin: 0; }
+.pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
+main { padding-block: var(--omad-esp-7); }
+h1 { font-size: var(--omad-texto-3xl); line-height: var(--omad-interlinea-apretada); margin-block: 0 var(--omad-esp-4); }
+.prosa { max-inline-size: var(--omad-medida); }
+.catalogo { list-style: none; padding: 0; margin: var(--omad-esp-7) 0 0; display: grid; gap: var(--omad-esp-4); grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr)); }
+.catalogo li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4); background: var(--omad-superficie); }
+.catalogo h2 { font-size: var(--omad-texto-lg); margin-block: 0 var(--omad-esp-2); }
+.catalogo p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); }
+.vacio { border: 1px dashed var(--omad-borde-fuerte); border-radius: var(--omad-radio-1); padding: var(--omad-esp-5); margin-top: var(--omad-esp-7); max-inline-size: var(--omad-medida); }
+.vacio p { margin: 0; }
+</style>
+</head>
+<body>
+<div class="pagina">
+  <header class="sitio-cabecera">
+    <a class="marca-omad" href="../prototipo/index.html">
+      <span class="sigla">OMAD</span>
+      <span class="nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+    </a>
+    <nav class="sitio-nav" aria-label="Principal">
+      <ul>
+        <li><a href="index.html" aria-current="page">Catálogo</a></li>
+        <li><a href="../prototipo/index.html">Prototipo</a></li>
+        <li><a href="../docs/omad-sistema-de-diseno.md">Documento del sistema</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Catálogo de componentes</h1>
+    <p class="prosa">Cada componente del sistema, con todos sus estados y
+    variantes, enlazado a su ejemplo y a su ficha. Lo que no está aquí no se
+    usa en el prototipo. La receta para agregar uno está en
+    <a href="../docs/como-se-hace-un-componente.md">cómo se hace un componente</a>.</p>
+
+    <!-- Un <li> por componente, en el orden en que entran al catálogo:
+    <ul class="catalogo">
+      <li>
+        <h2><a href="franja/ejemplo.html">Franja</a></h2>
+        <p>Seis perfiles, un resultado cada uno. <a href="franja/README.md">Ficha</a>.</p>
+      </li>
+    </ul>
+    -->
+    <div class="vacio">
+      <p>Todavía no hay componentes. El primero llega en la fase 2 del
+      <a href="../docs/plan-de-construccion.md">plan de construcción</a>.</p>
+    </div>
+  </main>
+
+  <footer class="sitio-pie">
+    <p>Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+/* =========================================================================
+   OMAD — fuentes propias
+   Las dos familias se sirven desde este repositorio. El sitio no depende de
+   Google Fonts ni de ningún servicio externo. Las licencias (OFL 1.1) están
+   junto a cada archivo en fuentes/.
+
+   Atkinson Hyperlegible Next es una fuente variable: un solo archivo cubre
+   los pesos 200 a 800. El sistema usa 400, 600 y 700.
+   JetBrains Mono solo aparece en fragmentos de código, en un peso.
+   ========================================================================= */
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible Next';
+  src: url('../fuentes/atkinson-hyperlegible-next/AtkinsonHyperlegibleNext-wght.woff2') format('woff2');
+  font-weight: 200 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'JetBrains Mono';
+  src: url('../fuentes/jetbrains-mono/JetBrainsMono-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

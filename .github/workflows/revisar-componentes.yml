@@ -1,0 +1,45 @@
+name: Componentes
+
+# Las reglas de CLAUDE.md para el CSS de componentes se revisan en cada pull
+# request: solo tokens semánticos, ningún color escrito a mano, ningún
+# outline:none sin :focus-visible, ningún !important. Si algo falla, el PR no
+# se puede integrar. Ver herramientas/revisar-componentes.py.
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  componentes:
+    name: Componentes solo con tokens semánticos
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Clonar el repositorio
+        uses: actions/checkout@v4
+
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Revisar el CSS de componentes
+        run: |
+          set -o pipefail
+          python3 herramientas/revisar-componentes.py | tee componentes.txt
+
+      - name: Publicar el reporte en el resumen
+        if: always()
+        run: |
+          {
+            echo '## Revisión de componentes'
+            echo
+            echo '```'
+            cat componentes.txt
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

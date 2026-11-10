@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Franja mini · ejemplo · OMAD</title>
+<!--
+  Ejemplo del componente «franja mini» (paso 3.3 del plan).
+  Se abre directo en el navegador desde el clon, sin servidor.
+
+  Todo lo que lleva el prefijo ej- es andamio de las páginas de ejemplo y
+  no forma parte del componente. Los trámites y los resultados son de
+  ejemplo: no existen.
+-->
+<link rel="stylesheet" href="../../estilos/omad.css">
+<link rel="stylesheet" href="../../estilos/ejemplo.css">
+
+<style>
+/* Andamio de esta página: la comparación. */
+.ej-comparar { display: grid; gap: var(--omad-esp-6); grid-template-columns: repeat(auto-fit, minmax(min(18rem, 100%), 1fr)); }
+.ej-comparar > div { display: grid; gap: var(--omad-esp-3); align-content: start; min-inline-size: 0; }
+.ej-comparar h3 { font-size: var(--omad-texto-lg); }
+/* La propuesta B: una línea de seis. */
+.ej-mini-linea .franja-mini-celdas { grid-template-columns: repeat(6, 1.375rem); }
+</style>
+</head>
+<body>
+<div class="ej-pagina">
+
+  <p class="ej-volver"><a href="../index.html">Catálogo de componentes</a></p>
+
+  <form class="ej-controles" id="controles" aria-label="Controles del ejemplo">
+    <fieldset>
+      <legend>Tema</legend>
+      <label><input type="radio" name="tema" value="sistema" checked> El del sistema</label>
+      <label><input type="radio" name="tema" value="claro"> Claro</label>
+      <label><input type="radio" name="tema" value="oscuro"> Oscuro</label>
+    </fieldset>
+    <fieldset>
+      <legend>Ancho</legend>
+      <label><input type="radio" name="ancho" value="completo" checked> Completo</label>
+      <label><input type="radio" name="ancho" value="320"> 320 px</label>
+    </fieldset>
+    <fieldset>
+      <legend>Espaciado de texto</legend>
+      <label><input type="radio" name="espaciado" value="normal" checked> Normal</label>
+      <label><input type="radio" name="espaciado" value="forzado"> Forzado (1.4.12)</label>
+    </fieldset>
+  </form>
+
+  <main class="ej-marco" id="marco" data-ancho="completo">
+
+    <header>
+      <p class="cejilla">Catálogo · componente 3.3</p>
+      <h1>Franja mini</h1>
+      <p class="entrada">La franja en pequeño, para una celda de tabla. Seis casillas con el resultado de cada perfil, en la misma posición que en la franja, y el total a la vista. Sin pictogramas ni nombres: la posición dice el perfil, y una leyenda en la tabla lo explica.</p>
+    </header>
+
+    <section class="ej-seccion" aria-labelledby="ej-tabla">
+      <h2 id="ej-tabla">En el ranking</h2>
+      <p class="ej-rotulo">Como se va a usar casi siempre. La leyenda va en la nota de la tabla, con los pictogramas en el lugar de cada perfil.</p>
+      <div class="ej-muestra">
+        <div class="tabla" data-sobre="superficie-alta" role="region" aria-labelledby="t-ranking" tabindex="0">
+          <table>
+            <caption id="t-ranking">Ranking de trámites<span class="tabla-nota">Datos de ejemplo. Perfiles, en el orden de la franja: <span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg></span></span><span class="visualmente-oculto">lector de pantalla, solo teclado, baja visión, motriz, persona sorda y cognitivo.</span></span></span></caption>
+            <thead><tr><th scope="col" class="tabla-cifra">#</th><th scope="col">Trámite</th><th scope="col">Perfiles</th><th scope="col" class="tabla-cifra">Bloqueantes</th></tr></thead>
+            <tbody>
+              <tr><td class="tabla-cifra">1</td><th scope="row">Trámite de ejemplo A</th><td><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span></span><span class="franja-mini-total">6 de 6</span><span class="visualmente-oculto"> perfiles completaron.</span></span></td><td class="tabla-cifra">0</td></tr>
+              <tr><td class="tabla-cifra">2</td><th scope="row">Trámite de ejemplo B</th><td><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">4 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: baja visión y cognitivo.</span></span></td><td class="tabla-cifra">1</td></tr>
+              <tr><td class="tabla-cifra">3</td><th scope="row">Trámite de ejemplo C</th><td><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">2 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: lector de pantalla, solo teclado, motriz y cognitivo.</span></span></td><td class="tabla-cifra">3</td></tr>
+              <tr><td class="tabla-cifra">4</td><th scope="row">Trámite de ejemplo D</th><td><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">1 de 6</span><span class="visualmente-oculto"> perfil completó. No completaron: lector de pantalla, solo teclado, baja visión, motriz y cognitivo.</span></span></td><td class="tabla-cifra">4</td></tr>
+              <tr><td class="tabla-cifra">5</td><th scope="row">Trámite de ejemplo E</th><td><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">0 de 6</span><span class="visualmente-oculto"> perfiles completaron.</span></span></td><td class="tabla-cifra">12</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-comparar">
+      <h2 id="ej-comparar">Dos filas de tres o una línea de seis</h2>
+      <p class="ej-rotulo">La mini no tiene pictogramas ni nombres: lo único que dice qué perfil es cada casilla es su lugar. En dos filas de tres, cada perfil está donde está en la franja grande. En una línea de seis, «teclado» pasa de arriba al centro al segundo lugar.</p>
+      <div class="ej-comparar">
+        <div>
+          <h3>A · Dos filas de tres</h3>
+          <p class="ej-rotulo">El mismo mapa que la franja. Es la que está en el CSS.</p>
+          <div class="ej-muestra ej-pila">
+            <p><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg></span></span><span class="visualmente-oculto">lector de pantalla, solo teclado, baja visión, motriz, persona sorda y cognitivo.</span></span> leyenda</p>
+            <p><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">2 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: lector de pantalla, solo teclado, motriz y cognitivo.</span></span></p>
+            <p><span class="franja-mini"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">4 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: baja visión y cognitivo.</span></span></p>
+          </div>
+        </div>
+        <div>
+          <h3>B · Una línea de seis</h3>
+          <p class="ej-rotulo">Más baja, cabe mejor en un renglón de tabla. Pero el lugar de cada perfil no es el de la franja.</p>
+          <div class="ej-muestra ej-pila">
+            <p><span class="franja-mini ej-mini-linea"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z" /> <path d="M16 9a5 5 0 0 1 0 6" /> <path d="M19.364 18.364a9 9 0 0 0 0-12.728" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M10 8h.01" /> <path d="M12 12h.01" /> <path d="M14 8h.01" /> <path d="M16 12h.01" /> <path d="M18 8h.01" /> <path d="M6 8h.01" /> <path d="M7 16h10" /> <path d="M8 12h.01" /> <rect width="20" height="16" x="2" y="4" rx="2" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" /> <circle cx="12" cy="12" r="3" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M22 14a8 8 0 0 1-8 8" /> <path d="M18 11v-1a2 2 0 0 0-2-2a2 2 0 0 0-2 2" /> <path d="M14 10V9a2 2 0 0 0-2-2a2 2 0 0 0-2 2v1" /> <path d="M10 9.5V4a2 2 0 0 0-2-2a2 2 0 0 0-2 2v10" /> <path d="M18 11a2 2 0 1 1 4 0v3a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" /> <path d="M13 8H7" /> <path d="M17 12H7" /> </svg></span><span class="franja-mini-casilla"><svg class="franja-mini-picto" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" > <path d="M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z" /> <path d="M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z" /> <path d="M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4" /> <path d="M17.599 6.5a3 3 0 0 0 .399-1.375" /> <path d="M6.003 5.125A3 3 0 0 0 6.401 6.5" /> <path d="M3.477 10.896a4 4 0 0 1 .585-.396" /> <path d="M19.938 10.5a4 4 0 0 1 .585.396" /> <path d="M6 18a4 4 0 0 1-1.967-.516" /> <path d="M19.967 17.484A4 4 0 0 1 18 18" /> </svg></span></span><span class="visualmente-oculto">lector de pantalla, solo teclado, baja visión, motriz, persona sorda y cognitivo.</span></span> leyenda</p>
+            <p><span class="franja-mini ej-mini-linea"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">2 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: lector de pantalla, solo teclado, motriz y cognitivo.</span></span></p>
+            <p><span class="franja-mini ej-mini-linea"><span class="franja-mini-celdas" aria-hidden="true"><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="si"></span></span><span class="franja-mini-casilla"><span class="marca-resultado" data-resultado="no"></span></span></span><span class="franja-mini-total">4 de 6</span><span class="visualmente-oculto"> perfiles completaron. No completaron: baja visión y cognitivo.</span></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="ej-seccion" aria-labelledby="ej-oye">
+      <h2 id="ej-oye">Cómo se oye</h2>
+      <div class="prosa">
+        <p>Las casillas no se leen. Se lee el total y una frase con quién no completó:</p>
+        <ul>
+          <li>«2 de 6 perfiles completaron. No completaron: lector de pantalla, solo teclado, motriz y cognitivo.»</li>
+          <li>«6 de 6 perfiles completaron.»</li>
+          <li>«0 de 6 perfiles completaron.»</li>
+        </ul>
+        <p>Así, en una tabla, cada fila dice el resultado completo sin tener que recorrer seis casillas.</p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../../estilos/ejemplo.js"></script>
+</body>
+</html>

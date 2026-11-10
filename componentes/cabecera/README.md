@@ -76,10 +76,10 @@ Esperado; no se ha probado con un lector de pantalla.
 
 ## Falta probar
 
-- **La marca es un enlace sin subrayado**, como en la maqueta. La regla del
-  subrayado tiene una sola excepción escrita, los botones. Una marca que
-  lleva a la portada no está dentro de un texto, así que no choca con 1.4.1,
-  pero hay que decidir si se escribe como segunda excepción.
+- **La marca es provisional.** La sigla con su barra ocupa el lugar del logo,
+  que todavía no existe. Por ahora es un enlace sin subrayado, como en la
+  maqueta; si lleva subrayado o es una excepción a la regla se decide con el
+  logo (está en `docs/pendientes.md`).
 - Lectores de pantalla: VoiceOver, NVDA y TalkBack
   ([#4](https://github.com/omad-mx/sistema-de-diseno/issues/4)).
 - Safari y Firefox. Hasta ahora solo se ha visto en Chromium: 320 px y

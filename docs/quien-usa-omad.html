@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quién usa OMAD · Sistema de diseño OMAD</title>
+<meta name="description" content="Los cuatro niveles de quien llega a OMAD y qué necesita cada uno.">
+<!--
+  Quién usa OMAD: los cuatro niveles. 2026-11-10 · estado: borrador.
+  Se abre directo en el navegador desde el clon, sin servidor. Hecha solo con
+  componentes del catálogo; la disposición de la página va en su <style>.
+-->
+<link rel="stylesheet" href="../estilos/omad.css">
+<style>
+/* Disposición de las páginas del sitio del sistema. Los componentes vienen del sistema. */
+body { margin: 0; }
+.pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
+main { padding-block: var(--omad-esp-7) var(--omad-esp-8); }
+.si-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
+.si-seccion > * { min-inline-size: 0; }
+.si-tarjetas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--omad-esp-4); grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
+.si-tarjetas li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4) var(--omad-esp-5); background: var(--omad-superficie); display: grid; gap: var(--omad-esp-2); align-content: start; }
+.si-tarjetas h2, .si-tarjetas h3 { font-size: var(--omad-texto-lg); line-height: var(--omad-interlinea-normal); margin: 0; }
+.si-tarjetas p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.si-entrada-bitacora { border-block-start: 2px solid var(--omad-borde-fuerte); padding-block-start: var(--omad-esp-5); }
+.si-fecha { font-variant-numeric: tabular-nums; }
+main > .aviso { margin-block-end: var(--omad-esp-6); }
+</style>
+</head>
+<body>
+<a class="cabecera-saltar" href="#contenido">Saltar al contenido</a>
+<div class="pagina">
+  <header class="cabecera">
+    <a class="cabecera-marca" href="../index.html">
+      <span class="cabecera-sigla">OMAD</span>
+      <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+    </a>
+    <nav class="cabecera-nav" aria-label="Sistema de diseño">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../docs/avance.html">Avance</a></li>
+        <li><a href="../componentes/index.html">Catálogo</a></li>
+        <li><a href="../docs/quien-usa-omad.html" aria-current="page">Quién usa OMAD</a></li>
+        <li><a href="../prototipo/index.html">Prototipo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <header>
+      <p class="cejilla">Borrador · 10 de noviembre de 2026</p>
+      <h1>Quién usa OMAD</h1>
+      <p class="entrada">El sistema de diseño se hace para personas concretas. Quiénes son, qué necesita cada una y qué parte de OMAD les sirve hoy.</p>
+    </header>
+
+    <section class="si-seccion" aria-labelledby="t-niveles">
+      <h2 id="t-niveles">Cuatro niveles</h2>
+      <div class="prosa"><p>Son cuatro maneras de llegar a OMAD. Los dos primeros son el sitio público; los dos últimos son el trabajo de quien audita y publica, y todavía no tienen herramienta.</p></div>
+      <div class="tabla" data-variante="apilable" role="region" aria-labelledby="t-tabla-niveles" tabindex="0">
+        <table role="table">
+          <caption id="t-tabla-niveles">Los cuatro niveles</caption>
+          <thead role="rowgroup">
+            <tr role="row"><th role="columnheader" scope="col">Nivel</th><th role="columnheader" scope="col">Quién</th><th role="columnheader" scope="col">Qué busca</th><th role="columnheader" scope="col">Existe hoy</th></tr>
+          </thead>
+          <tbody role="rowgroup">
+            <tr role="row"><th role="rowheader" scope="row">1 · Quien visita</th><td role="cell" data-etiqueta="Quién">Periodistas, ciudadanía, quien busca su trámite</td><td role="cell" data-etiqueta="Qué busca">Saber si un trámite se puede hacer y llevarse un dato citable</td><td role="cell" data-etiqueta="Existe hoy">Los componentes, sí. Las páginas llegan en la fase 4.</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">2 · Quien revisa el detalle</th><td role="cell" data-etiqueta="Quién">El consejo, prensa que investiga, la dependencia auditada</td><td role="cell" data-etiqueta="Qué busca">Saber por qué un trámite reprobó, dónde y con qué prueba</td><td role="cell" data-etiqueta="Existe hoy">Los componentes, sí. Falta decidir si los hallazgos son públicos.</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">3 · Quien audita</th><td role="cell" data-etiqueta="Quién">El equipo, al probar cada trámite con los seis perfiles</td><td role="cell" data-etiqueta="Qué busca">Registrar resultados y hallazgos con su captura</td><td role="cell" data-etiqueta="Existe hoy">No hay nada.</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">4 · Quien publica</th><td role="cell" data-etiqueta="Quién">Quien revisa y sube las auditorías</td><td role="cell" data-etiqueta="Qué busca">Que una auditoría pase de revisada a publicada</td><td role="cell" data-etiqueta="Existe hoy">No hay nada.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="prosa">
+        <h3>1 · Quien visita</h3>
+        <p>Llega desde una nota de prensa o una búsqueda, y quiere una respuesta corta: ¿este trámite se puede hacer sin ayuda? Se queda con la cifra o con la franja de un trámite, y se va.</p>
+        <ul>
+          <li><strong>Lo que ve:</strong> la cifra citable en la portada, el ranking (tabla apilable con el resultado por perfiles) y la franja de cada trámite.</li>
+          <li><strong>Lo que necesita del sistema:</strong> que la cifra se pueda citar tal cual, con su base y su fuente, y que todo funcione en un teléfono.</li>
+        </ul>
+        <h3>2 · Quien revisa el detalle</h3>
+        <p>Quiere entender el resultado: qué falla, dónde, a quién le impide qué y con qué prueba. Es el consejo, es la prensa que investiga, y es la dependencia auditada cuando reclama.</p>
+        <ul>
+          <li><strong>Lo que ve:</strong> la misma ficha que el nivel 1, más abajo: los hallazgos con su gravedad, sus criterios WCAG, los perfiles afectados y la captura.</li>
+          <li><strong>Abierto:</strong> si los hallazgos se publican en la ficha o se dan bajo pedido. El componente sirve en los dos casos.</li>
+          <li><strong>El consejo,</strong> además, revisa una auditoría antes de que se publique. Es un paso del proceso, no una pantalla nueva: puede ser la misma ficha, sin publicar.</li>
+        </ul>
+        <h3>3 · Quien audita</h3>
+        <p>Prueba cada trámite con los seis perfiles y registra lo que encuentra: qué perfil completó el trámite, y cada hallazgo con su gravedad, sus criterios, dónde está y una captura.</p>
+        <ul>
+          <li><strong>Lo que necesita:</strong> una forma de capturar con la estructura de una auditoría, para que lo capturado se pueda publicar sin reescribirlo.</li>
+          <li><strong>Propuesta:</strong> empezar con una hoja de cálculo con esas columnas. Es gratis, rápida y no hay que programar nada.</li>
+        </ul>
+        <h3>4 · Quien publica</h3>
+        <p>Revisa lo capturado, lo aprueba y lo publica. Probablemente es la misma herramienta que el nivel 3, con otro permiso.</p>
+        <ul>
+          <li><strong>Lo que necesita:</strong> estados («en captura», «en revisión», «publicada»), cuentas y permisos.</li>
+          <li><strong>Abierto:</strong> si habrá un sistema de captura con base de datos o el sitio se genera de archivos. Es la decisión D5 del plan.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="si-seccion" aria-labelledby="t-modelo">
+      <h2 id="t-modelo">Lo que une a los cuatro: el modelo de una auditoría</h2>
+      <div class="prosa">
+        <p>Cada auditoría tiene la misma forma:</p>
+        <ul>
+          <li>el trámite, su dependencia y la fecha;</li>
+          <li>los seis perfiles, cada uno con su resultado (completó o no);</li>
+          <li>la lista de hallazgos, cada uno con su gravedad, sus criterios WCAG, los perfiles a los que afecta, dónde está y su captura.</li>
+        </ul>
+        <p>Si esa forma se escribe una vez, sirve para los cuatro niveles: quien audita la captura (en una hoja de cálculo, hoy), el sitio se genera a partir de ella, y si un día la hoja no alcanza, el sistema de captura se construye sobre el mismo modelo sin cambiar el sitio.</p>
+        <p>Por eso es el siguiente paso: el 4.1 del plan, los datos de ejemplo escritos ya con esa forma, y una plantilla de hoja de cálculo para quien audita.</p>
+      </div>
+    </section>
+
+    <section class="si-seccion" aria-labelledby="t-sistema">
+      <h2 id="t-sistema">Lo que esto cambia en el sistema de diseño</h2>
+      <div class="prosa">
+        <ul>
+          <li><strong>Niveles 1 y 2:</strong> el <a href="../componentes/index.html">catálogo</a> ya los cubre.</li>
+          <li><strong>Niveles 3 y 4:</strong> si se construye una herramienta, le sirven los mismos colores, la misma tipografía, los botones, la tabla y el aviso. Pero le faltarían piezas que no están en el plan: campos de formulario, mensajes de error, carga de archivos (las capturas) y estados de una auditoría. Se agregan si se decide construirla.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="si-seccion" aria-labelledby="t-falta">
+      <h2 id="t-falta">Lo que falta decidir</h2>
+      <div class="tabla" data-variante="apilable" role="region" aria-labelledby="t-tabla-falta" tabindex="0">
+        <table role="table">
+          <caption id="t-tabla-falta">Decisiones abiertas</caption>
+          <thead role="rowgroup"><tr role="row"><th role="columnheader" scope="col">Decisión</th><th role="columnheader" scope="col">Quién</th></tr></thead>
+          <tbody role="rowgroup">
+            <tr role="row"><th role="rowheader" scope="row">¿Los hallazgos se publican o se dan bajo pedido?</th><td role="cell" data-etiqueta="Quién">Dirección de diseño con el consejo</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">¿Hoja de cálculo para quien audita, o un sistema de captura desde el principio?</th><td role="cell" data-etiqueta="Quién">Dirección de diseño con el equipo</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">¿Quién aprueba una auditoría antes de publicarla?</th><td role="cell" data-etiqueta="Quién">Consejo</td></tr>
+            <tr role="row"><th role="rowheader" scope="row">Qué mide el índice y cómo se ordena el ranking</th><td role="cell" data-etiqueta="Quién">Metodología y consejo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <nav class="pie-nav" aria-label="Pie">
+      <ul>
+        <li><a href="../docs/decisiones.md">Registro de decisiones</a></li>
+        <li><a href="https://github.com/omad-mx/sistema-de-diseno" hreflang="en">Repositorio<span class="visualmente-oculto"> (GitHub, en inglés)</span></a></li>
+      </ul>
+    </nav>
+    <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  </footer>
+</div>
+</body>
+</html>

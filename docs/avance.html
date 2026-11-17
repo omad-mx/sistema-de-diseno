@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Avance · Sistema de diseño OMAD</title>
+<meta name="description" content="Qué se ha hecho en el sistema de diseño, qué se decidió y qué falta decidir.">
+<!--
+  Bitácora del sistema: una entrada por jornada, la más reciente arriba.
+  Para actualizarla, se agrega un <article> nuevo antes del último.
+  Se abre directo en el navegador desde el clon, sin servidor. Hecha solo con
+  componentes del catálogo; la disposición de la página va en su <style>.
+-->
+<link rel="stylesheet" href="../estilos/omad.css">
+<style>
+/* Disposición de las páginas del sitio del sistema. Los componentes vienen del sistema. */
+body { margin: 0; }
+.pagina { max-inline-size: 72rem; margin-inline: auto; padding-inline: var(--omad-esp-4); }
+main { padding-block: var(--omad-esp-7) var(--omad-esp-8); }
+.si-seccion { margin-block-start: var(--omad-esp-8); display: grid; gap: var(--omad-esp-4); }
+.si-seccion > * { min-inline-size: 0; }
+.si-tarjetas { list-style: none; padding: 0; margin: 0; display: grid; gap: var(--omad-esp-4); grid-template-columns: repeat(auto-fill, minmax(min(18rem, 100%), 1fr)); }
+.si-tarjetas li { border: 1px solid var(--omad-borde); border-radius: var(--omad-radio-1); padding: var(--omad-esp-4) var(--omad-esp-5); background: var(--omad-superficie); display: grid; gap: var(--omad-esp-2); align-content: start; }
+.si-tarjetas h2, .si-tarjetas h3 { font-size: var(--omad-texto-lg); line-height: var(--omad-interlinea-normal); margin: 0; }
+.si-tarjetas p { margin: 0; color: var(--omad-texto-secundario); font-size: var(--omad-texto-sm); line-height: var(--omad-interlinea-normal); }
+.si-entrada-bitacora { border-block-start: 2px solid var(--omad-borde-fuerte); padding-block-start: var(--omad-esp-5); }
+.si-fecha { font-variant-numeric: tabular-nums; }
+main > .aviso { margin-block-end: var(--omad-esp-6); }
+</style>
+</head>
+<body>
+<a class="cabecera-saltar" href="#contenido">Saltar al contenido</a>
+<div class="pagina">
+  <header class="cabecera">
+    <a class="cabecera-marca" href="../index.html">
+      <span class="cabecera-sigla">OMAD</span>
+      <span class="cabecera-nombre">Observatorio Mexicano de Accesibilidad Digital</span>
+    </a>
+    <nav class="cabecera-nav" aria-label="Sistema de diseño">
+      <ul>
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../docs/avance.html" aria-current="page">Avance</a></li>
+        <li><a href="../componentes/index.html">Catálogo</a></li>
+        <li><a href="../docs/quien-usa-omad.html">Quién usa OMAD</a></li>
+        <li><a href="../prototipo/index.html">Prototipo</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+    <header>
+      <p class="cejilla">Bitácora</p>
+      <h1>Avance</h1>
+      <p class="entrada">Qué se ha hecho en el sistema, qué se decidió y qué falta decidir. Una entrada por jornada de trabajo, la más reciente arriba. Los costos y los acuerdos de OMAD no van aquí: viven en el repositorio interno.</p>
+    </header>
+
+    <article class="si-seccion si-entrada-bitacora" aria-labelledby="e-2026-11-10">
+      <p class="cejilla si-fecha">10 de noviembre de 2026</p>
+      <h2 id="e-2026-11-10">Fases 2 y 3 completas</h2>
+      <div class="prosa">
+        <p>El catálogo pasó de no tener componentes a tener todos los de las fases 2 y 3 del <a href="plan-de-construccion.md">plan</a>. Todos entran como borrador: les falta la prueba con lectores de pantalla, con personas (<a href="https://github.com/omad-mx/sistema-de-diseno/issues/4">#4</a>).</p>
+
+        <h3>Lo que se hizo</h3>
+        <ul>
+          <li><strong>Elementos (fase 2):</strong> <a href="../componentes/tipografia/ejemplo.html">tipografía y prosa</a>, <a href="../componentes/boton/ejemplo.html">botón</a> (primario, secundario y terciario), <a href="../componentes/distintivo-gravedad/ejemplo.html">distintivo de gravedad</a>, <a href="../componentes/marca-resultado/ejemplo.html">marca de resultado</a>, <a href="../componentes/criterio-wcag/ejemplo.html">criterio WCAG</a> y <a href="../componentes/aviso/ejemplo.html">aviso</a>.</li>
+          <li><strong>Componentes (fase 3):</strong> los pictogramas de los seis perfiles, <a href="../componentes/franja/ejemplo.html">la franja</a>, <a href="../componentes/resultado-perfiles/ejemplo.html">el resultado por perfiles</a>, <a href="../componentes/hallazgo/ejemplo.html">el hallazgo</a>, <a href="../componentes/cifra-citable/ejemplo.html">la cifra citable</a>, <a href="../componentes/tabla/ejemplo.html">la tabla de datos</a>, <a href="../componentes/cabecera/ejemplo.html">la cabecera</a> y <a href="../componentes/pie/ejemplo.html">el pie</a>.</li>
+          <li><strong>La revisión automática de contraste</strong> ahora mide los colores por su uso (texto sobre fondo, enlace sobre superficie…), en tema claro y en oscuro, y falla si un color queda sin medir.</li>
+          <li><strong><a href="quien-usa-omad.html">Quién usa OMAD</a>:</strong> los cuatro niveles de quien llega a OMAD.</li>
+          <li><strong>Este sitio:</strong> inicio, avance y navegación común.</li>
+        </ul>
+
+        <h3>Lo que se decidió</h3>
+        <ul>
+          <li><strong>Ninguna cifra sin su base.</strong> La cifra principal es «X de N»; el porcentaje, solo con una base grande y siempre con la base al lado.</li>
+          <li><strong>La gravedad lleva una forma por nivel:</strong> octágono, triángulo, rombo y círculo. Las barras se descartaron porque parecían la señal del teléfono. Ver la <a href="maqueta-marca-gravedad.html">maqueta</a>.</li>
+          <li><strong>«Completó» es una palomita</strong>, no un círculo: el círculo ya era «menor».</li>
+          <li><strong>Los pictogramas vienen de Lucide</strong>, un set público con licencia libre. Ver la <a href="maqueta-pictogramas.html">maqueta</a>.</li>
+          <li><strong>La franja va en dos filas de tres</strong>, con el titular «X de 6» arriba.</li>
+          <li><strong>No hay franja mini.</strong> En una tabla, el resultado se escribe: «4 de 6 · no completaron: baja visión y cognitivo». Y la tabla se apila como tarjetas en un teléfono.</li>
+          <li><strong>La evidencia de un hallazgo es una captura de pantalla</strong>, sin fragmento de código.</li>
+          <li><strong>Hay un botón terciario</strong>, que se ve como enlace, y el primario y el secundario son los únicos enlaces sin subrayado.</li>
+          <li><strong>Los criterios WCAG enlazan al W3C, en inglés, por ahora:</strong> no hay traducción oficial de WCAG 2.2 al español.</li>
+          <li><strong>La dirección de diseño decide y el consejo opina después.</strong> La franja se construyó como propuesta.</li>
+        </ul>
+        <p>Cada una, con su razón, en el <a href="decisiones.md">registro de decisiones</a>.</p>
+
+        <h3>Lo que falta decidir</h3>
+        <ul>
+          <li>Si los hallazgos se publican en la ficha de cada trámite o se dan bajo pedido.</li>
+          <li>Qué mide el índice, si se pondera por cuánta gente usa cada trámite y cómo se ordena el ranking de dependencias (no por porcentaje).</li>
+          <li>Si quien audita captura en una hoja de cálculo o en un sistema, y quién aprueba una auditoría antes de publicarla.</li>
+          <li>Del consejo: si la franja se registra como marca, y si este repositorio se queda público.</li>
+          <li>El logo de OMAD. La sigla de la cabecera ocupa su lugar.</li>
+        </ul>
+
+        <h3>Lo que sigue</h3>
+        <p>La fase 4, el prototipo. Primero, el modelo de una auditoría (trámite, perfiles, hallazgos) con los datos de ejemplo y una plantilla de hoja de cálculo para quien audita.</p>
+      </div>
+    </article>
+  </main>
+
+  <footer class="pie">
+    <nav class="pie-nav" aria-label="Pie">
+      <ul>
+        <li><a href="../docs/decisiones.md">Registro de decisiones</a></li>
+        <li><a href="https://github.com/omad-mx/sistema-de-diseno" hreflang="en">Repositorio<span class="visualmente-oculto"> (GitHub, en inglés)</span></a></li>
+      </ul>
+    </nav>
+    <p class="pie-creditos">Sistema de diseño versión 0.1 · sin aprobación del consejo</p>
+  </footer>
+</div>
+</body>
+</html>
